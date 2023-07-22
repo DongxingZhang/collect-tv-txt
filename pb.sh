@@ -29,6 +29,7 @@ playlist_done=${curdir}/list/playlist_done.m3u
 #配置字体
 fontdir=${curdir}/fonts/font.ttf
 fonttimedir=${curdir}/fonts/font_time.ttf
+fontforcastdir=${curdir}/fonts/font_forcast.ttf
 fontsize=70
 fontcolor=#FDE6E0
 fontbg="box=1:boxcolor=black@0.01:boxborderw=3"
@@ -261,7 +262,7 @@ stream_play_main(){
     #从右到左
     crop_width=$(expr ${size_width} / 4)
     crop_x=$(expr ${size_width} \* 3 / 4)
-    drawtext2="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:textfile='${news}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-mod(max(t-1\,0)*(w+tw\*5)/415\,(w+tw\*5)):y=h-line_h-5:shadowx=2:shadowy=2:${fontbg}"
+    drawtext2="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:textfile='${news}':fontfile=${fontforcastdir}:line_spacing=${line_spacing}:expansion=normal:x=w-mod(max(t-1\,0)*(w+tw\*5)/415\,(w+tw\*5)):y=h-line_h-5:shadowx=2:shadowy=2:${fontbg}"
     
     echo ${cur_file}
     echo ${file_count}
