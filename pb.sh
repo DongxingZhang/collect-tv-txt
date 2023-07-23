@@ -116,7 +116,8 @@ stream_play_main(){
     arr=(${line//|/ })
     video_type=${arr[0]} 
     lighter=${arr[1]} 
-    audio=${arr[2]}
+    audio=${arr[2]:0:1}
+    adch=${arr[2]:1:1}
     subtitle=${arr[3]}
     param=${arr[4]}    
     cur_file=${arr[5]}
@@ -139,6 +140,14 @@ stream_play_main(){
     echo -e ${yellow}播放标记:${font} ${play_time}    
     echo -e ${yellow}电视剧名称:${font} ${videoname}
     echo -e ${yellow}播放模式（bg, fg, test）:${font} ${mode}
+
+    if [ "${auch}" = "L" ];then
+        audio_channel=" -af pan=stereo|c0=FL "
+    elif [ "${auch}" = "R" ];then
+        audio_channel=" -af pan=stereo|c1=FR "
+    else
+        audio_channel=
+    fi
 
 
     if [[ -d "${videopath}" ]];then
@@ -473,7 +482,7 @@ get_next_video_name(){
         period=`cat ${config} | grep "|${timed}$"`
         period=`echo ${period} | tr -d '\r' | tr -d '\n'`
         periodarr=(${period//|/ })        
-        next_tv=${next_tv}"${periodarr[0]}:00 ${tvname}(${cur_file})　"
+        next_tv=${next_tv}"${periodarr[0]}:00 ${tvname}(${cur_file})　　"
     done
     length=${#next_tv}
     echo ${next_tv::length-1}
