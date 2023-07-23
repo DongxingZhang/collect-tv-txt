@@ -1,4 +1,5 @@
 TV0|delogo=x=965:y=40:w=75:h=60:show=0
+TS0|scale=w=-1:h=720,delogo=x=965:y=40:w=75:h=60:show=0
 TV1|delogo=x=400:y=30:w=75:h=60:show=0
 TV2|delogo=x=525:y=30:w=85:h=60:show=0
 TV3|delogo=x=795:y=30:w=75:h=60:show=0
@@ -12,6 +13,7 @@ TVA|delogo=x=1000:y=32:w=218:h=54:show=0
 TVB|delogo=x=1452:y=50:w=180:h=104:show=0
 TVC|delogo=x=422:y=22:w=56:h=50:show=0
 TVD|delogo=x=600:y=28:w=88:h=82:show=0
+TVE|delogo=x=815:y=28:w=70:h=60:show=0
 YOU|delogo=x=795:y=25:w=160:h=35:show=0
 AD1|delogo=x=0:y=14:w=1079:h=64:show=0
 CCV|delogo=x=80:y=50:w=155:h=120:show=0
