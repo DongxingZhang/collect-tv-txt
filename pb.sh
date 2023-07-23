@@ -29,7 +29,7 @@ playlist_done=${curdir}/list/playlist_done.m3u
 #配置字体
 fontdir=${curdir}/fonts/font.ttf
 fonttimedir=${curdir}/fonts/font_time.ttf
-fontforcastdir=${curdir}/fonts/font_forcast.ttf
+fontforcastdir=${curdir}/fonts/font.ttf
 fontsize=70
 fontcolor=#FDE6E0
 fontbg="box=1:boxcolor=black@0.01:boxborderw=3"

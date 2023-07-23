@@ -112,3 +112,6 @@ start_menu(){
 
 # 运行开始菜单
 start_menu
+
+file_prefix="\.双语字幕\.TVRip\.X264\.aa88"
+find /mnt/smb/电视剧/陆小凤之凤舞九天1986/ | grep  "${file_prefix}" | awk -F "${file_prefix}" '{print "mv", $0, $1".mkv"}' 
