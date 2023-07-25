@@ -114,11 +114,13 @@ stream_play_main(){
     echo $line
     
     arr=(${line//|/ })
-    video_type=${arr[0]} 
+    video_type=${arr[0]:0:3}
+    video_skip=${arr[0]:3:1} 
     lighter=${arr[1]} 
     audio=${arr[2]:0:1}
     adch=${arr[2]:1:1}
-    subtitle=${arr[3]}
+    subtitle=${arr[3]:0:1}
+    subtrans=${arr[3]:1:1}
     param=${arr[4]}    
     cur_file=${arr[5]}
     file_count=${arr[6]}
@@ -207,7 +209,13 @@ stream_play_main(){
     #读取天气预报
     echo $(get_next_video_name) > ${news}
     #cat <( curl -s http://www.nmc.cn/publish/forecast/  ) | tr -s '\n' ' ' |  sed  's/<div class="col-xs-4">/\n/g' | sed -E 's/<[^>]+>//g' | awk -F ' ' 'NF==5{print $1,$2,$3}' | head -n 32 | tr -s '\n' ';' | sed 's/徐家汇/上海/g' | sed 's/长沙市/长沙/g' >>  ${news}
-    
+
+    #分辨率
+    ssize=$(get_size "${videopath}")
+    sizearr=(${ssize//|/ })
+    size_width=${sizearr[0]}
+    size_height=${sizearr[1]}
+    echo size_width=$size_width
 
     #logo
     if [ "${param}" != "F" ]; then
@@ -229,13 +237,19 @@ stream_play_main(){
         delogosarr=(${delogos//|/ })
         delogo="${delogosarr[1]},"
     fi
+    
 
 
     if [ "${maps}" != "" ];then  
         echo ffmpeg -i "${videopath}" -map ${maps} -y ${subfile}      
-        ffmpeg -i "${videopath}" -map ${maps} -y ${subfile}        
-        cat ${subfile} | sed -E 's/<[^>]+>//g' > ./sub/tmp
-        mv ./sub/tmp ${subfile}
+        ffmpeg -i "${videopath}" -map ${maps} -y ./sub/tmp
+        cat ./sub/tmp  | sed -E 's/<[^>]+>//g' > ./sub/tmp1
+        if [ "${subtrans}" = "" ];then
+            cp ./sub/tmp1 ${subfile}
+        else
+            iconv -f utf8 -t gbk -c ./sub/tmp1  > ${subfile}
+        fi        
+        rm ./sub/tmp1
         mapv="${mapv}subtitles=filename=${subfile}:fontsdir=${curdir}/fonts:force_style='Fontname=华文仿宋,Fontsize=18,Alignment=0,MarginV=50'[v];[v]"
     fi
 
@@ -245,12 +259,14 @@ stream_play_main(){
         video_format="${mapv}${delogo}eq=contrast=1"
     fi
 
-    #分辨率
-    ssize=$(get_size "${videopath}")
-    sizearr=(${ssize//|/ })
-    size_width=${sizearr[0]}
-    size_height=${sizearr[1]}
-    echo size_width=$size_width
+    #跳过12秒 
+    audio_format="volume=1.0"
+
+    if [ "${video_skip}" != "" ]; then
+        video_format="${video_format},trim=start=12"
+        audio_format="atrim=start=12"
+    fi
+
 
     #计算真正字体大小
     newfontsize=$(get_fontsize "${videopath}")
@@ -305,7 +321,7 @@ stream_play_main(){
     drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*4:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
         
     watermark="[1:v]scale=-1:${newfontsize}\*2[wm];[bg][wm]overlay=overlay_w/3:overlay_h/2[bg1]"
-    video_format="${video_format},${drawtext1},${drawtext2},${drawtext3}[bg];${mapa}volume=1.0[bga];${watermark};"
+    video_format="${video_format},${drawtext1},${drawtext2},${drawtext3}[bg];${mapa}${audio_format}[bga];${watermark};"
 
     echo ${video_format}
     echo ${enter}
@@ -314,12 +330,7 @@ stream_play_main(){
 
     echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
     if [ "${mode}" != "test" ];then
-        #如果videotype第三位是D, 跳过10秒
-        if [ "${video_type:2:1}" = "D" ]; then
-            ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}" -ss 00:00:10  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
-        else
-            ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
-        fi
+        ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
     fi
 
     date2=$(TZ=Asia/Shanghai date +"%Y-%m-%d %H:%M:%S")
@@ -340,6 +351,8 @@ stream_play_main(){
     if [ "${mode}" != "test" ] && [ ${time_seconds} -ge 700 ]; then
         if [ "${play_time}" = "playing" ];then
             echo "${period}|${videopath}" >> "${playlist_done}"
+            cat  ${playlist_done}  |  sort  >  ./list/pd.txt
+            cp  ./list/pd.txt  ${playlist_done}
         fi
     else
         echo ""
@@ -410,7 +423,7 @@ get_playing_video(){
         fi       
         arr=(${line//|/ })
         video_index=${arr[0]}
-        video_type=${arr[1]} 
+        video_type=${arr[1]}
         lighter=${arr[2]} 
         audio=${arr[3]}
         subtitle=${arr[4]}
