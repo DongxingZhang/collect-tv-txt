@@ -277,8 +277,9 @@ stream_play_main(){
     echo ${file_count}
     
     if [ "${file_count}" = "1" ]; then
-        content2=${videoname}
         cont_len=${#videoname}
+        content2=`echo ${videoname} | sed 's#.#&\'"${enter}"'#g'`
+        echo ${content2}
     else
         cur_file2=$(digit_half2full ${cur_file})
         vn=${videoname}${cur_file2}
