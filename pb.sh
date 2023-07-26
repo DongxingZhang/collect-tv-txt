@@ -238,35 +238,32 @@ stream_play_main(){
         delogo="${delogosarr[1]},"
     fi
     
-
+    #跳过12秒 
+    audio_format="volume=1.0,atrim=start=5"
+    videos="trim=start=5[v1];[v1]"
+    if [ "${video_skip}" != "" ]; then
+        videos="trim=start=12[v1];[v1]"
+        audio_format="volume=1.0,atrim=start=12"
+    fi
 
     if [ "${maps}" != "" ];then  
         echo ffmpeg -i "${videopath}" -map ${maps} -y ${subfile}      
-        ffmpeg -i "${videopath}" -map ${maps} -y ./sub/tmp
-        cat ./sub/tmp  | sed -E 's/<[^>]+>//g' > ./sub/tmp1
+        ffmpeg -i "${videopath}" -map ${maps} -y ./sub/tmp.srt
+        cat ./sub/tmp.srt | sed -E 's/<[^>]+>//g' > ./sub/tmp1.srt
         if [ "${subtrans}" = "" ];then
-            cp ./sub/tmp1 ${subfile}
+            cp ./sub/tmp1.srt ${subfile}
         else
-            iconv -f utf8 -t gbk -c ./sub/tmp1  > ${subfile}
+            iconv -f utf8 -t gbk -c ./sub/tmp1.srt  > ${subfile}
         fi        
-        rm ./sub/tmp1
-        mapv="${mapv}subtitles=filename=${subfile}:fontsdir=${curdir}/fonts:force_style='Fontname=华文仿宋,Fontsize=18,Alignment=0,MarginV=50'[v];[v]"
+        rm ./sub/tmp1.srt
+        mapv="${mapv}subtitles=filename=${subfile}:fontsdir=${curdir}/fonts:force_style='Fontname=华文仿宋,Fontsize=15,Alignment=0,MarginV=30'[v];[v]"
     fi
 
     if [ "${lighter}" != "F" ];then
-        video_format="${mapv}${delogo}eq=contrast=1:brightness=0.15,curves=preset=lighter"
+        video_format="${mapv}${videos}${delogo}eq=contrast=1:brightness=0.15,curves=preset=lighter"
     else
-        video_format="${mapv}${delogo}eq=contrast=1"
+        video_format="${mapv}${videos}${delogo}eq=contrast=1"
     fi
-
-    #跳过12秒 
-    audio_format="volume=1.0"
-
-    if [ "${video_skip}" != "" ]; then
-        video_format="${video_format},trim=start=12"
-        audio_format="atrim=start=12"
-    fi
-
 
     #计算真正字体大小
     newfontsize=$(get_fontsize "${videopath}")
@@ -340,7 +337,7 @@ stream_play_main(){
     time_seconds=`expr $sys_date2 - $sys_date1`
 
     if [ "${mode}" != "test" ] && [ ${time_seconds} -lt 120 ]; then
-        echo "$(TZ=Asia/Shanghai date +"%Y-%m-%d %H:%M:%S") ffmpeg 命令失败！！需要调试" >> "${playlist_done}"
+        echo "$(TZ=Asia/Shanghai date +"%Y-%m-%d %H:%M:%S") ffmpeg 命令失败！！需要调试"
         return
     fi
 

@@ -5,7 +5,7 @@ TV2|delogo=x=525:y=30:w=85:h=60:show=0
 T21|delogo=x=525:y=30:w=85:h=60:show=0,delogo=x=5:y=30:w=630:h=32:show=0
 TV3|delogo=x=795:y=30:w=75:h=60:show=0
 TV4|delogo=x=1100:y=30:w=120:h=55:show=0
-TV5|delogo=x=582:y=26:w=80:h=80:show=0,delogo=x=12:y=492:w=176:h=34:show=0
+TV5|delogo=x=582:y=26:w=80:h=80:show=0
 TV6|delogo=x=490:y=30:w=92:h=62:show=0
 T61|delogo=x=490:y=30:w=92:h=62:show=0,delogo=x=5:y=5:w=585:h=30:show=0
 TV7|delogo=x=476:y=28:w=66:h=58:show=0
