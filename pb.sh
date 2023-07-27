@@ -215,7 +215,9 @@ stream_play_main(){
     sizearr=(${ssize//|/ })
     size_width=${sizearr[0]}
     size_height=${sizearr[1]}
+
     echo size_width=$size_width
+    echo size_height=$size_height
 
     #logo
     if [ "${param}" != "F" ]; then
