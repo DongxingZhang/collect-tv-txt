@@ -115,7 +115,7 @@ stream_play_main(){
     
     arr=(${line//|/ })
     video_type=${arr[0]:0:3}
-    video_skip=${arr[0]:3:1} 
+    video_skip=${arr[0]:3} 
     lighter=${arr[1]} 
     audio=${arr[2]:0:1}
     adch=${arr[2]:1:1}
@@ -240,12 +240,12 @@ stream_play_main(){
         delogo="${delogosarr[1]},"
     fi
     
-    #跳过12秒 
-    audio_format="volume=1.0,atrim=start=5"
-    videos="trim=start=5[v1];[v1]"
+    #跳过${video_skip}秒 
+    audio_format="volume=1.0,atrim=start=1"
+    videos="trim=start=1[v1];[v1]"
     if [ "${video_skip}" != "" ]; then
-        videos="trim=start=12[v1];[v1]"
-        audio_format="volume=1.0,atrim=start=12"
+        videos="trim=start=${video_skip}[v1];[v1]"
+        audio_format="volume=1.0,atrim=start=${video_skip}"
     fi
 
     if [ "${maps}" != "" ];then  
@@ -297,7 +297,11 @@ stream_play_main(){
         echo ${content2}
     else
         cur_file2=$(digit_half2full ${cur_file})
-        vn=${videoname}${cur_file2}
+        if [ "${file_count}" = "${cur_file}" ]; then
+            vn=${videoname}终
+        else
+            vn=${videoname}${cur_file2}
+        fi
         cont_len=${#vn}
         content2=`echo ${videoname} | sed 's#.#&\'"${enter}"'#g'`${cur_file2}
         echo ${content2}
@@ -350,8 +354,8 @@ stream_play_main(){
     if [ "${mode}" != "test" ] && [ ${time_seconds} -ge 700 ]; then
         if [ "${play_time}" = "playing" ];then
             echo "${period}|${videopath}" >> "${playlist_done}"
-            cat  ${playlist_done}  |  sort  >  ./list/pd.txt
-            cp  ./list/pd.txt  ${playlist_done}
+            cat  ${playlist_done}  |  sort  >  ./list/.pd.txt
+            cp  ./list/.pd.txt  ${playlist_done}
         fi
     else
         echo ""
@@ -504,7 +508,9 @@ get_next_video_name(){
 
 need_waiting(){
     hours=$(TZ=Asia/Shanghai date +%H)
+    hours=$(expr ${hours} + 0)
     mins=$(TZ=Asia/Shanghai date +%M)
+    mins=$(expr ${mins} + 0)
     ret=$(get_rest ${hours})
     periodcount=`cat ${config} | grep -v "^#" | sed /^$/d | wc -l`
     arr=(${ret//|/ })
@@ -516,12 +522,12 @@ need_waiting(){
     fi
     if [ "${hours}" = "${last_hour}" ];then
         mins2end=$(expr 59 - ${mins})
-        if [ ${mins2end} -lt 20 ];then
-            timed1=$(expr ${timed} + 1)
-            if [ ${timed1} -ge ${periodcount} ];then
-                timed1=0
-            fi
-            echo ${timed1}
+        if [ ${mins2end} -le 20 ];then
+            #timed1=$(expr ${timed} + 1)
+            #if [ ${timed1} -ge ${periodcount} ];then
+            #    timed1=0
+            #fi
+            echo "F"
         else
             echo ${timed}
         fi
@@ -540,10 +546,16 @@ get_next(){
 get_rest_videos(){
     waitingdir=$1
     videonofile=$2
+    title=$3
+
+    if [ "${title}" =  "" ]; then
+        title="休息一会儿"
+    fi
+
     videono=0
     declare -a filenamelist
-    for subdirfile in "${videopath}"/*; do
-        filenamelist[$videono]="000|0|F|F|0|1|1|rest|等待老板换片儿|${subdirfile}"
+    for subdirfile in "${waitingdir}"/*; do
+        filenamelist[$videono]="000|0|F|F|0|1|1|rest|${title}|${subdirfile}"
         videono=$(expr $videono + 1)
     done
     video_lengh=${#filenamelist[@]}
@@ -573,16 +585,21 @@ stream_start(){
 
     echo "推流地址和推流码:${rtmp}"
     echo "播放模式:${play_mode}"
-
+    current=""
     while true
     do        
         period=$(need_waiting)
         if [ "${period}" = "F" ];then
-            next=$(get_rest_videos  "/mnt/smb/videos" "${cur_dir}/count/videono")
+            next=$(get_rest_videos  "/mnt/smb/videos" "${curdir}/count/videono" "")
         else
             next=$(get_next ${period})
         fi
+        #如果连续两次的下一个出现问题，则播放歌曲
+        if [ "${next}" = "${current}" ];then
+            next=$(get_rest_videos "/mnt/smb/videos" "${curdir}/count/videono" "出错了，等待修复。")
+        fi
         stream_play_main "${next}" "${play_mode}" "${period}"
+        current=${next}
         sleep 1
     done
 }
@@ -615,12 +632,12 @@ stream_append(){
                 if [[ -e "${playlist}" ]] && cat "${playlist}" | grep "${filenamelist[$vindex]}" > /dev/null; then
                     echo "已经添加过/mnt/smb/电视剧/${filenamelist[$vindex]},不要再添加."
                 else
-                    echo 0:0点到6点
-                    echo 1:6点到12点
-                    echo 2:12点到18点
-                    echo 3:18点到24点
-                    read -p "请输入视频序号:(0-3),:" timed
-                    if [ $timed -lt 0 ] || [ $timed -gt 3  ]; then
+                    echo 0,1:0点到6点
+                    echo 2,3:6点到12点
+                    echo 4,5:点到18点
+                    echo 6,7:18点到24点
+                    read -p "请输入视频序号:(0-7),:" timed
+                    if [ $timed -lt 0 ] || [ $timed -gt 7  ]; then
                         continue
                     fi
                     echo 你选择了：$timed

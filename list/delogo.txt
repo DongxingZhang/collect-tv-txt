@@ -13,7 +13,7 @@ TV8|delogo=x=860:y=30:w=100:h=75:show=0
 TV9|delogo=x=546:y=26:w=148:h=80:show=0
 TVA|delogo=x=1000:y=32:w=218:h=54:show=0
 TVB|delogo=x=1452:y=50:w=180:h=104:show=0
-TVC|delogo=x=422:y=22:w=56:h=50:show=0
+TVC|delogo=x=418:y=22:w=60:h=50:show=0
 TVD|delogo=x=600:y=28:w=88:h=82:show=0
 TVE|delogo=x=815:y=28:w=70:h=60:show=0
 YOU|delogo=x=795:y=25:w=160:h=35:show=0
@@ -21,6 +21,7 @@ AD1|delogo=x=0:y=14:w=1079:h=64:show=0
 CCV|delogo=x=80:y=50:w=155:h=120:show=0
 CC1|scale=w=1080:h=-1,delogo=x=945:y=40:w=75:h=60:show=0,delogo=x=945:y=500:w=75:h=60:show=0,delogo=x=60:y=40:w=200:h=80:show=0,delogo=x=20:y=490:w=400:h=100:show=0,delogo=x=945:y=340:w=75:h=100:show=0
 CC2|delogo=x=45:y=35:w=150:h=70:show=0
+MDD|delogo=x=40:y=27:w=115:h=40:show=0
 TR0|delogo=x=5:y=5:w=1270:h=40:show=0,delogo=x=1050:y=610:w=200:h=100:show=0,delogo=x=250:y=580:w=750:h=120:show=0
 AT0|delogo=x=560:y=5:w=64:h=68:show=0,delogo=x=560:y=490:w=140:h=45:show=0
 AT1|delogo=x=36:y=28:w=128:h=46:show=0
