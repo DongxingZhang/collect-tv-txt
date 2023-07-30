@@ -299,11 +299,13 @@ stream_play_main(){
         cur_file2=$(digit_half2full ${cur_file})
         if [ "${file_count}" = "${cur_file}" ]; then
             vn=${videoname}终
+            cont_len=${#vn}
+            content2=`echo ${videoname} | sed 's#.#&\'"${enter}"'#g'`终
         else
             vn=${videoname}${cur_file2}
+            cont_len=${#vn}
+            content2=`echo ${videoname} | sed 's#.#&\'"${enter}"'#g'`${cur_file2}
         fi
-        cont_len=${#vn}
-        content2=`echo ${videoname} | sed 's#.#&\'"${enter}"'#g'`${cur_file2}
         echo ${content2}
     fi
     cont_len=$(expr ${cont_len} / 2)
