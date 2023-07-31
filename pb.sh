@@ -8,7 +8,7 @@ font="\033[0m"
 
 # 定义推流地址和推流码
 #rtmp="rtmp://www.tomandjerry.work/live/livestream"
-rtmp2="rtmp://127.0.0.1:1935/live/1"
+#rtmp="rtmp://127.0.0.1:1935/live/1"
 rtmp="rtmp://live-push.bilivideo.com/live-bvc/?streamname=live_97540856_1852534&key=a042d1eb6f69ca88b16f4fb9bf9a5435&schedule=rtmp&pflag=1"
 
 
@@ -132,6 +132,7 @@ stream_play_main(){
     echo ${mode}
     echo ${period}
     echo -e ${yellow}视频类别（delogo）:${font} ${video_type}
+    echo -e ${yellow}视频跳过:${font} ${video_skip}
     echo -e ${yellow}是否明亮（F为维持原亮度）:${font} ${lighter}
     echo -e ${yellow}音轨（F为不选择）:${font} ${audio}
     echo -e ${yellow}字幕轨（F为不选择）:${font} ${subtitle}
@@ -156,7 +157,7 @@ stream_play_main(){
         return 0
     fi
 
-    if [ "${mode}" != "test" ];then
+    if [ "${mode:0:4}" != "test" ];then
         #ps -ef | grep "${rtmp}" | grep -v grep | awk '{print $2}' | xargs kill -9
         killall ffmpeg
     fi
@@ -204,6 +205,11 @@ stream_play_main(){
         maps="0:s:${subtitle}"
     fi
 
+    if [ "${subtitle}" = "E" ]; then
+        maps=""
+    fi
+
+
     echo ${mapv}, ${mapa}, ${maps}
 
     #读取天气预报
@@ -222,10 +228,10 @@ stream_play_main(){
     #logo
     if [ "${param}" != "F" ]; then
         #怀旧logo
-        logo=${logodir}/logo2.png
+        logo=${logodir}/logow2.png
     else
         #武侠logo
-        logo=${logodir}/logo.png
+        logo=${logodir}/logow.png
     fi
 
     echo logo=${logo} 
@@ -296,15 +302,18 @@ stream_play_main(){
         content2=`echo ${videoname} | sed 's#.#&\'"${enter}"'#g'`
         echo ${content2}
     else
+        split="◇"
+        #splitstar="☆"
+        splitstar="★"
         cur_file2=$(digit_half2full ${cur_file})
         if [ "${file_count}" = "${cur_file}" ]; then
-            vn=${videoname}终
+            vn=${videoname}${splitstar}终
             cont_len=${#vn}
-            content2=`echo ${videoname} | sed 's#.#&\'"${enter}"'#g'`终
+            content2=`echo ${videoname} | sed 's#.#&\'"${enter}"'#g'`${splitstar}${enter}终
         else
-            vn=${videoname}${cur_file2}
+            vn=${videoname}${splitstar}${cur_file2}
             cont_len=${#vn}
-            content2=`echo ${videoname} | sed 's#.#&\'"${enter}"'#g'`${cur_file2}
+            content2=`echo ${videoname} | sed 's#.#&\'"${enter}"'#g'`${splitstar}${enter}${cur_file2}
         fi
         echo ${content2}
     fi
@@ -333,9 +342,25 @@ stream_play_main(){
 
     date1=$(TZ=Asia/Shanghai date +"%Y-%m-%d %H:%M:%S")
 
-    echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
-    if [ "${mode}" != "test" ];then
+    
+    if [ "${mode}" != "test" ] && [ "${mode: -1}" != "a" ];then
+        echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
         ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
+    else
+        bgpic=${logodir}/bg.jpg
+        logo=${logodir}/logow3.png
+        duration0=$(get_duration "${videopath}")
+        duration0int=${duration0%.*}
+        #分辨率
+        ssize=$(get_size "${logo}")
+        sizearr=(${ssize//|/ })
+        size_width=${sizearr[0]}
+        size_height=${sizearr[1]}
+        watermark="[2:v]scale=-1:${newfontsize}\*2[wm];[bgv][wm]overlay=overlay_w/3:overlay_h/2[bg1]"
+        video_format="[0:v:0]eq=contrast=1:brightness=0.15,curves=preset=lighter,${drawtext1},${drawtext3}[bgv];[1:a:0]volume=1.0[bga];${watermark}"
+        #去掉了 -s ${size_width}x${size_height}
+        echo ffmpeg -loglevel "${logging}" -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -i "${logo}" -s ${size_width}x${size_height} -pix_fmt yuvj420p -t ${duration0int} -filter_complex "${video_format}"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
+        ffmpeg -loglevel "${logging}" -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -i "${logo}"  -pix_fmt yuvj420p -t ${duration0int} -filter_complex "${video_format}"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
     fi
 
     date2=$(TZ=Asia/Shanghai date +"%Y-%m-%d %H:%M:%S")
@@ -591,8 +616,8 @@ stream_start(){
     while true
     do        
         period=$(need_waiting)
-        if [ "${period}" = "F" ];then
-            next=$(get_rest_videos  "/mnt/smb/videos" "${curdir}/count/videono" "")
+        if [ "${period}" = "F" ] || [  "${play_mode: -1}" = "a" ];then
+            next=$(get_rest_videos  "/mnt/smb/videos" "${curdir}/count/videono" "音乐播放中")
         else
             next=$(get_next ${period})
         fi

@@ -15,6 +15,7 @@ TVA|delogo=x=1000:y=32:w=218:h=54:show=0
 TVB|delogo=x=1452:y=50:w=180:h=104:show=0
 TVC|delogo=x=418:y=22:w=60:h=50:show=0
 TVD|delogo=x=600:y=28:w=88:h=82:show=0
+TD1|delogo=x=600:y=28:w=88:h=82:show=0,delogo=x=560:y=520:w=130:h=40:show=0
 TVE|delogo=x=815:y=28:w=70:h=60:show=0
 YOU|delogo=x=795:y=25:w=160:h=35:show=0
 AD1|delogo=x=0:y=14:w=1079:h=64:show=0
