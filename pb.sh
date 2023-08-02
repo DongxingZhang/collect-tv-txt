@@ -356,8 +356,8 @@ stream_play_main(){
         sizearr=(${ssize//|/ })
         size_width=${sizearr[0]}
         size_height=${sizearr[1]}
-        watermark="[2:v]scale=-1:${newfontsize}\*2[wm];[bgv][wm]overlay=overlay_w/3:overlay_h/2[bg1]"
-        video_format="[0:v:0]eq=contrast=1:brightness=0.15,curves=preset=lighter,${drawtext1},${drawtext3}[bgv];[1:a:0]volume=1.0[bga];${watermark}"
+        watermark="[2:v]scale=-1:${newfontsize}\*2[wm];[bgv][wm]overlay=overlay_w/3:overlay_h/2[bg0];[bg0][fgv]overlay=overlay_w/2:overlay_h/2[bg1]"
+        video_format="[0:v:0]eq=contrast=1:brightness=0.15,curves=preset=lighter,${drawtext1},${drawtext3}[bgv];[1:v:0]crop=ih/2:ih/2:iw/4:ih/4[fgv];[1:a:0]volume=1.0[bga];${watermark}"
         #去掉了 -s ${size_width}x${size_height}
         echo ffmpeg -loglevel "${logging}" -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -i "${logo}" -s ${size_width}x${size_height} -pix_fmt yuvj420p -t ${duration0int} -filter_complex "${video_format}"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
         ffmpeg -loglevel "${logging}" -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -i "${logo}"  -pix_fmt yuvj420p -t ${duration0int} -filter_complex "${video_format}"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
