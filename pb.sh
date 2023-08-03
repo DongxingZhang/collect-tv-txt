@@ -7,9 +7,9 @@ yellow='\033[0;33m'
 font="\033[0m"
 
 # 定义推流地址和推流码
-#rtmp="rtmp://www.tomandjerry.work/live/livestream"
+rtmp="rtmp://www.tomandjerry.work/live/livestream"
 #rtmp="rtmp://127.0.0.1:1935/live/1"
-rtmp="rtmp://live-push.bilivideo.com/live-bvc/?streamname=live_97540856_1852534&key=a042d1eb6f69ca88b16f4fb9bf9a5435&schedule=rtmp&pflag=1"
+rtmp2="rtmp://live-push.bilivideo.com/live-bvc/?streamname=live_97540856_1852534&key=a042d1eb6f69ca88b16f4fb9bf9a5435&schedule=rtmp&pflag=1"
 
 
 # 配置目录和文件
@@ -213,8 +213,8 @@ stream_play_main(){
     echo ${mapv}, ${mapa}, ${maps}
 
     #读取天气预报
-    echo $(get_next_video_name) > ${news}
-    #cat <( curl -s http://www.nmc.cn/publish/forecast/  ) | tr -s '\n' ' ' |  sed  's/<div class="col-xs-4">/\n/g' | sed -E 's/<[^>]+>//g' | awk -F ' ' 'NF==5{print $1,$2,$3}' | head -n 32 | tr -s '\n' ';' | sed 's/徐家汇/上海/g' | sed 's/长沙市/长沙/g' >>  ${news}
+    #echo $(get_next_video_name) > ${news}
+    cat <( curl -s http://www.nmc.cn/publish/forecast/  ) | tr -s '\n' ' ' |  sed  's/<div class="col-xs-4">/\n/g' | sed -E 's/<[^>]+>//g' | awk -F ' ' 'NF==5{print $1,$2,$3}' | head -n 32 | tr -s '\n' ';' | sed 's/徐家汇/上海/g' | sed 's/长沙市/长沙/g' >>  ${news}
 
     #分辨率
     ssize=$(get_size "${videopath}")
@@ -273,8 +273,12 @@ stream_play_main(){
         video_format="${mapv}${videos}${delogo}eq=contrast=1"
     fi
 
-    #计算真正字体大小
-    newfontsize=$(get_fontsize "${videopath}")
+    if [ "${mode}" != "test" ] && [ "${mode: -1}" != "a" ];then
+        newfontsize=$(get_fontsize "${videopath}")
+    else        
+        newfontsize=$(get_fontsize "${logodir}/bg.jpg")
+    fi
+
     echo newfontsize=${newfontsize}
     #计算时间字体大小
     halfnewfontsize=$(expr ${newfontsize} \* 60 / 100)
@@ -334,7 +338,7 @@ stream_play_main(){
 #    fi
     drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*4:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
         
-    watermark="[1:v]scale=-1:${newfontsize}\*2[wm];[bg][wm]overlay=overlay_w/3:overlay_h/2[bg1]"
+    watermark="[1:v]scale=-1:${newfontsize}\*2[wm];[bg][wm]overlay=overlay_w/3:overlay_h/2[bg0];[bg0]scale=300:230[bg1]"
     video_format="${video_format},${drawtext1},${drawtext2},${drawtext3}[bg];${mapa}${audio_format}[bga];${watermark};"
 
     echo ${video_format}
@@ -344,8 +348,13 @@ stream_play_main(){
 
     
     if [ "${mode}" != "test" ] && [ "${mode: -1}" != "a" ];then
+        duration0=$(get_duration "${videopath}")
+        duration0int=${duration0%.*}
+        duration0int=`expr ${duration0int} + 1`
+        bgpic=${logodir}/bgqrcode.jpg
+        #nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t ${duration0int} -filter_complex "[0:v:0]eq=contrast=1:brightness=0.15,curves=preset=lighter[bg1];[1:a:0]volume=1.0[bga];"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp2} &
         echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
-        ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
+        ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -r 20 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
     else
         bgpic=${logodir}/bg.jpg
         logo=${logodir}/logow3.png
@@ -353,12 +362,13 @@ stream_play_main(){
         duration0int=${duration0%.*}
         duration0int=`expr ${duration0int} + 1`
         #分辨率
-        ssize=$(get_size "${bgpic}")
-        sizearr=(${ssize//|/ })
-        size_width=${sizearr[0]}
-        size_height=${sizearr[1]}
-        watermark="[2:v]scale=-1:${newfontsize}\*2[wm];[bgv][wm]overlay=overlay_w/3:overlay_h/2[bg0];[bg0][fgv]overlay=${size_height}/2:${size_height}/4[bg1];"
-        video_format="[0:v:0]eq=contrast=1:brightness=0.15,curves=preset=lighter,${drawtext1},${drawtext3}[bgv];[1:v:0]crop=${size_height}*3/4:${size_height}/2:iw/2-${size_width}/4:ih/2-${size_height}/4[fgv];[1:a:0]volume=1.0[bga];${watermark}"
+        bgssize=$(get_size "${bgpic}")
+        bgsizearr=(${bgssize//|/ })
+        bgsize_width=${bgsizearr[0]}
+        bgsize_height=${sizearr[1]}
+        scalestr="scale=${bgsize_width}*2/3:-1"
+        watermark="[2:v]scale=-1:${newfontsize}\*2[wm];[bgv][wm]overlay=overlay_w/3:overlay_h/2[bg0];[bg0][fgv]overlay=150:150[bg1];"
+        video_format="[0:v:0]eq=contrast=1:brightness=0.15,curves=preset=lighter,${drawtext1},${drawtext3}[bgv];[1:v:0]${scalestr}[fgv];[1:a:0]volume=1.0[bga];${watermark}"
         #去掉了 -s ${size_width}x${size_height}
         echo ffmpeg -loglevel "${logging}" -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -i "${logo}" -s ${size_width}x${size_height} -pix_fmt yuvj420p -t ${duration0int} -filter_complex "${video_format}"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
         ffmpeg -loglevel "${logging}" -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -i "${logo}" -pix_fmt yuvj420p -t ${duration0int} -filter_complex "${video_format}"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
@@ -597,6 +607,7 @@ get_rest_videos(){
         next_video=0
     fi
     echo "${filenamelist[$next_video]}"
+    unset filenamelist
     if [ "${next}" != "next" ];then
         next_video=$(expr $next_video + 1)
         echo "$next_video" > ${videonofile}
@@ -621,13 +632,17 @@ stream_start(){
     do        
         period=$(need_waiting)
         if [ "${period}" = "F" ] || [  "${play_mode: -1}" = "a" ];then
-            next=$(get_rest_videos  "/mnt/smb/videos" "${curdir}/count/videono" "音乐播放中")
+            #next=$(get_rest_videos  "/mnt/smb/videos" "${curdir}/count/videono" "音乐播放中")
+            sleep 10
+            continue
         else
             next=$(get_next ${period})
         fi
         #如果连续两次的下一个出现问题，则播放歌曲
         if [ "${next}" = "${current}" ];then
-            next=$(get_rest_videos "/mnt/smb/videos" "${curdir}/count/videono" "出错了，等待修复。")
+            #next=$(get_rest_videos "/mnt/smb/videos" "${curdir}/count/videono" "出错了，等待修复。")
+            sleep 10
+            continue
         fi
         stream_play_main "${next}" "${play_mode}" "${period}" 
         current=${next}
