@@ -7,10 +7,10 @@ yellow='\033[0;33m'
 font="\033[0m"
 
 # 定义推流地址和推流码
-rtmp="rtmp://www.tomandjerry.work/live/livestream"
+#rtmp="rtmp://www.tomandjerry.work/live/livestream"
 #rtmp="rtmp://127.0.0.1:1935/live/1"
 rtmp2="rtmp://live-push.bilivideo.com/live-bvc/?streamname=live_97540856_1852534&key=a042d1eb6f69ca88b16f4fb9bf9a5435&schedule=rtmp&pflag=1"
-
+rtmp="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/6721_99a2fefeadd58c8948f14058edd45a65?bizid=6721&txSecret=780c1d42dbb8012097c9439e2cbf7a07&txTime=64D26D51&sdkappid=1400526639&k=08c190c1941410beb7a399051a171215353431313731393233335f31363931323532393435&ck=ce8a&txPRI=1691252945"
 
 # 配置目录和文件
 curdir=`pwd`
@@ -212,9 +212,9 @@ stream_play_main(){
 
     echo ${mapv}, ${mapa}, ${maps}
 
-    #读取天气预报
-    #echo $(get_next_video_name) > ${news}
-    cat <( curl -s http://www.nmc.cn/publish/forecast/  ) | tr -s '\n' ' ' |  sed  's/<div class="col-xs-4">/\n/g' | sed -E 's/<[^>]+>//g' | awk -F ' ' 'NF==5{print $1,$2,$3}' | head -n 32 | tr -s '\n' ';' | sed 's/徐家汇/上海/g' | sed 's/长沙市/长沙/g' >>  ${news}
+    #节目预告预报
+    echo $(get_next_video_name) > ${news}
+    #cat <( curl -s http://www.nmc.cn/publish/forecast/  ) | tr -s '\n' ' ' |  sed  's/<div class="col-xs-4">/\n/g' | sed -E 's/<[^>]+>//g' | awk -F ' ' 'NF==5{print $1,$2,$3}' | head -n 32 | tr -s '\n' ';' | sed 's/徐家汇/上海/g' | sed 's/长沙市/长沙/g' >>  ${news}
 
     #分辨率
     ssize=$(get_size "${videopath}")
@@ -338,7 +338,7 @@ stream_play_main(){
 #    fi
     drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*4:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
         
-    watermark="[1:v]scale=-1:${newfontsize}\*2[wm];[bg][wm]overlay=overlay_w/3:overlay_h/2[bg0];[bg0]scale=300:230[bg1]"
+    watermark="[1:v]scale=-1:${newfontsize}\*2[wm];[bg][wm]overlay=overlay_w/3:overlay_h/2[bg1] "
     video_format="${video_format},${drawtext1},${drawtext2},${drawtext3}[bg];${mapa}${audio_format}[bga];${watermark};"
 
     echo ${video_format}
@@ -352,9 +352,10 @@ stream_play_main(){
         duration0int=${duration0%.*}
         duration0int=`expr ${duration0int} + 1`
         bgpic=${logodir}/bgqrcode.jpg
-        #nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t ${duration0int} -filter_complex "[0:v:0]eq=contrast=1:brightness=0.15,curves=preset=lighter[bg1];[1:a:0]volume=1.0[bga];"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp2} &
+        #nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "/mnt/smb/videos/sleeping.mp4" -pix_fmt yuvj420p -t ${duration0int} -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp2} &
+        nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t ${duration0int} -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp2} &
         echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
-        ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -r 20 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
+        ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
     else
         bgpic=${logodir}/bg.jpg
         logo=${logodir}/logow3.png
@@ -516,7 +517,7 @@ get_next_video_name(){
     fi
     timed=${timec}
     loop=1
-    next_tv="接下来　"
+    next_tv="接下来　　"
     while true
     do
         if [ ${loop} -gt 3  ];then
@@ -537,7 +538,7 @@ get_next_video_name(){
         period=`cat ${config} | grep "|${timed}$"`
         period=`echo ${period} | tr -d '\r' | tr -d '\n'`
         periodarr=(${period//|/ })        
-        next_tv=${next_tv}"${periodarr[0]}:00 ${tvname}(${cur_file})　　"
+        next_tv=${next_tv}"${periodarr[0]}:00 ${tvname}(${cur_file})　"
     done
     length=${#next_tv}
     echo ${next_tv::length-1}
@@ -633,7 +634,7 @@ stream_start(){
         period=$(need_waiting)
         if [ "${period}" = "F" ] || [  "${play_mode: -1}" = "a" ];then
             #next=$(get_rest_videos  "/mnt/smb/videos" "${curdir}/count/videono" "音乐播放中")
-            sleep 10
+            sleep 2
             continue
         else
             next=$(get_next ${period})
@@ -641,12 +642,11 @@ stream_start(){
         #如果连续两次的下一个出现问题，则播放歌曲
         if [ "${next}" = "${current}" ];then
             #next=$(get_rest_videos "/mnt/smb/videos" "${curdir}/count/videono" "出错了，等待修复。")
-            sleep 10
+            sleep 2
             continue
         fi
         stream_play_main "${next}" "${play_mode}" "${period}" 
         current=${next}
-        sleep 1
     done
 }
 
