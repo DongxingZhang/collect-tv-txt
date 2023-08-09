@@ -9,8 +9,9 @@ font="\033[0m"
 # 定义推流地址和推流码
 #rtmp="rtmp://www.tomandjerry.work/live/livestream"
 #rtmp="rtmp://127.0.0.1:1935/live/1"
+####http://101.206.209.7/live-bvc/927338/live_97540856_1852534/index.m3u8
 rtmp2="rtmp://live-push.bilivideo.com/live-bvc/?streamname=live_97540856_1852534&key=a042d1eb6f69ca88b16f4fb9bf9a5435&schedule=rtmp&pflag=1"
-rtmp="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/6721_99a2fefeadd58c8948f14058edd45a65?bizid=6721&txSecret=780c1d42dbb8012097c9439e2cbf7a07&txTime=64D26D51&sdkappid=1400526639&k=08c190c1941410beb7a399051a171215353431313731393233335f31363931323532393435&ck=ce8a&txPRI=1691252945"
+rtmp="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/6721_99a2fefeadd58c8948f14058edd45a65?bizid=6721&txSecret=f944652781e18a0ae34fbfa839681be7&txTime=64D6BAE2&sdkappid=1400526639&k=08c190c1941410beb7a399051a171215353431313731393233335f31363931353334393436&ck=469e&txPRI=1691534946"
 
 # 配置目录和文件
 curdir=`pwd`
@@ -157,11 +158,6 @@ stream_play_main(){
         return 0
     fi
 
-    if [ "${mode:0:4}" != "test" ];then
-        #ps -ef | grep "${rtmp}" | grep -v grep | awk '{print $2}' | xargs kill -9
-        killall ffmpeg
-    fi
-   
     # 文件超过5GB不要播放
     maxsize=5000000000
     actualsize=$(wc -c <"$videopath")
@@ -346,16 +342,13 @@ stream_play_main(){
 
     date1=$(TZ=Asia/Shanghai date +"%Y-%m-%d %H:%M:%S")
 
-    
-    if [ "${mode}" != "test" ] && [ "${mode: -1}" != "a" ];then
-        duration0=$(get_duration "${videopath}")
-        duration0int=${duration0%.*}
-        duration0int=`expr ${duration0int} + 1`
+    if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ];then
         bgpic=${logodir}/bgqrcode.jpg
-        #nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "/mnt/smb/videos/sleeping.mp4" -pix_fmt yuvj420p -t ${duration0int} -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp2} &
-        nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t ${duration0int} -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp2} &
-        echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
-        ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
+        killall ffmpeg
+        sleep 3
+        nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
+        echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+        ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
     else
         bgpic=${logodir}/bg.jpg
         logo=${logodir}/logow3.png
@@ -371,6 +364,8 @@ stream_play_main(){
         watermark="[2:v]scale=-1:${newfontsize}\*2[wm];[bgv][wm]overlay=overlay_w/3:overlay_h/2[bg0];[bg0][fgv]overlay=150:150[bg1];"
         video_format="[0:v:0]eq=contrast=1:brightness=0.15,curves=preset=lighter,${drawtext1},${drawtext3}[bgv];[1:v:0]${scalestr}[fgv];[1:a:0]volume=1.0[bga];${watermark}"
         #去掉了 -s ${size_width}x${size_height}
+        killall ffmpeg
+        sleep 3
         echo ffmpeg -loglevel "${logging}" -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -i "${logo}" -s ${size_width}x${size_height} -pix_fmt yuvj420p -t ${duration0int} -filter_complex "${video_format}"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
         ffmpeg -loglevel "${logging}" -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -i "${logo}" -pix_fmt yuvj420p -t ${duration0int} -filter_complex "${video_format}"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
     fi
@@ -633,15 +628,14 @@ stream_start(){
     do        
         period=$(need_waiting)
         if [ "${period}" = "F" ] || [  "${play_mode: -1}" = "a" ];then
-            #next=$(get_rest_videos  "/mnt/smb/videos" "${curdir}/count/videono" "音乐播放中")
+            next=$(get_rest_videos  "/mnt/smb/videos2" "${curdir}/count/videono" "")
             sleep 2
-            continue
         else
             next=$(get_next ${period})
         fi
         #如果连续两次的下一个出现问题，则播放歌曲
         if [ "${next}" = "${current}" ];then
-            #next=$(get_rest_videos "/mnt/smb/videos" "${curdir}/count/videono" "出错了，等待修复。")
+            next=$(get_rest_videos "/mnt/smb/videos2" "${curdir}/count/videono" "出错了，等待修复。")
             sleep 2
             continue
         fi
