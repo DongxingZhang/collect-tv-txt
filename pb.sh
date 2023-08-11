@@ -11,7 +11,8 @@ font="\033[0m"
 #rtmp="rtmp://127.0.0.1:1935/live/1"
 ####http://101.206.209.7/live-bvc/927338/live_97540856_1852534/index.m3u8
 rtmp2="rtmp://live-push.bilivideo.com/live-bvc/?streamname=live_97540856_1852534&key=a042d1eb6f69ca88b16f4fb9bf9a5435&schedule=rtmp&pflag=1"
-rtmp="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/6721_99a2fefeadd58c8948f14058edd45a65?bizid=6721&txSecret=f944652781e18a0ae34fbfa839681be7&txTime=64D6BAE2&sdkappid=1400526639&k=08c190c1941410beb7a399051a171215353431313731393233335f31363931353334393436&ck=469e&txPRI=1691534946"
+rtmp_bak="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/6721_99a2fefeadd58c8948f14058edd45a65?bizid=6721&txSecret=f944652781e18a0ae34fbfa839681be7&txTime=64D6BAE2&sdkappid=1400526639&k=08c190c1941410beb7a399051a171215353431313731393233335f31363931353334393436&ck=469e&txPRI=1691534946"
+rtmp_real="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/6721_d14cc94308e33157bd1d2eb3bc31f458?bizid=6721&txSecret=53c0381b6ee1be4d1a67f86499b779a3&txTime=64D97F4F&sdkappid=1400526639&k=0899b5f4e91210bb9cef91051a171215353035333934363532315f31363931373136333032&ck=aa76&txPRI=1691716303"
 
 # 配置目录和文件
 curdir=`pwd`
@@ -130,8 +131,11 @@ stream_play_main(){
     videopath=`echo ${arr[9]} | tr '%' ' '`
     mode=$2
     period=$3
+    source=$4
     echo ${mode}
     echo ${period}
+    echo ${source}
+
     echo -e ${yellow}视频类别（delogo）:${font} ${video_type}
     echo -e ${yellow}视频跳过:${font} ${video_skip}
     echo -e ${yellow}是否明亮（F为维持原亮度）:${font} ${lighter}
@@ -144,6 +148,14 @@ stream_play_main(){
     echo -e ${yellow}播放标记:${font} ${play_time}    
     echo -e ${yellow}电视剧名称:${font} ${videoname}
     echo -e ${yellow}播放模式（bg, fg, test）:${font} ${mode}
+
+    if [ "${source}" = "" ];then
+        rtmp=${rtmp_real}
+    else
+        rtmp=${rtmp_bak}
+    fi
+
+    echo ${rtmp}
 
     if [ "${auch}" = "L" ];then
         audio_channel=" -af pan=stereo|c0=FL "
@@ -222,12 +234,17 @@ stream_play_main(){
     echo size_height=$size_height
 
     #logo
-    if [ "${param}" != "F" ]; then
-        #怀旧logo
-        logo=${logodir}/logow2.png
-    else
+    if [ "${param}" = "F" ]; then
         #武侠logo
-        logo=${logodir}/logow.png
+        logo=${logodir}/logow.png        
+    else
+        if [ "${param}" = "0" ]; then
+            #怀旧logo
+            logo=${logodir}/logow2.png
+        else
+            #音乐logo
+            logo=${logodir}/logow3.png
+        fi
     fi
 
     echo logo=${logo} 
@@ -303,8 +320,8 @@ stream_play_main(){
         echo ${content2}
     else
         split="◇"
-        #splitstar="☆"
-        splitstar="★"
+        splitstar="☆"
+        #splitstar="★"
         cur_file2=$(digit_half2full ${cur_file})
         if [ "${file_count}" = "${cur_file}" ]; then
             vn=${videoname}${splitstar}终
@@ -346,7 +363,7 @@ stream_play_main(){
         bgpic=${logodir}/bgqrcode.jpg
         killall ffmpeg
         sleep 3
-        nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
+        #nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
         echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
         ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
     else
@@ -512,7 +529,7 @@ get_next_video_name(){
     fi
     timed=${timec}
     loop=1
-    next_tv="接下来　　"
+    next_tv="欢迎加入QQ群：428763710，密码：7788，有什么想看的影视剧可以留言，频道会安排播出。接下来　　"
     while true
     do
         if [ ${loop} -gt 3  ];then
@@ -590,7 +607,7 @@ get_rest_videos(){
     videono=0
     declare -a filenamelist
     for subdirfile in "${waitingdir}"/*; do
-        filenamelist[$videono]="000|0|F|F|0|1|1|rest|${title}|${subdirfile}"
+        filenamelist[$videono]="000|0|F|F|1|1|1|rest|${title}|${subdirfile}"
         videono=$(expr $videono + 1)
     done
     video_lengh=${#filenamelist[@]}
@@ -613,15 +630,9 @@ get_rest_videos(){
 
 stream_start(){    
     play_mode=$1
+    source=$2
 
-    if [[ $rtmp =~ "rtmp://" ]];then
-        echo -e "${green} 推流地址输入正确,程序将进行下一步操作. ${font}"
-    else  
-        echo -e "${red} 你输入的地址不合法,请重新运行程序并输入! ${font}"
-        exit 1
-    fi 
-
-    echo "推流地址和推流码:${rtmp}"
+    echo "推流地址和推流码:"${source}""
     echo "播放模式:${play_mode}"
     current=""
     while true
@@ -639,7 +650,7 @@ stream_start(){
             sleep 2
             continue
         fi
-        stream_play_main "${next}" "${play_mode}" "${period}" 
+        stream_play_main "${next}" "${play_mode}" "${period}" "${source}"
         current=${next}
     done
 }
@@ -709,9 +720,11 @@ start_menu(){
     if [ "$1" = ""  ]; then
         read -p "请输入选项:" num
         read -p "请输入模式:" mode
+        read -p "请输入信号源:" source
     else
         num=$1
-        mode=$2       
+        mode=$2
+        source=$3
     fi
 
     case "$num" in
@@ -719,10 +732,10 @@ start_menu(){
         ffmpeg_install
         ;;
         2)
-        stream_start "${mode}"
+        stream_start "${mode}" "${source}"
         ;;
         3)
-        stream_append "${mode}"
+        stream_append "${mode}" "${source}"
         ;;
         4)
         stream_stop
@@ -734,5 +747,5 @@ start_menu(){
 	}
 
 # 运行开始菜单
-start_menu $1 $2
+start_menu $1 $2 $3
 

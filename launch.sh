@@ -1,5 +1,6 @@
 #!/bin/bash
 mode=$1
+source=$2
 echo $mode
 echo ${mode:0:4}
 if [ "${mode:0:4}" != "test" ];then    
@@ -14,16 +15,16 @@ read -p "请输入任意继续:" any
 
 if [ "${mode:0:2}" = "bg" ]; then
   echo "background pushing"
-  nohup ./pb.sh 2 ${mode} >./log/ffmpeg.log 2>&1 &
+  nohup ./pb.sh 2 ${mode} ${source} >./log/ffmpeg.log 2>&1 &
   sleep 2
   ps -elf | grep ffmpeg
   ps -elf | grep pb.sh
 elif [ "${mode:0:2}" = "fg" ]; then
   echo "foreground pushing"
-  ./pb.sh 2 ${mode}
+  ./pb.sh 2 ${mode} ${source}
 elif [ "${mode:0:4}" = "test" ]; then
   echo "test pushing"
-  ./pb.sh 2 ${mode}
+  ./pb.sh 2 ${mode} ${source}
 else
   echo "exit"
 fi
