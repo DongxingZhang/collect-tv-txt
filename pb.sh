@@ -6,23 +6,18 @@ green='\033[0;32m'
 yellow='\033[0;33m'
 font="\033[0m"
 
+curdir=`pwd`
 # 定义推流地址和推流码
 #rtmp="rtmp://www.tomandjerry.work/live/livestream"
 #rtmp="rtmp://127.0.0.1:1935/live/1"
 ####http://101.206.209.7/live-bvc/927338/live_97540856_1852534/index.m3u8
 rtmp2="rtmp://live-push.bilivideo.com/live-bvc/?streamname=live_97540856_1852534&key=a042d1eb6f69ca88b16f4fb9bf9a5435&schedule=rtmp&pflag=1"
 rtmp_bak="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/6721_99a2fefeadd58c8948f14058edd45a65?bizid=6721&txSecret=f944652781e18a0ae34fbfa839681be7&txTime=64D6BAE2&sdkappid=1400526639&k=08c190c1941410beb7a399051a171215353431313731393233335f31363931353334393436&ck=469e&txPRI=1691534946"
-rtmp_real="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/6721_d14cc94308e33157bd1d2eb3bc31f458?bizid=6721&txSecret=53c0381b6ee1be4d1a67f86499b779a3&txTime=64D97F4F&sdkappid=1400526639&k=0899b5f4e91210bb9cef91051a171215353035333934363532315f31363931373136333032&ck=aa76&txPRI=1691716303"
-
+rtmp_real="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/$(cat ${curdir}/rtmp_pass.txt)"
 # 配置目录和文件
-curdir=`pwd`
-
 logodir=${curdir}/logo
-
 news=${curdir}/log/news.txt
-
 subfile=${curdir}/sub/sub.srt
-
 config=${curdir}/list/config.txt
 delogofile=${curdir}/list/delogo.txt
 playlist=${curdir}/list/playlist.txt
