@@ -33,3 +33,5 @@ stream=${tvb1}
 #ffmpeg -loglevel repeat+level+warning -re -i "${stream}" -preset ultrafast -filter_complex "[0:v:0]eq=contrast=1[bg1];[0:a:0]volume=1.0[bga];" -map [bg1] -map [bga] -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
 
 ffmpeg -loglevel repeat+level+warning -re -i "${stream}" -c copy -f flv -y ${rtmp}
+
+ffmpeg -i "/mnt/smb/sleeping.mp4" -i "/mnt/smb/juedaishuangjiao.aac" -filter_complex "[1:a:0]aloop=loop=-1:size=2e+09[bga];[0:v:0]eq=contrast=1[bgv]" -map "[bgv]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y out.mp4

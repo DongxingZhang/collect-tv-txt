@@ -102,6 +102,18 @@ find_substr_count(){
     count=`echo "$1" | grep -o "$2" | wc -l`
     echo ${count}
 }
+
+
+get_dir() {
+    DIR="$(dirname "$1")" 
+    echo $DIR
+}
+
+get_file() {
+    FILE="$(basename "$1")"
+    echo $FILE
+}
+
 ####功能函数END
 
 stream_play_main(){
@@ -181,14 +193,12 @@ stream_play_main(){
     sub_track_decode=$(get_stream_track "${videopath}" "subtitle")
     
     if [ "$video_track" = "" ];then
-        echo "${videopath} 没有视频轨道"
-        echo "${videopath}" >> "${playlist_done}"
+        echo "${videopath} 没有视频轨道" >> "${playlist_done}"
         return 
     fi
     
     if [ "$audio_track" = "" ];then
-        echo "${videopath} 没有音频轨道"
-        echo "${videopath}" >> "${playlist_done}"
+        echo "${videopath} 没有音频轨道" >> "${playlist_done}"
         return 
     fi
     
@@ -218,7 +228,7 @@ stream_play_main(){
     #节目预告预报
     echo $(get_next_video_name) > ${news}
     #cat <( curl -s http://www.nmc.cn/publish/forecast/  ) | tr -s '\n' ' ' |  sed  's/<div class="col-xs-4">/\n/g' | sed -E 's/<[^>]+>//g' | awk -F ' ' 'NF==5{print $1,$2,$3}' | head -n 32 | tr -s '\n' ';' | sed 's/徐家汇/上海/g' | sed 's/长沙市/长沙/g' >>  ${news}
-
+    echo "下集预告"
     #分辨率
     ssize=$(get_size "${videopath}")
     sizearr=(${ssize//|/ })
@@ -290,8 +300,10 @@ stream_play_main(){
     echo newfontsize=${newfontsize}
     #计算时间字体大小
     halfnewfontsize=$(expr ${newfontsize} \* 60 / 100)
+    halfnewfontsize=$(echo "scale=0;${halfnewfontsize}/1" | bc)
     #设置行距
     line_spacing=$(expr ${halfnewfontsize} / 4)
+    line_spacing=$(echo "scale=0;${line_spacing}/1" | bc)
 
     #显示时长
     #播放百分比%{eif\:n\/nb_frames\:d}%%
@@ -355,32 +367,36 @@ stream_play_main(){
     date1=$(TZ=Asia/Shanghai date +"%Y-%m-%d %H:%M:%S")
 
     if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ];then
-        bgpic=${logodir}/bgqrcode.jpg
+        #bgpic=${logodir}/bgqrcode.jpg
         killall ffmpeg
         sleep 3
         #nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
         echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
         ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+        #播放过度画面
+        nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${logodir}/bg.jpg" -i "${curdir}/smb/sleeping.mp4" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}" &
     else
-        bgpic=${logodir}/bg.jpg
-        logo=${logodir}/logow3.png
-        duration0=$(get_duration "${videopath}")
-        duration0int=${duration0%.*}
-        duration0int=`expr ${duration0int} + 1`
-        #分辨率
-        bgssize=$(get_size "${bgpic}")
-        bgsizearr=(${bgssize//|/ })
-        bgsize_width=${bgsizearr[0]}
-        bgsize_height=${sizearr[1]}
-        scalestr="scale=${bgsize_width}*2/3:-1"
-        watermark="[2:v]scale=-1:${newfontsize}\*2[wm];[bgv][wm]overlay=overlay_w/3:overlay_h/2[bg0];[bg0][fgv]overlay=150:150[bg1];"
-        video_format="[0:v:0]eq=contrast=1:brightness=0.15,curves=preset=lighter,${drawtext1},${drawtext3}[bgv];[1:v:0]${scalestr}[fgv];[1:a:0]volume=1.0[bga];${watermark}"
+	temp=1
+        #bgpic=${logodir}/bg.jpg
+        #logo=${logodir}/logow3.png
+        #duration0=$(get_duration "${videopath}")
+        #duration0int=${duration0%.*}
+        #duration0int=`expr ${duration0int} + 1`
+        ##分辨率
+        #bgssize=$(get_size "${bgpic}")
+        #bgsizearr=(${bgssize//|/ })
+        #bgsize_width=${bgsizearr[0]}
+        #bgsize_height=${sizearr[1]}
+        #scalestr="scale=${bgsize_width}*2/3:-1"
+        #watermark="[2:v]scale=-1:${newfontsize}\*2[wm];[bgv][wm]overlay=overlay_w/3:overlay_h/2[bg0];[bg0][fgv]overlay=150:150[bg1];"
+        #video_format="[0:v:0]eq=contrast=1:brightness=0.15,curves=preset=lighter,${drawtext1},${drawtext3}[bgv];[1:v:0]${scalestr}[fgv];[1:a:0]volume=1.0[bga];${watermark}"
         #去掉了 -s ${size_width}x${size_height}
-        killall ffmpeg
-        sleep 3
-        echo ffmpeg -loglevel "${logging}" -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -i "${logo}" -s ${size_width}x${size_height} -pix_fmt yuvj420p -t ${duration0int} -filter_complex "${video_format}"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
-        ffmpeg -loglevel "${logging}" -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -i "${logo}" -pix_fmt yuvj420p -t ${duration0int} -filter_complex "${video_format}"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
+        #killall ffmpeg
+        #sleep 3
+        #echo ffmpeg -loglevel "${logging}" -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -i "${logo}" -s ${size_width}x${size_height} -pix_fmt yuvj420p -t ${duration0int} -filter_complex "${video_format}"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
+        #ffmpeg -loglevel "${logging}" -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -i "${logo}" -pix_fmt yuvj420p -t ${duration0int} -filter_complex "${video_format}"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
     fi
+    
 
     date2=$(TZ=Asia/Shanghai date +"%Y-%m-%d %H:%M:%S")
 
@@ -396,15 +412,28 @@ stream_play_main(){
     echo mode=${mode}
     echo time_seconds=${time_seconds}
     echo play_time=${play_time}
-
+    
+    folder=$(get_dir ${videopath})
     if [ "${mode}" != "test" ] && [ ${time_seconds} -ge 700 ]; then
         if [ "${play_time}" = "playing" ];then
-            echo "${period}|${videopath}" >> "${playlist_done}"
-            cat  ${playlist_done}  |  sort  >  ./list/.pd.txt
-            cp  ./list/.pd.txt  ${playlist_done}
+	    video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${folder}" |  head -1)
+	    if [ ${video_played} = "" ];then
+                echo "${period}|${folder}|${cur_file}|${file_count}" >> "${playlist_done}"
+                cat  ${playlist_done}  |  sort  >  ./list/.pd.txt
+                cp  ./list/.pd.txt  ${playlist_done}
+            else
+		sed -i "s#${video_played}#${period}|${folder}|${cur_file}|${file_count}#" "${playlist_done}" 
+	    fi
         fi
     else
-        echo ""
+        if [ "${play_time}" = "playing" ];then
+            video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${folder}" |  head -1)
+            if [ ${video_played} = "" ];then
+                echo "${period}|${folder}|${cur_file}" 
+            else
+	        echo sed -i "s#${video_played}#${period}|${folder}|${cur_file}#" "${playlist_done}"
+            fi
+        fi
     fi
 
 }
@@ -486,21 +515,31 @@ get_playing_video(){
         fi
 
         if [[ -d "${videopath}" ]];then            
-            found=0
-            cur_file=0
             file_count=`ls -l ${videopath}  |grep "^-"|wc -l`
+	    video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${videopath}" |  head -1)
+            if [[ "${video_played}" = "" ]];then
+                cur_file=1
+	    else
+                video_played_arr=(${video_played//|/ })
+                if [[ "${video_played_arr[2]}" = "" ]];then
+                    cur_file=1
+		else
+                     if [[ "${video_played_arr[2]}" = "${file_count}" ]];then
+                         continue   
+		     else
+                         cur_file=$(expr ${video_played_arr[2]} + 1)
+		     fi
+		fi
+	    fi
+            ##查询到第cur_file个文件###            
+            cur=0
             for subdirfile in "${videopath}"/*; do
-                cur_file=$(expr $cur_file + 1)
-                if [[ -e "${playlist_done}" ]] && cat "${playlist_done}" | grep "${playlist_index}|${subdirfile}" > /dev/null; then
-                    continue
+                cur=$(expr $cur + 1)
+                if [[ "${cur}" = "${cur_file}" ]];then
+                    echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|${videoname}|${subdirfile}"
+                    return
                 fi
-                found=1
-                echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|${videoname}|${subdirfile}"
-                break
             done
-            if [[ "${found}" = "1" ]];then
-                break
-            fi
         elif [[ -f "${videopath}" ]]; then
             if [[ -e "${playlist_done}" ]] && cat "${playlist_done}" | grep "${playlist_index}|${videopath}" > /dev/null; then
                 continue
@@ -638,12 +677,12 @@ stream_start(){
             sleep 2
         else
             next=$(get_next ${period})
+	    echo $next
         fi
         #如果连续两次的下一个出现问题，则播放歌曲
         if [ "${next}" = "${current}" ];then
             next=$(get_rest_videos "/mnt/smb/videos2" "${curdir}/count/videono" "出错了，等待修复。")
             sleep 2
-            continue
         fi
         stream_play_main "${next}" "${play_mode}" "${period}" "${source}"
         current=${next}
