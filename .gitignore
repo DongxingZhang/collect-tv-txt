@@ -1,4 +1,5 @@
 __pycache__/
-log/
+log/ffmpeg.log
+log/news.txt
 sub/
 list/.pd.txt

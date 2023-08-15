@@ -17,6 +17,7 @@ rtmp_real="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/$(cat ${cur
 # 配置目录和文件
 logodir=${curdir}/logo
 news=${curdir}/log/news.txt
+memo=${curdir}/log/memo.txt
 subfile=${curdir}/sub/sub.srt
 config=${curdir}/list/config.txt
 delogofile=${curdir}/list/delogo.txt
@@ -229,6 +230,7 @@ stream_play_main(){
     echo $(get_next_video_name) > ${news}
     #cat <( curl -s http://www.nmc.cn/publish/forecast/  ) | tr -s '\n' ' ' |  sed  's/<div class="col-xs-4">/\n/g' | sed -E 's/<[^>]+>//g' | awk -F ' ' 'NF==5{print $1,$2,$3}' | head -n 32 | tr -s '\n' ';' | sed 's/徐家汇/上海/g' | sed 's/长沙市/长沙/g' >>  ${news}
     echo "下集预告"
+    cat ${news}
     #分辨率
     ssize=$(get_size "${videopath}")
     sizearr=(${ssize//|/ })
@@ -416,8 +418,8 @@ stream_play_main(){
     folder=$(get_dir ${videopath})
     if [ "${mode}" != "test" ] && [ ${time_seconds} -ge 700 ]; then
         if [ "${play_time}" = "playing" ];then
-	    video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${folder}" |  head -1)
-	    if [ ${video_played} = "" ];then
+	    video_played=$(cat "${playlist_done}" | grep "${period}|${folder}" |  head -1)
+	    if [ "${video_played}" = "" ];then
                 echo "${period}|${folder}|${cur_file}|${file_count}" >> "${playlist_done}"
                 cat  ${playlist_done}  |  sort  >  ./list/.pd.txt
                 cp  ./list/.pd.txt  ${playlist_done}
@@ -427,8 +429,8 @@ stream_play_main(){
         fi
     else
         if [ "${play_time}" = "playing" ];then
-            video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${folder}" |  head -1)
-            if [ ${video_played} = "" ];then
+            video_played=`cat  "${playlist_done}" | grep "${period}|${folder}"  | head -1`
+            if [ "${video_played}" = "" ];then
                 echo "${period}|${folder}|${cur_file}" 
             else
 	        echo sed -i "s#${video_played}#${period}|${folder}|${cur_file}#" "${playlist_done}"
@@ -563,7 +565,7 @@ get_next_video_name(){
     fi
     timed=${timec}
     loop=1
-    next_tv="欢迎加入QQ群：428763710，密码：7788，有什么想看的影视剧可以留言，频道会安排播出。接下来　　"
+    next_tv=$(cat ${memo})"　　"
     while true
     do
         if [ ${loop} -gt 3  ];then
