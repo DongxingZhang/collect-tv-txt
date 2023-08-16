@@ -164,7 +164,8 @@ stream_play_main(){
     fi
 
     echo ${rtmp}
-
+    
+    #增加所有声道支持 还未启用
     if [ "${auch}" = "L" ];then
         audio_channel=" -af pan=stereo|c0=FL "
     elif [ "${auch}" = "R" ];then
@@ -225,12 +226,8 @@ stream_play_main(){
 
 
     echo ${mapv}, ${mapa}, ${maps}
-
-    #节目预告预报
-    echo $(get_next_video_name) > ${news}
-    #cat <( curl -s http://www.nmc.cn/publish/forecast/  ) | tr -s '\n' ' ' |  sed  's/<div class="col-xs-4">/\n/g' | sed -E 's/<[^>]+>//g' | awk -F ' ' 'NF==5{print $1,$2,$3}' | head -n 32 | tr -s '\n' ';' | sed 's/徐家汇/上海/g' | sed 's/长沙市/长沙/g' >>  ${news}
-    echo "下集预告"
-    cat ${news}
+    
+    ################################开始配置过滤器
     #分辨率
     ssize=$(get_size "${videopath}")
     sizearr=(${ssize//|/ })
@@ -240,7 +237,31 @@ stream_play_main(){
     echo size_width=$size_width
     echo size_height=$size_height
 
-    #logo
+    #片名
+    if [ "${mode}" != "test" ] && [ "${mode: -1}" != "a" ];then
+        newfontsize=$(get_fontsize "${videopath}")
+    else
+        newfontsize=$(get_fontsize "${logodir}/bg.jpg")
+    fi
+   
+    echo newfontsize=${newfontsize}
+
+    #计算时间显示字体大小
+    halfnewfontsize=$(expr ${newfontsize} \* 60 / 100)
+    halfnewfontsize=$(echo "scale=0;${halfnewfontsize}/1" | bc)
+
+    #设置时间行距
+    line_spacing=$(expr ${halfnewfontsize} / 4)
+    line_spacing=$(echo "scale=0;${line_spacing}/1" | bc)
+
+
+    #节目预告
+    echo $(get_next_video_name) > ${news}
+    #cat <( curl -s http://www.nmc.cn/publish/forecast/  ) | tr -s '\n' ' ' |  sed  's/<div class="col-xs-4">/\n/g' | sed -E 's/<[^>]+>//g' | awk -F ' ' 'NF==5{print $1,$2,$3}' | head -n 32 | tr -s '\n' ';' | sed 's/徐家汇/上海/g' | sed 's/长沙市/长沙/g' >>  ${news}
+    echo "下集预告"
+    cat ${news}
+
+    #台标选择
     if [ "${param}" = "F" ]; then
         #武侠logo
         logo=${logodir}/logow.png        
@@ -256,6 +277,7 @@ stream_play_main(){
 
     echo logo=${logo} 
 
+    #遮挡logo
     delogos=`cat ${delogofile} | grep "^${video_type}|"`
 
     if [ "${delogos}" = "" ];then
@@ -263,17 +285,19 @@ stream_play_main(){
     else
         delogos=`echo ${delogos} | tr -d '\r' | tr -d '\n'`
         delogosarr=(${delogos//|/ })
-        delogo="${delogosarr[1]},"
+        delogo="${delogosarr[1]}"
     fi
     
     #跳过${video_skip}秒 
     audio_format="volume=1.0,atrim=start=1"
-    videos="trim=start=1[v1];[v1]"
+    videoskips="trim=start=1[vs];[vs]"
     if [ "${video_skip}" != "" ]; then
-        videos="trim=start=${video_skip}[v1];[v1]"
+        videoskips="trim=start=${video_skip}[vs];[vs]"
         audio_format="volume=1.0,atrim=start=${video_skip}"
     fi
-
+    
+    #字幕
+    subs=""
     if [ "${maps}" != "" ];then  
         echo ffmpeg -i "${videopath}" -map ${maps} -y ${subfile}      
         ffmpeg -i "${videopath}" -map ${maps} -y ./sub/tmp.srt
@@ -284,42 +308,22 @@ stream_play_main(){
             iconv -f utf8 -t gbk -c ./sub/tmp1.srt  > ${subfile}
         fi        
         rm ./sub/tmp1.srt
-        mapv="${mapv}subtitles=filename=${subfile}:fontsdir=${curdir}/fonts:force_style='Fontname=华文仿宋,Fontsize=15,Alignment=0,MarginV=30'[v];[v]"
+        subs="subtitles=filename=${subfile}:fontsdir=${curdir}/fonts:force_style='Fontname=华文仿宋,Fontsize=15,Alignment=0,MarginV=30'[vsub];[vsub]"
     fi
-
-    if [ "${lighter}" != "F" ];then
-        video_format="${mapv}${videos}${delogo}eq=contrast=1:brightness=0.15,curves=preset=lighter"
-    else
-        video_format="${mapv}${videos}${delogo}eq=contrast=1"
-    fi
-
-    if [ "${mode}" != "test" ] && [ "${mode: -1}" != "a" ];then
-        newfontsize=$(get_fontsize "${videopath}")
-    else        
-        newfontsize=$(get_fontsize "${logodir}/bg.jpg")
-    fi
-
-    echo newfontsize=${newfontsize}
-    #计算时间字体大小
-    halfnewfontsize=$(expr ${newfontsize} \* 60 / 100)
-    halfnewfontsize=$(echo "scale=0;${halfnewfontsize}/1" | bc)
-    #设置行距
-    line_spacing=$(expr ${halfnewfontsize} / 4)
-    line_spacing=$(echo "scale=0;${line_spacing}/1" | bc)
 
     #显示时长
     #播放百分比%{eif\:n\/nb_frames\:d}%%
     duration=$(get_duration2 "${videopath}")
     content="%{pts\:gmtime\:0\:%H\\\\\:%M\\\\\:%S}${enter}${duration}"
-    drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*8:y=line_h\*3:shadowx=2:shadowy=2:${fontbg}"
+    drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*8:y=line_h\*3:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
     
     #天气预报
     #从左往右drawtext2="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${news}':fontfile=${fontdir}:expansion=normal:x=(mod(5*n\,w+tw)-tw):y=h-line_h-10:shadowx=2:shadowy=2:${fontbg}"
     #从右到左
-    crop_width=$(expr ${size_width} / 4)
-    crop_x=$(expr ${size_width} \* 3 / 4)
-    drawtext2="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:textfile='${news}':fontfile=${fontforcastdir}:line_spacing=${line_spacing}:expansion=normal:x=w-mod(max(t-1\,0)*(w+tw\*5)/415\,(w+tw\*5)):y=h-line_h-5:shadowx=2:shadowy=2:${fontbg}"
-    
+    drawtext2="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:textfile='${news}':fontfile=${fontforcastdir}:line_spacing=${line_spacing}:expansion=normal:x=w-mod(max(t-1\,0)*(w+tw\*5)/415\,(w+tw\*5)):y=h-line_h-5:shadowx=2:shadowy=2:${fontbg}[forcv];[forcv]"
+   
+
+    #显示标题 
     echo ${cur_file}
     echo ${file_count}
     
@@ -333,9 +337,9 @@ stream_play_main(){
         #splitstar="★"
         cur_file2=$(digit_half2full ${cur_file})
         if [ "${file_count}" = "${cur_file}" ]; then
-            vn=${videoname}${splitstar}终
+            vn=${videoname}${splitstar}大结局
             cont_len=${#vn}
-            content2=`echo ${videoname} | sed 's#.#&\'"${enter}"'#g'`${splitstar}${enter}终
+            content2=`echo ${videoname} | sed 's#.#&\'"${enter}"'#g'`${splitstar}${enter}大结局
         else
             vn=${videoname}${splitstar}${cur_file2}
             cont_len=${#vn}
@@ -344,27 +348,28 @@ stream_play_main(){
         echo ${content2}
     fi
     cont_len=$(expr ${cont_len} / 2)
+    drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*4:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}[titlev];[titlev]"
+       
+    #增亮
+    if [ "${lighter}" != "F" ];then
+        lights="eq=contrast=1:brightness=0.15,curves=preset=lighter[bg];"
+    else
+        lights="eq=contrast=1[bg];"
+    fi
 
-#    if [ "${play_time}" = "playing" ]; then
-#        cur_file2=$(digit_half2full ${cur_file})
-#        file_count2=$(digit_half2full ${file_count})
-#        content2="第${enter}${cur_file2}${enter}集${enter}${enter}共${enter}${file_count2}${enter}集"
-#    else
-#        cur_file2=$(digit_half2full ${cur_file})
-#        file_count2=$(digit_half2full ${file_count})
-#        content2="第${enter}${cur_file2}${enter}集${enter}${enter}共${enter}${file_count2}${enter}集"
-#        #rest_start2=$(digit_half2full ${rest_start})
-#        #res_end2=$(expr $rest_end + 1)
-#        #res_end2=$(digit_half2full ${res_end2})
-#        #content2="${rest_start2}${enter}点${enter}到${enter}${res_end2}${enter}点${enter}休${enter}息${enter}第${enter}${cur_file2}${enter}集"
-#    fi
-    drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*4:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
-        
-    watermark="[1:v]scale=-1:${newfontsize}\*2[wm];[bg][wm]overlay=overlay_w/3:overlay_h/2[bg1] "
-    video_format="${video_format},${drawtext1},${drawtext2},${drawtext3}[bg];${mapa}${audio_format}[bga];${watermark};"
+    # 视频轨    
+    videos="${mapv}${delogo}${videoskips}${subs}${drawtext1}${drawtext2}${drawtext3}${lights}"
+    # 音轨 
+    audios="${mapa}${audio_format}[bga];"
+    # 台标
+    watermark="[1:v:0]scale=-1:${newfontsize}\*2[wm];"
+
+    video_format="${videos}${audios}${watermark}[bg][wm]overlay=overlay_w/3:overlay_h/2[bg1]"
 
     echo ${video_format}
     echo ${enter}
+
+    ###########################################过滤器配置完成
 
     date1=$(TZ=Asia/Shanghai date +"%Y-%m-%d %H:%M:%S")
 
@@ -373,12 +378,13 @@ stream_play_main(){
         killall ffmpeg
         sleep 3
         #nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
-        echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+	echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
         ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
-        #播放过度画面
-        nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${logodir}/bg.jpg" -i "${curdir}/smb/sleeping.mp4" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}" &
+	#过度画面
+	nohup ffmpeg -loglevel "${logging}" -re -i "${curdir}/smb/sleeping.mp4" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}" &
     else
-	temp=1
+	echo do nothing
+	echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
         #bgpic=${logodir}/bg.jpg
         #logo=${logodir}/logow3.png
         #duration0=$(get_duration "${videopath}")
