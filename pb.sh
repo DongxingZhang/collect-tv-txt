@@ -273,7 +273,8 @@ stream_play_main(){
         #音乐logo
         logo=${logodir}/logow3.png
     else
-	logo=${logodir}/logow4.png
+        #没有logo param=2
+	    logo=${logodir}/logow4.png
     fi
 
     echo logo=${logo} 
