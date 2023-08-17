@@ -262,17 +262,18 @@ stream_play_main(){
     cat ${news}
 
     #台标选择
+    logo=
     if [ "${param}" = "F" ]; then
         #武侠logo
         logo=${logodir}/logow.png        
+    elif [ "${param}" = "0" ]; then
+        #怀旧logo
+        logo=${logodir}/logow2.png
+    elif [ "${param}" = "1" ]; then
+        #音乐logo
+        logo=${logodir}/logow3.png
     else
-        if [ "${param}" = "0" ]; then
-            #怀旧logo
-            logo=${logodir}/logow2.png
-        else
-            #音乐logo
-            logo=${logodir}/logow3.png
-        fi
+	logo=${logodir}/logow4.png
     fi
 
     echo logo=${logo} 
@@ -531,17 +532,13 @@ get_playing_video(){
                 video_played_arr=(${video_played//|/ })
                 if [[ "${video_played_arr[2]}" = "" ]];then
                     cur_file=1
-		else
-                     if [[ "${video_played_arr[2]}" = "${file_count}" ]];then
-                         continue   
-		     else
-                         if [[ "${video_played_arr[2]}" = "${video_played_arr[3]}" ]];then
-                             continue
-                         else
-                             cur_file=$(expr ${video_played_arr[2]} + 1)
-			 fi
-		     fi
-		fi
+		elif [[ "${video_played_arr[2]}" = "${file_count}" ]];then
+                    continue   
+		elif [[ "${video_played_arr[2]}" -ge  "${video_played_arr[3]}" ]];then
+                    continue
+	        else
+		    cur_file=$(expr ${video_played_arr[2]} + 1)
+                fi
 	    fi
             ##查询到第cur_file个文件###            
             cur=0
@@ -578,9 +575,9 @@ get_next_video_name(){
     next_tv=$(cat ${memo})"　　"
     while true
     do
-        if [ ${loop} -gt 3  ];then
-            break
-        fi
+        #if [ ${loop} -gt 3  ];then
+        #    break
+        #fi
         loop=$(expr ${loop} + 1)
         timed=$(expr ${timed} + 1)
         if [ ${timed} -ge ${periodcount} ];then
@@ -592,6 +589,10 @@ get_next_video_name(){
         next_video_path=$(get_playing_video ${timed})
         arr=(${next_video_path//|/ })
         cur_file=${arr[5]}
+	file_count=${arr[6]}
+	if [ "${cur_file}" = "${file_count}" ];then
+	    cur_file="大结局"
+	fi
         tvname=${arr[8]}
         period=`cat ${config} | grep "|${timed}$"`
         period=`echo ${period} | tr -d '\r' | tr -d '\n'`
@@ -620,11 +621,11 @@ need_waiting(){
     if [ "${hours}" = "${last_hour}" ];then
         mins2end=$(expr 59 - ${mins})
         if [ ${mins2end} -le 20 ];then
-            #timed1=$(expr ${timed} + 1)
-            #if [ ${timed1} -ge ${periodcount} ];then
-            #    timed1=0
-            #fi
-            echo "F"
+            timed1=$(expr ${timed} + 1)
+            if [ ${timed1} -ge ${periodcount} ];then
+                timed1=0
+            fi
+            echo "${timed1}"
         else
             echo ${timed}
         fi
