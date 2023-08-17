@@ -285,7 +285,7 @@ stream_play_main(){
     else
         delogos=`echo ${delogos} | tr -d '\r' | tr -d '\n'`
         delogosarr=(${delogos//|/ })
-        delogo="${delogosarr[1]}"
+        delogo="${delogosarr[1]}[delogv];[delogv]"
     fi
     
     #跳过${video_skip}秒 
@@ -339,7 +339,7 @@ stream_play_main(){
         if [ "${file_count}" = "${cur_file}" ]; then
             vn=${videoname}${splitstar}大结局
             cont_len=${#vn}
-            content2=`echo ${videoname} | sed 's#.#&\'"${enter}"'#g'`${splitstar}${enter}大结局
+            content2=`echo ${videoname} | sed 's#.#&\'"${enter}"'#g'`${splitstar}${enter}大${enter}结${enter}局
         else
             vn=${videoname}${splitstar}${cur_file2}
             cont_len=${#vn}
@@ -381,7 +381,7 @@ stream_play_main(){
 	echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
         ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 	#过度画面
-	nohup ffmpeg -loglevel "${logging}" -re -i "${curdir}/smb/sleeping.mp4" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}" &
+	#nohup ffmpeg -loglevel "${logging}" -re -i "${curdir}/smb/sleeping.mp4" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}" &
     else
 	echo do nothing
 	echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
@@ -535,7 +535,11 @@ get_playing_video(){
                      if [[ "${video_played_arr[2]}" = "${file_count}" ]];then
                          continue   
 		     else
-                         cur_file=$(expr ${video_played_arr[2]} + 1)
+                         if [[ "${video_played_arr[2]}" = "${video_played_arr[3]}" ]];then
+                             continue
+                         else
+                             cur_file=$(expr ${video_played_arr[2]} + 1)
+			 fi
 		     fi
 		fi
 	    fi
@@ -649,7 +653,7 @@ get_rest_videos(){
     videono=0
     declare -a filenamelist
     for subdirfile in "${waitingdir}"/*; do
-        filenamelist[$videono]="000|0|F|F|1|1|1|rest|${title}|${subdirfile}"
+        filenamelist[$videono]="000|F|F|F|1|1|1|rest|${title}|${subdirfile}"
         videono=$(expr $videono + 1)
     done
     video_lengh=${#filenamelist[@]}

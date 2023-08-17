@@ -27,4 +27,5 @@ TR0|delogo=x=5:y=5:w=1270:h=40:show=0,delogo=x=1050:y=610:w=200:h=100:show=0,del
 AT0|delogo=x=560:y=5:w=64:h=68:show=0,delogo=x=560:y=490:w=140:h=45:show=0
 AT1|delogo=x=36:y=28:w=128:h=46:show=0
 TWV|delogo=x=1042:y=58:w=190:h=86:show=0,delogo=x=94:y=38:w=248:h=60:show=0
+TW1|delogo=x=20:y=28:w=136:h=50:show=0
 
