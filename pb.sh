@@ -133,8 +133,9 @@ stream_play_main() {
 	cur_file=${arr[5]}
 	file_count=${arr[6]}
 	play_time=${arr[7]}
-	videoname=${arr[8]}
-	videopath=$(echo ${arr[9]} | tr '%' ' ')
+	file_type=${arr[8]}
+	videoname=${arr[9]}
+	videopath=$(echo ${arr[10]} | tr '%' ' ')
 	mode=$2
 	period=$3
 	source=$4
@@ -152,6 +153,7 @@ stream_play_main() {
 	echo -e ${yellow}当前集数:${font} ${cur_file}
 	echo -e ${yellow}总集数:${font} ${file_count}
 	echo -e ${yellow}播放标记:${font} ${play_time}
+	echo -e ${yellow}播放类型:${font} ${file_type}
 	echo -e ${yellow}电视剧名称:${font} ${videoname}
 	echo -e ${yellow}播放模式（bg, fg, test）:${font} ${mode}
 
@@ -416,7 +418,13 @@ stream_play_main() {
 	echo time_seconds=${time_seconds}
 	echo play_time=${play_time}
 
-	folder=$(get_dir ${videopath})
+	#判断playlist是文件还是目录
+	if [ "${file_type}" = "folder" ]; then
+		folder=$(get_dir ${videopath})
+	else
+		folder=${videopath}
+	fi
+
 	if [ "${mode}" != "test" ] && [ ${time_seconds} -ge 700 ]; then
 		if [ "${play_time}" = "playing" ]; then
 			video_played=$(cat "${playlist_done}" | grep "${period}|${folder}" | head -1)
@@ -533,7 +541,7 @@ get_playing_video() {
 			for subdirfile in "${videopath}"/*; do
 				cur=$(expr $cur + 1)
 				if [[ "${cur}" = "${cur_file}" ]]; then
-					echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|${videoname}|${subdirfile}"
+					echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|folder|${videoname}|${subdirfile}"
 					return
 				fi
 			done
@@ -541,7 +549,7 @@ get_playing_video() {
 			if [[ -e "${playlist_done}" ]] && cat "${playlist_done}" | grep "${playlist_index}|${videopath}" >/dev/null; then
 				continue
 			fi
-			echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|1|1|playing|${videoname}|${videopath}"
+			echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|1|1|playing|file|${videoname}|${videopath}"
 			break
 		fi
 	done
@@ -576,10 +584,10 @@ get_next_video_name() {
 		arr=(${next_video_path//|/ })
 		cur_file=${arr[5]}
 		file_count=${arr[6]}
-		if [ "${cur_file}" = "${file_count}" ]; then
+		if [ "${cur_file}" = "${file_count}" ] && [ "${file_count}" -gt 1 ]; then
 			cur_file="大结局"
 		fi
-		tvname=${arr[8]}
+		tvname=${arr[9]}
 		period=$(cat ${config} | grep "|${timed}$")
 		period=$(echo ${period} | tr -d '\r' | tr -d '\n')
 		periodarr=(${period//|/ })
@@ -637,7 +645,7 @@ get_rest_videos() {
 	videono=0
 	declare -a filenamelist
 	for subdirfile in "${waitingdir}"/*; do
-		filenamelist[$videono]="000|F|F|F|1|1|1|rest|${title}|${subdirfile}"
+		filenamelist[$videono]="000|F|F|F|1|1|1|rest|file|${title}|${subdirfile}"
 		videono=$(expr $videono + 1)
 	done
 	video_lengh=${#filenamelist[@]}
