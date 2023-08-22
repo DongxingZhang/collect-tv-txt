@@ -25,6 +25,7 @@ config=${curdir}/list/config.txt
 delogofile=${curdir}/list/delogo.txt
 playlist=${curdir}/list/playlist.txt
 playlist_done=${curdir}/list/playlist_done.txt
+rest_video_path=/mnt/share1/videos
 
 #配置字体
 fontdir=${curdir}/fonts/font.ttf
@@ -373,7 +374,8 @@ stream_play_main() {
 
 	if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
 		#bgpic=${logodir}/bgqrcode.jpg
-		killall ffmpeg
+		#killall ffmpeg
+		ps -ef | grep "${rtmp}" | awk '{print $2}' | xargs kill -9
 		sleep 3
 		#nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
 		echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
@@ -675,7 +677,7 @@ stream_start() {
 	while true; do
 		period=$(need_waiting)
 		if [ "${period}" = "F" ] || [ "${play_mode: -1}" = "a" ]; then
-			next=$(get_rest_videos "/mnt/smb/videos2" "${curdir}/count/videono" "")
+			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "")
 			sleep 2
 		else
 			next=$(get_next ${period})
@@ -683,7 +685,7 @@ stream_start() {
 		fi
 		#如果连续两次的下一个出现问题，则播放歌曲
 		if [ "${next}" = "${current}" ]; then
-			next=$(get_rest_videos "/mnt/smb/videos2" "${curdir}/count/videono" "出错了，等待修复。")
+			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "出错了，等待修复。")
 			sleep 2
 		fi
 		stream_play_main "${next}" "${play_mode}" "${period}" "${source}"
