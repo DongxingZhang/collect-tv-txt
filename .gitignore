@@ -4,4 +4,5 @@ log/news.txt
 sub/
 list/.pd.txt
 nohup.out
-
+log/ffmpeg2.log
+test.sh

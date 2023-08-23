@@ -114,6 +114,15 @@ get_file() {
 	echo $FILE
 }
 
+check_even() {
+	num=$1
+	if [ $((num%2)) -eq  0 ]; then
+        echo "1"
+    else
+        echo "0"
+    fi
+}
+
 ####功能函数END
 
 stream_play_main() {
@@ -341,23 +350,36 @@ stream_play_main() {
 		echo ${content2}
 	fi
 	cont_len=$(expr ${cont_len} / 2)
-	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*4:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}[titlev];[titlev]"
+	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*4:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
+
+	#缩放
+    size_height=$(expr ${size_height}  + 1)
+    if [ ${size_height} -gt 720 ]; then
+	    swidth=$(echo "scale=5;720/${size_height}*${size_width}" | bc)
+	    swidth=$(echo "scale=0;${swidth}/1" | bc)
+		if [ "$(check_even ${swidth})" = "0" ]; then
+		    swidth=$(expr ${swidth}  + 1)
+		fi
+		scales="scale=${swidth}:720[scalev];[scalev]"
+    else
+        scales=""
+    fi
 
 	#增亮
 	if [ "${lighter}" != "F" ]; then
-		lights="eq=contrast=1:brightness=0.15,curves=preset=lighter[bg];"
+		lights="eq=contrast=1:brightness=0.15,curves=preset=lighter[bg2]"
 	else
-		lights="eq=contrast=1[bg];"
+		lights="eq=contrast=1[bg2]"
 	fi
 
 	# 视频轨
-	videos="${mapv}${delogo}${videoskips}${subs}${drawtext1}${drawtext2}${drawtext3}${lights}"
+	videos="${mapv}${delogo}${videoskips}${subs}${drawtext1}${drawtext2}${drawtext3}[bg];" #[bg]
 	# 音轨
-	audios="${mapa}${audio_format}[bga];"
+	audios="${mapa}${audio_format}[bga];"  #[bga]
 	# 台标
-	watermark="[1:v:0]scale=-1:${newfontsize}\*2[wm];"
+	watermark="[1:v:0]scale=-1:${newfontsize}\*2[wm];" #[wm]
 
-	video_format="${videos}${audios}${watermark}[bg][wm]overlay=overlay_w/3:overlay_h/2[bg1]"
+	video_format="${videos}${audios}${watermark}[bg][wm]overlay=overlay_w/3:overlay_h/2[bg1];[bg1]${scales}${lights}"
 
 	echo ${video_format}
 	echo ${enter}
@@ -381,15 +403,16 @@ stream_play_main() {
 		    #killall ffmpeg
 		    #ps -ef | grep "${rtmp}" | grep ffmpeg | grep -v grep | grep -v bash | awk '{print $2}' | xargs kill -9
 		    sleep 3
-                done
-		#nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
-		echo ffmpeg -re -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
-		ffmpeg -re -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+        done
+		#nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
+		echo ffmpeg -loglevel "${logging}"   -re -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		ffmpeg -loglevel "${logging}"   -re -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		echo finished playing $videopath
 		#过度画面
-		#nohup ffmpeg -loglevel "${logging}" -re -i "${curdir}/smb/sleeping.mp4" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}" &
+		#nohup ffmpeg -loglevel "${logging}" -re -i "${curdir}/smb/sleeping.mp4" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}" &
 	else
 		echo do nothing
-		echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		#bgpic=${logodir}/bg.jpg
 		#logo=${logodir}/logow3.png
 		#duration0=$(get_duration "${videopath}")

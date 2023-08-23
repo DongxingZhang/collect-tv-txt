@@ -1,5 +1,5 @@
 0|TV0|F|F|F|0|/mnt/share1/tv/苗翠花|苗翠花
-0|TV0|F|F|F|0|/mnt/share3/tv/河东狮吼|河东狮吼
 0|TV0|F|F|F|F|/mnt/share2/tv/射雕之中神通王重阳|王重阳
 0|TV0|F|F|F|F|/mnt/share1/tv/神剑魔刀1986|神剑魔刀
-0|TV7|F|F|F|F|/mnt/share2/tv/边城浪子|边城浪子
+1|TV0|F|F|F|0|/mnt/share3/tv/河东狮吼|河东狮吼
+1|TV7|F|F|F|F|/mnt/share2/tv/边城浪子|边城浪子
