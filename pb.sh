@@ -12,9 +12,9 @@ curdir=$(pwd)
 #rtmp="rtmp://www.tomandjerry.work/live/livestream"
 #rtmp="rtmp://127.0.0.1:1935/live/1"
 ####http://101.206.209.7/live-bvc/927338/live_97540856_1852534/index.m3u8
-rtmp2="rtmp://live-push.bilivideo.com/live-bvc/?streamname=live_97540856_1852534&key=a042d1eb6f69ca88b16f4fb9bf9a5435&schedule=rtmp&pflag=1"
-rtmp_bak="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/6721_99a2fefeadd58c8948f14058edd45a65?bizid=6721&txSecret=f944652781e18a0ae34fbfa839681be7&txTime=64D6BAE2&sdkappid=1400526639&k=08c190c1941410beb7a399051a171215353431313731393233335f31363931353334393436&ck=469e&txPRI=1691534946"
-rtmp_real="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/$(cat ${curdir}/rtmp_pass.txt)"
+#rtmp2="rtmp://live-push.bilivideo.com/live-bvc/?streamname=live_97540856_1852534&key=a042d1eb6f69ca88b16f4fb9bf9a5435&schedule=rtmp&pflag=1"
+#rtmp_bak="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/6721_99a2fefeadd58c8948f14058edd45a65?bizid=6721&txSecret=f944652781e18a0ae34fbfa839681be7&txTime=64D6BAE2&sdkappid=1400526639&k=08c190c1941410beb7a399051a171215353431313731393233335f31363931353334393436&ck=469e&txPRI=1691534946"
+rtmp="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/$(cat ${curdir}/rtmp_pass.txt)"
 
 # 配置目录和文件
 logodir=${curdir}/logo
@@ -139,10 +139,10 @@ stream_play_main() {
 	videopath=$(echo ${arr[10]} | tr '%' ' ')
 	mode=$2
 	period=$3
-	source=$4
+	mvsource=$4
 	echo ${mode}
 	echo ${period}
-	echo ${source}
+	echo ${mvsource}
 
 	echo -e ${yellow}视频类别（delogo）:${font} ${video_type}
 	echo -e ${yellow}视频跳过:${font} ${video_skip}
@@ -157,12 +157,6 @@ stream_play_main() {
 	echo -e ${yellow}播放类型:${font} ${file_type}
 	echo -e ${yellow}电视剧名称:${font} ${videoname}
 	echo -e ${yellow}播放模式（bg, fg, test）:${font} ${mode}
-
-	if [ "${source}" = "" ]; then
-		rtmp=${rtmp_real}
-	else
-		rtmp=${rtmp_bak}
-	fi
 
 	echo ${rtmp}
 
@@ -374,8 +368,9 @@ stream_play_main() {
 
 	if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
 		#bgpic=${logodir}/bgqrcode.jpg
-		#killall ffmpeg
-		ps -ef | grep "${rtmp}" | awk '{print $2}' | xargs kill -9
+		killall ffmpeg
+		#ps -ef | grep "${rtmp}" | grep ffmpeg | grep -v grep | grep -v $$ | awk '{print $2}' | xargs kill -9
+		#ps -ef | grep "${rtmp}" | grep ffmpeg | grep -v grep | grep -v $$ | awk '{print $2}'
 		sleep 3
 		#nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
 		echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
@@ -669,9 +664,9 @@ get_rest_videos() {
 
 stream_start() {
 	play_mode=$1
-	source=$2
+	mvsource=$2
 
-	echo "推流地址和推流码:"${source}""
+	echo "推流地址和推流码:"${mvsource}""
 	echo "播放模式:${play_mode}"
 	current=""
 	while true; do
@@ -688,7 +683,7 @@ stream_start() {
 			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "出错了，等待修复。")
 			sleep 2
 		fi
-		stream_play_main "${next}" "${play_mode}" "${period}" "${source}"
+		stream_play_main "${next}" "${play_mode}" "${period}" "${mvsource}"
 		current=${next}
 	done
 }
@@ -754,11 +749,36 @@ start_menu() {
 	if [ "$1" = "" ]; then
 		read -p "请输入选项:" num
 		read -p "请输入模式:" mode
-		read -p "请输入信号源:" source
+		read -p "请输入信号源:" mvsource
+		read -p "字幕文件:" subfile 
+		read -p "时间段文件:" config
+		read -p "电影列表文件:" playlist
+		read -p "已播放文件:" playlist_done 
+		read -p "推流地址:" rtmp 
 	else
 		num=$1
 		mode=$2
-		source=$3
+		mvsource=$3
+		if [ "$4" != "" ]; then
+   		    subfile=$4
+		fi
+                if [ "$5" != "" ]; then
+                    config=$5
+		fi
+                if [ "$6" != "" ]; then
+                    playlist=$6
+		fi
+                if [ "$7" != "" ]; then
+                    playlist_done=$7
+		fi
+                if [ "$8" != "" ]; then
+                    rtmp=$8
+		fi
+		echo $subfile
+                echo $config	
+		echo ${playlist} 
+		echo ${playlist_done}
+                echo ${rtmp}
 	fi
 
 	case "$num" in
@@ -766,10 +786,10 @@ start_menu() {
 		ffmpeg_install
 		;;
 	2)
-		stream_start "${mode}" "${source}"
+		stream_start "${mode}" "${mvsource}"
 		;;
 	3)
-		stream_append "${mode}" "${source}"
+		stream_append "${mode}" "${mvsource}"
 		;;
 	4)
 		stream_stop
@@ -781,4 +801,4 @@ start_menu() {
 }
 
 # 运行开始菜单
-start_menu $1 $2 $3
+start_menu $1 $2 $3 $4 $5 $6 $7 $8
