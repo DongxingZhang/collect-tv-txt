@@ -116,11 +116,28 @@ get_file() {
 
 check_even() {
 	num=$1
-	if [ $((num%2)) -eq  0 ]; then
-        echo "1"
-    else
-        echo "0"
-    fi
+	if [ $((num % 2)) -eq 0 ]; then
+		echo "1"
+	else
+		echo "0"
+	fi
+}
+
+kill_app() {
+	rtmp=$1
+	app=$2
+	while true; do
+		pidlist=$(ps -ef | grep "${rtmp}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
+		arr=($pidlist)
+		if [ ${#arr[@]} -eq  0 ]; then
+			break
+		fi
+		for i in "${arr[@]}"; do
+			echo killing the thread $i
+			kill -9 $i
+		done
+		sleep 3
+	done
 }
 
 ####功能函数END
@@ -353,17 +370,17 @@ stream_play_main() {
 	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*4:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
 
 	#缩放
-    size_height=$(expr ${size_height}  + 1)
-    if [ ${size_height} -gt 720 ]; then
-	    swidth=$(echo "scale=5;720/${size_height}*${size_width}" | bc)
-	    swidth=$(echo "scale=0;${swidth}/1" | bc)
+	size_height=$(expr ${size_height} + 1)
+	if [ ${size_height} -gt 720 ]; then
+		swidth=$(echo "scale=5;720/${size_height}*${size_width}" | bc)
+		swidth=$(echo "scale=0;${swidth}/1" | bc)
 		if [ "$(check_even ${swidth})" = "0" ]; then
-		    swidth=$(expr ${swidth}  + 1)
+			swidth=$(expr ${swidth} + 1)
 		fi
 		scales="scale=${swidth}:720[scalev];[scalev]"
-    else
-        scales=""
-    fi
+	else
+		scales=""
+	fi
 
 	#增亮
 	if [ "${lighter}" != "F" ]; then
@@ -375,7 +392,7 @@ stream_play_main() {
 	# 视频轨
 	videos="${mapv}${delogo}${videoskips}${subs}${drawtext1}${drawtext2}${drawtext3}[bg];" #[bg]
 	# 音轨
-	audios="${mapa}${audio_format}[bga];"  #[bga]
+	audios="${mapa}${audio_format}[bga];" #[bga]
 	# 台标
 	watermark="[1:v:0]scale=-1:${newfontsize}\*2[wm];" #[wm]
 
@@ -390,23 +407,10 @@ stream_play_main() {
 
 	if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
 		#bgpic=${logodir}/bgqrcode.jpg
-		while true; do
-          	    arr=`ps -ef | grep "${rtmp}" | grep ffmpeg | grep -v grep | grep -v bash | awk '{print $2}'`
-		    echo $arr
-		    if [ "${arr}" = "" ]; then
-		        break
-		    fi
-                    for i in "${arr[@]}" ; do
-		        echo killing the thread $i
-                        kill -9 $i
-                    done
-		    #killall ffmpeg
-		    #ps -ef | grep "${rtmp}" | grep ffmpeg | grep -v grep | grep -v bash | awk '{print $2}' | xargs kill -9
-		    sleep 3
-        done
+		kill_app "${rtmp}" "ffmpeg -re"
 		#nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
-		echo ffmpeg -loglevel "${logging}"   -re -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
-		ffmpeg -loglevel "${logging}"   -re -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		echo ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		echo finished playing $videopath
 		#过度画面
 		#nohup ffmpeg -loglevel "${logging}" -re -i "${curdir}/smb/sleeping.mp4" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}" &
@@ -590,7 +594,7 @@ get_next_video_name() {
 	periodcount=$(cat ${config} | grep -v "^#" | sed /^$/d | wc -l)
 	ret=$(get_rest $(TZ=Asia/Shanghai date +%H))
 	if [ "${ret}" = "F|F|F" ]; then
-		timec=4
+		timec=0
 	else
 		arr=(${ret//|/ })
 		timec=${arr[2]}
@@ -641,20 +645,22 @@ need_waiting() {
 		echo ${timed}
 		return
 	fi
-	if [ "${hours}" = "${last_hour}" ]; then
-		mins2end=$(expr 59 - ${mins})
-		if [ ${mins2end} -le 20 ]; then
-			timed1=$(expr ${timed} + 1)
-			if [ ${timed1} -ge ${periodcount} ]; then
-				timed1=0
-			fi
-			echo "${timed1}"
-		else
-			echo ${timed}
-		fi
-	else
-		echo ${timed}
-	fi
+	echo ${timed}
+	return 
+	# if [ "${hours}" = "${last_hour}" ]; then
+	# 	mins2end=$(expr 59 - ${mins})
+	# 	if [ ${mins2end} -le 20 ]; then
+	# 		timed1=$(expr ${timed} + 1)
+	# 		if [ ${timed1} -ge ${periodcount} ]; then
+	# 			timed1=0
+	# 		fi
+	# 		echo "${timed1}"
+	# 	else
+	# 		echo ${timed}
+	# 	fi
+	# else
+	# 	echo ${timed}
+	# fi
 }
 
 get_next() {
@@ -707,15 +713,20 @@ stream_start() {
 		if [ "${period}" = "F" ] || [ "${play_mode: -1}" = "a" ]; then
 			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "")
 			sleep 2
+			continue
 		else
 			next=$(get_next ${period})
 			echo $next
 		fi
 		#如果连续两次的下一个出现问题，则播放歌曲
 		if [ "${next}" = "${current}" ]; then
-			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "出错了，等待修复。")
-			continue
+			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "出错了，等待修复。")			
 			sleep 2
+			continue
+		fi
+		if [ "${next}" = "" ]; then
+		    sleep 2
+			continue
 		fi
 		stream_play_main "${next}" "${play_mode}" "${period}" "${mvsource}"
 		current=${next}
@@ -784,35 +795,35 @@ start_menu() {
 		read -p "请输入选项:" num
 		read -p "请输入模式:" mode
 		read -p "请输入信号源:" mvsource
-		read -p "字幕文件:" subfile 
+		read -p "字幕文件:" subfile
 		read -p "时间段文件:" config
 		read -p "电影列表文件:" playlist
-		read -p "已播放文件:" playlist_done 
-		read -p "推流地址:" rtmp 
+		read -p "已播放文件:" playlist_done
+		read -p "推流地址:" rtmp
 	else
 		num=$1
 		mode=$2
 		mvsource=$3
 		if [ "$4" != "" ]; then
-   		    subfile=$4
+			subfile=$4
 		fi
-                if [ "$5" != "" ]; then
-                    config=$5
+		if [ "$5" != "" ]; then
+			config=$5
 		fi
-                if [ "$6" != "" ]; then
-                    playlist=$6
+		if [ "$6" != "" ]; then
+			playlist=$6
 		fi
-                if [ "$7" != "" ]; then
-                    playlist_done=$7
+		if [ "$7" != "" ]; then
+			playlist_done=$7
 		fi
-                if [ "$8" != "" ]; then
-                    rtmp=$8
+		if [ "$8" != "" ]; then
+			rtmp=$8
 		fi
 		echo $subfile
-                echo $config	
-		echo ${playlist} 
+		echo $config
+		echo ${playlist}
 		echo ${playlist_done}
-                echo ${rtmp}
+		echo ${rtmp}
 	fi
 
 	case "$num" in
