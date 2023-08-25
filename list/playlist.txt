@@ -46,7 +46,6 @@
 #3|TV511|F|F|F|0|/mnt/share1/tv/赢单传奇|赢单传奇
 3|TV0|2|F|E|0|/mnt/share3/tv/楚汉骄雄|楚汉骄雄
 3|000|F|F|F|0|/mnt/share2/tv/寻秦记|寻秦记
-3|CC2|0|F|F|0|/mnt/share2/tv/莲花争霸|莲花争霸
 3|000|F|F|F|0|/mnt/share2/tv/齐天大圣孙悟空|齐天大圣孙悟空
 3|TV0|F|F|F|0|/mnt/share1/tv/苗翠花|苗翠花
 3|TV0|F|F|F|0|/mnt/share3/tv/河东狮吼|河东狮吼
@@ -93,8 +92,9 @@
 6|000|0|F|F|0|/mnt/share2/tv/包青天|包青天
 6|000|0|F|F|0|/mnt/share2/tv/包青天二|包青天二
 6|000|0|F|F|0|/mnt/share2/tv/包青天三|包青天三
-6|000|0|F|F|0|/mnt/share2/tv/七侠五义|七侠五义
 6|000|F|F|F|0|/mnt/share1/tv/新包青天|新包青天
 6|000|F|F|F|0|/mnt/share1/tv/新包青天二|新包青天二
+6|000|0|F|F|0|/mnt/share3/tv/七侠五义|七侠五义
 6|000|F|F|1|0|/mnt/share1/movies/变脸.mkv|变脸
 6|000|F|F|F|0|/mnt/share1/movies/记忆裂痕.mkv|记忆裂痕
+6|000|F|F|F|0|/mnt/share3/movies/鲁冰花.mk|鲁冰花
