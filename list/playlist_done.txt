@@ -1,5 +1,5 @@
 
-0|/mnt/share3/tv/雍正王朝|8|44
+0|/mnt/share3/tv/雍正王朝|10|44
 1|/mnt/share1/tv/绝代双骄GOTV1988|20|20
 1|/mnt/share2/tv/小宝与康熙|6|42
 1|/mnt/share3/tv/青锋剑影|5|5

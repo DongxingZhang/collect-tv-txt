@@ -351,18 +351,17 @@ stream_play_main() {
 		content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')
 		echo ${content2}
 	else
-		split="◇"
-		splitstar="☆"
+		splitstar="${enter}"
 		#splitstar="★"
 		cur_file2=$(digit_half2full ${cur_file})
 		if [ "${file_count}" = "${cur_file}" ]; then
 			vn=${videoname}${splitstar}大结局
 			cont_len=${#vn}
-			content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')${splitstar}${enter}大${enter}结${enter}局
+			content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')${splitstar}大${enter}结${enter}局
 		else
 			vn=${videoname}${splitstar}${cur_file2}
 			cont_len=${#vn}
-			content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')${splitstar}${enter}${cur_file2}
+			content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')${splitstar}${cur_file2}
 		fi
 		echo ${content2}
 	fi
@@ -637,30 +636,37 @@ need_waiting() {
 	mins=$(TZ=Asia/Shanghai date +%M)
 	mins=$(expr ${mins} + 0)
 	ret=$(get_rest ${hours})
+
+        if [ "${ret}" = "F|F|F" ]; then
+            echo "F"
+            return
+        fi
+
 	periodcount=$(cat ${config} | grep -v "^#" | sed /^$/d | wc -l)
 	arr=(${ret//|/ })
 	last_hour=${arr[1]}
 	timed=${arr[2]}
-	if [ "${timed}" = "F" ]; then
-		echo ${timed}
-		return
+
+	if [ "${hours}" = "${last_hour}" ]; then
+		mins2end=$(expr 59 - ${mins})
+	 	if [ ${mins2end} -le 20 ]; then
+	                nexthours=$(expr ${hours} + 1)
+                        retnext=$(get_rest ${nexthours})
+
+			if [ "${retnext}" = "F|F|F" ]; then
+                               echo "F"
+			       return
+			fi
+
+	 		timed1=$(expr ${timed} + 1)
+	 		if [ ${timed1} -ge ${periodcount} ]; then
+	 			timed1=0
+	 		fi
+	 		echo "${timed1}"
+			return
+	 	fi
 	fi
-	echo ${timed}
-	return 
-	# if [ "${hours}" = "${last_hour}" ]; then
-	# 	mins2end=$(expr 59 - ${mins})
-	# 	if [ ${mins2end} -le 20 ]; then
-	# 		timed1=$(expr ${timed} + 1)
-	# 		if [ ${timed1} -ge ${periodcount} ]; then
-	# 			timed1=0
-	# 		fi
-	# 		echo "${timed1}"
-	# 	else
-	# 		echo ${timed}
-	# 	fi
-	# else
-	# 	echo ${timed}
-	# fi
+        echo ${timed}
 }
 
 get_next() {
@@ -711,22 +717,22 @@ stream_start() {
 	while true; do
 		period=$(need_waiting)
 		if [ "${period}" = "F" ] || [ "${play_mode: -1}" = "a" ]; then
+			continue
 			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "")
 			sleep 2
-			continue
 		else
 			next=$(get_next ${period})
 			echo $next
 		fi
 		#如果连续两次的下一个出现问题，则播放歌曲
 		if [ "${next}" = "${current}" ]; then
+			continue
 			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "出错了，等待修复。")			
 			sleep 2
-			continue
 		fi
 		if [ "${next}" = "" ]; then
 		    sleep 2
-			continue
+		    continue
 		fi
 		stream_play_main "${next}" "${play_mode}" "${period}" "${mvsource}"
 		current=${next}

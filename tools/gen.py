@@ -41,12 +41,33 @@ def parseplaylist(playlist, idx):
 def writeplaylist(playlist, playlist_array):
     with open(playlist, 'w', encoding='utf-8') as f2:
         f2.writelines(playlist_array)
+       
 
+def find_new_tv():
+    folders = [
+        '/mnt/share1/tv/',
+        '/mnt/share2/tv/',
+        '/mnt/share3/tv/'
+    ]
+    cont=''
+    with open('../list/playlist.txt', encoding='utf-8') as f:
+        cont+=f.read()
+    with open('../list/playlist2.txt', encoding='utf-8') as f:
+        cont+=f.read()
+    for dir in folders:
+        files = [os.path.join(dir, file) for file in os.listdir(dir) if os.path.isdir(dir + os.sep + file)] 
+        for filepath in files:
+            if not filepath in cont:
+                #print(filepath) 
+                print("0|000|F|F|F|0|" + filepath + "|")
 if __name__ == '__main__':    
-    p1=parseplaylist("./list/playlist.txt", 6)
-    writeplaylist("./list/playlist.txt", p1)
-    p2=parseplaylist("./list/playlist_done.txt", 1)
-    writeplaylist("./list/playlist_done.txt", p2)
+    #p1=parseplaylist("./list/playlist.txt", 6)
+    #writeplaylist("./list/playlist.txt", p1)
+    #p2=parseplaylist("./list/playlist_done.txt", 1)
+    #writeplaylist("./list/playlist_done.txt", p2)
+    find_new_tv()
+    pass
+
 
 
 

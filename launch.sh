@@ -45,8 +45,8 @@ fi
 #read -p "请输入任意继续:" any
 if [ "${mode:0:4}" = "test" ]; then
 	echo "test pushing"
-	bash ./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}"
+	./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}"
 else
 	echo "foreground pushing"
-	bash ./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}"
+	./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}"
 fi

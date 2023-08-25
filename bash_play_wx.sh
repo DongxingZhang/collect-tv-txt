@@ -10,7 +10,7 @@ ffmpeglog="${curdir}/log/ffmpeg.log"
 rtmp="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/$(cat ${curdir}/rtmp_pass.txt)"
 
 if [ "${mode:0:2}" = "bg" ]; then
-	nohup bash ./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${ffmpeglog}" > ${ffmpeglog} 2&>1 &
+	nohup bash ./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${ffmpeglog}" > ${ffmpeglog} 2>&1 &
 else
 	bash ./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${ffmpeglog}"
 fi

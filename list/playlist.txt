@@ -1,10 +1,4 @@
 0|000|0|F|F|0|/mnt/share3/tv/雍正王朝|雍正王朝
-0|000|F|F|F|0|/mnt/share1/tv/越女剑|越女剑
-0|TV0|0|F|F|0|/mnt/share2/tv/天龙奇侠1991|天龙奇侠
-0|0005|0|F|F|0|/mnt/share2/tv/倚天屠龙记马景涛|倚天屠龙记
-0|MDD|0|F|F|0|/mnt/share1/tv/六指琴魔|六指琴魔
-0|000|F|F|F|0|/mnt/share1/tv/碧血青天杨家将1994|碧血青天杨家将
-0|000|F|F|F|0|/mnt/share2/tv/碧血青天珍珠旗1995|碧血青天珍珠旗
 0|000|F|F|F|0|/mnt/share2/tv/封神榜|封神榜
 0|000|F|F|F|0|/mnt/share2/tv/上海探戈|上海探戈
 0|000|F|F|F|0|/mnt/share1/tv/勇者无惧|勇者无惧
@@ -15,9 +9,6 @@
 0|000|F|F|F|0|/mnt/share2/tv/宰相刘罗锅|宰相刘罗锅
 0|000|0|F|F|0|/mnt/share2/tv/六小龄童版西游记|西游记
 0|000|F|F|F|0|/mnt/share1/tv/水浒传|水浒传
-0|TV0|0|F|F|0|/mnt/share1/tv/剑魔独孤求败1990|剑魔
-0|TV0|F|F|F|0|/mnt/share2/tv/蜀山奇侠紫青双剑1990|紫青双剑
-0|TV0|0|F|F|0|/mnt/share2/tv/日月神劍全20集|日月神剑
 
 1|TV0|0|F|F|0|/mnt/share1/tv/绝代双骄GOTV1988|绝代双骄
 1|TV1|0|F|F|0|/mnt/share3/tv/青锋剑影|青锋剑影
@@ -47,12 +38,16 @@
 3|TV0|2|F|E|0|/mnt/share3/tv/楚汉骄雄|楚汉骄雄
 3|000|F|F|F|0|/mnt/share2/tv/寻秦记|寻秦记
 3|000|F|F|F|0|/mnt/share2/tv/齐天大圣孙悟空|齐天大圣孙悟空
-3|TV0|F|F|F|0|/mnt/share1/tv/苗翠花|苗翠花
-3|TV0|F|F|F|0|/mnt/share3/tv/河东狮吼|河东狮吼
-3|TV0|F|F|F|0|/mnt/share2/tv/射雕之中神通王重阳|王重阳
-3|TV0|F|F|F|0|/mnt/share1/tv/神剑魔刀1986|神剑魔刀
-3|TV7|F|F|F|0|/mnt/share2/tv/边城浪子|边城浪子
-3|000|F|F|F|0|/mnt/share2/tv/《恐龙特急克塞号》52集全国语配音1080P收藏首选|恐龙特急克塞号
+3|000|F|F|F|0|/mnt/share1/tv/西游记续集2000-无水印台标|西游记续集
+3|000|F|F|F|0|/mnt/share1/tv/江湖再见|江湖再见
+3|000|F|F|F|0|/mnt/share2/tv/戏说乾隆|戏说乾隆
+3|000|F|F|F|0|/mnt/share2/tv/烈焰焚情|烈焰焚情
+0|000|F|F|F|0|/mnt/share2/tv/地下交通站第一部|下交通站一
+3|000|F|F|F|0|/mnt/share2/tv/地下交通站第二部|地下交通站二
+3|000|F|F|F|0|/mnt/share2/tv/电视剧《围城》90年版|围城
+3|000|F|F|F|0|/mnt/share3/tv/流氓大亨|流氓大亨
+3|000|F|F|F|0|/mnt/share3/tv/聊斋电视系列片|聊斋
+3|000|F|F|F|0|/mnt/share3/tv/宰相刘罗锅|宰相刘罗锅
 
 #4|TS0|0|F|E|0|/mnt/share2/tv/义不容情|义不容情
 4|TV0|F|F|F|0|/mnt/share2/tv/今生无悔国语720P|今生无悔
