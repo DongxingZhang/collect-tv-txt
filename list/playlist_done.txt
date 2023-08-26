@@ -1,15 +1,16 @@
 
-0|/mnt/share3/tv/雍正王朝|10|44
+0|/mnt/share3/tv/雍正王朝|15|44
 1|/mnt/share1/tv/绝代双骄GOTV1988|20|20
-1|/mnt/share2/tv/小宝与康熙|6|42
+1|/mnt/share2/tv/小宝与康熙|10|42
 1|/mnt/share3/tv/青锋剑影|5|5
 2|/mnt/share2/tv/精武门|30|30
-2|/mnt/share3/tv/新上海滩|8|41
+2|/mnt/share3/tv/新上海滩|12|41
 3|/mnt/share1/tv/赢单传奇|35|35
-3|/mnt/share2/tv/寻秦记|5|40
+3|/mnt/share2/tv/寻秦记|9|40
 3|/mnt/share3/tv/楚汉骄雄|30|30
-4|/mnt/share2/tv/今生无悔国语720P|18|40
+4|/mnt/share2/tv/今生无悔国语720P|22|40
 5|/mnt/share1/tv/怒剑啸狂沙1996|20|20
-5|/mnt/share2/tv/绝代双雄|39|40
+5|/mnt/share1/tv/笑傲江湖周润发版|6|18
+5|/mnt/share2/tv/绝代双雄|40|40
 5|/mnt/share3/tv/魔刀侠情|18|18
-6|/mnt/share2/tv/包青天|80|99
+6|/mnt/share2/tv/包青天|83|99

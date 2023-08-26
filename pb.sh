@@ -129,7 +129,7 @@ kill_app() {
 	while true; do
 		pidlist=$(ps -ef | grep "${rtmp}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
 		arr=($pidlist)
-		if [ ${#arr[@]} -eq  0 ]; then
+		if [ ${#arr[@]} -eq 0 ]; then
 			break
 		fi
 		for i in "${arr[@]}"; do
@@ -364,19 +364,21 @@ stream_play_main() {
 			content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')${splitstar}${cur_file2}
 		fi
 		echo ${content2}
+		cont_len=$(expr ${cont_len} - 1)
 	fi
 	cont_len=$(expr ${cont_len} / 2)
 	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*4:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
 
 	#缩放
+	sheight=600
 	size_height=$(expr ${size_height} + 1)
-	if [ ${size_height} -gt 720 ]; then
-		swidth=$(echo "scale=5;720/${size_height}*${size_width}" | bc)
+	if [ ${size_height} -gt ${sheight} ]; then
+		swidth=$(echo "scale=5;${sheight}/${size_height}*${size_width}" | bc)
 		swidth=$(echo "scale=0;${swidth}/1" | bc)
 		if [ "$(check_even ${swidth})" = "0" ]; then
 			swidth=$(expr ${swidth} + 1)
 		fi
-		scales="scale=${swidth}:720[scalev];[scalev]"
+		scales="scale=${swidth}:${sheight}[scalev];[scalev]"
 	else
 		scales=""
 	fi
@@ -637,10 +639,10 @@ need_waiting() {
 	mins=$(expr ${mins} + 0)
 	ret=$(get_rest ${hours})
 
-        if [ "${ret}" = "F|F|F" ]; then
-            echo "F"
-            return
-        fi
+	if [ "${ret}" = "F|F|F" ]; then
+		echo "F"
+		return
+	fi
 
 	periodcount=$(cat ${config} | grep -v "^#" | sed /^$/d | wc -l)
 	arr=(${ret//|/ })
@@ -649,24 +651,27 @@ need_waiting() {
 
 	if [ "${hours}" = "${last_hour}" ]; then
 		mins2end=$(expr 59 - ${mins})
-	 	if [ ${mins2end} -le 20 ]; then
-	                nexthours=$(expr ${hours} + 1)
-                        retnext=$(get_rest ${nexthours})
+		if [ ${mins2end} -le 20 ]; then
+			nexthours=$(expr ${hours} + 1)
+			if [ ${nexthours} -ge 24 ]; then
+				nexthours=0
+			fi
+			retnext=$(get_rest ${nexthours})
 
 			if [ "${retnext}" = "F|F|F" ]; then
-                               echo "F"
-			       return
+				echo "F"
+				return
 			fi
 
-	 		timed1=$(expr ${timed} + 1)
-	 		if [ ${timed1} -ge ${periodcount} ]; then
-	 			timed1=0
-	 		fi
-	 		echo "${timed1}"
+			timed1=$(expr ${timed} + 1)
+			if [ ${timed1} -ge ${periodcount} ]; then
+				timed1=0
+			fi
+			echo "${timed1}"
 			return
-	 	fi
+		fi
 	fi
-        echo ${timed}
+	echo ${timed}
 }
 
 get_next() {
@@ -716,23 +721,24 @@ stream_start() {
 	current=""
 	while true; do
 		period=$(need_waiting)
+		#echo period=$period
 		if [ "${period}" = "F" ] || [ "${play_mode: -1}" = "a" ]; then
 			continue
 			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "")
 			sleep 2
 		else
 			next=$(get_next ${period})
-			echo $next
+			#echo $next
 		fi
 		#如果连续两次的下一个出现问题，则播放歌曲
 		if [ "${next}" = "${current}" ]; then
 			continue
-			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "出错了，等待修复。")			
+			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "出错了，等待修复。")
 			sleep 2
 		fi
 		if [ "${next}" = "" ]; then
-		    sleep 2
-		    continue
+			sleep 2
+			continue
 		fi
 		stream_play_main "${next}" "${play_mode}" "${period}" "${mvsource}"
 		current=${next}

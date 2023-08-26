@@ -1,7 +1,11 @@
 
 
-0|/mnt/share1/tv/苗翠花|10|20
-1|/mnt/share3/tv/河东狮吼|10|20
+0|/mnt/share1/tv/苗翠花|20|20
+0|/mnt/share2/tv/大运河|7|61
+1|/mnt/share3/tv/河东狮吼|17|20
 2|/mnt/share1/movies/记忆裂痕.mkv|1|1
-3|/mnt/share3/tv/七侠五义|10|75
-4|/mnt/share2/tv/大运河|5|61
+2|/mnt/share3/movies/精武门1972.mp4|1|1
+3|/mnt/share3/tv/七侠五义|19|75
+4|/mnt/share1/movies/倩女幽魂01.mkv|1|1
+4|/mnt/share1/movies/倩女幽魂02.mkv|1|1
+4|/mnt/share1/movies/倩女幽魂03.mkv|1|1

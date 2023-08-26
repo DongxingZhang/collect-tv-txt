@@ -46,7 +46,7 @@ fi
 if [ "${mode:0:4}" = "test" ]; then
 	echo "test pushing"
 	./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}"
-else
+elif [ "${mode:0:2}" = "fg" ] || [  "${mode:0:2}" = "bg"   ] ; then
 	echo "foreground pushing"
 	./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}"
 fi

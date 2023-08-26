@@ -1,4 +1,5 @@
 0|TV0|0|F|F|F|/mnt/share1/tv/苗翠花|苗翠花
+0|TV0|0|0|F|F|/mnt/share2/tv/大运河|大运河
 0|T61|0|1|F|F|/mnt/share1/tv/血玺金刀|血玺金刀
 0|TV0|F|F|F|F|/mnt/share2/tv/射雕之中神通王重阳|王重阳
 0|TV0|F|F|F|F|/mnt/share1/tv/神剑魔刀1986|神剑魔刀
@@ -12,8 +13,8 @@
 0|TV0|0|F|F|F|/mnt/share1/tv/剑魔独孤求败1990|剑魔
 0|TV0|0|F|F|F|/mnt/share2/tv/乌金血剑1990|乌金血剑
 0|TV0|F|F|F|F|/mnt/share1/tv/玉面飞狐720p|玉面飞狐
-0|TV0|F|F|F|F|/mnt/share2/tv/蜀山奇侠紫青双剑1990|紫青双剑
 0|TV0|0|F|F|F|/mnt/share2/tv/日月神劍全20集|日月神剑
+0|TV0|0|F|F|F|/mnt/share1/tv/日月神劍2捉妖奇兵全20集|日月神剑二
 
 1|TV0|0|F|F|F|/mnt/share3/tv/河东狮吼|河东狮吼
 1|CC2|0|F|F|F|/mnt/share2/tv/莲花争霸|莲花争霸
@@ -21,8 +22,22 @@
 1|TVC|0|F|F|F|/mnt/share3/tv/少林与咏春|少林与咏春
 1|AT1|0|F|F|F|/mnt/share1/tv/天剑绝刀|天剑绝刀
 1|TV0|0|1|F|F|/mnt/share1/tv/大地飞鹰1992|大地飞鹰
+1|TV0|F|F|F|F|/mnt/share2/tv/射雕之中神通王重阳|王重阳
+1|TV0|F|F|F|F|/mnt/share1/tv/神剑魔刀1986|神剑魔刀
+1|TV7|F|F|F|F|/mnt/share2/tv/边城浪子|边城浪子
+1|000|F|F|F|F|/mnt/share1/tv/真命天子|真命天子
+1|000|F|F|F|F|/mnt/share1/tv/聊斋一|聊斋一
+1|000|F|F|F|F|/mnt/share2/tv/聊斋二|聊斋二
+1|000|F|F|F|F|/mnt/share2/tv/太极张三丰|太极张三丰
+1|000|F|F|F|F|/mnt/share2/tv/奇幻人世间|奇幻人世间
+1|000|F|F|F|F|/mnt/share2/tv/马永贞之争霸上海滩|争霸上海滩
+1|000|F|F|F|F|/mnt/share2/tv/仙鹤神针有广告|仙鹤神针
+1|000|F|F|F|F|/mnt/share3/tv/甘十九妹|甘十九妹
 
 
+2|TVC|0|F|F|F|/mnt/share3/tv/少林与咏春|少林与咏春
+2|TV0|F|F|F|F|/mnt/share2/tv/蜀山奇侠紫青双剑1990|紫青双剑
+2|TVB|F|F|F|F|/mnt/share1/tv/蜀山奇侠之仙侣奇缘1991|仙侣奇缘
 2|000|F|F|F|F|/mnt/share3/movies/精武门1972.mp4|精武门李小龙版
 2|000|F|F|F|F|/mnt/share1/movies/倩女幽魂01.mkv|倩女幽魂
 2|000|F|F|F|F|/mnt/share1/movies/倩女幽魂02.mkv|倩女幽魂二
@@ -37,29 +52,16 @@
 3|000|0|F|F|F|/mnt/share3/tv/七侠五义|七侠五义
 3|TV0|F|F|F|F|/mnt/share1/tv/苗翠花|苗翠花
 3|TV0|F|F|F|F|/mnt/share3/tv/河东狮吼|河东狮吼
-3|TV0|F|F|F|F|/mnt/share2/tv/射雕之中神通王重阳|王重阳
-3|TV0|F|F|F|F|/mnt/share1/tv/神剑魔刀1986|神剑魔刀
-3|TV7|F|F|F|F|/mnt/share2/tv/边城浪子|边城浪子
 3|000|F|F|F|F|/mnt/share2/tv/《恐龙特急克塞号》52集全国语配音1080P收藏首选|恐龙特急克塞号
-3|000|F|F|F|F|/mnt/share1/tv/真命天子|真命天子
-3|000|F|F|F|F|/mnt/share1/tv/聊斋一|聊斋一
-3|000|F|F|F|F|/mnt/share2/tv/聊斋二|聊斋二
-3|000|F|F|F|F|/mnt/share2/tv/太极张三丰|太极张三丰
-3|000|F|F|F|F|/mnt/share2/tv/奇幻人世间|奇幻人世间
-3|000|F|F|F|F|/mnt/share2/tv/马永贞之争霸上海滩|争霸上海滩
-3|000|F|F|F|F|/mnt/share2/tv/仙鹤神针有广告|仙鹤神针
-3|000|F|F|F|F|/mnt/share3/tv/上海滩|上海滩
-3|000|F|F|F|F|/mnt/share3/tv/甘十九妹|甘十九妹
 
-4|TV0|0|0|F|F|/mnt/share2/tv/大运河|大运河
-4|000|F|F|F|F|/mnt/share1/movies/决战紫禁之巅.mkv|决战紫禁之巅
-4|000|F|F|F|F|/mnt/share1/movies/火云传奇.mkv|火云传奇
-4|000|F|F|F|F|/mnt/share1/movies/边城浪子.ts|边城浪子
-4|000|F|F|F|F|/mnt/share1/movies/六指琴魔.mkv|六指琴魔
-4|000|F|F|F|F|/mnt/share1/movies/飞狐外传.mkv|飞狐外传
-4|000|F|F|F|F|/mnt/share1/movies/大撒把.mp4|大撒把
-4|000|F|F|F|F|/mnt/share1/movies/火云传奇.mkv|火云传奇F|F|F|F|/mnt/share1/movies/大撒把.mp4|大撒把
-4|000|F|F|F|F|/mnt/share1/movies/火云传奇.mkv|火云传奇
+
 4|000|F|F|F|F|/mnt/share1/movies/倩女幽魂01.mkv|倩女幽魂
 4|000|F|F|F|F|/mnt/share1/movies/倩女幽魂02.mkv|倩女幽魂二
 4|000|F|F|F|F|/mnt/share1/movies/倩女幽魂03.mkv|倩女幽魂三
+4|000|F|F|F|F|/mnt/share1/movies/六指琴魔.mkv|六指琴魔
+4|000|F|F|F|F|/mnt/share1/movies/飞狐外传.mkv|飞狐外传
+4|000|F|F|F|F|/mnt/share1/movies/大撒把.mp4|大撒把
+4|000|F|F|F|F|/mnt/share1/movies/火云传奇.mkv|火云传奇
+4|000|F|F|F|F|/mnt/share1/movies/决战紫禁之巅.mkv|决战紫禁之巅
+4|000|F|F|F|F|/mnt/share1/movies/火云传奇.mkv|火云传奇
+4|000|F|F|F|F|/mnt/share1/movies/边城浪子.ts|边城浪子

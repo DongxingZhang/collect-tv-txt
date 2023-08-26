@@ -25,7 +25,7 @@
 #2|000|0|F|E|0|/mnt/share3/tv/天蚕变之再与天比高|再与天比高
 2|000|0|F|F|0|/mnt/share2/tv/精武门|精武门
 2|000|0|F|F|2|/mnt/share3/tv/新上海滩|新上海滩
-2|TVC|0|F|F|0|/mnt/share3/tv/少林与咏春|少林与咏春
+2|000|F|F|F|0|/mnt/share3/tv/上海滩|上海滩
 2|000|0|1|F|0|/mnt/share2/tv/倚天屠龙记梁朝伟|倚天屠龙记
 2|000|F|F|F|0|/mnt/share1/tv/86金剑雕翎高清|金剑雕翎
 2|TV0|F|F|F|0|/mnt/share2/tv/楚留香郑少秋版|楚留香
@@ -69,13 +69,12 @@
 4|000|F|F|F|0|/mnt/share3/tv/洪熙官|洪熙官
 4|TV0|F|F|F|0|/mnt/share2/tv/九阴真经1993|九阴真经
 4|TVB|F|F|F|0|/mnt/share1/tv/十三妹|十三妹
-4|TVB|F|F|F|0|/mnt/share1/tv/蜀山奇侠之仙侣奇缘1991|仙侣奇缘
-4|TV0|0|F|F|0|/mnt/share1/tv/日月神劍2捉妖奇兵全20集|日月神剑二
+
 
 5|TV0|0|F|F|0|/mnt/share1/tv/怒剑啸狂沙1996|怒剑啸狂沙
 5|TD110|0|1|F|0|/mnt/share3/tv/魔刀侠情|魔刀侠情
 5|000|F|F|F|0|/mnt/share2/tv/绝代双雄|绝代双雄
-5|TV5|0|F|F|0|/mnt/share1/tv/笑傲江湖周润发版|笑傲江湖
+5|000|0|F|F|0|/mnt/share1/tv/笑傲江湖周润发版|笑傲江湖
 5|TV0|0|F|F|0|/mnt/share3/tv/武林幸运星|武林幸运星
 5|000|0|F|F|0|/mnt/share2/tv/琥珀青龙|琥珀青龙
 5|TV0|0|1|F|0|/mnt/share1/tv/大地飞鹰1992|大地飞鹰
