@@ -9,7 +9,7 @@
 1|TV0|0|1|F|F|/mnt/share1/tv/大地飞鹰1992|大地飞鹰
 
 
-2|TV7|0|F|F|F|/mnt/share2/tv/边城浪子|边城浪子
+2|T71|0|F|F|F|/mnt/share2/tv/边城浪子|边城浪子
 2|TV0|F|F|F|F|/mnt/share2/tv/今生无悔国语720P|今生无悔
 2|TW1|F|F|F|F|/mnt/share3/tv/灰网|灰网
 

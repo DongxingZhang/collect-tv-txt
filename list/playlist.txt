@@ -1,17 +1,29 @@
-0|000|0|F|F|0|/mnt/share3/tv/雍正王朝|雍正王朝
+0|000|0|F|F|2|/mnt/share3/tv/雍正王朝|雍正王朝
+0|000|F|F|F|F|/mnt/share3/tv/甘十九妹|甘十九妹
+0|000|F|F|F|0|/mnt/share3/tv/宰相刘罗锅|宰相刘罗锅
 
 1|000|0|F|F|2|/mnt/share3/tv/新上海滩|新上海滩
+1|CC2|F|F|F|0|/mnt/share3/tv/银狐|银狐
+1|000|F|F|F|0|/mnt/share1/tv/勇者无惧|勇者无惧
+1|TV8|0|1|F|0|/mnt/share1/tv/刀马旦|刀马旦
+1|STA|F|F|F|0|/mnt/share3/tv/胜者为王1|胜者为王一
+1|STA|F|F|F|0|/mnt/share3/tv/胜者为王2|胜者为王二
+1|STA|F|F|F|0|/mnt/share3/tv/胜者为王3|胜者为王三
+
+2|000|F|F|F|0|/mnt/share3/tv/知否知否|知否知否
+2|000|F|F|F|0|/mnt/share2/tv/戏说乾隆|戏说乾隆
+2|000|F|F|F|0|/mnt/share1/tv/江湖再见|江湖再见
+2|CC212|F|F|F|0|/mnt/share2/tv/情义无价|情义无价
 
 
-2|000|F|F|F|0|/mnt/share3/tv/知否知否|知否知否应是绿肥红瘦
+3|TV95|F|F|F|0|/mnt/share1/tv/末代皇孙|末代皇孙
+3|000|F|F|F|0|/mnt/share2/tv/封神榜|封神榜
+3|CC2|0|F|F|0|/mnt/share2/tv/一剪梅.1984|一剪梅
 
-3|TV9|F|F|F|0|/mnt/share1/tv/末代皇孙|末代皇孙
 
 
-
-0|000|F|F|F|0|/mnt/share2/tv/封神榜|封神榜
 0|000|F|F|F|0|/mnt/share2/tv/上海探戈|上海探戈
-0|000|F|F|F|0|/mnt/share1/tv/勇者无惧|勇者无惧
+
 0|TV0|0|F|F|0|/mnt/share2/tv/乌金血剑1990|乌金血剑
 0|TV0|F|F|F|0|/mnt/share1/tv/玉面飞狐720p|玉面飞狐
 0|000|F|F|F|0|/mnt/share2/tv/三国演义|三国演义

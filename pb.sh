@@ -283,16 +283,24 @@ stream_play_main() {
 	logo=
 	if [ "${param}" = "F" ]; then
 		#武侠logo
-		logo=${logodir}/logow.png
+		logo=${logodir}/logo.png
 	elif [ "${param}" = "0" ]; then
 		#怀旧logo
-		logo=${logodir}/logow2.png
+		logo=${logodir}/logo2.png
 	elif [ "${param}" = "1" ]; then
 		#音乐logo
-		logo=${logodir}/logow3.png
+		logo=${logodir}/logo3.png
+        elif [ "${param}" = "FF" ]; then
+                #武侠logo
+                logo=${logodir}/logow.png
+        elif [ "${param}" = "00" ]; then
+                #怀旧logo
+                logo=${logodir}/logow2.png
+        elif [ "${param}" = "11" ]; then
+                #音乐logo
+                logo=${logodir}/logow3.png
 	else
-		#没有logo param=2
-		logo=${logodir}/logow4.png
+                logo=${logodir}/logow4.png
 	fi
 
 	echo logo=${logo}
@@ -370,7 +378,8 @@ stream_play_main() {
 	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*4:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
 
 	#缩放
-	if [ ${size_height} -gt ${sheight} ]; then
+	scale_flag=1
+	if [ ${size_height} -gt ${sheight} ] || [ ${scale_flag} -eq 1 ]; then
 		scales="scale=trunc(oh*a/2)*2:${sheight}[scalev];[scalev]"
 	else
 		scales=""
@@ -405,6 +414,7 @@ stream_play_main() {
 		#nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
 		echo ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		#ffmpeg -r 20 -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 30 -b:v 2000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		echo finished playing $videopath
 		#过度画面
 		#nohup ffmpeg -loglevel "${logging}" -re -i "${curdir}/smb/sleeping.mp4" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}" &

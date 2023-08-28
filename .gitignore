@@ -1,6 +1,7 @@
 __pycache__/
 log/ffmpeg.log
 log/news.txt
+log/news2.txt
 sub/
 list/.pd.txt
 nohup.out
