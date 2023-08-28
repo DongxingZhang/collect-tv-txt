@@ -34,7 +34,7 @@ fontforcastdir=${curdir}/fonts/font.ttf
 fontsize=70
 fontcolor=#FDE6E0
 fontbg="box=1:boxcolor=black@0.01:boxborderw=3"
-
+sheight=720
 #ffmpeg参数
 logging="repeat+level+warning"
 preset_decode_speed="ultrafast"
@@ -370,15 +370,8 @@ stream_play_main() {
 	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*4:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
 
 	#缩放
-	sheight=600
-	size_height=$(expr ${size_height} + 1)
 	if [ ${size_height} -gt ${sheight} ]; then
-		swidth=$(echo "scale=5;${sheight}/${size_height}*${size_width}" | bc)
-		swidth=$(echo "scale=0;${swidth}/1" | bc)
-		if [ "$(check_even ${swidth})" = "0" ]; then
-			swidth=$(expr ${swidth} + 1)
-		fi
-		scales="scale=${swidth}:${sheight}[scalev];[scalev]"
+		scales="scale=trunc(oh*a/2)*2:${sheight}[scalev];[scalev]"
 	else
 		scales=""
 	fi
@@ -411,7 +404,7 @@ stream_play_main() {
 		kill_app "${rtmp}" "ffmpeg -re"
 		#nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
 		echo ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
-		ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		echo finished playing $videopath
 		#过度画面
 		#nohup ffmpeg -loglevel "${logging}" -re -i "${curdir}/smb/sleeping.mp4" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}" &
@@ -812,6 +805,8 @@ start_menu() {
 		read -p "电影列表文件:" playlist
 		read -p "已播放文件:" playlist_done
 		read -p "推流地址:" rtmp
+		read -p "节目预告:" news
+		read -p "分辨率:" sheight
 	else
 		num=$1
 		mode=$2
@@ -831,11 +826,19 @@ start_menu() {
 		if [ "$8" != "" ]; then
 			rtmp=$8
 		fi
+		if [ "$9" != "" ]; then
+			news=$9
+		fi
+                if [ "${10}" != "" ]; then
+                        sheight=${10}
+                fi
 		echo $subfile
 		echo $config
 		echo ${playlist}
 		echo ${playlist_done}
 		echo ${rtmp}
+		echo ${news}
+		echo ${sheight}
 	fi
 
 	case "$num" in
@@ -858,4 +861,4 @@ start_menu() {
 }
 
 # 运行开始菜单
-start_menu $1 $2 $3 $4 $5 $6 $7 $8
+start_menu $1 $2 $3 $4 $5 $6 $7 $8 $9 ${10}

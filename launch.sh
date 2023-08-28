@@ -7,7 +7,8 @@ config=$4
 playlist=$5
 playlist_done=$6
 rtmp=$7
-ffmpeglog=$8
+news=$8
+sheight=$9
 
 echo $mode
 echo ${mode:0:4}
@@ -16,7 +17,8 @@ echo $config
 echo $playlist
 echo $playlist_done
 echo $rtmp
-echo $ffmpeglog
+echo $news
+echo $sheight
 
 kill_app() {
 	rtmp=$1
@@ -45,8 +47,8 @@ fi
 #read -p "请输入任意继续:" any
 if [ "${mode:0:4}" = "test" ]; then
 	echo "test pushing"
-	./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}"
+	./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}" "${sheight}"
 elif [ "${mode:0:2}" = "fg" ] || [  "${mode:0:2}" = "bg"   ] ; then
 	echo "foreground pushing"
-	./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}"
+	./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}" "${sheight}"
 fi
