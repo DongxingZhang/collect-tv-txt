@@ -31,12 +31,13 @@
 4|000|F|F|F|F|/mnt/share1/tv/新包青天二|新包青天二
 
 
-5|TW1|0|F|F|F|/mnt/share3/tv/傲剑至尊|傲剑至尊
+5|TW2|0|F|F|F|/mnt/share3/tv/傲剑至尊|傲剑至尊
+5|TVF|0|F|F|F|/mnt/share3/tv/少林与咏春|少林与咏春
 5|000|F|F|F|F|/mnt/share1/tv/越女剑|越女剑
 5|TV0|0|F|F|F|/mnt/share2/tv/天龙奇侠1991|天龙奇侠
 
 
 6|000|F|F|F|F|/mnt/share2/tv/寻秦记|寻秦记
-6|TVE|0|F|F|F|/mnt/share3/tv/少林与咏春|少林与咏春
+6|TV0|0|F|F|F|/mnt/share2/tv/天龙奇侠1991|天龙奇侠
 
 

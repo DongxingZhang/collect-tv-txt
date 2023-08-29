@@ -1,5 +1,5 @@
 TV0|delogo=x=965:y=40:w=75:h=60:show=0
-TS0|scale=w=-1:h=720,delogo=x=965:y=40:w=75:h=60:show=0
+TS0|delogo=x=965:y=40:w=75:h=60:show=0
 TV1|delogo=x=400:y=30:w=75:h=60:show=0
 TV2|delogo=x=525:y=30:w=85:h=60:show=0
 T21|delogo=x=525:y=30:w=85:h=60:show=0,delogo=x=5:y=30:w=630:h=32:show=0
@@ -16,9 +16,9 @@ TVA|delogo=x=1000:y=32:w=218:h=54:show=0
 TVB|delogo=x=1452:y=50:w=180:h=104:show=0
 TVC|delogo=x=418:y=22:w=60:h=50:show=0
 TVD|delogo=x=600:y=28:w=88:h=82:show=0
-TVE|delogo=x=1500:y=32:w=128:h=108:show=0
 TD1|delogo=x=600:y=28:w=88:h=82:show=0,delogo=x=560:y=520:w=130:h=40:show=0
 TVE|delogo=x=815:y=28:w=70:h=60:show=0
+TVF|delogo=x=1500:y=32:w=128:h=108:show=0
 YOU|delogo=x=795:y=25:w=160:h=35:show=0
 AD1|delogo=x=0:y=14:w=1079:h=64:show=0
 CCV|delogo=x=80:y=50:w=155:h=120:show=0
@@ -30,5 +30,6 @@ AT0|delogo=x=560:y=5:w=64:h=68:show=0,delogo=x=560:y=490:w=140:h=45:show=0
 AT1|delogo=x=36:y=28:w=128:h=46:show=0
 TWV|delogo=x=1042:y=58:w=190:h=86:show=0,delogo=x=94:y=38:w=248:h=60:show=0
 TW1|delogo=x=20:y=28:w=136:h=50:show=0
+TW2|delogo=x=20:y=18:w=180:h=50:show=0
 STA|delogo=x=574:y=24:w=80:h=94:show=0,delogo=x=40:y=38:w=108:h=80:show=0
 

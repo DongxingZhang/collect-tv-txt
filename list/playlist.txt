@@ -143,7 +143,7 @@
 
 
 
-1|TVE|0|F|F|F|/mnt/share3/tv/少林与咏春|少林与咏春
+1|TVF|0|F|F|F|/mnt/share3/tv/少林与咏春|少林与咏春
 1|AT1|0|F|F|F|/mnt/share1/tv/天剑绝刀|天剑绝刀
 1|TV0|0|1|F|F|/mnt/share1/tv/大地飞鹰1992|大地飞鹰
 1|TV0|F|F|F|F|/mnt/share2/tv/射雕之中神通王重阳|王重阳

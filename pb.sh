@@ -253,8 +253,8 @@ stream_play_main() {
 	size_width=${sizearr[0]}
 	size_height=${sizearr[1]}
 
-	echo size_width=$size_width
-	echo size_height=$size_height
+	echo width=$size_width
+	echo height=$size_height
 
 	#片名
 	if [ "${mode}" != "test" ] && [ "${mode: -1}" != "a" ]; then
@@ -263,7 +263,7 @@ stream_play_main() {
 		newfontsize=$(get_fontsize "${logodir}/bg.jpg")
 	fi
 
-	echo newfontsize=${newfontsize}
+	echo fontsize=${newfontsize}
 
 	#计算时间显示字体大小
 	halfnewfontsize=$(expr ${newfontsize} \* 60 / 100)
@@ -274,10 +274,9 @@ stream_play_main() {
 	line_spacing=$(echo "scale=0;${line_spacing}/1" | bc)
 
 	#节目预告
-	echo $(get_next_video_name) >${news}
+	echo $(get_next_video_name) > ${news}
 	#cat <( curl -s http://www.nmc.cn/publish/forecast/  ) | tr -s '\n' ' ' |  sed  's/<div class="col-xs-4">/\n/g' | sed -E 's/<[^>]+>//g' | awk -F ' ' 'NF==5{print $1,$2,$3}' | head -n 32 | tr -s '\n' ';' | sed 's/徐家汇/上海/g' | sed 's/长沙市/长沙/g' >>  ${news}
-	echo "下集预告"
-	cat ${news}
+	echo "下集预告 ${news}"
 
 	#台标选择
 	logo=
@@ -303,7 +302,7 @@ stream_play_main() {
                 logo=${logodir}/logow4.png
 	fi
 
-	echo logo=${logo}
+	echo 台标=${logo}
 
 	#遮挡logo
 	delogos=$(cat ${delogofile} | grep "^${video_type}|")
@@ -351,8 +350,8 @@ stream_play_main() {
 	drawtext2="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:textfile='${news}':fontfile=${fontforcastdir}:line_spacing=${line_spacing}:expansion=normal:x=w-mod(max(t-1\,0)*(w+tw\*5)/415\,(w+tw\*5)):y=h-line_h-5:shadowx=2:shadowy=2:${fontbg}[forcv];[forcv]"
 
 	#显示标题
-	echo ${cur_file}
-	echo ${file_count}
+	echo 第${cur_file}集
+	echo 共${file_count}集
 
 	if [ "${file_count}" = "1" ]; then
 		cont_len=${#videoname}
@@ -372,13 +371,13 @@ stream_play_main() {
 			content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')${splitstar}${cur_file2}
 		fi
 		echo ${content2}
-		cont_len=$(expr ${cont_len} - 1)
+		cont_len=$(expr ${cont_len} - 2)
 	fi
 	cont_len=$(expr ${cont_len} / 2)
 	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*4:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
 
 	#缩放
-	scale_flag=1
+	scale_flag=0
 	if [ ${size_height} -gt ${sheight} ] || [ ${scale_flag} -eq 1 ]; then
 		scales="scale=trunc(oh*a/2)*2:${sheight}[scalev];[scalev]"
 	else
@@ -387,7 +386,8 @@ stream_play_main() {
 
 	#增亮
 	if [ "${lighter}" != "F" ]; then
-		lights="eq=contrast=1:brightness=0.15,curves=preset=lighter[bg2]"
+		#lights="eq=contrast=1:brightness=0.15,curves=preset=lighter[bg2]"
+		lights="eq=contrast=1:brightness=0.20[bg2]"
 	else
 		lights="eq=contrast=1[bg2]"
 	fi
@@ -401,8 +401,7 @@ stream_play_main() {
 
 	video_format="${videos}${audios}${watermark}[bg][wm]overlay=overlay_w/3:overlay_h/2[bg1];[bg1]${scales}${lights}"
 
-	echo ${video_format}
-	echo ${enter}
+	echo 滤镜:${video_format}
 
 	###########################################过滤器配置完成
 
@@ -414,7 +413,7 @@ stream_play_main() {
 		#nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
 		echo ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
-		#ffmpeg -r 20 -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 30 -b:v 2000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		#ffmpeg -r 25 -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 30 -b:v 2000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		echo finished playing $videopath
 		#过度画面
 		#nohup ffmpeg -loglevel "${logging}" -re -i "${curdir}/smb/sleeping.mp4" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}" &
