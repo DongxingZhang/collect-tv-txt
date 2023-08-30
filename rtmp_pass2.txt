@@ -1,1 +1,1 @@
-6721_1ec02245b95d21a35d97231ae38d13a6?bizid=6721&txSecret=93219105332de1252afded06f81ac40e&txTime=64EAFA27&sdkappid=1400526639&k=08f8f8b99a1410fcd3849a051a171215353432343138343434305f31363932383631383633&ck=81c6&txPRI=1692861863
+1077252rMdSYl1pK?wsSecret=b4dd5c0ea9eaaedae08dcec3e8255ae6&wsTime=64eef9e5&wsSeek=off&wm=0&tw=0&roirecognition=0&record=flv&origin=tct&txHost=sendtc3a.douyu.com

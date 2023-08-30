@@ -25,6 +25,7 @@ kill_app() {
   app=$2
   while true; do
     pidlist=$(ps -ef | grep "${rtmp}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
+    echo ${pidlist}
     arr=($pidlist)
     if [ ${#arr[@]} -eq  0 ]; then
       break
@@ -56,4 +57,5 @@ while true; do
   fi
   echo 不明原因,执行失败
   sleep 3
+  break
 done

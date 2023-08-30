@@ -128,6 +128,7 @@ kill_app() {
 	app=$2
 	while true; do
 		pidlist=$(ps -ef | grep "${rtmp}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
+		echo ${pidlist}
 		arr=($pidlist)
 		if [ ${#arr[@]} -eq 0 ]; then
 			break
@@ -723,27 +724,26 @@ stream_start() {
 	current=""
 	while true; do
 		period=$(need_waiting)
-		#echo period=$period
 		if [ "${period}" = "F" ] || [ "${play_mode: -1}" = "a" ]; then
 			continue
 			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "")
 			sleep 2
 		else
 			next=$(get_next ${period})
-			#echo $next
 		fi
 		#如果连续两次的下一个出现问题，则播放歌曲
-		if [ "${next}" = "${current}" ]; then
-			continue
-			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "出错了，等待修复。")
-			sleep 2
-		fi
+		#if [ "${next}" = "${current}" ]; then
+		#	continue
+		#	next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "出错了，等待修复。")
+		#	sleep 2
+		#fi
 		if [ "${next}" = "" ]; then
 			sleep 2
 			continue
 		fi
 		stream_play_main "${next}" "${play_mode}" "${period}" "${mvsource}"
 		current=${next}
+		echo =======================================================================================
 	done
 }
 

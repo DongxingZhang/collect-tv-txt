@@ -1,7 +1,7 @@
 
 0|/mnt/share1/tv/苗翠花|20|20
-0|/mnt/share2/tv/莲花争霸|18|25
-1|/mnt/share2/tv/大运河|23|61
+0|/mnt/share2/tv/莲花争霸|22|25
+1|/mnt/share2/tv/大运河|27|61
 1|/mnt/share3/tv/河东狮吼|20|20
 2|/mnt/share1/movies/记忆裂痕.mkv|1|1
 2|/mnt/share2/tv/边城浪子|20|20
@@ -13,4 +13,4 @@
 4|/mnt/share1/movies/倩女幽魂02.mkv|1|1
 4|/mnt/share1/movies/倩女幽魂03.mkv|1|1
 5|/mnt/share3/tv/傲剑至尊|20|20
-6|/mnt/share2/tv/寻秦记|21|40
+6|/mnt/share2/tv/寻秦记|25|40
