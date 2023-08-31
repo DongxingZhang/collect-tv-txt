@@ -9,17 +9,15 @@ playlist_done="${curdir}/list/playlist_done2.txt"
 ffmpeglog="${curdir}/log/ffmpeg2.log"
 news="${curdir}/log/news2.txt"
 
-#rtmp="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/$(cat ${curdir}/rtmp_pass2.txt)"
-addr="rtmp://sendtc3.douyu.com/live/"
-live="$(cat ${curdir}/rtmp_pass2.txt)"
-rtmp=${addr}${live}
-
+rtmp="${curdir}/rtmp_pass2.txt"
+rtmp_link="rtmp://sendtc3.douyu.com/live/"
+rtmp_token=$(cat ${rtmp})
 
 kill_app() {
   rtmp=$1
   app=$2
   while true; do
-    pidlist=$(ps -ef | grep "${rtmp}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
+    pidlist=$(ps -ef | grep "${rtmp_link}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
     echo ${pidlist}
     arr=($pidlist)
     if [ ${#arr[@]} -eq  0 ]; then
@@ -38,7 +36,7 @@ kill_app "${rtmp}" "launch.sh"
 
 
 if [ "${mode:0:2}" = "bg" ]; then
-	nohup ./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}"  > ${ffmpeglog} &
+	nohup ./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}" "${rtmp_link}" > ${ffmpeglog} &
 else
-	./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}"
+	./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}" "${rtmp_link}"
 fi

@@ -32,14 +32,13 @@
 
 
 5|TW2|0|F|F|F|/mnt/share3/tv/傲剑至尊|傲剑至尊
+5|TV0|F|F|F|F|/mnt/share2/tv/楚留香郑少秋版|楚留香
 5|TVF|0|1|F|F|/mnt/share3/tv/少林与咏春|少林与咏春
 5|000|F|F|F|F|/mnt/share1/tv/越女剑|越女剑
 5|TV0|0|F|F|F|/mnt/share2/tv/天龙奇侠1991|天龙奇侠
 
 
 6|000|F|F|F|F|/mnt/share2/tv/寻秦记|寻秦记
-6|TV0|F|F|F|0|/mnt/share2/tv/楚留香郑少秋版|楚留香
-
 6|TV0|0|F|F|F|/mnt/share2/tv/天龙奇侠1991|天龙奇侠
 
 

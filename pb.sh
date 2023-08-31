@@ -744,6 +744,7 @@ stream_start() {
 		stream_play_main "${next}" "${play_mode}" "${period}" "${mvsource}"
 		current=${next}
 		echo =======================================================================================
+		sleep 5
 	done
 }
 

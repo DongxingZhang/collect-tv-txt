@@ -4,11 +4,13 @@
 
 1|000|0|F|F|2|/mnt/share3/tv/新上海滩|新上海滩
 1|CC2|F|F|F|0|/mnt/share3/tv/银狐|银狐
-1|000|F|F|F|0|/mnt/share1/tv/勇者无惧|勇者无惧
+1|000|F|F|F|0|/mnt/share3/tv/大时代|大时代
+1|000|F|F|F|0|/mnt/share3/tv/世纪之战|世纪之战
 1|TV8|0|1|F|0|/mnt/share1/tv/刀马旦|刀马旦
 1|STA|F|F|F|0|/mnt/share3/tv/胜者为王1|胜者为王一
 1|STA|F|F|F|0|/mnt/share3/tv/胜者为王2|胜者为王二
 1|STA|F|F|F|0|/mnt/share3/tv/胜者为王3|胜者为王三
+1|000|F|F|F|0|/mnt/share1/tv/勇者无惧|勇者无惧
 
 2|000|F|F|F|0|/mnt/share3/tv/知否知否|知否知否
 2|000|F|F|F|0|/mnt/share2/tv/戏说乾隆|戏说乾隆
@@ -21,8 +23,6 @@
 3|CC2|0|F|F|0|/mnt/share2/tv/一剪梅.1984|一剪梅
 
 
-
-0|000|F|F|F|0|/mnt/share2/tv/上海探戈|上海探戈
 
 0|TV0|0|F|F|0|/mnt/share2/tv/乌金血剑1990|乌金血剑
 0|TV0|F|F|F|0|/mnt/share1/tv/玉面飞狐720p|玉面飞狐
@@ -72,8 +72,8 @@
 #4|TS0|0|F|E|0|/mnt/share2/tv/义不容情|义不容情
 4|TV0|F|F|F|0|/mnt/share2/tv/今生无悔国语720P|今生无悔
 4|TW1|F|F|F|0|/mnt/share3/tv/灰网|灰网
-4|000|F|F|F|0|/mnt/share3/tv/大时代|大时代
-4|000|F|F|F|0|/mnt/share3/tv/世纪之战|世纪之战
+
+
 4|STA|F|F|F|0|/mnt/share3/tv/胜者为王1|胜者为王一
 4|STA|F|F|F|0|/mnt/share3/tv/胜者为王2|胜者为王二
 4|STA|F|F|F|0|/mnt/share3/tv/胜者为王3|胜者为王三

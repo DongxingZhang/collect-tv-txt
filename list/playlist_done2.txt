@@ -1,16 +1,18 @@
 
 0|/mnt/share1/tv/苗翠花|20|20
-0|/mnt/share2/tv/莲花争霸|22|25
+0|/mnt/share2/tv/莲花争霸|23|25
+0|/mnt/share2/tv/小宝与康熙|8|
 1|/mnt/share2/tv/大运河|27|61
 1|/mnt/share3/tv/河东狮吼|20|20
 2|/mnt/share1/movies/记忆裂痕.mkv|1|1
 2|/mnt/share2/tv/边城浪子|20|20
-2|/mnt/share2/tv/今生无悔国语720P|29|40
+2|/mnt/share2/tv/今生无悔国语720P|33|40
 2|/mnt/share3/movies/精武门1972.mp4|1|1
-3|/mnt/share3/tv/七侠五义|41|75
-4|/mnt/share2/tv/包青天|91|99
+3|/mnt/share3/tv/七侠五义|48|75
 4|/mnt/share1/movies/倩女幽魂01.mkv|1|1
 4|/mnt/share1/movies/倩女幽魂02.mkv|1|1
 4|/mnt/share1/movies/倩女幽魂03.mkv|1|1
+4|/mnt/share2/tv/包青天|95|99
+5|/mnt/share2/tv/楚留香郑少秋版|4|65
 5|/mnt/share3/tv/傲剑至尊|20|20
-6|/mnt/share2/tv/寻秦记|25|40
+6|/mnt/share2/tv/寻秦记|29|40
