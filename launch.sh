@@ -9,17 +9,18 @@ playlist_done=$6
 rtmp=$7
 news=$8
 sheight=$9
+
 rtmp_link=${10}
-echo $mode
-echo ${mode:0:4}
-echo $subfile
-echo $config
-echo $playlist
-echo $playlist_done
-echo $rtmp
-echo $news
-echo $sheight
-echo $rtmp_link
+echo mode=$mode
+echo mode=${mode:0:4}
+echo subfile=$subfile
+echo config=$config
+echo playlist=$playlist
+echo playlist_done=$playlist_done
+echo rtmp_token=$rtmp
+echo news=$news
+echo sheight=$sheight
+echo rtmp_link=$rtmp_link
 
 kill_app() {
   rtmp=$1
@@ -49,6 +50,7 @@ while true; do
   fi
 
   rtmp_push="${rtmp_link}$(cat ${rtmp})"
+  echo rtmp_push=${rtmp_push}
 
   #read -p "请输入任意继续:" any
   if [ "${mode:0:4}" = "test" ]; then

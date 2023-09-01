@@ -2,6 +2,7 @@
 curdir=$(pwd)
 mode=$1
 mvsource=2
+sheight=$2
 subfile="${curdir}/sub/sub2.srt"
 config="${curdir}/list/config2.txt"
 playlist="${curdir}/list/playlist2.txt"
@@ -36,7 +37,7 @@ kill_app "${rtmp}" "launch.sh"
 
 
 if [ "${mode:0:2}" = "bg" ]; then
-	nohup ./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}" "${rtmp_link}" > ${ffmpeglog} &
+	nohup ./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}"  "${sheight}" "${rtmp_link}" > ${ffmpeglog} &
 else
-	./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}" "${rtmp_link}"
+	./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}" "${sheight}" "${rtmp_link}"
 fi
