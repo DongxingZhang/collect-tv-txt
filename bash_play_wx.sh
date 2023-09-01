@@ -14,8 +14,7 @@ rtmp_link="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/"
 rtmp_token=$(cat ${rtmp})
 
 kill_app() {
-  rtmp=$1
-  app=$2
+  app=$1
   while true; do
     pidlist=$(ps -ef | grep "${rtmp_link}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
     echo ${pidlist}
@@ -32,12 +31,9 @@ kill_app() {
 }
 
 
-kill_app "${rtmp}" "launch.sh"
+kill_app "launch.sh"
+pidlist=$(ps -ef | grep "${rtmp_link}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
+echo ${pidlist}
 
-
-if [ "${mode:0:2}" = "bg" ]; then
-	nohup ./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}" "${sheight}" "${rtmp_link}" > ${ffmpeglog} &
-else
-	./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}" "${sheight}" "${rtmp_link}"
-fi
+./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}" "${sheight}" "${rtmp_link}" "${ffmpeglog}"
 

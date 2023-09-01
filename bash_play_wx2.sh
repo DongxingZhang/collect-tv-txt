@@ -15,8 +15,7 @@ rtmp_link="rtmp://sendtc3.douyu.com/live/"
 rtmp_token=$(cat ${rtmp})
 
 kill_app() {
-  rtmp=$1
-  app=$2
+  app=$1
   while true; do
     pidlist=$(ps -ef | grep "${rtmp_link}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
     echo ${pidlist}
@@ -33,11 +32,9 @@ kill_app() {
 }
 
 
-kill_app "${rtmp}" "launch.sh"
+kill_app "launch.sh"
+pidlist=$(ps -ef | grep "${rtmp_link}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
+echo ${pidlist}
 
+./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}" "${sheight}" "${rtmp_link}" "${ffmpeglog}"
 
-if [ "${mode:0:2}" = "bg" ]; then
-	nohup ./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}"  "${sheight}" "${rtmp_link}" > ${ffmpeglog} &
-else
-	./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}" "${sheight}" "${rtmp_link}"
-fi

@@ -1,5 +1,5 @@
 
-0|/mnt/share1/tv/聊斋一|1|14
+0|/mnt/share1/tv/聊斋一|2|14
 0|/mnt/share1/tv/苗翠花|20|20
 0|/mnt/share2/tv/莲花争霸|25|25
 0|/mnt/share2/tv/小宝与康熙|8|
@@ -13,7 +13,7 @@
 4|/mnt/share1/movies/倩女幽魂01.mkv|1|1
 4|/mnt/share1/movies/倩女幽魂02.mkv|1|1
 4|/mnt/share1/movies/倩女幽魂03.mkv|1|1
-4|/mnt/share2/tv/包青天|96|236
-5|/mnt/share2/tv/楚留香郑少秋版|4|65
+4|/mnt/share2/tv/包青天|95|236
+5|/mnt/share2/tv/楚留香郑少秋版|8|65
 5|/mnt/share3/tv/傲剑至尊|20|20
-6|/mnt/share2/tv/寻秦记|29|40
+6|/mnt/share2/tv/寻秦记|33|40

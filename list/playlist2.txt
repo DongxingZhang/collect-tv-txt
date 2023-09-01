@@ -2,7 +2,7 @@
 
 0|CC2|0|F|F|F|/mnt/share2/tv/莲花争霸|莲花争霸
 0|000|F|F|F|2|/mnt/share2/tv/小宝与康熙|鹿鼎记
-0|000|F|F|F|F|/mnt/share1/tv/聊斋一|聊斋一
+0|000|F|0|F|F|/mnt/share1/tv/聊斋一|聊斋一
 0|000|F|F|F|F|/mnt/share2/tv/聊斋二|聊斋二
 
 1|TV0|0|0|F|F|/mnt/share2/tv/大运河|大运河
