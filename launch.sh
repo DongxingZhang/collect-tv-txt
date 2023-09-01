@@ -57,15 +57,15 @@ while true; do
   #read -p "请输入任意继续:" any
   if [ "${mode:0:4}" = "test" ]; then
     echo "test pushing"
-    ./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp_push}" "${news}" "${sheight}"
+    ./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp_link}" "${news}" "${sheight}" "${rtmp}"
   elif [ "${mode:0:2}" = "fg" ]; then
     echo "foreground pushing"
-    ./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp_push}" "${news}" "${sheight}"
+    ./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp_link}" "${news}" "${sheight}" "${rtmp}"
   elif [ "${mode:0:2}" = "bg" ]; then
     echo "background pushing"
-    nohup ./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp_push}" "${news}" "${sheight}" > "${log}" 
+    nohup ./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp_link}" "${news}" "${sheight}" "${rtmp}"  > "${log}"  &
   fi
-  echo 不明原因,执行失败
+  echo 启动完毕 
   sleep 3
   break
 done

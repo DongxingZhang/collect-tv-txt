@@ -25,7 +25,7 @@ config=${curdir}/list/config.txt
 delogofile=${curdir}/list/delogo.txt
 playlist=${curdir}/list/playlist.txt
 playlist_done=${curdir}/list/playlist_done.txt
-rest_video_path=/mnt/share1/videos
+rest_video_path=/mnt/share3/mvbrief
 
 #配置字体
 fontdir=${curdir}/fonts/font.ttf
@@ -184,7 +184,7 @@ stream_play_main() {
 	echo -e ${yellow}播放类型:${font} ${file_type}
 	echo -e ${yellow}电视剧名称:${font} ${videoname}
 	echo -e ${yellow}播放模式（bg, fg, test）:${font} ${mode}
-
+        rtmp="${rtmp_link}$(cat ${rtmp_token})"
 	echo ${rtmp}
 
 	#增加所有声道支持 还未启用
@@ -596,6 +596,10 @@ get_playing_video() {
 get_next_video_name() {
 	next_tv=
 	periodcount=$(cat ${config} | grep -v "^#" | sed /^$/d | wc -l)
+	if [ ${periodcount} -eq 0  ];then
+        echo ""
+	    return
+    fi
 	ret=$(get_rest $(TZ=Asia/Shanghai date +%H))
 	if [ "${ret}" = "F|F|F" ]; then
 		timec=0
@@ -695,7 +699,8 @@ get_rest_videos() {
 	videono=0
 	declare -a filenamelist
 	for subdirfile in "${waitingdir}"/*; do
-		filenamelist[$videono]="000|F|F|F|1|1|1|rest|file|${title}|${subdirfile}"
+	  title="　　"
+		filenamelist[$videono]="0005|F|F|F|2|1|1|rest|file|${title}|${subdirfile}"
 		videono=$(expr $videono + 1)
 	done
 	video_lengh=${#filenamelist[@]}
@@ -724,10 +729,8 @@ stream_start() {
 	current=""
 	while true; do
 		period=$(need_waiting)
-		if [ "${period}" = "F" ] || [ "${play_mode: -1}" = "a" ]; then
-			continue
-			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "")
-			sleep 2
+		if [ "${period}" = "F" ] || [ "${play_mode: -1}" = "a" ]; then			
+			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "一口气")
 		else
 			next=$(get_next ${period})
 		fi
@@ -814,9 +817,10 @@ start_menu() {
 		read -p "时间段文件:" config
 		read -p "电影列表文件:" playlist
 		read -p "已播放文件:" playlist_done
-		read -p "推流地址:" rtmp
+		read -p "推流网站:" rtmp_link
 		read -p "节目预告:" news
 		read -p "分辨率:" sheight
+   read -p "推流token" rtmp_token
 	else
 		num=$1
 		mode=$2
@@ -834,21 +838,27 @@ start_menu() {
 			playlist_done=$7
 		fi
 		if [ "$8" != "" ]; then
-			rtmp=$8
+			rtmp_link=$8
 		fi
 		if [ "$9" != "" ]; then
 			news=$9
 		fi
-                if [ "${10}" != "" ]; then
-                        sheight=${10}
-                fi
+    if [ "${10}" != "" ]; then
+       sheight=${10}
+   fi
+  	if [ "${11}" != "" ]; then
+			rtmp_token=${11}
+		fi
+   rtmp="${rtmp_link}$(cat ${rtmp_token})"
 		echo $subfile
 		echo $config
 		echo ${playlist}
 		echo ${playlist_done}
-		echo ${rtmp}
+		echo ${rtmp_link}
 		echo ${news}
 		echo ${sheight}
+   echo ${rtmp_token}
+   echo ${rtmp}
 	fi
 
 	case "$num" in
@@ -871,4 +881,4 @@ start_menu() {
 }
 
 # 运行开始菜单
-start_menu $1 $2 $3 $4 $5 $6 $7 $8 $9 ${10}
+start_menu $1 $2 $3 $4 $5 $6 $7 $8 $9 ${10} ${11}

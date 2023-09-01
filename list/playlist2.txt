@@ -1,5 +1,4 @@
 
-
 0|CC2|0|F|F|F|/mnt/share2/tv/莲花争霸|莲花争霸
 0|000|F|F|F|2|/mnt/share2/tv/小宝与康熙|鹿鼎记
 0|000|F|0|F|F|/mnt/share1/tv/聊斋一|聊斋一
@@ -8,20 +7,22 @@
 1|TV0|0|0|F|F|/mnt/share2/tv/大运河|大运河
 1|TV0|0|1|F|F|/mnt/share1/tv/大地飞鹰1992|大地飞鹰
 
-
+2|TV0|F|F|F|F|/mnt/share1/tv/苗翠花|苗翠花
+2|TV0|F|F|F|F|/mnt/share3/tv/河东狮吼|河东狮吼
 2|T71|0|F|F|F|/mnt/share2/tv/边城浪子|边城浪子
-2|TV0|F|F|F|F|/mnt/share2/tv/今生无悔国语720P|今生无悔
-2|TW1|F|F|F|F|/mnt/share3/tv/灰网|灰网
+#2|TV0|F|F|F|F|/mnt/share2/tv/今生无悔国语720P|今生无悔
+
 
 3|000|0|F|F|F|/mnt/share3/tv/七侠五义|七侠五义
-3|000|0|F|F|F|/mnt/share1/tv/笑傲江湖周润发版|笑傲江湖
+#3|000|0|F|F|F|/mnt/share3/tv/庆余年|庆余年
+#3|000|0|F|F|F|/mnt/share1/tv/笑傲江湖周润发版|笑傲江湖
 3|TV0|0|F|F|F|/mnt/share3/tv/武林幸运星|武林幸运星
-3|000|0|F|F|F|/mnt/share2/tv/琥珀青龙|琥珀青龙
 3|TV0|0|1|F|F|/mnt/share1/tv/大地飞鹰1992|大地飞鹰
 3|TV0|0|F|F|F|/mnt/share2/tv/天变|天变
 3|TVA|0|1|F|F|/mnt/share2/tv/金蛇郎君|金蛇郎君
 3|TV8|0|1|F|F|/mnt/share1/tv/刀马旦|刀马旦
 3|000|0|F|F|F|/mnt/share1/tv/八仙过海|八仙过海
+3|TV0|0|F|F|F|/mnt/share1/tv/绝代双骄GOTV1988|绝代双骄
 
 
 4|000|0|F|F|F|/mnt/share2/tv/包青天|包青天
@@ -40,5 +41,7 @@
 
 6|000|F|F|F|F|/mnt/share2/tv/寻秦记|寻秦记
 6|TV0|0|F|F|F|/mnt/share2/tv/天龙奇侠1991|天龙奇侠
+6|000|0|F|F|F|/mnt/share2/tv/琥珀青龙|琥珀青龙
 
 
+/share2/tv/天龙奇侠1991|天龙奇侠

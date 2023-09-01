@@ -19,6 +19,7 @@ TVD|delogo=x=600:y=28:w=88:h=82:show=0
 TD1|delogo=x=600:y=28:w=88:h=82:show=0,delogo=x=560:y=520:w=130:h=40:show=0
 TVE|delogo=x=815:y=28:w=70:h=60:show=0
 TVF|delogo=x=1500:y=32:w=128:h=108:show=0
+TVG|delogo=x=1570:y=38:w=274:h=98:show=0
 YOU|delogo=x=795:y=25:w=160:h=35:show=0
 AD1|delogo=x=0:y=14:w=1079:h=64:show=0
 CCV|delogo=x=80:y=50:w=155:h=120:show=0
