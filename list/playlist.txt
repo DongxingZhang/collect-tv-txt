@@ -1,30 +1,41 @@
-0|000|0|F|F|2|/mnt/share3/tv/雍正王朝|雍正王朝
+
 0|000|F|F|F|0|/mnt/share3/tv/甘十九妹|甘十九妹
 0|TVG|F|F|F|0|/mnt/share3/tv/大时代|大时代
 0|000|F|F|E|0|/mnt/share3/tv/世纪之战|世纪之战
+0|TV0|F|F|F|0|/mnt/share3/tv/流氓大亨|流氓大亨
+0|TS0|0|F|E|0|/mnt/share2/tv/烈焰焚情|烈焰焚情
 0|000|F|F|F|0|/mnt/share3/tv/宰相刘罗锅|宰相刘罗锅
 
-1|000|0|F|F|2|/mnt/share3/tv/新上海滩|新上海滩
+
 1|CC2|F|F|F|0|/mnt/share3/tv/银狐|银狐
 1|STA|F|F|F|0|/mnt/share3/tv/胜者为王1|胜者为王
 1|STA|F|F|F|0|/mnt/share3/tv/胜者为王2|天下无敌
 1|STA|F|F|F|0|/mnt/share3/tv/胜者为王3|王者之战
-1|TW1|F|F|F|0|/mnt/share3/tv/灰网|灰网
+1|TV0|F|F|F|0|/mnt/share3/tv/上海滩|上海滩
 1|TV8|0|1|F|0|/mnt/share1/tv/刀马旦|刀马旦
 1|000|F|F|F|0|/mnt/share1/tv/勇者无惧|勇者无惧
+1|TV95|F|F|F|0|/mnt/share1/tv/末代皇孙|末代皇孙
+1|CC2|0|F|F|0|/mnt/share2/tv/一剪梅.1984|一剪梅
 
-2|000|F|F|F|0|/mnt/share3/tv/知否知否|知否
-2|000|0|F|F|0|/mnt/share3/tv/庆余年|庆余年
+
+2|000|0|F|F|0|/mnt/share3/tv/琅琊榜|琅琊榜
+2|000|F|F|F|0|/mnt/share3/tv/风起长林|风起长林
+2|000|0|F|F|0|/mnt/share3/tv/延禧攻略|延禧攻略
+2|000|0|F|F|0|/mnt/share3/tv/赘婿|赘婿
 2|000|F|F|F|0|/mnt/share2/tv/戏说乾隆|戏说乾隆
-2|000|F|F|F|0|/mnt/share1/tv/江湖再见|江湖再见
-2|CC212|F|F|F|0|/mnt/share2/tv/情义无价|情义无价
+
 
 
 3|TV95|F|F|F|0|/mnt/share1/tv/末代皇孙|末代皇孙
 3|CC2|0|F|F|0|/mnt/share2/tv/一剪梅.1984|一剪梅
+3|CC212|F|F|F|0|/mnt/share2/tv/情义无价|情义无价
+3|000|F|F|F|0|/mnt/share1/tv/江湖再见|江湖再见
 3|TS0|0|F|E|0|/mnt/share2/tv/义不容情|义不容情
 3|TV0|F|F|F|0|/mnt/share2/tv/今生无悔国语720P|今生无悔
 3|000|F|F|F|0|/mnt/share2/tv/封神榜|封神榜
+3|000|0|F|F|2|/mnt/share3/tv/新上海滩|新上海滩
+3|000|0|F|F|2|/mnt/share3/tv/雍正王朝|雍正王朝
+3|000|F|F|F|0|/mnt/share3/tv/知否知否|知否
 
 
 
@@ -197,5 +208,3 @@
 4|000|F|F|F|F|/mnt/share1/movies/决战紫禁之巅.mkv|决战紫禁之巅
 4|000|F|F|F|F|/mnt/share1/movies/火云传奇.mkv|火云传奇
 4|000|F|F|F|F|/mnt/share1/movies/边城浪子.ts|边城浪子
-��子
-��浪子
