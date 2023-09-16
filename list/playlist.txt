@@ -1,10 +1,10 @@
 
-0|000|F|F|F|0|/mnt/share3/tv/甘十九妹|甘十九妹
 0|TVG|F|F|F|0|/mnt/share3/tv/大时代|大时代
 0|000|F|F|E|0|/mnt/share3/tv/世纪之战|世纪之战
 0|TV0|F|F|F|0|/mnt/share3/tv/流氓大亨|流氓大亨
 0|TS0|0|F|E|0|/mnt/share2/tv/烈焰焚情|烈焰焚情
 0|000|F|F|F|0|/mnt/share3/tv/宰相刘罗锅|宰相刘罗锅
+
 
 
 1|CC2|F|F|F|0|/mnt/share3/tv/银狐|银狐
@@ -20,8 +20,8 @@
 
 2|000|0|F|F|0|/mnt/share3/tv/琅琊榜|琅琊榜
 2|000|F|F|F|0|/mnt/share3/tv/风起长林|风起长林
-2|000|0|F|F|0|/mnt/share3/tv/延禧攻略|延禧攻略
 2|000|0|F|F|0|/mnt/share3/tv/赘婿|赘婿
+2|000|0|F|F|0|/mnt/share3/tv/延禧攻略|延禧攻略
 2|000|F|F|F|0|/mnt/share2/tv/戏说乾隆|戏说乾隆
 
 

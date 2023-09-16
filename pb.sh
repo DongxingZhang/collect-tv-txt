@@ -290,17 +290,17 @@ stream_play_main() {
 	elif [ "${param}" = "1" ]; then
 		#音乐logo
 		logo=${logodir}/logo3.png
-        elif [ "${param}" = "FF" ]; then
-                #武侠logo
-                logo=${logodir}/logow.png
-        elif [ "${param}" = "00" ]; then
-                #怀旧logo
-                logo=${logodir}/logow2.png
-        elif [ "${param}" = "11" ]; then
-                #音乐logo
-                logo=${logodir}/logow3.png
+    elif [ "${param}" = "FF" ]; then
+        #武侠logo
+        logo=${logodir}/logow.png
+    elif [ "${param}" = "00" ]; then
+        #怀旧logo
+        logo=${logodir}/logow2.png
+    elif [ "${param}" = "11" ]; then
+        #音乐logo
+        logo=${logodir}/logow3.png
 	else
-                logo=${logodir}/logow4.png
+        logo=${logodir}/logow4.png
 	fi
 
 	echo 台标=${logo}
@@ -342,7 +342,11 @@ stream_play_main() {
 	#显示时长
 	#播放百分比%{eif\:n\/nb_frames\:d}%%
 	duration=$(get_duration2 "${videopath}")
-	content="%{pts\:gmtime\:0\:%H\\\\\:%M\\\\\:%S}${enter}${duration}"
+	if [ "${play_time}" = "rest" ]; then
+	  content=
+	else
+	  content="%{pts\:gmtime\:0\:%H\\\\\:%M\\\\\:%S}${enter}${duration}"
+	fi
 	drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*8:y=line_h\*3:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
 
 	#天气预报
@@ -700,7 +704,7 @@ get_rest_videos() {
 	declare -a filenamelist
 	for subdirfile in "${waitingdir}"/*; do
 	  title="　　"
-		filenamelist[$videono]="0005|F|F|F|2|1|1|rest|file|${title}|${subdirfile}"
+		filenamelist[$videono]="0005|F|F|F|1|1|1|rest|file|${title}|${subdirfile}"
 		videono=$(expr $videono + 1)
 	done
 	video_lengh=${#filenamelist[@]}

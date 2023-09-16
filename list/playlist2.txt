@@ -1,6 +1,7 @@
 
 0|000|F|F|F|2|/mnt/share2/tv/小宝与康熙|鹿鼎记
 0|000|F|F|F|F|/mnt/share2/tv/聊斋二|聊斋二
+0|TV0|F|F|F|F|/mnt/share1/tv/英雄贵姓|英雄贵姓
 0|000|0|F|F|F|/mnt/share3/tv/庆余年|庆余年
 0|TV0|0|F|F|0|/mnt/share1/tv/怒剑啸狂沙1996|怒剑啸狂沙
 0|000|0|F|F|F|/mnt/share3/tv/鹿鼎记陈小春|鹿鼎记
@@ -35,14 +36,18 @@
 
 4|000|0|F|F|F|/mnt/share2/tv/包青天|包青天
 4|000|0|F|F|F|/mnt/share1/tv/新包青天|新包青天
+4|000|0|F|F|F|/mnt/share3/tv/侠义见青天|侠义见青天
 4|000|F|F|F|F|/mnt/share1/tv/碧血青天杨家将1994|杨家将
 4|000|F|F|F|F|/mnt/share2/tv/碧血青天珍珠旗1995|珍珠旗
 4|000|0|F|F|F|/mnt/share3/tv/七侠五义|七侠五义
+4|000|0|F|F|F|/mnt/share3/tv/穆桂英大破天门阵|穆桂英
+
 
 
 
 5|TW2|0|F|F|F|/mnt/share3/tv/傲剑至尊|傲剑至尊
 5|TV0|F|F|F|F|/mnt/share2/tv/楚留香郑少秋版|楚留香
+5|000|F|F|F|F|/mnt/share3/tv/甘十九妹|甘十九妹
 5|TVF|0|1|F|F|/mnt/share3/tv/少林与咏春|少林与咏春
 5|TV0|0|F|F|F|/mnt/share2/tv/乌金血剑1990|乌金血剑
 5|000|0|F|F|F|/mnt/share3/tv/笑傲江湖1996|笑傲江湖

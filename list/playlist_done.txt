@@ -3,15 +3,16 @@
 
 0|/mnt/share3/tv/大时代|40|40
 0|/mnt/share3/tv/甘十九妹|24|24
-0|/mnt/share3/tv/世纪之战|2|40
+0|/mnt/share3/tv/世纪之战|22|40
 0|/mnt/share3/tv/雍正王朝|44|44
 1|/mnt/share2/tv/小宝与康熙|14|42
 1|/mnt/share3/tv/胜者为王1|22|22
-1|/mnt/share3/tv/胜者为王2|9|15
+1|/mnt/share3/tv/胜者为王2|15|15
+1|/mnt/share3/tv/胜者为王3|5|30
 1|/mnt/share3/tv/新上海滩|41|41
 1|/mnt/share3/tv/银狐|30|30
-2|/mnt/share3/tv/琅琊榜|15|54
+2|/mnt/share3/tv/琅琊榜|31|54
 2|/mnt/share3/tv/知否知否|73|73
 3|/mnt/share1/tv/末代皇孙|55|55
-3|/mnt/share2/tv/情义无价|8|36
+3|/mnt/share2/tv/情义无价|24|36
 3|/mnt/share2/tv/一剪梅.1984|25|25

@@ -1,0 +1,63 @@
+function getUrl(params) {
+    // let stream = window.__NEPTUNE_IS_MY_WAIFU__.roomInitRes.data.playurl_info.playurl.stream
+    let stream = params
+    for (let i = 0; i < stream.length; i++){
+        now_proc = stream[i]
+        console.log(now_proc.protocol_name)
+        for (let j = 0; j < now_proc.format.length; j++) {
+            now_format = now_proc.format[j]
+            console.log(now_format.format_name)
+            for (let k = 0; k < now_format.codec.length; k++) {
+                now_codec = now_format.codec[k]
+                console.log(now_codec.codec_name)
+                console.log(now_codec.current_qn, now_codec.accept_qn)
+                for(let l = 0; l < now_codec.url_info.length; l++) {
+                    now_url_info = now_codec.url_info[l]
+                    url = now_url_info.host + now_codec.base_url + now_url_info.extra
+                    console.log(url)
+                }
+            }
+        }
+    }
+}
+
+function get_max_qn(params) {
+    all_qn = new Set()
+    let stream = params
+    for (let i = 0; i < stream.length; i++){
+        now_proc = stream[i]
+        for (let j = 0; j < now_proc.format.length; j++) {
+            now_format = now_proc.format[j]
+            for (let k = 0; k < now_format.codec.length; k++) {
+                now_codec = now_format.codec[k]
+                for(let l = 0; l < now_codec.accept_qn.length; l++) {
+                    now_accept_qn = now_codec.accept_qn[l]
+                    all_qn.add(now_accept_qn)
+                }
+            }
+        }
+    }
+    return Math.max(...all_qn)    
+}
+
+fetch(`https://api.live.bilibili.com/xlive/web-room/v2/index/getRoomPlayInfo?room_id=${window.__NEPTUNE_IS_MY_WAIFU__.roomInitRes.data.room_id}&protocol=0,1&format=0,1,2&codec=0,1&qn=${get_max_qn(window.__NEPTUNE_IS_MY_WAIFU__.roomInitRes.data.playurl_info.playurl.stream)}&platform=web&ptype=8&dolby=5&panorama=1`, {
+  "referrerPolicy": "no-referrer-when-downgrade",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+}).then(response => response.json()).then(data => getUrl(data.data.playurl_info.playurl.stream));
+
+
+
+
+
+
+
+
+//https://qqgroup.6721.liveplay.ilive.qq.com/live/6721_d14cc94308e33157bd1d2eb3bc31f458_1080p4000k.flv?txSecret=650348d059613baa511de64c7ae104b0&txTime=65044611
+
+
+
+
+//https://d1--cn-gotcha101.bilivideo.com/live-bvc/663870/live_97540856_1852534.m3u8?expires=1694694464&len=0&oi=3083017074&pt=web&qn=10000&trid=1003b357bee13b0d4d86bcd52b0ffb26958b&sigparams=cdn,expires,len,oi,pt,qn,trid&cdn=cn-gotcha01&sign=0ec63cf8bba80fc4bf99f25a3b3f8788&sk=9b072180d028466009f2bc2270e30df5&p2p_type=1&sl=1&free_type=0&mid=97540856&source=onetier&trace=40&site=6674bda640a5227e0db02580e6a92699&order=1
