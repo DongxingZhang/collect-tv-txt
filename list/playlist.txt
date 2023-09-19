@@ -8,8 +8,6 @@
 
 
 1|CC2|F|F|F|0|/mnt/share3/tv/银狐|银狐
-1|STA|F|F|F|0|/mnt/share3/tv/胜者为王1|胜者为王
-1|STA|F|F|F|0|/mnt/share3/tv/胜者为王2|天下无敌
 1|STA|F|F|F|0|/mnt/share3/tv/胜者为王3|王者之战
 1|TV0|F|F|F|0|/mnt/share3/tv/上海滩|上海滩
 1|TV8|0|1|F|0|/mnt/share1/tv/刀马旦|刀马旦

@@ -14,6 +14,7 @@
 
 
 2|000|F|F|F|F|/mnt/share2/tv/哪吒|哪吒
+2|000|F|F|F|F|/mnt/share2/tv/封神榜|封神榜
 2|T21|0|1|F|F|/mnt/share1/tv/陆小凤之凤舞九天1986|凤舞九天
 2|TV0|F|F|F|F|/mnt/share3/tv/河东狮吼|河东狮吼
 #2|T71|0|F|F|F|/mnt/share2/tv/边城浪子|边城浪子

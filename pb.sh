@@ -123,6 +123,21 @@ check_even() {
 	fi
 }
 
+check_video_path(){
+	 videoname=$1
+	 if [[ -d "${videoname}" ]]; then
+		 echo "${videoname}"
+	 elif [[ -d "/mnt/share1/tv/${videoname}" ]]; then
+		 echo "/mnt/share1/tv/${videoname}"
+         elif [[ -d "/mnt/share2/tv/${videoname}" ]]; then
+                 echo "/mnt/share2/tv/${videoname}"
+         elif [[ -d "/mnt/share3/tv/${videoname}" ]]; then
+                 echo "/mnt/share3/tv/${videoname}"
+	 else
+		 echo ""
+	 fi
+}
+
 kill_app() {
 	rtmp=$1
 	app=$2
@@ -553,8 +568,15 @@ get_playing_video() {
 		audio=${arr[3]}
 		subtitle=${arr[4]}
 		param=${arr[5]}
-		videopath=${arr[6]}
+		videopath0=${arr[6]}
 		videoname=${arr[7]}
+
+		#这里路径可以只写目录名，然后自己搜索
+		videopath=$(check_video_path ${videopath0})
+
+		if [ "${videopath}" = "" ]; then
+            continue
+        fi
 
 		#搜索时间段
 		if [[ "${video_index}" != "${playlist_index}" ]]; then
