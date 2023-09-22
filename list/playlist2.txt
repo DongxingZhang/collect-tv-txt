@@ -1,28 +1,42 @@
 
-0|000|F|F|F|2|/mnt/share2/tv/小宝与康熙|鹿鼎记
+0|000|F|F|F|2|小宝与康熙|鹿鼎记
 0|000|F|F|F|F|/mnt/share2/tv/聊斋二|聊斋二
-0|TV0|F|F|F|F|/mnt/share1/tv/英雄贵姓|英雄贵姓
-0|000|0|F|F|F|/mnt/share3/tv/庆余年|庆余年
+0|TV0|0|F|F|F|/mnt/share1/tv/英雄贵姓|英雄贵姓
+0|000|F|F|F|F|庆余年|庆余年
 0|TV0|0|F|F|0|/mnt/share1/tv/怒剑啸狂沙1996|怒剑啸狂沙
 0|000|0|F|F|F|/mnt/share3/tv/鹿鼎记陈小春|鹿鼎记
+0|TV0|0|F|F|F|/mnt/share2/tv/射雕之中神通王重阳|王重阳
+0|000|F|F|F|F|鹿鼎记韩栋|鹿鼎记
+0|000|F|F|F|F|新西螺七剑|新西螺七剑
+0|00012|0|F|F|F|86金剑雕翎高清|金剑雕翎
+
+
 
 1|TV0|0|0|F|F|/mnt/share2/tv/大运河|大运河
 1|TV0|0|1|F|F|/mnt/share1/tv/大地飞鹰1992|大地飞鹰
 1|TVA|0|1|F|F|/mnt/share2/tv/金蛇郎君|金蛇郎君
 1|TV0|0|F|F|F|/mnt/share2/tv/天变|天变
+1|000|0|F|F|F|雪花女神龙|雪花女神龙
+1|000|0|1|0|F|雪花神剑|雪花神剑
+1|TVA|0|F|F|F|四大名捕1984|四大名捕
+1|TV0|F|F|F|F|/mnt/share2/tv/蜀山奇侠紫青双剑1990|紫青双剑
+1|TVB|F|F|F|F|/mnt/share1/tv/蜀山奇侠之仙侣奇缘1991|仙侣奇缘
+1|TVC|F|F|F|F|/mnt/share2/tv/侠客行星河版|侠客行
+1|000|0|F|F|F|/mnt/share2/tv/琥珀青龙|琥珀青龙
 1|TV0|0|F|F|F|/mnt/share3/tv/小李飞刀|小李飞刀
 
 
 2|000|F|F|F|F|/mnt/share2/tv/哪吒|哪吒
-2|000|F|F|F|F|/mnt/share2/tv/封神榜|封神榜
+2|000|0|F|F|F|/mnt/share2/tv/封神榜|封神榜
 2|T21|0|1|F|F|/mnt/share1/tv/陆小凤之凤舞九天1986|凤舞九天
 2|TV0|F|F|F|F|/mnt/share3/tv/河东狮吼|河东狮吼
 #2|T71|0|F|F|F|/mnt/share2/tv/边城浪子|边城浪子
-#2|TV0|F|F|F|F|/mnt/share2/tv/奇幻人世间|奇幻人世间
+2|TV0|F|F|F|F|/mnt/share2/tv/奇幻人世间|奇幻人世间
+2|TV0|0|F|F|0|/mnt/share2/tv/乌金血剑1990|乌金血剑
+2|TV0|F|F|F|F|/mnt/share1/tv/神剑魔刀1986|神剑魔刀
 
 
-
-#3|000|0|F|F|F|/mnt/share3/tv/庆余年|庆余年
+#3|QYN|0|F|F|F|/mnt/share3/tv/庆余年|庆余年
 3|TV0|0|F|F|F|/mnt/share3/tv/武林幸运星|武林幸运星
 3|000|0|F|F|F|/mnt/share1/tv/笑傲江湖周润发版|笑傲江湖
 3|CC2|0|F|F|F|/mnt/share2/tv/莲花争霸|莲花争霸
@@ -33,6 +47,11 @@
 3|TV0|0|F|F|F|/mnt/share1/tv/绝代双骄GOTV1988|绝代双骄
 3|000|F|F|F|F|/mnt/share2/tv/寻秦记|寻秦记
 3|TV0|0|F|F|F|/mnt/share2/tv/天龙奇侠1991|天龙奇侠
+3|TV0|0|0|F|F|/mnt/share2/tv/大运河|大运河
+3|TV0|0|1|F|F|/mnt/share1/tv/大地飞鹰1992|大地飞鹰
+3|TVA|0|1|F|F|/mnt/share2/tv/金蛇郎君|金蛇郎君
+3|TW2|0|F|F|F|/mnt/share3/tv/傲剑至尊|傲剑至尊
+3|TV0|F|F|F|F|/mnt/share2/tv/楚留香郑少秋版|楚留香
 
 
 4|000|0|F|F|F|/mnt/share2/tv/包青天|包青天
@@ -46,8 +65,7 @@
 
 
 
-5|TW2|0|F|F|F|/mnt/share3/tv/傲剑至尊|傲剑至尊
-5|TV0|F|F|F|F|/mnt/share2/tv/楚留香郑少秋版|楚留香
+
 5|000|F|F|F|F|/mnt/share3/tv/甘十九妹|甘十九妹
 5|TVF|0|1|F|F|/mnt/share3/tv/少林与咏春|少林与咏春
 5|TV0|0|F|F|F|/mnt/share2/tv/乌金血剑1990|乌金血剑
@@ -61,9 +79,3 @@
 6|000|0|F|F|F|/mnt/share3/tv/天龙八部1997|天龙八部
 6|000|0|F|F|F|/mnt/share2/tv/琥珀青龙|琥珀青龙
 7|TV0|F|F|F|F|/mnt/share1/tv/苗翠花|苗翠花
-
-
-
-
-
-��

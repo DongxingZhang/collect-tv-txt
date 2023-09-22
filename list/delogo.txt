@@ -33,4 +33,5 @@ TWV|delogo=x=1042:y=58:w=190:h=86:show=0,delogo=x=94:y=38:w=248:h=60:show=0
 TW1|delogo=x=20:y=28:w=136:h=50:show=0
 TW2|delogo=x=20:y=18:w=180:h=50:show=0
 STA|delogo=x=574:y=24:w=80:h=94:show=0,delogo=x=40:y=38:w=108:h=80:show=0
-
+FEZ|delogo=x=0:y=0:w=512:h=84:show=0,delogo=x=0:y=0:w=848:h=34:show=0
+QYN|delogo=x=1556:y=964:w=332:h=100:show=0

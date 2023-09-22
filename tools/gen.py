@@ -55,7 +55,7 @@ def find_new_tv():
     with open('../list/playlist2.txt', encoding='utf-8') as f:
         cont+=f.read()
     for dir in folders:
-        files = [os.path.join(dir, file) for file in os.listdir(dir) if os.path.isdir(dir + os.sep + file)] 
+        files = [file for file in os.listdir(dir) if os.path.isdir(dir + os.sep + file)] 
         for filepath in files:
             if not filepath in cont:
                 #print(filepath) 

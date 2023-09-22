@@ -80,6 +80,9 @@ get_fontsize() {
 	height=$(echo $data | awk -F 'height=' '{print $2}' | awk -F ' ' '{print $1}')
 	newfontsize=$(echo "scale=5;sqrt($width*$width+$height*$height)/2203*$fontsize" | bc)
 	newfontsize=$(echo "scale=0;$newfontsize/1" | bc)
+	if [ ${newfontsize} -eq 0 ]; then
+            newfontsize=50
+	fi
 	echo ${newfontsize}
 }
 
@@ -398,6 +401,8 @@ stream_play_main() {
 
 	#缩放
 	scale_flag=0
+	echo "缩放size_height=${size_height}"
+	echo "缩放sheight=${sheight}"
 	if [ ${size_height} -gt ${sheight} ] || [ ${scale_flag} -eq 1 ]; then
 		scales="scale=trunc(oh*a/2)*2:${sheight}[scalev];[scalev]"
 	else
@@ -482,7 +487,7 @@ stream_play_main() {
 		folder=${videopath}
 	fi
 
-	if [ "${mode}" != "test" ] && [ ${time_seconds} -ge 700 ]; then
+	if [ "${mode}" != "test" ] && [ ${time_seconds} -ge 1200 ]; then
 		if [ "${play_time}" = "playing" ]; then
 			video_played=$(cat "${playlist_done}" | grep "${period}|${folder}" | head -1)
 			if [ "${video_played}" = "" ]; then
