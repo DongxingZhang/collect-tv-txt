@@ -31,7 +31,7 @@ rest_video_path=/mnt/share3/mvbrief
 fontdir=${curdir}/fonts/font.ttf
 fonttimedir=${curdir}/fonts/font_time.ttf
 fontforcastdir=${curdir}/fonts/font.ttf
-fontsize=70
+fontsize=65
 fontcolor=#FDE6E0
 fontbg="box=1:boxcolor=black@0.01:boxborderw=3"
 sheight=720
@@ -136,6 +136,10 @@ check_video_path(){
                  echo "/mnt/share2/tv/${videoname}"
          elif [[ -d "/mnt/share3/tv/${videoname}" ]]; then
                  echo "/mnt/share3/tv/${videoname}"
+         elif [[ -f "/mnt/share1/movies/${videoname}" ]]; then
+                 echo "/mnt/share1/movies/${videoname}"
+         elif [[ -f "/mnt/share1/videos/${videoname}" ]]; then
+                 echo "/mnt/share1/videos/${videoname}"
 	 else
 		 echo ""
 	 fi
