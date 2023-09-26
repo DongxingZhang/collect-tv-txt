@@ -43,7 +43,7 @@ def writeplaylist(playlist, playlist_array):
         f2.writelines(playlist_array)
        
 
-def find_new_tv():
+def find_new_tv(arg):
     folders = [
         '/mnt/share1/tv/',
         '/mnt/share2/tv/',
@@ -59,13 +59,19 @@ def find_new_tv():
         for filepath in files:
             if not filepath in cont:
                 #print(filepath) 
-                print("0|000|F|F|F|0|" + filepath + "|")
+                if arg=="":
+                    print("0|000|F|F|F|0|" + filepath + "|")
+                else:
+                    print("0|000|F|F|F|0|" + filepath + "|"+"              from: " + dir)
 if __name__ == '__main__':    
     #p1=parseplaylist("./list/playlist.txt", 6)
     #writeplaylist("./list/playlist.txt", p1)
     #p2=parseplaylist("./list/playlist_done.txt", 1)
     #writeplaylist("./list/playlist_done.txt", p2)
-    find_new_tv()
+    if len(sys.argv) == 1:
+        find_new_tv("")
+    else:
+        find_new_tv(sys.argv[0])
     pass
 
 

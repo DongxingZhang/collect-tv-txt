@@ -358,7 +358,7 @@ stream_play_main() {
 			iconv -f utf8 -t gbk -c ./sub/tmp1.srt >${subfile}
 		fi
 		rm ./sub/tmp1.srt
-		subs="subtitles=filename=${subfile}:fontsdir=${curdir}/fonts:force_style='Fontname=华文仿宋,Fontsize=15,Alignment=0,MarginV=30'[vsub];[vsub]"
+		subs="subtitles=filename=${subfile}:fontsdir=${curdir}/fonts:force_style='Fontname=华文仿宋,Fontsize=15,Alignment=2,MarginV=30'[vsub];[vsub]"
 	fi
 
 	#显示时长
@@ -401,7 +401,7 @@ stream_play_main() {
 		cont_len=$(expr ${cont_len} - 2)
 	fi
 	cont_len=$(expr ${cont_len} / 2)
-	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*4:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
+	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*3:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
 
 	#缩放
 	scale_flag=0
