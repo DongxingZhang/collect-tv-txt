@@ -169,6 +169,20 @@ kill_app() {
 	done
 }
 
+get_srt(){
+	fullpath=$1
+	dir=$(dirname "${fullpath}")
+    filename=$(basename "${fullpath}")
+    extension="${filename##*.}"
+    filenameprefix="${filename%.*}"
+    srt="${dir}/${filenameprefix}.srt"
+	if [[ -f "${srt}" ]]; then
+	    echo "${srt}"
+	else
+	    echo ""
+	fi
+}
+
 ####功能函数END
 
 stream_play_main() {
@@ -376,7 +390,7 @@ stream_play_main() {
 	else
 	  content="%{pts\:gmtime\:0\:%H\\\\\:%M\\\\\:%S}${enter}${duration}"
 	fi
-	drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*7:y=line_h/3\*8:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
+	drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*7:y=line_h/3\*5:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
 
 	#天气预报
 	#从左往右drawtext2="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${news}':fontfile=${fontdir}:expansion=normal:x=(mod(5*n\,w+tw)-tw):y=h-line_h-10:shadowx=2:shadowy=2:${fontbg}"
@@ -435,7 +449,7 @@ stream_play_main() {
 	# 台标
 	watermark="[1:v:0]scale=-1:${newfontsize}\*2[wm];" #[wm]
 
-	video_format="${videos}${audios}${watermark}[bg][wm]overlay=overlay_w/6:overlay_h/2[bg1];[bg1]${scales}${lights}"
+	video_format="${videos}${audios}${watermark}[bg][wm]overlay=overlay_w/6:overlay_h/3[bg1];[bg1]${scales}${lights}"
 
 	echo 滤镜:${video_format}
 
@@ -636,11 +650,11 @@ get_playing_video() {
 }
 
 get_next_video_name() {
-	next_tv=
+	next_tv=$(cat ${memo})"　　"
 	periodcount=$(cat ${config} | grep -v "^#" | sed /^$/d | wc -l)
-	if [ ${periodcount} -eq 0  ];then
-        echo ""
-	    return
+    if [ ${periodcount} -le 1  ];then
+        echo ${next_tv}
+        return
     fi
 	ret=$(get_rest $(TZ=Asia/Shanghai date +%H))
 	if [ "${ret}" = "F|F|F" ]; then
@@ -651,7 +665,6 @@ get_next_video_name() {
 	fi
 	timed=${timec}
 	loop=1
-	next_tv=$(cat ${memo})"　　"
 	while true; do
 		#if [ ${loop} -gt 3  ];then
 		#    break
@@ -742,7 +755,7 @@ get_rest_videos() {
 	declare -a filenamelist
 	for subdirfile in "${waitingdir}"/*; do
 	  title="　　"
-		filenamelist[$videono]="0005|F|F|F|1|1|1|rest|file|${title}|${subdirfile}"
+		filenamelist[$videono]="000|F|F|F|1|1|1|rest|file|${title}|${subdirfile}"
 		videono=$(expr $videono + 1)
 	done
 	video_lengh=${#filenamelist[@]}
