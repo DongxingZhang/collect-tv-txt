@@ -140,6 +140,12 @@ check_video_path(){
                  echo "/mnt/share1/movies/${videoname}"
          elif [[ -f "/mnt/share1/videos/${videoname}" ]]; then
                  echo "/mnt/share1/videos/${videoname}"
+         elif [[ -f "/mnt/share1/tv/${videoname}" ]]; then
+                 echo "/mnt/share1/tv/${videoname}"
+         elif [[ -f "/mnt/share2/tv/${videoname}" ]]; then
+                 echo "/mnt/share2/tv/${videoname}"
+         elif [[ -f "/mnt/share3/tv/${videoname}" ]]; then
+                 echo "/mnt/share3/tv/${videoname}"
 	 else
 		 echo ""
 	 fi
@@ -186,6 +192,7 @@ stream_play_main() {
 	file_type=${arr[8]}
 	videoname=${arr[9]}
 	videopath=$(echo ${arr[10]} | tr '%' ' ')
+	videopath0=${arr[11]}
 	mode=$2
 	period=$3
 	mvsource=$4
@@ -289,7 +296,7 @@ stream_play_main() {
 	echo fontsize=${newfontsize}
 
 	#计算时间显示字体大小
-	halfnewfontsize=$(expr ${newfontsize} \* 60 / 100)
+	halfnewfontsize=$(expr ${newfontsize} \* 65 / 100)
 	halfnewfontsize=$(echo "scale=0;${halfnewfontsize}/1" | bc)
 
 	#设置时间行距
@@ -369,7 +376,7 @@ stream_play_main() {
 	else
 	  content="%{pts\:gmtime\:0\:%H\\\\\:%M\\\\\:%S}${enter}${duration}"
 	fi
-	drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*8:y=line_h\*3:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
+	drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*7:y=line_h/3\*8:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
 
 	#天气预报
 	#从左往右drawtext2="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${news}':fontfile=${fontdir}:expansion=normal:x=(mod(5*n\,w+tw)-tw):y=h-line_h-10:shadowx=2:shadowy=2:${fontbg}"
@@ -428,7 +435,7 @@ stream_play_main() {
 	# 台标
 	watermark="[1:v:0]scale=-1:${newfontsize}\*2[wm];" #[wm]
 
-	video_format="${videos}${audios}${watermark}[bg][wm]overlay=overlay_w/3:overlay_h/2[bg1];[bg1]${scales}${lights}"
+	video_format="${videos}${audios}${watermark}[bg][wm]overlay=overlay_w/6:overlay_h/2[bg1];[bg1]${scales}${lights}"
 
 	echo 滤镜:${video_format}
 
@@ -485,11 +492,12 @@ stream_play_main() {
 	echo play_time=${play_time}
 
 	#判断playlist是文件还是目录
-	if [ "${file_type}" = "folder" ]; then
-		folder=$(get_dir ${videopath})
-	else
-		folder=${videopath}
-	fi
+	#if [ "${file_type}" = "folder" ]; then
+	#	folder=$(get_dir ${videopath})
+	#else
+	#	folder=${videopath0}
+	#fi
+	folder=${videopath0}
 
 	if [ "${mode}" != "test" ] && [ ${time_seconds} -ge 1200 ]; then
 		if [ "${play_time}" = "playing" ]; then
@@ -584,17 +592,16 @@ get_playing_video() {
 		videopath=$(check_video_path ${videopath0})
 
 		if [ "${videopath}" = "" ]; then
-            continue
-        fi
+                    continue
+                fi
 
 		#搜索时间段
 		if [[ "${video_index}" != "${playlist_index}" ]]; then
 			continue
 		fi
-
 		if [[ -d "${videopath}" ]]; then
 			file_count=$(ls -l ${videopath} | grep "^-" | wc -l)
-			video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${videopath}" | head -1)
+			video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${videopath0}" | head -1)
 			if [[ "${video_played}" = "" ]]; then
 				cur_file=1
 			else
@@ -614,15 +621,15 @@ get_playing_video() {
 			for subdirfile in "${videopath}"/*; do
 				cur=$(expr $cur + 1)
 				if [[ "${cur}" = "${cur_file}" ]]; then
-					echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|folder|${videoname}|${subdirfile}"
+					echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|folder|${videoname}|${subdirfile}|${videopath0}"
 					return
 				fi
 			done
 		elif [[ -f "${videopath}" ]]; then
-			if [[ -e "${playlist_done}" ]] && cat "${playlist_done}" | grep "${playlist_index}|${videopath}" >/dev/null; then
+			if [[ -e "${playlist_done}" ]] && cat "${playlist_done}" | grep "${playlist_index}|${videopath0}" >/dev/null; then
 				continue
 			fi
-			echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|1|1|playing|file|${videoname}|${videopath}"
+			echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|1|1|playing|file|${videoname}|${videopath}|${videopath0}"
 			break
 		fi
 	done
