@@ -1,4 +1,4 @@
-TV0|delogo=x=965:y=40:w=75:h=60:show=0
+TV0|delogo=x=965:y=35:w=75:h=65:show=0
 TS0|delogo=x=965:y=40:w=75:h=60:show=0
 TV1|delogo=x=400:y=30:w=75:h=60:show=0
 TV2|delogo=x=525:y=30:w=85:h=60:show=0
