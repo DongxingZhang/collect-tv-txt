@@ -755,7 +755,7 @@ get_rest_videos() {
 	declare -a filenamelist
 	for subdirfile in "${waitingdir}"/*; do
 	  title="　　"
-		filenamelist[$videono]="000|F|F|F|1|1|1|rest|file|${title}|${subdirfile}"
+		filenamelist[$videono]="000|F|F|F|2|1|1|rest|file|${title}|${subdirfile}"
 		videono=$(expr $videono + 1)
 	done
 	video_lengh=${#filenamelist[@]}
