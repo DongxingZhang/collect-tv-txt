@@ -60,9 +60,9 @@ def find_new_tv(arg):
             if not filepath in cont:
                 #print(filepath) 
                 if arg=="":
-                    print("0|000|F|F|F|0|" + filepath + "|")
+                    print("0|000|F|F|F|0|" + filepath + "|" + filepath)
                 else:
-                    print("0|000|F|F|F|0|" + filepath + "|"+"              from: " + dir)
+                    print("0|000|F|F|F|0|" + filepath + "|"+ filepath  +"              from: " + dir)
 if __name__ == '__main__':    
     #p1=parseplaylist("./list/playlist.txt", 6)
     #writeplaylist("./list/playlist.txt", p1)
