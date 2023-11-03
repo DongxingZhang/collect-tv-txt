@@ -20,6 +20,7 @@ TD1|delogo=x=600:y=28:w=88:h=82:show=0,delogo=x=560:y=520:w=130:h=40:show=0
 TVE|delogo=x=815:y=28:w=70:h=60:show=0
 TVF|delogo=x=1500:y=32:w=128:h=108:show=0
 TVG|delogo=x=1570:y=38:w=274:h=98:show=0
+TVH|delogo=x=1484:y=48:w=342:h=82:show=0
 YOU|delogo=x=795:y=25:w=160:h=35:show=0
 AD1|delogo=x=0:y=14:w=1079:h=64:show=0
 CCV|delogo=x=80:y=50:w=155:h=120:show=0
@@ -38,3 +39,4 @@ STA|delogo=x=574:y=24:w=80:h=94:show=0,delogo=x=40:y=38:w=108:h=80:show=0
 FEZ|delogo=x=5:y=5:w=835:h=35:show=0
 ZST|delogo=x=518:y=30:w=94:h=54:show=0
 RBT|delogo=x=560:y=490:w=150:h=40:show=0
+JS0|delogo=x=570:y=15:w=60:h=50:show=0

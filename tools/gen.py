@@ -54,6 +54,7 @@ def find_new_tv(arg):
         cont+=f.read()
     with open('../list/playlist2.txt', encoding='utf-8') as f:
         cont+=f.read()
+    print("=================查询不在列表上的电视剧==================")
     for dir in folders:
         files = [file for file in os.listdir(dir) if os.path.isdir(dir + os.sep + file)] 
         for filepath in files:
@@ -63,15 +64,30 @@ def find_new_tv(arg):
                     print("0|000|F|F|F|0|" + filepath + "|" + filepath)
                 else:
                     print("0|000|F|F|F|0|" + filepath + "|"+ filepath  +"              from: " + dir)
+    print("================查询路径中没有的电视剧========================")
+    with open('../list/playlist2.txt', 'r') as f:
+        for line in f.readlines():
+            arr = line.split("|")
+            if len(arr)<7:
+                continue
+            tvname=arr[6]
+            found=False
+            found_path=""
+            for dir in folders:
+                fpath=dir+tvname
+                if os.path.isdir(fpath):
+                    found=True
+                    found_path=fpath
+                    break
+            if found==False:
+                print(tvname)
+
 if __name__ == '__main__':    
     #p1=parseplaylist("./list/playlist.txt", 6)
     #writeplaylist("./list/playlist.txt", p1)
     #p2=parseplaylist("./list/playlist_done.txt", 1)
     #writeplaylist("./list/playlist_done.txt", p2)
-    if len(sys.argv) == 1:
-        find_new_tv("")
-    else:
-        find_new_tv(sys.argv[0])
+    find_new_tv("1")
     pass
 
 

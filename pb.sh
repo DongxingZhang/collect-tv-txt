@@ -81,7 +81,7 @@ get_fontsize() {
 	newfontsize=$(echo "scale=5;sqrt($width*$width+$height*$height)/2203*$fontsize" | bc)
 	newfontsize=$(echo "scale=0;$newfontsize/1" | bc)
 	if [ ${newfontsize} -eq 0 ]; then
-            newfontsize=50
+		newfontsize=50
 	fi
 	echo ${newfontsize}
 }
@@ -126,29 +126,29 @@ check_even() {
 	fi
 }
 
-check_video_path(){
-	 videoname=$1
-	 if [[ -d "${videoname}" ]]; then
-		 echo "${videoname}"
-	 elif [[ -d "/mnt/share1/tv/${videoname}" ]]; then
-		 echo "/mnt/share1/tv/${videoname}"
-         elif [[ -d "/mnt/share2/tv/${videoname}" ]]; then
-                 echo "/mnt/share2/tv/${videoname}"
-         elif [[ -d "/mnt/share3/tv/${videoname}" ]]; then
-                 echo "/mnt/share3/tv/${videoname}"
-         elif [[ -f "/mnt/share1/movies/${videoname}" ]]; then
-                 echo "/mnt/share1/movies/${videoname}"
-         elif [[ -f "/mnt/share1/videos/${videoname}" ]]; then
-                 echo "/mnt/share1/videos/${videoname}"
-         elif [[ -f "/mnt/share1/tv/${videoname}" ]]; then
-                 echo "/mnt/share1/tv/${videoname}"
-         elif [[ -f "/mnt/share2/tv/${videoname}" ]]; then
-                 echo "/mnt/share2/tv/${videoname}"
-         elif [[ -f "/mnt/share3/tv/${videoname}" ]]; then
-                 echo "/mnt/share3/tv/${videoname}"
-	 else
-		 echo ""
-	 fi
+check_video_path() {
+	videoname=$1
+	if [[ -d "${videoname}" ]]; then
+		echo "${videoname}"
+	elif [[ -d "/mnt/share1/tv/${videoname}" ]]; then
+		echo "/mnt/share1/tv/${videoname}"
+	elif [[ -d "/mnt/share2/tv/${videoname}" ]]; then
+		echo "/mnt/share2/tv/${videoname}"
+	elif [[ -d "/mnt/share3/tv/${videoname}" ]]; then
+		echo "/mnt/share3/tv/${videoname}"
+	elif [[ -f "/mnt/share1/movies/${videoname}" ]]; then
+		echo "/mnt/share1/movies/${videoname}"
+	elif [[ -f "/mnt/share1/videos/${videoname}" ]]; then
+		echo "/mnt/share1/videos/${videoname}"
+	elif [[ -f "/mnt/share1/tv/${videoname}" ]]; then
+		echo "/mnt/share1/tv/${videoname}"
+	elif [[ -f "/mnt/share2/tv/${videoname}" ]]; then
+		echo "/mnt/share2/tv/${videoname}"
+	elif [[ -f "/mnt/share3/tv/${videoname}" ]]; then
+		echo "/mnt/share3/tv/${videoname}"
+	else
+		echo ""
+	fi
 }
 
 kill_app() {
@@ -169,17 +169,17 @@ kill_app() {
 	done
 }
 
-get_srt(){
+get_srt() {
 	fullpath=$1
 	dir=$(dirname "${fullpath}")
-    filename=$(basename "${fullpath}")
-    extension="${filename##*.}"
-    filenameprefix="${filename%.*}"
-    srt="${dir}/${filenameprefix}.srt"
+	filename=$(basename "${fullpath}")
+	extension="${filename##*.}"
+	filenameprefix="${filename%.*}"
+	srt="${dir}/${filenameprefix}.srt"
 	if [[ -f "${srt}" ]]; then
-	    echo "${srt}"
+		echo "${srt}"
 	else
-	    echo ""
+		echo ""
 	fi
 }
 
@@ -227,7 +227,7 @@ stream_play_main() {
 	echo -e ${yellow}播放类型:${font} ${file_type}
 	echo -e ${yellow}电视剧名称:${font} ${videoname}
 	echo -e ${yellow}播放模式（bg, fg, test）:${font} ${mode}
-        rtmp="${rtmp_link}$(cat ${rtmp_token})"
+	rtmp="${rtmp_link}$(cat ${rtmp_token})"
 	echo ${rtmp}
 
 	#增加所有声道支持 还未启用
@@ -318,7 +318,7 @@ stream_play_main() {
 	line_spacing=$(echo "scale=0;${line_spacing}/1" | bc)
 
 	#节目预告
-	echo $(get_next_video_name) > ${news}
+	echo $(get_next_video_name) >${news}
 	#cat <( curl -s http://www.nmc.cn/publish/forecast/  ) | tr -s '\n' ' ' |  sed  's/<div class="col-xs-4">/\n/g' | sed -E 's/<[^>]+>//g' | awk -F ' ' 'NF==5{print $1,$2,$3}' | head -n 32 | tr -s '\n' ';' | sed 's/徐家汇/上海/g' | sed 's/长沙市/长沙/g' >>  ${news}
 	echo "下集预告 ${news}"
 
@@ -333,17 +333,17 @@ stream_play_main() {
 	elif [ "${param}" = "1" ]; then
 		#音乐logo
 		logo=${logodir}/logo3.png
-    elif [ "${param}" = "FF" ]; then
-        #武侠logo
-        logo=${logodir}/logow.png
-    elif [ "${param}" = "00" ]; then
-        #怀旧logo
-        logo=${logodir}/logow2.png
-    elif [ "${param}" = "11" ]; then
-        #音乐logo
-        logo=${logodir}/logow3.png
+	elif [ "${param}" = "FF" ]; then
+		#武侠logo
+		logo=${logodir}/logow.png
+	elif [ "${param}" = "00" ]; then
+		#怀旧logo
+		logo=${logodir}/logow2.png
+	elif [ "${param}" = "11" ]; then
+		#音乐logo
+		logo=${logodir}/logow3.png
 	else
-        logo=${logodir}/logow4.png
+		logo=${logodir}/logow4.png
 	fi
 
 	echo 台标=${logo}
@@ -386,9 +386,9 @@ stream_play_main() {
 	#播放百分比%{eif\:n\/nb_frames\:d}%%
 	duration=$(get_duration2 "${videopath}")
 	if [ "${play_time}" = "rest" ]; then
-	  content=
+		content=
 	else
-	  content="%{pts\:gmtime\:0\:%H\\\\\:%M\\\\\:%S}${enter}${duration}"
+		content="%{pts\:gmtime\:0\:%H\\\\\:%M\\\\\:%S}${enter}${duration}"
 	fi
 	drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*7:y=line_h/3\*5:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
 
@@ -606,8 +606,8 @@ get_playing_video() {
 		videopath=$(check_video_path ${videopath0})
 
 		if [ "${videopath}" = "" ]; then
-                    continue
-                fi
+			continue
+		fi
 
 		#搜索时间段
 		if [[ "${video_index}" != "${playlist_index}" ]]; then
@@ -652,10 +652,10 @@ get_playing_video() {
 get_next_video_name() {
 	next_tv=$(cat ${memo})"　　"
 	periodcount=$(cat ${config} | grep -v "^#" | sed /^$/d | wc -l)
-    if [ ${periodcount} -le 1  ];then
-        echo ${next_tv}
-        return
-    fi
+	if [ ${periodcount} -le 1 ]; then
+		echo ${next_tv}
+		return
+	fi
 	ret=$(get_rest $(TZ=Asia/Shanghai date +%H))
 	if [ "${ret}" = "F|F|F" ]; then
 		timec=0
@@ -754,7 +754,7 @@ get_rest_videos() {
 	videono=0
 	declare -a filenamelist
 	for subdirfile in "${waitingdir}"/*; do
-	  title="　　"
+		title="　　"
 		filenamelist[$videono]="000|F|F|F|2|1|1|rest|file|${title}|${subdirfile}"
 		videono=$(expr $videono + 1)
 	done
@@ -784,7 +784,7 @@ stream_start() {
 	current=""
 	while true; do
 		period=$(need_waiting)
-		if [ "${period}" = "F" ] || [ "${play_mode: -1}" = "a" ]; then			
+		if [ "${period}" = "F" ] || [ "${play_mode: -1}" = "a" ]; then
 			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "一口气")
 		else
 			next=$(get_next ${period})
@@ -875,7 +875,7 @@ start_menu() {
 		read -p "推流网站:" rtmp_link
 		read -p "节目预告:" news
 		read -p "分辨率:" sheight
-   read -p "推流token" rtmp_token
+		read -p "推流token" rtmp_token
 	else
 		num=$1
 		mode=$2
@@ -898,13 +898,13 @@ start_menu() {
 		if [ "$9" != "" ]; then
 			news=$9
 		fi
-    if [ "${10}" != "" ]; then
-       sheight=${10}
-   fi
-  	if [ "${11}" != "" ]; then
+		if [ "${10}" != "" ]; then
+			sheight=${10}
+		fi
+		if [ "${11}" != "" ]; then
 			rtmp_token=${11}
 		fi
-   rtmp="${rtmp_link}$(cat ${rtmp_token})"
+		rtmp="${rtmp_link}$(cat ${rtmp_token})"
 		echo $subfile
 		echo $config
 		echo ${playlist}
@@ -912,8 +912,8 @@ start_menu() {
 		echo ${rtmp_link}
 		echo ${news}
 		echo ${sheight}
-   echo ${rtmp_token}
-   echo ${rtmp}
+		echo ${rtmp_token}
+		echo ${rtmp}
 	fi
 
 	case "$num" in
