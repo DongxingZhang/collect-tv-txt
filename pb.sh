@@ -207,6 +207,9 @@ stream_play_main() {
 	videoname=${arr[9]}
 	videopath=$(echo ${arr[10]} | tr '%' ' ')
 	videopath0=${arr[11]}
+        cur_times=${arr[12]}
+	playtimes=${arr[13]}
+
 	mode=$2
 	period=$3
 	mvsource=$4
@@ -517,20 +520,20 @@ stream_play_main() {
 		if [ "${play_time}" = "playing" ]; then
 			video_played=$(cat "${playlist_done}" | grep "${period}|${folder}" | head -1)
 			if [ "${video_played}" = "" ]; then
-				echo "${period}|${folder}|${cur_file}|${file_count}" >>"${playlist_done}"
+				echo "${period}|${folder}|${cur_file}|${file_count}|${cur_times}|${playtimes}" >>"${playlist_done}"
 				cat ${playlist_done} | sort >./list/.pd.txt
 				cp ./list/.pd.txt ${playlist_done}
 			else
-				sed -i "s#${video_played}#${period}|${folder}|${cur_file}|${file_count}#" "${playlist_done}"
+				sed -i "s#${video_played}#${period}|${folder}|${cur_file}|${file_count}|${cur_times}|${playtimes}#" "${playlist_done}"
 			fi
 		fi
 	else
 		if [ "${play_time}" = "playing" ]; then
 			video_played=$(cat "${playlist_done}" | grep "${period}|${folder}" | head -1)
 			if [ "${video_played}" = "" ]; then
-				echo "${period}|${folder}|${cur_file}"
+				echo "${period}|${folder}|${cur_file}|${cur_times}|${playtimes}"
 			else
-				echo sed -i "s#${video_played}#${period}|${folder}|${cur_file}#" "${playlist_done}"
+				echo sed -i "s#${video_played}#${period}|${folder}|${cur_file}|${file_count}|${cur_times}|${playtimes}#" "${playlist_done}"
 			fi
 		fi
 	fi
@@ -601,6 +604,7 @@ get_playing_video() {
 		param=${arr[5]}
 		videopath0=${arr[6]}
 		videoname=${arr[7]}
+		playtimes=${arr[8]}
 
 		#这里路径可以只写目录名，然后自己搜索
 		videopath=$(check_video_path ${videopath0})
@@ -614,18 +618,32 @@ get_playing_video() {
 			continue
 		fi
 		if [[ -d "${videopath}" ]]; then
-			file_count=$(ls -l ${videopath} | grep "^-" | wc -l)
+                        file_count=$(ls -l ${videopath} | grep "^-" | wc -l)
+                        if [ "${playtimes}" = "" ]; then
+                            playtimes=1
+                        fi
 			video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${videopath0}" | head -1)
 			if [[ "${video_played}" = "" ]]; then
 				cur_file=1
+				cur_times=1
 			else
 				video_played_arr=(${video_played//|/ })
+
+				if  [[ "${video_played_arr[4]}" = "" ]]; then
+                                        cur_times=1
+				else
+					cur_times=${video_played_arr[4]}
+				fi
+
 				if [[ "${video_played_arr[2]}" = "" ]]; then
 					cur_file=1
-				elif [[ "${video_played_arr[2]}" = "${file_count}" ]]; then
-					continue
-				elif [[ "${video_played_arr[2]}" -ge "${video_played_arr[3]}" ]]; then
-					continue
+				elif [[ "${video_played_arr[2]}" -ge "${file_count}" ]]; then
+					if [[ "${cur_times}" -lt "${playtimes}" ]]; then
+					    cur_file=1
+					    cur_times=$(expr ${cur_times} + 1)
+					else
+					    continue
+					fi				
 				else
 					cur_file=$(expr ${video_played_arr[2]} + 1)
 				fi
@@ -635,15 +653,35 @@ get_playing_video() {
 			for subdirfile in "${videopath}"/*; do
 				cur=$(expr $cur + 1)
 				if [[ "${cur}" = "${cur_file}" ]]; then
-					echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|folder|${videoname}|${subdirfile}|${videopath0}"
+					echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|folder|${videoname}|${subdirfile}|${videopath0}|${cur_times}|${playtimes}"
 					return
 				fi
 			done
 		elif [[ -f "${videopath}" ]]; then
-			if [[ -e "${playlist_done}" ]] && cat "${playlist_done}" | grep "${playlist_index}|${videopath0}" >/dev/null; then
-				continue
+			if [ "${playtimes}" = "" ]; then
+                playtimes=1
+            fi
+			file_count=1
+			video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${videopath0}" | head -1)
+            if [[ "${video_played}" = "" ]]; then
+                cur_file=1
+                cur_times=1
+            else
+				video_played_arr=(${video_played//|/ })
+				if  [[ "${video_played_arr[4]}" = "" ]]; then
+                    cur_times=1
+                else
+                    cur_times=${video_played_arr[4]}
+                fi
+            
+			    if [[ "${cur_times}" -lt "${playtimes}" ]]; then
+                    cur_file=1
+                    cur_times=$(expr ${cur_times} + 1)
+                else
+                    continue
+                fi
 			fi
-			echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|1|1|playing|file|${videoname}|${videopath}|${videopath0}"
+			echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|file|${videoname}|${videopath}|${videopath0}|${cur_times}|${playtimes}"
 			break
 		fi
 	done
