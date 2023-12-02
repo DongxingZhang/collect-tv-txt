@@ -40,3 +40,4 @@ FEZ|delogo=x=5:y=5:w=835:h=35:show=0
 ZST|delogo=x=518:y=30:w=94:h=54:show=0
 RBT|delogo=x=560:y=490:w=150:h=40:show=0
 JS0|delogo=x=570:y=15:w=60:h=50:show=0
+JY1|delogo=x=1315:y=75:w=510:h=130:show=0,delogo=x=1655:y=860:w=190:h=170:show=0

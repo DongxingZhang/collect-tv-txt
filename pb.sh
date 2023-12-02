@@ -28,11 +28,12 @@ playlist_done=${curdir}/list/playlist_done.txt
 rest_video_path=/mnt/share3/mvbrief
 
 #配置字体
-fontdir=${curdir}/fonts/font.ttf
+fontdir=${curdir}/fonts/font2.ttf
 fonttimedir=${curdir}/fonts/font_time.ttf
 fontforcastdir=${curdir}/fonts/font.ttf
 fontsize=65
 fontcolor=#FDE6E0
+fontcolor2=#B1121A
 fontbg="box=1:boxcolor=black@0.01:boxborderw=3"
 sheight=720
 #ffmpeg参数
@@ -78,7 +79,8 @@ get_fontsize() {
 	data=$(ffprobe -hide_banner -show_format -show_streams "$1" 2>&1)
 	width=$(echo $data | awk -F 'width=' '{print $2}' | awk -F ' ' '{print $1}')
 	height=$(echo $data | awk -F 'height=' '{print $2}' | awk -F ' ' '{print $1}')
-	newfontsize=$(echo "scale=5;sqrt($width*$width+$height*$height)/2203*$fontsize" | bc)
+	#newfontsize=$(echo "scale=5;sqrt($width*$width+$height*$height)/2203*$fontsize" | bc)
+	newfontsize=$(echo "scale=5;$height/1100*$fontsize" | bc)
 	newfontsize=$(echo "scale=0;$newfontsize/1" | bc)
 	if [ ${newfontsize} -eq 0 ]; then
 		newfontsize=50
@@ -129,6 +131,8 @@ check_even() {
 check_video_path() {
 	videoname=$1
 	if [[ -d "${videoname}" ]]; then
+		echo "${videoname}"
+	elif [[ -f "${videoname}" ]]; then
 		echo "${videoname}"
 	elif [[ -d "/mnt/share1/tv/${videoname}" ]]; then
 		echo "/mnt/share1/tv/${videoname}"
@@ -207,7 +211,7 @@ stream_play_main() {
 	videoname=${arr[9]}
 	videopath=$(echo ${arr[10]} | tr '%' ' ')
 	videopath0=${arr[11]}
-        cur_times=${arr[12]}
+    cur_times=${arr[12]}
 	playtimes=${arr[13]}
 
 	mode=$2
@@ -248,7 +252,7 @@ stream_play_main() {
 
 	# 文件超过5GB不要播放
 	maxsize=5000000000
-	actualsize=$(wc -c <"$videopath")
+	actualsize=$(wc -c < "${videopath}")
 	echo 文件大小:$actualsize
 	if [ $actualsize -ge $maxsize ]; then
 		return 0
@@ -404,28 +408,33 @@ stream_play_main() {
 	echo 第${cur_file}集
 	echo 共${file_count}集
 
-	if [ "${file_count}" = "1" ]; then
-		cont_len=${#videoname}
-		content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')
-		echo ${content2}
+	if [ "${videoname}" = "待定" ]; then
+		content2=""
+		cont_len=1
 	else
-		splitstar="${enter}"
-		#splitstar="★"
-		cur_file2=$(digit_half2full ${cur_file})
-		if [ "${file_count}" = "${cur_file}" ]; then
-			vn=${videoname}${splitstar}大结局
-			cont_len=${#vn}
-			content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')${splitstar}大${enter}结${enter}局
+		if [ "${file_count}" = "1" ]; then
+			cont_len=${#videoname}
+			content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')
+			echo ${content2}
 		else
-			vn=${videoname}${splitstar}${cur_file2}
-			cont_len=${#vn}
-			content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')${splitstar}${cur_file2}
+			splitstar="${enter}"
+			#splitstar="★"
+			cur_file2=$(digit_half2full ${cur_file})
+			if [ "${file_count}" = "${cur_file}" ]; then
+				vn=${videoname}${splitstar}大结局
+				cont_len=${#vn}
+				content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')${splitstar}大${enter}结${enter}局
+			else
+				vn=${videoname}${splitstar}${cur_file2}
+				cont_len=${#vn}
+				content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')${splitstar}${cur_file2}
+			fi
+			echo ${content2}
+			cont_len=$(expr ${cont_len} - 2)
 		fi
-		echo ${content2}
-		cont_len=$(expr ${cont_len} - 2)
 	fi
-	cont_len=$(expr ${cont_len} / 2)
-	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*3:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
+    cont_len=$(expr ${cont_len} / 2)
+	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor2}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*3:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
 
 	#缩放
 	scale_flag=0
@@ -608,11 +617,9 @@ get_playing_video() {
 
 		#这里路径可以只写目录名，然后自己搜索
 		videopath=$(check_video_path ${videopath0})
-
 		if [ "${videopath}" = "" ]; then
 			continue
 		fi
-
 		#搜索时间段
 		if [[ "${video_index}" != "${playlist_index}" ]]; then
 			continue
@@ -822,6 +829,8 @@ stream_start() {
 	current=""
 	while true; do
 		period=$(need_waiting)
+		get_playing_video ${period}
+
 		if [ "${period}" = "F" ] || [ "${play_mode: -1}" = "a" ]; then
 			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "一口气")
 		else
