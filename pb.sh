@@ -31,7 +31,7 @@ rest_video_path=/mnt/share3/mvbrief
 fontdir=${curdir}/fonts/font2.ttf
 fonttimedir=${curdir}/fonts/font_time.ttf
 fontforcastdir=${curdir}/fonts/font.ttf
-fontsize=65
+fontsize=50
 fontcolor=#FDE6E0
 fontcolor2=#B1121A
 fontbg="box=1:boxcolor=black@0.01:boxborderw=3"
@@ -80,7 +80,7 @@ get_fontsize() {
 	width=$(echo $data | awk -F 'width=' '{print $2}' | awk -F ' ' '{print $1}')
 	height=$(echo $data | awk -F 'height=' '{print $2}' | awk -F ' ' '{print $1}')
 	#newfontsize=$(echo "scale=5;sqrt($width*$width+$height*$height)/2203*$fontsize" | bc)
-	newfontsize=$(echo "scale=5;$height/1100*$fontsize" | bc)
+	newfontsize=$(echo "scale=5;$height/1000*$fontsize" | bc)
 	newfontsize=$(echo "scale=0;$newfontsize/1" | bc)
 	if [ ${newfontsize} -eq 0 ]; then
 		newfontsize=50
@@ -434,7 +434,7 @@ stream_play_main() {
 		fi
 	fi
     cont_len=$(expr ${cont_len} / 2)
-	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor2}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*3:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
+	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*3:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
 
 	#缩放
 	scale_flag=0
