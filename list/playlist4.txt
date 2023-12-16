@@ -1,4 +1,1 @@
-0|TV0|F|F|F|F|/mnt/share1/tv/神剑魔刀1986|神剑魔刀
-0|TVA|0|F|F|F|四大名捕1984|四大名捕
-0|TV0|F|F|F|F|/mnt/share2/tv/射雕之中神通王重阳|王重阳
-0|TV0|F|F|F|F|奇幻人世间|奇幻人世间
+0|000|F|F|F|F|/mnt/share1/江西案2023/video/原有的|待定|2

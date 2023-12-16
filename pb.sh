@@ -306,6 +306,9 @@ stream_play_main() {
 
 	echo width=$size_width
 	echo height=$size_height
+	
+	whratio=$(echo "scale=2;${size_width}/${size_height}" | bc)
+	echo 长宽比:${whratio}
 
 	#片名
 	if [ "${mode}" != "test" ] && [ "${mode: -1}" != "a" ]; then
@@ -397,9 +400,10 @@ stream_play_main() {
 	else
 		content="%{pts\:gmtime\:0\:%H\\\\\:%M\\\\\:%S}${enter}${duration}"
 	fi
-	drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*7:y=line_h/3\*5:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
+	#右上角drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*7:y=line_h/3\*5:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
+	drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=line_h\*3/2:y=h-line_h/3\*15:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
 
-	#天气预报
+	#节目预告
 	#从左往右drawtext2="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${news}':fontfile=${fontdir}:expansion=normal:x=(mod(5*n\,w+tw)-tw):y=h-line_h-10:shadowx=2:shadowy=2:${fontbg}"
 	#从右到左
 	drawtext2="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:textfile='${news}':fontfile=${fontforcastdir}:line_spacing=${line_spacing}:expansion=normal:x=w-mod(max(t-1\,0)*(w+tw\*5)/415\,(w+tw\*5)):y=h-line_h-5:shadowx=2:shadowy=2:${fontbg}[forcv];[forcv]"
