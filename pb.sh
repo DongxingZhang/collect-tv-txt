@@ -369,6 +369,14 @@ stream_play_main() {
 		delogo="${delogosarr[1]}[delogv];[delogv]"
 	fi
 
+	#转为16:9
+	state=`echo "${whratio}<1.77"|bc`
+	if [ $state -eq 1 ];then
+	    convideo="split[original][copy];[copy]scale=ih*16/9:-1,crop=h=iw*9/16,gblur=sigma=80,eq=saturation=0.9[background];[background][original]overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2[initvideo];[initvideo]"
+	else
+	    convideo=""
+	fi
+
 	#跳过${video_skip}秒
 	audio_format="volume=1.0,atrim=start=1"
 	videoskips="trim=start=1[vs];[vs]"
@@ -459,7 +467,7 @@ stream_play_main() {
 	fi
 
 	# 视频轨
-	videos="${mapv}${delogo}${videoskips}${subs}${drawtext1}${drawtext2}${drawtext3}[bg];" #[bg]
+	videos="${mapv}${delogo}${convideo}${videoskips}${subs}${drawtext1}${drawtext2}${drawtext3}[bg];" #[bg]
 	# 音轨
 	audios="${mapa}${audio_format}[bga];" #[bga]
 	# 台标
