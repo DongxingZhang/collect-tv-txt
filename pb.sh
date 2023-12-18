@@ -26,6 +26,7 @@ delogofile=${curdir}/list/delogo.txt
 playlist=${curdir}/list/playlist.txt
 playlist_done=${curdir}/list/playlist_done.txt
 rest_video_path=/mnt/share3/mvbrief
+bgimg=${curdir}/img/bg.jpg
 
 #配置字体
 fontdir=${curdir}/fonts/font2.ttf
@@ -76,11 +77,12 @@ get_duration2() {
 }
 
 get_fontsize() {
-	data=$(ffprobe -hide_banner -show_format -show_streams "$1" 2>&1)
-	width=$(echo $data | awk -F 'width=' '{print $2}' | awk -F ' ' '{print $1}')
-	height=$(echo $data | awk -F 'height=' '{print $2}' | awk -F ' ' '{print $1}')
+	#data=$(ffprobe -hide_banner -show_format -show_streams "$1" 2>&1)
+	#width=$(echo $data | awk -F 'width=' '{print $2}' | awk -F ' ' '{print $1}')
+	#height=$(echo $data | awk -F 'height=' '{print $2}' | awk -F ' ' '{print $1}')
 	#newfontsize=$(echo "scale=5;sqrt($width*$width+$height*$height)/2203*$fontsize" | bc)
-	newfontsize=$(echo "scale=5;$height/1000*$fontsize" | bc)
+	height=$1
+	newfontsize=$(echo "scale=5;$height/900*$fontsize" | bc)
 	newfontsize=$(echo "scale=0;$newfontsize/1" | bc)
 	if [ ${newfontsize} -eq 0 ]; then
 		newfontsize=50
@@ -310,13 +312,12 @@ stream_play_main() {
 	whratio=$(echo "scale=2;${size_width}/${size_height}" | bc)
 	echo 长宽比:${whratio}
 
-	#片名
-	if [ "${mode}" != "test" ] && [ "${mode: -1}" != "a" ]; then
-		newfontsize=$(get_fontsize "${videopath}")
+	#片名	
+	if [ ${size_height} -gt ${sheight} ] || [ ${scale_flag} -eq 1 ]; then
+	    newfontsize=$(get_fontsize "${sheight}")
 	else
-		newfontsize=$(get_fontsize "${logodir}/bg.jpg")
+	    newfontsize=$(get_fontsize "${size_height}")
 	fi
-
 	echo fontsize=${newfontsize}
 
 	#计算时间显示字体大小
@@ -358,6 +359,21 @@ stream_play_main() {
 
 	echo 台标=${logo}
 
+    #缩放
+	scale_flag=0
+	echo "缩放size_height=${size_height}"
+	echo "缩放sheight=${sheight}"
+	if [ ${size_height} -gt ${sheight} ] || [ ${scale_flag} -eq 1 ]; then
+		scales="scale=trunc(oh*a/2)*2:${sheight}"
+		scales2="scale=trunc(oh*a/2)*2:${sheight}"
+	else
+		scales="scale=trunc(oh*a/2)*2:${size_height}"
+		scales2="scale=trunc(oh*a/2)*2:${size_height}"
+	fi
+
+	# 背景图
+	background="[2:v:0]${scales2}[scalebg];[scalebg]scale=ih*16/9:-1,crop=h=iw*9/16,gblur=sigma=80,eq=saturation=0.9[bgimg];"    
+
 	#遮挡logo
 	delogos=$(cat ${delogofile} | grep "^${video_type}|")
 
@@ -367,14 +383,6 @@ stream_play_main() {
 		delogos=$(echo ${delogos} | tr -d '\r' | tr -d '\n')
 		delogosarr=(${delogos//|/ })
 		delogo="${delogosarr[1]}[delogv];[delogv]"
-	fi
-
-	#转为16:9
-	state=`echo "${whratio}<1.77"|bc`
-	if [ $state -eq 1 ];then
-	    convideo="split[original][copy];[copy]scale=ih*16/9:-1,crop=h=iw*9/16,gblur=sigma=80,eq=saturation=0.9[background];[background][original]overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2[initvideo];[initvideo]"
-	else
-	    convideo=""
 	fi
 
 	#跳过${video_skip}秒
@@ -447,17 +455,7 @@ stream_play_main() {
 	fi
     cont_len=$(expr ${cont_len} / 2)
 	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*3:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
-
-	#缩放
-	scale_flag=0
-	echo "缩放size_height=${size_height}"
-	echo "缩放sheight=${sheight}"
-	if [ ${size_height} -gt ${sheight} ] || [ ${scale_flag} -eq 1 ]; then
-		scales="scale=trunc(oh*a/2)*2:${sheight}[scalev];[scalev]"
-	else
-		scales=""
-	fi
-
+    
 	#增亮
 	if [ "${lighter}" != "F" ]; then
 		#lights="eq=contrast=1:brightness=0.15,curves=preset=lighter[bg2]"
@@ -466,14 +464,26 @@ stream_play_main() {
 		lights="eq=contrast=1[bg2]"
 	fi
 
-	# 视频轨
-	videos="${mapv}${delogo}${convideo}${videoskips}${subs}${drawtext1}${drawtext2}${drawtext3}[bg];" #[bg]
-	# 音轨
-	audios="${mapa}${audio_format}[bga];" #[bga]
 	# 台标
 	watermark="[1:v:0]scale=-1:${newfontsize}\*2[wm];" #[wm]
 
-	video_format="${videos}${audios}${watermark}[bg][wm]overlay=overlay_w/6:overlay_h/3[bg1];[bg1]${scales}${lights}"
+	# 混合台标
+    logos="[wm]overlay=overlay_w/6:overlay_h/3[bg1];[bg1]"
+
+	# 视频轨
+	videos="${background}${watermark}${mapv}${delogo}${videoskips}${scales}[main];"
+
+	# 视频补齐16:9
+	videomakeup="[bgimg][main]overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2[bg0];[bg0]" 
+	
+	# 增加字幕和提示
+    tips="${logos}${subs}${drawtext1}${drawtext2}${drawtext3}[bg];"
+
+	# 音轨
+	audios="${mapa}${audio_format}[bga];" #[bga]
+
+    # 总选项
+	video_format="${videos}${videomakeup}${tips}${audios}[bg]${lights}"
 
 	echo 滤镜:${video_format}
 
@@ -485,8 +495,8 @@ stream_play_main() {
 		#bgpic=${logodir}/bgqrcode.jpg
 		kill_app "${rtmp}" "ffmpeg -re"
 		#nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
-		echo ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
-		ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		echo ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		#ffmpeg -r 25 -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 30 -b:v 2000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		echo finished playing $videopath
 		#过度画面
