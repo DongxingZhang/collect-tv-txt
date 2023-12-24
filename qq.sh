@@ -38,6 +38,5 @@ echo ${pidlist}
 ./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}" "${sheight}" "${rtmp_link}" "${ffmpeglog}"
 
 
-tail -f  ${ffmpeglog}
 
 

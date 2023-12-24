@@ -40,6 +40,6 @@ echo ${pidlist}
 
 
 
-tail -f  ${ffmpeglog}
+
 
 

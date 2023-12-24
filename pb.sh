@@ -364,8 +364,8 @@ stream_play_main() {
 	echo "缩放size_height=${size_height}"
 	echo "缩放sheight=${sheight}"
 	if [ ${size_height} -gt ${sheight} ] || [ ${scale_flag} -eq 1 ]; then
-		scales="scale=trunc(oh*a/2)*2:${sheight}"
-		scales2="scale=trunc(oh*a/2)*2:${sheight}"
+		scales="scale=trunc(oh*a/2)*2:${sheight}" # 主视频
+		scales2="scale=trunc(oh*a/2)*2:${sheight}" # 背景图片
 	else
 		scales="scale=trunc(oh*a/2)*2:${size_height}"
 		scales2="scale=trunc(oh*a/2)*2:${size_height}"
@@ -428,7 +428,7 @@ stream_play_main() {
 	echo 第${cur_file}集
 	echo 共${file_count}集
 
-	if [ "${videoname}" = "待定" ]; then
+	if [ "${videoname}" = "精彩节目" ]; then
 		content2=""
 		cont_len=1
 	else
@@ -547,7 +547,7 @@ stream_play_main() {
 	#fi
 	folder=${videopath0}
 
-	if [ "${mode}" != "test" ] && [ ${time_seconds} -ge 1200 ]; then
+	if [ "${mode}" != "test" ] && [ ${time_seconds} -ge 600 ]; then
 		if [ "${play_time}" = "playing" ]; then
 			video_played=$(cat "${playlist_done}" | grep "${period}|${folder}" | head -1)
 			if [ "${video_played}" = "" ]; then
@@ -755,7 +755,11 @@ get_next_video_name() {
 		period=$(cat ${config} | grep "|${timed}$")
 		period=$(echo ${period} | tr -d '\r' | tr -d '\n')
 		periodarr=(${period//|/ })
-		next_tv=${next_tv}"${periodarr[0]}:00 ${tvname}(${cur_file})　"
+		if [ "${tvname}" = "精彩节目" ] || [ "${file_count}" -eq 1 ]; then
+			next_tv=${next_tv}"${periodarr[0]}:00 ${tvname}　"
+		else
+			next_tv=${next_tv}"${periodarr[0]}:00 ${tvname}(${cur_file})　"
+		fi
 	done
 	length=${#next_tv}
 	echo ${next_tv::length-1}
