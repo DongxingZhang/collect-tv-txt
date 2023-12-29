@@ -29,7 +29,7 @@ rest_video_path=/mnt/share3/mvbrief
 bgimg=${curdir}/img/bg.jpg
 
 #配置字体
-fontdir=${curdir}/fonts/font2.ttf
+fontdir=${curdir}/fonts/font3.ttf
 fonttimedir=${curdir}/fonts/font_time.ttf
 fontforcastdir=${curdir}/fonts/font.ttf
 fontsize=50
@@ -390,7 +390,7 @@ stream_play_main() {
 	videoskips="trim=start=1[vs];[vs]"
 	if [ "${video_skip}" != "" ]; then
 		videoskips="trim=start=${video_skip}[vs];[vs]"
-		audio_format="volume=1.0,atrim=start=${video_skip}"
+		audio_format="volume=1.2,atrim=start=${video_skip}"
 	fi
 
 	#字幕
@@ -494,7 +494,7 @@ stream_play_main() {
 	if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
 		#bgpic=${logodir}/bgqrcode.jpg
 		kill_app "${rtmp}" "ffmpeg -re"
-		#nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=0.1[bga];"  -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
+		#nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=1[bga];"  -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
 		echo ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		#ffmpeg -r 25 -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 30 -b:v 2000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
@@ -547,7 +547,7 @@ stream_play_main() {
 	#fi
 	folder=${videopath0}
 
-	if [ "${mode}" != "test" ] && [ ${time_seconds} -ge 600 ]; then
+	if [ "${mode}" != "test" ] && [ ${time_seconds} -ge 120 ]; then
 		if [ "${play_time}" = "playing" ]; then
 			video_played=$(cat "${playlist_done}" | grep "${period}|${folder}" | head -1)
 			if [ "${video_played}" = "" ]; then
