@@ -390,7 +390,7 @@ stream_play_main() {
 	videoskips="trim=start=1[vs];[vs]"
 	if [ "${video_skip}" != "" ]; then
 		videoskips="trim=start=${video_skip}[vs];[vs]"
-		audio_format="volume=1.2,atrim=start=${video_skip}"
+		audio_format="volume=1.1,atrim=start=${video_skip}"
 	fi
 
 	#字幕
@@ -407,6 +407,10 @@ stream_play_main() {
 		rm ./sub/tmp1.srt
 		subs="subtitles=filename=${subfile}:fontsdir=${curdir}/fonts:force_style='Fontname=华文仿宋,Fontsize=15,Alignment=2,MarginV=30'[vsub];[vsub]"
 	fi
+
+	#求视频的秒数的5/6
+	duration_sec=$(get_duration "${videopath}")
+	duration_sec=$(echo "scale=0;$duration_sec*5/6" | bc)
 
 	#显示时长
 	#播放百分比%{eif\:n\/nb_frames\:d}%%
@@ -530,10 +534,10 @@ stream_play_main() {
 	sys_date2=$(date -d "$date2" +%s)
 	time_seconds=$(expr $sys_date2 - $sys_date1)
 
-	if [ "${mode}" != "test" ] && [ ${time_seconds} -lt 120 ]; then
-		echo "$(TZ=Asia/Shanghai date +"%Y-%m-%d %H:%M:%S") ffmpeg 命令失败！！需要调试"
-		return
-	fi
+	#if [ "${mode}" != "test" ] && [ ${time_seconds} -lt ${duration_sec} ]; then
+	#	echo "$(TZ=Asia/Shanghai date +"%Y-%m-%d %H:%M:%S") ffmpeg 播放 "$videopath" 失败！！需要调试"
+	#	return
+	#fi
 
 	echo mode=${mode}
 	echo time_seconds=${time_seconds}
@@ -547,7 +551,7 @@ stream_play_main() {
 	#fi
 	folder=${videopath0}
 
-	if [ "${mode}" != "test" ] && [ ${time_seconds} -ge 120 ]; then
+	if [ "${mode}" != "test" ] && [ ${time_seconds} -ge ${duration_sec} ]; then
 		if [ "${play_time}" = "playing" ]; then
 			video_played=$(cat "${playlist_done}" | grep "${period}|${folder}" | head -1)
 			if [ "${video_played}" = "" ]; then
@@ -647,19 +651,18 @@ get_playing_video() {
 			continue
 		fi
 		if [[ -d "${videopath}" ]]; then
-                        file_count=$(ls -l ${videopath} | grep "^-" | wc -l)
-                        if [ "${playtimes}" = "" ]; then
-                            playtimes=1
-                        fi
+			file_count=$(ls -l ${videopath} | grep "^-" | wc -l)
+			if [ "${playtimes}" = "" ]; then
+				playtimes=1
+			fi
 			video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${videopath0}" | head -1)
 			if [[ "${video_played}" = "" ]]; then
 				cur_file=1
 				cur_times=1
 			else
 				video_played_arr=(${video_played//|/ })
-
 				if  [[ "${video_played_arr[4]}" = "" ]]; then
-                                        cur_times=1
+					cur_times=1
 				else
 					cur_times=${video_played_arr[4]}
 				fi
@@ -783,8 +786,15 @@ need_waiting() {
 	timed=${arr[2]}
 
 	if [ "${hours}" = "${last_hour}" ]; then
+		#判断当前分钟在40~59之间
 		mins2end=$(expr 59 - ${mins})
-		if [ ${mins2end} -le 20 ]; then
+		#判断下一个视频的长度是否大于mins2end分钟，如果两者都满足则播放下一个视频
+		next_video=$(get_next ${timed})
+		arr_video=(${next_video//|/ })
+		next_video_path=arr_video[10]
+		dur=$(get_duration "${next_video_path}")
+		dur=$(echo "scale=0;$dur/60+1" | bc)
+		if [ ${mins2end} -le 20 ] && [ ${dur} -ge ${mins2end} ]; then
 			nexthours=$(expr ${hours} + 1)
 			if [ ${nexthours} -ge 24 ]; then
 				nexthours=0
@@ -855,7 +865,6 @@ stream_start() {
 	current=""
 	while true; do
 		period=$(need_waiting)
-		get_playing_video ${period}
 
 		if [ "${period}" = "F" ] || [ "${play_mode: -1}" = "a" ]; then
 			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "一口气")
