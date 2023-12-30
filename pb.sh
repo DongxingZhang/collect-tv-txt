@@ -34,7 +34,7 @@ playlist_done=${curdir}/list/playlist_done.txt
 
 #配置字体
 fontdir=${curdir}/fonts/font3.ttf
-fonttimedir=${curdir}/fonts/font_time.ttf
+fonttimedir=${curdir}/fonts/font_time2.ttf
 fontforcastdir=${curdir}/fonts/font.ttf
 fontsize=50
 fontcolor=#FDE6E0
