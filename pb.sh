@@ -518,29 +518,6 @@ stream_play_main() {
 		ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgsong}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		#ffmpeg -r 25 -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 30 -b:v 2000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		echo finished playing $videopath
-		#过度画面
-		#nohup ffmpeg -loglevel "${logging}" -re -i "${curdir}/smb/sleeping.mp4" -i "${logo}"  -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}" &
-	else
-		echo do nothing
-		echo ffmpeg -loglevel "${logging}" -re -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
-		#bgpic=${logodir}/bg.jpg
-		#logo=${logodir}/logow3.png
-		#duration0=$(get_duration "${videopath}")
-		#duration0int=${duration0%.*}
-		#duration0int=`expr ${duration0int} + 1`
-		##分辨率
-		#bgssize=$(get_size "${bgpic}")
-		#bgsizearr=(${bgssize//|/ })
-		#bgsize_width=${bgsizearr[0]}
-		#bgsize_height=${sizearr[1]}
-		#scalestr="scale=${bgsize_width}*2/3:-1"
-		#watermark="[2:v]scale=-1:${newfontsize}\*2[wm];[bgv][wm]overlay=overlay_w/3:overlay_h/2[bg0];[bg0][fgv]overlay=150:150[bg1];"
-		#video_format="[0:v:0]eq=contrast=1:brightness=0.15,curves=preset=lighter,${drawtext1},${drawtext3}[bgv];[1:v:0]${scalestr}[fgv];[1:a:0]volume=1.0[bga];${watermark}"
-		#去掉了 -s ${size_width}x${size_height}
-		#killall ffmpeg
-		#sleep 3
-		#echo ffmpeg -loglevel "${logging}" -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -i "${logo}" -s ${size_width}x${size_height} -pix_fmt yuvj420p -t ${duration0int} -filter_complex "${video_format}"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
-		#ffmpeg -loglevel "${logging}" -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -i "${logo}" -pix_fmt yuvj420p -t ${duration0int} -filter_complex "${video_format}"  -map "[bg1]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y ${rtmp}
 	fi
 
 	date2=$(TZ=Asia/Shanghai date +"%Y-%m-%d %H:%M:%S")
@@ -549,21 +526,10 @@ stream_play_main() {
 	sys_date2=$(date -d "$date2" +%s)
 	time_seconds=$(expr $sys_date2 - $sys_date1)
 
-	#if [ "${mode}" != "test" ] && [ ${time_seconds} -lt ${duration_sec} ]; then
-	#	echo "$(TZ=Asia/Shanghai date +"%Y-%m-%d %H:%M:%S") ffmpeg 播放 "$videopath" 失败！！需要调试"
-	#	return
-	#fi
-
 	echo mode=${mode}
 	echo time_seconds=${time_seconds}
 	echo play_time=${play_time}
 
-	#判断playlist是文件还是目录
-	#if [ "${file_type}" = "folder" ]; then
-	#	folder=$(get_dir ${videopath})
-	#else
-	#	folder=${videopath0}
-	#fi
 	folder=${videopath0}
 
 	if [ "${mode}" != "test" ] && [ ${time_seconds} -ge ${duration_sec} ]; then
