@@ -339,7 +339,7 @@ stream_play_main() {
 	halfnewfontsize=$(echo "scale=0;${halfnewfontsize}/1" | bc)
 
 	#设置时间行距
-	line_spacing=$(expr ${halfnewfontsize} / 3)
+	line_spacing=$(expr ${halfnewfontsize} / 4)
 	line_spacing=$(echo "scale=0;${line_spacing}/1" | bc)
 
 	#节目预告

@@ -50,9 +50,7 @@ def find_new_tv(arg):
         '/mnt/share3/tv/'
     ]
     cont=''
-    with open('../list/playlist.txt', encoding='utf-8') as f:
-        cont+=f.read()
-    with open('../list/playlist2.txt', encoding='utf-8') as f:
+    with open('../list/list.txt', encoding='utf-8') as f:
         cont+=f.read()
     print("=================查询不在列表上的电视剧==================")
     for dir in folders:
@@ -61,16 +59,16 @@ def find_new_tv(arg):
             if not filepath in cont:
                 #print(filepath) 
                 if arg=="":
-                    print("0|000|F|F|F|0|" + filepath + "|" + filepath)
+                    print(filepath + "|" + filepath + "|000|F|F|F")
                 else:
-                    print("0|000|F|F|F|0|" + filepath + "|"+ filepath  +"              from: " + dir)
+                    print(filepath + "|" + filepath + "|000|F|F|F             from: " + dir)
     print("================查询路径中没有的电视剧========================")
-    with open('../list/playlist2.txt', 'r') as f:
+    with open('../list/list.txt', 'r') as f:
         for line in f.readlines():
             arr = line.split("|")
-            if len(arr)<7:
+            if len(arr)<6:
                 continue
-            tvname=arr[6]
+            tvname=arr[0]
             found=False
             found_path=""
             for dir in folders:
