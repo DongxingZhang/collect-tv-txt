@@ -712,6 +712,10 @@ get_next_video_name() {
 	next_tv=$(cat ${memo})"　　"
 	periodcount=$(cat ${config} | grep -v "^#" | sed /^$/d | wc -l)
 	if [ ${periodcount} -le 1 ]; then
+<<<<<<< HEAD
+=======
+		echo ""
+>>>>>>> gitee/main
 		return
 	fi
 	ret=$(get_rest $(TZ=Asia/Shanghai date +%H))
