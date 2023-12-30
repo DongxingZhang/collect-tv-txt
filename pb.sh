@@ -24,7 +24,8 @@ tvlist=${curdir}/list/list.txt
 delogofile=${curdir}/list/delogo.txt
 rest_video_path=/mnt/share3/mvbrief
 bgimg=${curdir}/img/bg.jpg
-bgsong=${curdir}/img/bg_song.jpg
+bgsongdir=${curdir}/bg/
+bgsong=${curdir}/img/bg.jpg
 
 # 可配置目录
 subfile=${curdir}/sub/sub.srt
@@ -82,10 +83,6 @@ get_duration2() {
 }
 
 get_fontsize() {
-	#data=$(ffprobe -hide_banner -show_format -show_streams "$1" 2>&1)
-	#width=$(echo $data | awk -F 'width=' '{print $2}' | awk -F ' ' '{print $1}')
-	#height=$(echo $data | awk -F 'height=' '{print $2}' | awk -F ' ' '{print $1}')
-	#newfontsize=$(echo "scale=5;sqrt($width*$width+$height*$height)/2203*$fontsize" | bc)
 	height=$1
 	newfontsize=$(echo "scale=5;$height/900*$fontsize" | bc)
 	newfontsize=$(echo "scale=0;$newfontsize/1" | bc)
@@ -302,27 +299,36 @@ stream_play_main() {
 		maps=""
 	fi
 
-	#使用歌曲封面
-	if [ "${video_type}" = "FFF" ]; then
-		mapv="[3:v:0]"
-	fi
 
-	echo ${mapv}, ${mapa}, ${maps}
-
-	################################开始配置过滤器
 	#分辨率
-	ssize=$(get_size "${videopath}")
+	if [ "${video_type}" = "FFF" ]; then
+		bgsong=$(get_bg_picuture "${bgsongdir}" "${curdir}/count/bgpicno")
+		ssize=$(get_size "${bgsong}") #计算分辨率
+	else
+		ssize=$(get_size "${videopath}") #计算分辨率
+	fi
 	sizearr=(${ssize//|/ })
 	size_width=${sizearr[0]}
 	size_height=${sizearr[1]}
 
 	echo width=$size_width
 	echo height=$size_height
+
+	#使用歌曲封面
+	if [ "${video_type}" = "FFF" ]; then
+		mapv="[3:v:0][0:v:0]overlay=(W-w)/2:(H-h)/2[mapvv];[mapvv][3:v:0]overlay=0:0[mapvvv];[mapvvv]"
+	fi
+
+	echo ${mapv}, ${mapa}, ${maps}
+
+	################################开始配置过滤器
+
 	
 	whratio=$(echo "scale=2;${size_width}/${size_height}" | bc)
 	echo 长宽比:${whratio}
 
-	#片名	
+	#片名
+	scale_flag=0 #强制缩放
 	if [ ${size_height} -gt ${sheight} ] || [ ${scale_flag} -eq 1 ]; then
 	    newfontsize=$(get_fontsize "${sheight}")
 	else
@@ -331,7 +337,7 @@ stream_play_main() {
 	echo fontsize=${newfontsize}
 
 	#计算时间显示字体大小
-	halfnewfontsize=$(expr ${newfontsize} \* 65 / 100)
+	halfnewfontsize=$(expr ${newfontsize} \* 45 / 100)
 	halfnewfontsize=$(echo "scale=0;${halfnewfontsize}/1" | bc)
 
 	#设置时间行距
@@ -370,7 +376,6 @@ stream_play_main() {
 	echo 台标=${logo}
 
     #缩放
-	scale_flag=0
 	echo "缩放size_height=${size_height}"
 	echo "缩放sheight=${sheight}"
 	if [ ${size_height} -gt ${sheight} ] || [ ${scale_flag} -eq 1 ]; then
@@ -419,8 +424,8 @@ stream_play_main() {
 	fi
 
 	#求视频的秒数的5/6
-	duration_sec=$(get_duration "${videopath}")
-	duration_sec=$(echo "scale=0;$duration_sec*5/6" | bc)
+	duration_sec_org=$(get_duration "${videopath}")
+	duration_sec=$(echo "scale=0;${duration_sec_org}*5/6" | bc)
 
 	#显示时长
 	#播放百分比%{eif\:n\/nb_frames\:d}%%
@@ -431,7 +436,7 @@ stream_play_main() {
 		content="%{pts\:gmtime\:0\:%H\\\\\:%M\\\\\:%S}${enter}${duration}"
 	fi
 	#右上角drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*7:y=line_h/3\*5:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
-	drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=line_h\*3/2:y=h-line_h/3\*15:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
+	drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=line_h\*5/2:y=h-line_h/3\*15:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
 
 	#节目预告
 	#从左往右drawtext2="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${news}':fontfile=${fontdir}:expansion=normal:x=(mod(5*n\,w+tw)-tw):y=h-line_h-10:shadowx=2:shadowy=2:${fontbg}"
@@ -741,7 +746,7 @@ get_next_video_name() {
 	next_tv=$(cat ${memo})"　　"
 	periodcount=$(cat ${config} | grep -v "^#" | sed /^$/d | wc -l)
 	if [ ${periodcount} -le 1 ]; then
-		echo ${next_tv}
+		echo ""
 		return
 	fi
 	ret=$(get_rest $(TZ=Asia/Shanghai date +%H))
@@ -840,21 +845,15 @@ get_next() {
 	echo ${next_video_path}
 }
 
-get_rest_videos() {
+
+get_bg_picuture() {
 	waitingdir=$1
 	videonofile=$2
-	title=$3
-	next=$4
-
-	if [ "${title}" = "" ]; then
-		title="休息一会儿"
-	fi
 
 	videono=0
 	declare -a filenamelist
 	for subdirfile in "${waitingdir}"/*; do
-		title="　　"
-		filenamelist[$videono]="000|F|F|F|2|1|1|rest|file|${title}|${subdirfile}"
+		filenamelist[$videono]="${subdirfile}"
 		videono=$(expr $videono + 1)
 	done
 	video_lengh=${#filenamelist[@]}
@@ -868,11 +867,10 @@ get_rest_videos() {
 	fi
 	echo "${filenamelist[$next_video]}"
 	unset filenamelist
-	if [ "${next}" != "next" ]; then
-		next_video=$(expr $next_video + 1)
-		echo "$next_video" >${videonofile}
-	fi
+	next_video=$(expr $next_video + 1)
+	echo "$next_video" >${videonofile}
 }
+
 
 stream_start() {
 	play_mode=$1
@@ -883,18 +881,7 @@ stream_start() {
 	current=""
 	while true; do
 		period=$(need_waiting)
-
-		if [ "${period}" = "F" ] || [ "${play_mode: -1}" = "a" ]; then
-			next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "一口气")
-		else
-			next=$(get_next ${period})
-		fi
-		#如果连续两次的下一个出现问题，则播放歌曲
-		#if [ "${next}" = "${current}" ]; then
-		#	continue
-		#	next=$(get_rest_videos "${rest_video_path}" "${curdir}/count/videono" "出错了，等待修复。")
-		#	sleep 2
-		#fi
+		next=$(get_next ${period})
 		if [ "${next}" = "" ]; then
 			sleep 2
 			continue
@@ -906,54 +893,54 @@ stream_start() {
 	done
 }
 
-stream_append() {
-	param=$1
-	while true; do
-		clear
-		echo "====视频列表===="
-		videono=0
-		for subdirfile in $(find /mnt/smb/电视剧 -maxdepth 1 | grep "${param}" | awk -F ':' '{print $1}'); do
-			filename=$(echo ${subdirfile} | awk -F "/" '{print $NF}')
-			if [[ -e "${playlist}" ]] && cat "${playlist}" | grep "${filename}" >/dev/null; then
-				continue
-			fi
-			filenamelist[$videono]=${filename}
-			videono=$(expr $videono + 1)
-			echo "[${videono}]: ${filename}"
-		done
-		read -p "请输入视频序号:(1-${videono}),:" vindex
-		if [ $vindex -ge 1 ] && [ $vindex -le ${videono} ]; then
-			vindex=$(expr $vindex - 1)
-			echo '你选择了:'${filenamelist[$vindex]}
-			read -p "输入(yes/no/y/n)确认:" yes
-			if [ "$yes" = "y" ] || [ "$yes" = "yes" ]; then
-				# 已经存在不要添加
-				if [[ -e "${playlist}" ]] && cat "${playlist}" | grep "${filenamelist[$vindex]}" >/dev/null; then
-					echo "已经添加过/mnt/smb/电视剧/${filenamelist[$vindex]},不要再添加."
-				else
-					echo 0,1:0点到6点
-					echo 2,3:6点到12点
-					echo 4,5:点到18点
-					echo 6,7:18点到24点
-					read -p "请输入视频序号:(0-7),:" timed
-					if [ $timed -lt 0 ] || [ $timed -gt 7 ]; then
-						continue
-					fi
-					echo 你选择了：$timed
-					echo "${timed}|000|F|F|F|0|/mnt/smb/电视剧/${filenamelist[$vindex]}|${filenamelist[$vindex]}" >>${playlist}
-					echo "添加/mnt/smb/电视剧/${filenamelist[$vindex]}成功"
-				fi
-			fi
-			read -p "还要继续添加吗(yes/no/y/n)?:" yes_addagain
-			if [ "$yes_addagain" = "n" ] || [ "$yes_addagain" = "no" ]; then
-				break
-			fi
-		elif [ "$vindex" = "q" ]; then
-			break
-		fi
-	done
-	cat ${playlist}
-}
+#stream_append() {
+#	param=$1
+#	while true; do
+#		clear
+#		echo "====视频列表===="
+#		videono=0
+#		for subdirfile in $(find /mnt/smb/电视剧 -maxdepth 1 | grep "${param}" | awk -F ':' '{print $1}'); do
+#			filename=$(echo ${subdirfile} | awk -F "/" '{print $NF}')
+#			if [[ -e "${playlist}" ]] && cat "${playlist}" | grep "${filename}" >/dev/null; then
+#				continue
+#			fi
+#			filenamelist[$videono]=${filename}
+#			videono=$(expr $videono + 1)
+#			echo "[${videono}]: ${filename}"
+#		done
+#		read -p "请输入视频序号:(1-${videono}),:" vindex
+#		if [ $vindex -ge 1 ] && [ $vindex -le ${videono} ]; then
+#			vindex=$(expr $vindex - 1)
+#			echo '你选择了:'${filenamelist[$vindex]}
+#			read -p "输入(yes/no/y/n)确认:" yes
+#			if [ "$yes" = "y" ] || [ "$yes" = "yes" ]; then
+#				# 已经存在不要添加
+#				if [[ -e "${playlist}" ]] && cat "${playlist}" | grep "${filenamelist[$vindex]}" >/dev/null; then
+#					echo "已经添加过/mnt/smb/电视剧/${filenamelist[$vindex]},不要再添加."
+#				else
+#					echo 0,1:0点到6点
+#					echo 2,3:6点到12点
+#					echo 4,5:点到18点
+#					echo 6,7:18点到24点
+#					read -p "请输入视频序号:(0-7),:" timed
+#					if [ $timed -lt 0 ] || [ $timed -gt 7 ]; then
+#						continue
+#					fi
+#					echo 你选择了：$timed
+#					echo "${timed}|000|F|F|F|0|/mnt/smb/电视剧/${filenamelist[$vindex]}|${filenamelist[$vindex]}" >>${playlist}
+#					echo "添加/mnt/smb/电视剧/${filenamelist[$vindex]}成功"
+#				fi
+#			fi
+#			read -p "还要继续添加吗(yes/no/y/n)?:" yes_addagain
+#			if [ "$yes_addagain" = "n" ] || [ "$yes_addagain" = "no" ]; then
+#				break
+#			fi
+#		elif [ "$vindex" = "q" ]; then
+#			break
+#		fi
+#	done
+#	cat ${playlist}
+#}
 
 # 开始菜单设置
 echo -e "${yellow} FFmpeg无人值守直播工具(version 1.1) ${font}"
@@ -1024,9 +1011,6 @@ start_menu() {
 		stream_start "${mode}" "${mvsource}"
 		;;
 	3)
-		stream_append "${mode}" "${mvsource}"
-		;;
-	4)
 		stream_stop
 		;;
 	*)
