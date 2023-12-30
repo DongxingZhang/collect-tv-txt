@@ -20,13 +20,17 @@ rtmp="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/$(cat ${curdir}/
 logodir=${curdir}/logo
 news=${curdir}/log/news.txt
 memo=${curdir}/log/memo.txt
-subfile=${curdir}/sub/sub.srt
-config=${curdir}/list/config.txt
+tvlist=${curdir}/list/list.txt
 delogofile=${curdir}/list/delogo.txt
-playlist=${curdir}/list/playlist.txt
-playlist_done=${curdir}/list/playlist_done.txt
 rest_video_path=/mnt/share3/mvbrief
 bgimg=${curdir}/img/bg.jpg
+
+# 可配置目录
+subfile=${curdir}/sub/sub.srt
+config=${curdir}/list/config.txt
+playlist=${curdir}/list/playlist.txt
+playlist_done=${curdir}/list/playlist_done.txt
+
 
 #配置字体
 fontdir=${curdir}/fonts/font3.ttf
@@ -632,14 +636,22 @@ get_playing_video() {
 		fi
 		arr=(${line//|/ })
 		video_index=${arr[0]}
-		video_type=${arr[1]}
-		lighter=${arr[2]}
-		audio=${arr[3]}
-		subtitle=${arr[4]}
-		param=${arr[5]}
-		videopath0=${arr[6]}
-		videoname=${arr[7]}
-		playtimes=${arr[8]}
+		param=${arr[1]}
+		videopath0=${arr[2]}
+		playtimes=${arr[3]}
+        #搜索电视库
+		tv_setting_str=$(cat "${tvlist}" | grep "${videopath0}" | head -1)
+		if [ "${tv_setting_str}" = "" ]; then
+			#如果不存在，则继续下一条
+			continue
+		fi
+		arrtvset=(${tv_setting_str//|/ })
+		#天龙神剑|天龙神剑|TVA|0|1|F
+		videoname=${arrtvset[1]}
+		video_type=${arrtvset[2]}
+		lighter=${arrtvset[3]}		
+		audio=${arrtvset[4]}
+		subtitle=${arrtvset[5]}
 
 		#这里路径可以只写目录名，然后自己搜索
 		videopath=$(check_video_path ${videopath0})
@@ -987,8 +999,8 @@ start_menu() {
 			rtmp_token=${11}
 		fi
 		rtmp="${rtmp_link}$(cat ${rtmp_token})"
-		echo $subfile
-		echo $config
+		echo ${subfile}
+		echo ${config}
 		echo ${playlist}
 		echo ${playlist_done}
 		echo ${rtmp_link}

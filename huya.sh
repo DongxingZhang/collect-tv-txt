@@ -3,14 +3,14 @@ curdir=$(pwd)
 mode=$1
 mvsource=2
 sheight=$2
-subfile="${curdir}/sub/sub33.srt"
-config="${curdir}/list/config33.txt"
-playlist="${curdir}/list/playlist33.txt"
-playlist_done="${curdir}/list/playlist_done33.txt"
-ffmpeglog="${curdir}/log/ffmpeg33.log"
-news="${curdir}/log/news33.txt"
+subfile="${curdir}/sub/huya_sub.srt"
+config="${curdir}/list/huya_config.txt"
+playlist="${curdir}/list/huya_list.txt"
+playlist_done="${curdir}/list/huya_list_done.txt"
+ffmpeglog="${curdir}/log/huya.log"
+news="${curdir}/log/huya_news.txt"
 
-rtmp="${curdir}/rtmp_pass33.txt"
+rtmp="${curdir}/huya_rtmp_pass.txt"
 rtmp_link="rtmp://al.direct.huya.com/huyalive/"
 rtmp_token=$(cat ${rtmp})
 
