@@ -124,4 +124,4 @@
 状王宋世杰|状王宋世杰|TV0|F|F|F
 醉打金枝|醉打金枝|TV0|F|F|F
 /mnt/share3/韩剧解说|精彩节目|00010|F|F|F
-/mnt/share3/songs|精彩节目|000|F|F|F
+/mnt/share3/songs|精彩节目|FFF|F|F|F

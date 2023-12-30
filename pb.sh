@@ -24,6 +24,7 @@ tvlist=${curdir}/list/list.txt
 delogofile=${curdir}/list/delogo.txt
 rest_video_path=/mnt/share3/mvbrief
 bgimg=${curdir}/img/bg.jpg
+bgsong=${curdir}/img/bg_song.jpg
 
 # 可配置目录
 subfile=${curdir}/sub/sub.srt
@@ -301,6 +302,11 @@ stream_play_main() {
 		maps=""
 	fi
 
+	#使用歌曲封面
+	if [ "${video_type}" = "FFF" ]; then
+		mapv="[3:v:0]"
+	fi
+
 	echo ${mapv}, ${mapa}, ${maps}
 
 	################################开始配置过滤器
@@ -503,8 +509,8 @@ stream_play_main() {
 		#bgpic=${logodir}/bgqrcode.jpg
 		kill_app "${rtmp}" "ffmpeg -re"
 		#nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=1[bga];"  -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
-		echo ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
-		ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		echo ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgsong}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgsong}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		#ffmpeg -r 25 -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 30 -b:v 2000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		echo finished playing $videopath
 		#过度画面
