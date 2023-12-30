@@ -322,8 +322,6 @@ stream_play_main() {
 	echo ${mapv}, ${mapa}, ${maps}
 
 	################################开始配置过滤器
-
-	
 	whratio=$(echo "scale=2;${size_width}/${size_height}" | bc)
 	echo 长宽比:${whratio}
 
@@ -341,7 +339,7 @@ stream_play_main() {
 	halfnewfontsize=$(echo "scale=0;${halfnewfontsize}/1" | bc)
 
 	#设置时间行距
-	line_spacing=$(expr ${halfnewfontsize} / 4)
+	line_spacing=$(expr ${halfnewfontsize} / 3)
 	line_spacing=$(echo "scale=0;${line_spacing}/1" | bc)
 
 	#节目预告
@@ -712,10 +710,6 @@ get_next_video_name() {
 	next_tv=$(cat ${memo})"　　"
 	periodcount=$(cat ${config} | grep -v "^#" | sed /^$/d | wc -l)
 	if [ ${periodcount} -le 1 ]; then
-<<<<<<< HEAD
-=======
-		echo ""
->>>>>>> gitee/main
 		return
 	fi
 	ret=$(get_rest $(TZ=Asia/Shanghai date +%H))
