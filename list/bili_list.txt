@@ -1,0 +1,2 @@
+
+0|1|/mnt/share3/songs|10000

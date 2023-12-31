@@ -3,14 +3,14 @@ curdir=$(pwd)
 mode=$1
 mvsource=2
 sheight=$2
-subfile="${curdir}/sub/sub3.srt"
-config="${curdir}/list/config3.txt"
-playlist="${curdir}/list/playlist3.txt"
-playlist_done="${curdir}/list/playlist_done3.txt"
-ffmpeglog="${curdir}/log/ffmpeg3.log"
-news="${curdir}/log/news3.txt"
+subfile="${curdir}/sub/bili_sub.srt"
+config="${curdir}/list/bili_config.txt"
+playlist="${curdir}/list/bili_list.txt"
+playlist_done="${curdir}/list/bili_list_done.txt"
+ffmpeglog="${curdir}/log/bili.log"
+news="${curdir}/log/bili_news.txt"
 
-rtmp="${curdir}/rtmp_pass3.txt"
+rtmp="${curdir}/bili_rtmp_pass.txt"
 rtmp_link="rtmp://live-push.bilivideo.com/live-bvc/"
 rtmp_token=$(cat ${rtmp})
 

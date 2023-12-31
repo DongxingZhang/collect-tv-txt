@@ -41,6 +41,7 @@ fontforcastdir=${curdir}/fonts/font.ttf
 fontsize=50
 fontcolor=#FDE6E0
 fontcolor2=#B1121A
+fontcolorgold=#D9D919
 fontbg="box=1:boxcolor=black@0.01:boxborderw=3"
 sheight=720
 #ffmpeg参数
@@ -471,7 +472,7 @@ stream_play_main() {
 		fi
 	fi
     cont_len=$(expr ${cont_len} / 2)
-	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*3:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
+	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolorgold}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*3:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
     
 	#增亮
 	if [ "${lighter}" != "F" ]; then
