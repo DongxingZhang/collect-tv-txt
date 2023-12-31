@@ -777,7 +777,7 @@ need_waiting() {
 		#判断下一个视频的长度是否大于mins2end分钟，如果两者都满足则播放下一个视频
 		next_video=$(get_next ${timed})
 		arr_video=(${next_video//|/ })
-		next_video_path=arr_video[10]
+		next_video_path=${arr_video[10]}
 		dur=$(get_duration "${next_video_path}")
 		dur=$(echo "scale=0;$dur/60+1" | bc)
 		if [ ${mins2end} -le 20 ] && [ ${dur} -ge ${mins2end} ]; then
@@ -954,6 +954,13 @@ start_menu() {
 		if [ "${11}" != "" ]; then
 			rtmp_token=${11}
 		fi
+
+		if [[ ${rtmp_token} =~ ${rtmp_link} ]]; then
+			rtmp="${rtmp_token}"
+		else
+			rtmp="${rtmp_link}$(cat ${rtmp_token})"
+		fi
+
 		rtmp="${rtmp_link}$(cat ${rtmp_token})"
 		echo ${subfile}
 		echo ${config}
