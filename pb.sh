@@ -468,7 +468,7 @@ stream_play_main() {
 				content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')${splitstar}${cur_file2}
 			fi
 			echo ${content2}
-			cont_len=$(expr ${cont_len} - 1)
+			cont_len=$(expr ${cont_len} - 2)
 		fi
 	fi
     cont_len=$(expr ${cont_len} / 2)
