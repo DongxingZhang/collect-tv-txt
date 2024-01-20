@@ -1,2 +1,8 @@
+0|0|/mnt/share2/百家讲坛2009|50
+0|1|/mnt/share3/迪克牛仔|50
+0|1|/mnt/share3/songs|500000
 
-0|1|/mnt/share3/songs|10000
+
+1|0|/mnt/share2/百家讲坛2009|50
+1|1|/mnt/share3/songs|500000
+1|1|刘宝瑞|50000
