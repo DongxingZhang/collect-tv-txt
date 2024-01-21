@@ -139,12 +139,12 @@ check_video_path() {
 		echo "${videoname}"
 	elif [[ -f "${videoname}" ]]; then
 		echo "${videoname}"
-	elif [[ -d "/mnt/share1/tv/${videoname}" ]]; then
-		echo "/mnt/share1/tv/${videoname}"
-	elif [[ -d "/mnt/share2/tv/${videoname}" ]]; then
-		echo "/mnt/share2/tv/${videoname}"
-	elif [[ -d "/mnt/share3/tv/${videoname}" ]]; then
-		echo "/mnt/share3/tv/${videoname}"
+	elif [[ -d "/mnt/share1/movies/${videoname}" ]]; then
+		echo "/mnt/share1/movies/${videoname}"
+	elif [[ -d "/mnt/share2/movies/${videoname}" ]]; then
+		echo "/mnt/share2/movies/${videoname}"
+	elif [[ -d "/mnt/share3/movies/${videoname}" ]]; then
+		echo "/mnt/share3/movies/${videoname}"
 	elif [[ -f "/mnt/share1/movies/${videoname}" ]]; then
 		echo "/mnt/share1/movies/${videoname}"
 	elif [[ -f "/mnt/share1/videos/${videoname}" ]]; then
@@ -255,8 +255,8 @@ stream_play_main() {
 		return 0
 	fi
 
-	# 文件超过5GB不要播放
-	maxsize=5000000000
+	# 文件超过8GB不要播放
+	maxsize=8000000000
 	actualsize=$(wc -c < "${videopath}")
 	echo 文件大小:$actualsize
 	if [ $actualsize -ge $maxsize ]; then
@@ -478,6 +478,7 @@ stream_play_main() {
 	if [ "${lighter}" != "F" ]; then
 		#lights="eq=contrast=1:brightness=0.15,curves=preset=lighter[bg2]"
 		lights="eq=contrast=1:brightness=0.20[bg2]"
+  #lights="eq=sharp=10:luma=10:chroma=5[bg2]"
 	else
 		lights="eq=contrast=1[bg2]"
 	fi

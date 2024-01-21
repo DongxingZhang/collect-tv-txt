@@ -14,10 +14,11 @@ tvlist = [
     "/上海风云",
     "/洛神",
     "/龙兄虎弟",
-    "/圆桌派",
-    "/百家讲坛"
+    "/金剑雕翎AI修复",
+    #"/圆桌派",
+    #"/百家讲坛",
 ]
 
 
 for tv in tvlist:
-    os.system("python3 ./tools/sync.py download  tv /mnt/share1" + tv) 
+    os.system("python3 ./tools/sync.py download " + tv + " /mnt/share1/tv" + tv) 
