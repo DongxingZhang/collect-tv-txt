@@ -8,6 +8,9 @@ font="\033[0m"
 
 curdir=$(pwd)
 
+FFPROBE=/usr/bin/ffprobe
+FFMPEG=/usr/bin/ffmpeg
+
 # 定义推流地址和推流码
 #rtmp="rtmp://www.tomandjerry.work/live/livestream"
 #rtmp="rtmp://127.0.0.1:1935/live/1"
@@ -24,8 +27,11 @@ tvlist=${curdir}/list/list.txt
 delogofile=${curdir}/list/delogo.txt
 rest_video_path=/mnt/share3/mvbrief
 bgimg=${curdir}/img/bg.jpg
-bgsongdir=${curdir}/bg/
-bgsong=${curdir}/img/bg.jpg
+bgvideodir=${curdir}/bg/
+bgvideo=${curdir}/img/bg.jpg
+
+#street video dir
+bgstreetdir=/mnt/share1/street/
 
 # 可配置目录
 subfile=${curdir}/sub/sub.srt
@@ -63,24 +69,29 @@ fi
 
 ####功能函数START
 get_stream_track() {
-	track=$(ffprobe -loglevel repeat+level+warning -i "$1" -show_streams -print_format csv | awk -F, '{print $1,$2,$3,$6}' | grep "$2" | awk 'NR==1{print $2}')
+	track=$(${FFPROBE} -loglevel repeat+level+warning -i "$1" -show_streams -print_format csv | awk -F, '{print $1,$2,$3,$6}' | grep "$2" | awk 'NR==1{print $2}')
 	echo ${track}
 }
 
 get_stream_track_decode() {
-	track=$(ffprobe -loglevel repeat+level+warning -i "$1" -show_streams -print_format csv | awk -F, '{print $1,$2,$3,$6}' | grep "$2" | awk 'NR==1{print $3}')
+	track=$(${FFPROBE} -loglevel repeat+level+warning -i "$1" -show_streams -print_format csv | awk -F, '{print $1,$2,$3,$6}' | grep "$2" | awk 'NR==1{print $3}')
 	echo ${track}
 }
 
 get_duration() {
-	duration=$(ffprobe -loglevel repeat+level+warning -i "$1" -show_entries format=duration -v quiet -of csv="p=0")
+	duration=$(${FFPROBE} -loglevel repeat+level+warning -i "$1" -show_entries format=duration -v quiet -of csv="p=0")
 	echo ${duration}
 }
 
 get_duration2() {
-	data=$(ffprobe -hide_banner -show_format -show_streams "$1" 2>&1)
+	data=$(${FFPROBE} -hide_banner -show_format -show_streams "$1" 2>&1)
 	Duration=$(echo $data | awk -F 'Duration: ' '{print $2}' | awk -F ',' '{print $1}' | awk -F '.' '{print $1}' | awk -F ':' '{print $1"\:"$2"\:"$3}')
 	echo ${Duration}
+}
+
+get_frames(){
+	data=$(${FFPROBE} -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0 "$1")
+	echo $data
 }
 
 get_fontsize() {
@@ -94,7 +105,7 @@ get_fontsize() {
 }
 
 get_size() {
-	data=$(ffprobe -hide_banner -show_format -show_streams "$1" 2>&1)
+	data=$(${FFPROBE} -hide_banner -show_format -show_streams "$1" 2>&1)
 	width=$(echo $data | awk -F 'width=' '{print $2}' | awk -F ' ' '{print $1}')
 	height=$(echo $data | awk -F 'height=' '{print $2}' | awk -F ' ' '{print $1}')
 	echo "${width}|${height}"
@@ -262,7 +273,6 @@ stream_play_main() {
 	if [ $actualsize -ge $maxsize ]; then
 		return 0
 	fi
-
 	video_track=$(get_stream_track "${videopath}" "video")
 	video_track_decode=$(get_stream_track "${videopath}" "video")
 	audio_track=$(get_stream_track "${videopath}" "audio")
@@ -300,14 +310,17 @@ stream_play_main() {
 		maps=""
 	fi
 
-
 	#分辨率
 	if [ "${video_type}" = "FFF" ]; then
-		bgsong=$(get_bg_picuture "${bgsongdir}" "${curdir}/count/bgpicno")
-		ssize=$(get_size "${bgsong}") #计算分辨率
+		bgvideo=$(get_seq "${bgvideodir}" "${curdir}/count/bgpicno")
+		ssize=$(get_size "${bgvideo}") #计算分辨率
+	elif [ "${video_type}" = "EEE" ]; then
+		bgvideo=$(get_seq "${bgstreetdir}" "${curdir}/count/streetmvno")
+		ssize=$(get_size "${bgvideo}") #计算分辨率
 	else
 		ssize=$(get_size "${videopath}") #计算分辨率
 	fi
+
 	sizearr=(${ssize//|/ })
 	size_width=${sizearr[0]}
 	size_height=${sizearr[1]}
@@ -317,7 +330,13 @@ stream_play_main() {
 
 	#使用歌曲封面
 	if [ "${video_type}" = "FFF" ]; then
-		mapv="[3:v:0][0:v:0]overlay=(W-w)/2:(H-h)/2[mapvv];[mapvv][3:v:0]overlay=0:0[mapvvv];[mapvvv]"
+		#mapv="[3:v:0][0:v:0]overlay=(W-w)/2:(H-h)/2[mapvv];[mapvv][3:v:0]overlay=0:0[mapvvv];[mapvvv]"
+        framecount=$(get_frames "${videopath}")	
+        mapv="[3:v:0]loop=loop=${framecount}:size=1:start=0[mapvvv];[mapvvv]"
+	elif [ "${video_type}" = "EEE" ]; then
+		framecount=$(get_frames "${bgvideo}")
+		echo framecount=${framecount}
+		mapv="[3:v:0]loop=loop=-1:size=32000:start=0[mapvvv];[mapvvv]"
 	fi
 
 	echo ${mapv}, ${mapa}, ${maps}
@@ -410,8 +429,8 @@ stream_play_main() {
 	#字幕
 	subs=""
 	if [ "${maps}" != "" ]; then
-		echo ffmpeg -i "${videopath}" -map ${maps} -y ${subfile}
-		ffmpeg -i "${videopath}" -map ${maps} -y ./sub/tmp.srt
+		echo ${FFMPEG} -i "${videopath}" -map ${maps} -y ${subfile}
+		${FFMPEG} -i "${videopath}" -map ${maps} -y ./sub/tmp.srt
 		cat ./sub/tmp.srt | sed -E 's/<[^>]+>//g' >./sub/tmp1.srt
 		if [ "${subtrans}" = "" ]; then
 			cp ./sub/tmp1.srt ${subfile}
@@ -478,7 +497,7 @@ stream_play_main() {
 	if [ "${lighter}" != "F" ]; then
 		#lights="eq=contrast=1:brightness=0.15,curves=preset=lighter[bg2]"
 		lights="eq=contrast=1:brightness=0.20[bg2]"
-  #lights="eq=sharp=10:luma=10:chroma=5[bg2]"
+  		#lights="eq=sharp=10:luma=10:chroma=5[bg2]"
 	else
 		lights="eq=contrast=1[bg2]"
 	fi
@@ -512,11 +531,11 @@ stream_play_main() {
 
 	if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
 		#bgpic=${logodir}/bgqrcode.jpg
-		kill_app "${rtmp}" "ffmpeg -re"
-		#nohup ffmpeg -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=1[bga];"  -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
-		echo ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgsong}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
-		ffmpeg -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgsong}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
-		#ffmpeg -r 25 -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 30 -b:v 2000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		kill_app "${rtmp}" "${FFMPEG} -re"
+		#nohup ${FFMPEG} -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=1[bga];"  -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
+		echo ${FFMPEG} -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		${FFMPEG} -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		#${FFMPEG} -r 25 -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 30 -b:v 2000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		echo finished playing $videopath
 	fi
 
@@ -564,7 +583,7 @@ ffmpeg_install() {
 		wget --no-check-certificate https://www.johnvansickle.com/ffmpeg/old-releases/ffmpeg-4.0.3-64bit-static.tar.xz
 		tar -xJf ffmpeg-4.0.3-64bit-static.tar.xz
 		cd ffmpeg-4.0.3-64bit-static
-		mv ffmpeg /usr/bin && mv ffprobe /usr/bin && mv qt-faststart /usr/bin && mv ffmpeg-10bit /usr/bin
+		mv ffmpeg /usr/bin && mv ${FFPROBE} /usr/bin && mv qt-faststart /usr/bin && mv ffmpeg-10bit /usr/bin
 	fi
 	if [ $Choose = "no" ]; then
 		echo -e "${yellow} 你选择不安装FFmpeg,请确定你的机器内已经自行安装过FFmpeg,否则程序无法正常工作! ${font}"
@@ -811,7 +830,7 @@ get_next() {
 }
 
 
-get_bg_picuture() {
+get_seq() {
 	waitingdir=$1
 	videonofile=$2
 
