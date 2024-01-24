@@ -334,9 +334,16 @@ stream_play_main() {
         framecount=$(get_frames "${videopath}")	
         mapv="[3:v:0]loop=loop=${framecount}:size=1:start=0[mapvvv];[mapvvv]"
 	elif [ "${video_type}" = "EEE" ]; then
-		framecount=$(get_frames "${bgvideo}")
-		echo framecount=${framecount}
-		mapv="[3:v:0]loop=loop=-1:size=32000:start=0[mapvvv];[mapvvv]"
+		#framecount=$(get_frames "${bgvideo}")
+		#echo framecount=${framecount}
+		duration_audio=$(get_duration "${videopath}")
+		duration_video=$(get_duration "${bgvideo}")
+		magnifi=$(echo "scale=1;${duration_audio}/${duration_video}" | bc)
+		if [ ${magnifi} -gt 1  ];then
+			mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[mapvvv]"
+		else
+		    mapv="[3:v:0]"
+		fi
 	fi
 
 	echo ${mapv}, ${mapa}, ${maps}
