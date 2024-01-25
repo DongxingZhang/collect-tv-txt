@@ -281,12 +281,12 @@ stream_play_main() {
 	sub_track_decode=$(get_stream_track "${videopath}" "subtitle")
 
 	if [ "$video_track" = "" ]; then
-		echo "${videopath} 没有视频轨道" >>"${playlist_done}"
+		echo "${videopath} 没有视频轨道"
 		return
 	fi
 
 	if [ "$audio_track" = "" ]; then
-		echo "${videopath} 没有音频轨道" >>"${playlist_done}"
+		echo "${videopath} 没有音频轨道"
 		return
 	fi
 
@@ -338,12 +338,12 @@ stream_play_main() {
 		#echo framecount=${framecount}
 		duration_audio=$(get_duration "${videopath}")
 		duration_video=$(get_duration "${bgvideo}")
-		magnifi=$(echo "scale=1;${duration_audio}/${duration_video}" | bc)
-		if [ ${magnifi} -gt 1  ];then
-			mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[mapvvv]"
-		else
-		    mapv="[3:v:0]"
-		fi
+		magnifi=$(echo "scale=1;${duration_audio}/${duration_video}+0.05" | bc)
+  if [ ${magnifi} -gt 1.1  ];then
+		  mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[mapvvv]"
+  else
+    mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[mapvvv]"
+  fi
 	fi
 
 	echo ${mapv}, ${mapa}, ${maps}
