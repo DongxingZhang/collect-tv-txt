@@ -150,21 +150,21 @@ check_video_path() {
 		echo "${videoname}"
 	elif [[ -f "${videoname}" ]]; then
 		echo "${videoname}"
-	elif [[ -d "/mnt/share1/movies/${videoname}" ]]; then
+	elif [[ -e "/mnt/data/movies/${videoname}" ]]; then
+		echo "/mnt/data/movies/${videoname}"
+	elif [[ -e "/mnt/data/tv/${videoname}" ]]; then
+		echo "/mnt/data/tv/${videoname}"
+	elif [[ -e "/mnt/share1/movies/${videoname}" ]]; then
 		echo "/mnt/share1/movies/${videoname}"
-	elif [[ -d "/mnt/share2/movies/${videoname}" ]]; then
-		echo "/mnt/share2/movies/${videoname}"
-	elif [[ -d "/mnt/share3/movies/${videoname}" ]]; then
-		echo "/mnt/share3/movies/${videoname}"
-	elif [[ -f "/mnt/share1/movies/${videoname}" ]]; then
-		echo "/mnt/share1/movies/${videoname}"
-	elif [[ -f "/mnt/share1/videos/${videoname}" ]]; then
-		echo "/mnt/share1/videos/${videoname}"
-	elif [[ -f "/mnt/share1/tv/${videoname}" ]]; then
+	elif [[ -e "/mnt/share1/tv/${videoname}" ]]; then
 		echo "/mnt/share1/tv/${videoname}"
-	elif [[ -f "/mnt/share2/tv/${videoname}" ]]; then
+	elif [[ -e "/mnt/share2/movies/${videoname}" ]]; then
+		echo "/mnt/share2/movies/${videoname}"
+	elif [[ -e "/mnt/share2/tv/${videoname}" ]]; then
 		echo "/mnt/share2/tv/${videoname}"
-	elif [[ -f "/mnt/share3/tv/${videoname}" ]]; then
+	elif [[ -e "/mnt/share3/movies/${videoname}" ]]; then
+		echo "/mnt/share3/movies/${videoname}"
+	elif [[ -e "/mnt/share3/tv/${videoname}" ]]; then
 		echo "/mnt/share3/tv/${videoname}"
 	else
 		echo ""
@@ -338,18 +338,21 @@ stream_play_main() {
 		#echo framecount=${framecount}
 		duration_audio=$(get_duration "${videopath}")
 		duration_video=$(get_duration "${bgvideo}")
-		magnifi=$(echo "scale=1;${duration_audio}/${duration_video}+0.05" | bc)
-  if [ ${magnifi} -gt 1.1  ];then
-		  mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[mapvvv]"
-  else
-    mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[mapvvv]"
-  fi
+		magnifi=$(printf "%.2f" $(echo "scale=1;${duration_audio}/${duration_video}+0.05" | bc))
+        echo duration_audio=${duration_audio}
+        echo duration_video=${duration_video}
+        echo magnifi=${magnifi}
+        if [ `expr ${magnifi} \> 0.99` -eq 1  ];then
+            mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[mapvvv]"
+        else
+            mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[mapvvv]"
+        fi
 	fi
 
 	echo ${mapv}, ${mapa}, ${maps}
 
 	################################开始配置过滤器
-	whratio=$(echo "scale=2;${size_width}/${size_height}" | bc)
+	whratio=$(printf "%.2f" $(echo "scale=2;${size_width}/${size_height}" | bc))
 	echo 长宽比:${whratio}
 
 	#片名
@@ -537,12 +540,9 @@ stream_play_main() {
 	date1=$(TZ=Asia/Shanghai date +"%Y-%m-%d %H:%M:%S")
 
 	if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
-		#bgpic=${logodir}/bgqrcode.jpg
 		kill_app "${rtmp}" "${FFMPEG} -re"
-		#nohup ${FFMPEG} -loglevel "${logging}" -r 8 -re -f image2 -loop 1  -i "${bgpic}" -i "$videopath" -pix_fmt yuvj420p -t 1000000 -filter_complex "[0:v:0]eq=contrast=1[bg1];[1:a:0]volume=1[bga];"  -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp2}" &
-		echo ${FFMPEG} -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
-		${FFMPEG} -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
-		#${FFMPEG} -r 25 -loglevel "${logging}" -i "$videopath" -i "${logo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 30 -b:v 2000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		echo ${FFMPEG} -r -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		${FFMPEG} -re  -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		echo finished playing $videopath
 	fi
 
@@ -877,8 +877,12 @@ stream_start() {
 			sleep 2
 			continue
 		fi
+  echo start
+  date
 		stream_play_main "${next}" "${play_mode}" "${period}" "${mvsource}"
 		current=${next}
+  date 
+  echo end
 		echo =======================================================================================
 		sleep 5
 	done

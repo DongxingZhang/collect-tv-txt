@@ -4,10 +4,8 @@ import sys
 import os
 
 tvlist = [
-    ["/射雕英雄传朱茵","/mnt/share1/movies"],
-    ["/圆桌派","/mnt/share2/movies"],
-    ["/百家讲坛/百家讲坛2021","/mnt/share3/movies/百家讲坛"],
-]
+    ["/白眉大侠","/mnt/share2/movies"],
+]#
 
 
 for tv in tvlist:
