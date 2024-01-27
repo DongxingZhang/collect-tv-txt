@@ -504,11 +504,9 @@ stream_play_main() {
 
 	#增亮
 	if [ "${lighter}" != "F" ]; then
-		#lights="eq=contrast=1:brightness=0.15,curves=preset=lighter[bg2]"
-		lights="eq=contrast=1:brightness=0.20[bg2]"
-		#lights="eq=sharp=10:luma=10:chroma=5[bg2]"
+		lights="hqdn3d,eq=contrast=1:brightness=0.1:saturation=1.5[bg2]"
 	else
-		lights="eq=contrast=1[bg2]"
+		lights="hqdn3d,eq=contrast=1:brightness=0.1:saturation=1.5[bg2]"
 	fi
 
 	# 台标
@@ -540,8 +538,8 @@ stream_play_main() {
 
 	if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
 		kill_app "${rtmp}" "${FFMPEG} -re"
-		echo ${FFMPEG} -r -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
-		${FFMPEG} -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		echo ${FFMPEG} -r -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -s 1280x720 -strict -2 -f flv -y "${rtmp}"
+		${FFMPEG} -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -s 1280x720 -strict -2 -f flv -y "${rtmp}"
 		echo finished playing $videopath
 	fi
 
