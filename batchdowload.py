@@ -4,7 +4,7 @@ import sys
 import os
 
 tvlist = [
-    ["/白眉大侠","/mnt/share2/movies"],
+    ["/下载1","/mnt/data"],
 ]#
 
 
