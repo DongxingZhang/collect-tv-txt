@@ -29,7 +29,7 @@ kill_app() {
     pidlist=$(ps -ef | grep "${rtmp_link}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
     echo ${pidlist}
     arr=($pidlist)
-    if [ ${#arr[@]} -eq  0 ]; then
+    if [ ${#arr[@]} -eq 0 ]; then
       break
     fi
     for i in "${arr[@]}"; do
@@ -44,12 +44,12 @@ while true; do
   if [ "${mode:0:4}" != "test" ] && [ "${mode:0:4}" != "list" ]; then
     kill_app "ffmpeg -re"
     sleep 3
-    kill_app "pb.sh" 
+    kill_app "pb.sh"
     sleep 3
   fi
 
-  echo pb.sh=`ps -ef | grep "${rtmp_link}" | grep "pb.sh"  | grep -v "ps -ef" | grep -v grep | awk '{print $2}'`
-  echo ffmpeg=`ps -ef | grep "${rtmp_link}" | grep "ffmpeg -re"  | grep -v "ps -ef" | grep -v grep | awk '{print $2}'`
+  echo pb.sh=$(ps -ef | grep "${rtmp_link}" | grep "pb.sh" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
+  echo ffmpeg=$(ps -ef | grep "${rtmp_link}" | grep "ffmpeg -re" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
 
   rtmp_push="${rtmp_link}$(cat ${rtmp})"
   echo rtmp_push=${rtmp_push}
@@ -63,13 +63,9 @@ while true; do
     ./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp_link}" "${news}" "${sheight}" "${rtmp}"
   elif [ "${mode:0:2}" = "bg" ]; then
     echo "background pushing"
-    nohup ./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp_link}" "${news}" "${sheight}" "${rtmp}"  > "${log}"  &
+    nohup ./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp_link}" "${news}" "${sheight}" "${rtmp}" >"${log}" &
   fi
-  echo 启动完毕 
+  echo 启动完毕
   sleep 3
   break
 done
-
-
-
-

@@ -39,7 +39,6 @@ config=${curdir}/list/config.txt
 playlist=${curdir}/list/playlist.txt
 playlist_done=${curdir}/list/playlist_done.txt
 
-
 #配置字体
 fontdir=${curdir}/fonts/font3.ttf
 fonttimedir=${curdir}/fonts/font_time2.ttf
@@ -89,7 +88,7 @@ get_duration2() {
 	echo ${Duration}
 }
 
-get_frames(){
+get_frames() {
 	data=$(${FFPROBE} -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0 "$1")
 	echo $data
 }
@@ -227,7 +226,7 @@ stream_play_main() {
 	videoname=${arr[9]}
 	videopath=$(echo ${arr[10]} | tr '%' ' ')
 	videopath0=${arr[11]}
-    cur_times=${arr[12]}
+	cur_times=${arr[12]}
 	playtimes=${arr[13]}
 
 	mode=$2
@@ -268,7 +267,7 @@ stream_play_main() {
 
 	# 文件超过8GB不要播放
 	maxsize=8000000000
-	actualsize=$(wc -c < "${videopath}")
+	actualsize=$(wc -c <"${videopath}")
 	echo 文件大小:$actualsize
 	if [ $actualsize -ge $maxsize ]; then
 		return 0
@@ -331,22 +330,22 @@ stream_play_main() {
 	#使用歌曲封面
 	if [ "${video_type}" = "FFF" ]; then
 		#mapv="[3:v:0][0:v:0]overlay=(W-w)/2:(H-h)/2[mapvv];[mapvv][3:v:0]overlay=0:0[mapvvv];[mapvvv]"
-        framecount=$(get_frames "${videopath}")	
-        mapv="[3:v:0]loop=loop=${framecount}:size=1:start=0[mapvvv];[mapvvv]"
+		framecount=$(get_frames "${videopath}")
+		mapv="[3:v:0]loop=loop=${framecount}:size=1:start=0[mapvvv];[mapvvv]"
 	elif [ "${video_type}" = "EEE" ]; then
 		#framecount=$(get_frames "${bgvideo}")
 		#echo framecount=${framecount}
 		duration_audio=$(get_duration "${videopath}")
 		duration_video=$(get_duration "${bgvideo}")
 		magnifi=$(printf "%.2f" $(echo "scale=1;${duration_audio}/${duration_video}+0.05" | bc))
-        echo duration_audio=${duration_audio}
-        echo duration_video=${duration_video}
-        echo magnifi=${magnifi}
-        if [ `expr ${magnifi} \> 0.99` -eq 1  ];then
-            mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[mapvvv]"
-        else
-            mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[mapvvv]"
-        fi
+		echo duration_audio=${duration_audio}
+		echo duration_video=${duration_video}
+		echo magnifi=${magnifi}
+		if [ $(expr ${magnifi} \> 0.99) -eq 1 ]; then
+			mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[mapvvv]"
+		else
+			mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[mapvvv]"
+		fi
 	fi
 
 	echo ${mapv}, ${mapa}, ${maps}
@@ -358,9 +357,9 @@ stream_play_main() {
 	#片名
 	scale_flag=0 #强制缩放
 	if [ ${size_height} -gt ${sheight} ] || [ ${scale_flag} -eq 1 ]; then
-	    newfontsize=$(get_fontsize "${sheight}")
+		newfontsize=$(get_fontsize "${sheight}")
 	else
-	    newfontsize=$(get_fontsize "${size_height}")
+		newfontsize=$(get_fontsize "${size_height}")
 	fi
 	echo fontsize=${newfontsize}
 
@@ -403,11 +402,11 @@ stream_play_main() {
 
 	echo 台标=${logo}
 
-    #缩放
+	#缩放
 	echo "缩放size_height=${size_height}"
 	echo "缩放sheight=${sheight}"
 	if [ ${size_height} -gt ${sheight} ] || [ ${scale_flag} -eq 1 ]; then
-		scales="scale=trunc(oh*a/2)*2:${sheight}" # 主视频
+		scales="scale=trunc(oh*a/2)*2:${sheight}"  # 主视频
 		scales2="scale=trunc(oh*a/2)*2:${sheight}" # 背景图片
 	else
 		scales="scale=trunc(oh*a/2)*2:${size_height}"
@@ -415,7 +414,7 @@ stream_play_main() {
 	fi
 
 	# 背景图
-	background="[2:v:0]${scales2}[scalebg];[scalebg]scale=ih*16/9:-1,crop=h=iw*9/16,gblur=sigma=80,eq=saturation=0.9[bgimg];"    
+	background="[2:v:0]${scales2}[scalebg];[scalebg]scale=ih*16/9:-1,crop=h=iw*9/16,gblur=sigma=80,eq=saturation=0.9[bgimg];"
 
 	#遮挡logo
 	delogos=$(cat ${delogofile} | grep "^${video_type}|")
@@ -500,14 +499,14 @@ stream_play_main() {
 			#cont_len=$(expr ${cont_len} + 1)
 		fi
 	fi
-    cont_len=$(expr ${cont_len} / 2)
+	cont_len=$(expr ${cont_len} / 2)
 	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolorgold}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*3:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
-    
+
 	#增亮
 	if [ "${lighter}" != "F" ]; then
 		#lights="eq=contrast=1:brightness=0.15,curves=preset=lighter[bg2]"
 		lights="eq=contrast=1:brightness=0.20[bg2]"
-  		#lights="eq=sharp=10:luma=10:chroma=5[bg2]"
+		#lights="eq=sharp=10:luma=10:chroma=5[bg2]"
 	else
 		lights="eq=contrast=1[bg2]"
 	fi
@@ -516,21 +515,21 @@ stream_play_main() {
 	watermark="[1:v:0]scale=-1:${newfontsize}\*2[wm];" #[wm]
 
 	# 混合台标
-    logos="[wm]overlay=overlay_w/6:overlay_h/3[bg1];[bg1]"
+	logos="[wm]overlay=overlay_w/6:overlay_h/3[bg1];[bg1]"
 
 	# 视频轨
 	videos="${background}${watermark}${mapv}${delogo}${videoskips}${scales}[main];"
 
 	# 视频补齐16:9
-	videomakeup="[bgimg][main]overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2[bg0];[bg0]" 
-	
+	videomakeup="[bgimg][main]overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2[bg0];[bg0]"
+
 	# 增加字幕和提示
-    tips="${logos}${subs}${drawtext1}${drawtext2}${drawtext3}[bg];"
+	tips="${logos}${subs}${drawtext1}${drawtext2}${drawtext3}[bg];"
 
 	# 音轨
 	audios="${mapa}${audio_format}[bga];" #[bga]
 
-    # 总选项
+	# 总选项
 	video_format="${videos}${videomakeup}${tips}${audios}[bg]${lights}"
 
 	echo 滤镜:${video_format}
@@ -542,7 +541,7 @@ stream_play_main() {
 	if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
 		kill_app "${rtmp}" "${FFMPEG} -re"
 		echo ${FFMPEG} -r -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
-		${FFMPEG} -re  -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		${FFMPEG} -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		echo finished playing $videopath
 	fi
 
@@ -642,7 +641,7 @@ get_playing_video() {
 		param=${arr[1]}
 		videopath0=${arr[2]}
 		playtimes=${arr[3]}
-        #搜索电视库
+		#搜索电视库
 		tv_setting_str=$(cat "${tvlist}" | grep "${videopath0}" | head -1)
 		if [ "${tv_setting_str}" = "" ]; then
 			#如果不存在，则继续下一条
@@ -652,7 +651,7 @@ get_playing_video() {
 		#天龙神剑|天龙神剑|TVA|0|1|F
 		videoname=${arrtvset[1]}
 		video_type=${arrtvset[2]}
-		lighter=${arrtvset[3]}		
+		lighter=${arrtvset[3]}
 		audio=${arrtvset[4]}
 		subtitle=${arrtvset[5]}
 
@@ -676,7 +675,7 @@ get_playing_video() {
 				cur_times=1
 			else
 				video_played_arr=(${video_played//|/ })
-				if  [[ "${video_played_arr[4]}" = "" ]]; then
+				if [[ "${video_played_arr[4]}" = "" ]]; then
 					cur_times=1
 				else
 					cur_times=${video_played_arr[4]}
@@ -686,11 +685,11 @@ get_playing_video() {
 					cur_file=1
 				elif [[ "${video_played_arr[2]}" -ge "${file_count}" ]]; then
 					if [[ "${cur_times}" -lt "${playtimes}" ]]; then
-					    cur_file=1
-					    cur_times=$(expr ${cur_times} + 1)
+						cur_file=1
+						cur_times=$(expr ${cur_times} + 1)
 					else
-					    continue
-					fi				
+						continue
+					fi
 				else
 					cur_file=$(expr ${video_played_arr[2]} + 1)
 				fi
@@ -706,27 +705,27 @@ get_playing_video() {
 			done
 		elif [[ -f "${videopath}" ]]; then
 			if [ "${playtimes}" = "" ]; then
-                playtimes=1
-            fi
+				playtimes=1
+			fi
 			file_count=1
 			video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${videopath0}" | head -1)
-            if [[ "${video_played}" = "" ]]; then
-                cur_file=1
-                cur_times=1
-            else
+			if [[ "${video_played}" = "" ]]; then
+				cur_file=1
+				cur_times=1
+			else
 				video_played_arr=(${video_played//|/ })
-				if  [[ "${video_played_arr[4]}" = "" ]]; then
-                    cur_times=1
-                else
-                    cur_times=${video_played_arr[4]}
-                fi
-            
-			    if [[ "${cur_times}" -lt "${playtimes}" ]]; then
-                    cur_file=1
-                    cur_times=$(expr ${cur_times} + 1)
-                else
-                    continue
-                fi
+				if [[ "${video_played_arr[4]}" = "" ]]; then
+					cur_times=1
+				else
+					cur_times=${video_played_arr[4]}
+				fi
+
+				if [[ "${cur_times}" -lt "${playtimes}" ]]; then
+					cur_file=1
+					cur_times=$(expr ${cur_times} + 1)
+				else
+					continue
+				fi
 			fi
 			echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|file|${videoname}|${videopath}|${videopath0}|${cur_times}|${playtimes}"
 			break
@@ -836,7 +835,6 @@ get_next() {
 	echo ${next_video_path}
 }
 
-
 get_seq() {
 	waitingdir=$1
 	videonofile=$2
@@ -862,7 +860,6 @@ get_seq() {
 	echo "$next_video" >${videonofile}
 }
 
-
 stream_start() {
 	play_mode=$1
 	mvsource=$2
@@ -877,12 +874,12 @@ stream_start() {
 			sleep 2
 			continue
 		fi
-  echo start
-  date
+		echo start
+		date
 		stream_play_main "${next}" "${play_mode}" "${period}" "${mvsource}"
 		current=${next}
-  date 
-  echo end
+		date
+		echo end
 		echo =======================================================================================
 		sleep 5
 	done

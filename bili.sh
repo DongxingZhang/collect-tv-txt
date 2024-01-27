@@ -20,7 +20,7 @@ kill_app() {
     pidlist=$(ps -ef | grep "${rtmp_link}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
     echo ${pidlist}
     arr=($pidlist)
-    if [ ${#arr[@]} -eq  0 ]; then
+    if [ ${#arr[@]} -eq 0 ]; then
       break
     fi
     for i in "${arr[@]}"; do
@@ -31,10 +31,8 @@ kill_app() {
   done
 }
 
-
 kill_app "launch.sh"
 pidlist=$(ps -ef | grep "${rtmp_link}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
 echo ${pidlist}
 
 ./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}" "${sheight}" "${rtmp_link}" "${ffmpeglog}"
-
