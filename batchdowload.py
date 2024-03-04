@@ -4,7 +4,7 @@ import sys
 import os
 
 tvlist = [
-    ["/下载1","/mnt/data"],
+    ["/下载4/刺客列传/","/mnt/data/"],
 ]#
 
 

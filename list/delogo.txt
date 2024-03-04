@@ -8,6 +8,7 @@ CC2|delogo=x=45:y=35:w=150:h=90:show=0,delogo=x=506:y=34:w=166:h=66:show=0
 CC3|delogo=x=45:y=35:w=150:h=90:show=0
 CC4|delogo=x=60:y=40:w=130:h=60:show=0
 CC5|delogo=x=64:y=40:w=130:h=75:show=0
+CC6|delogo=x=50:y=28:w=86:h=46:show=0
 CCV|delogo=x=80:y=50:w=155:h=120:show=0
 FEZ|delogo=x=5:y=5:w=835:h=35:show=0
 JS0|delogo=x=570:y=15:w=60:h=50:show=0
@@ -26,6 +27,8 @@ TW2|delogo=x=20:y=18:w=180:h=50:show=0
 TWV|delogo=x=1042:y=58:w=190:h=86:show=0,delogo=x=94:y=38:w=248:h=60:show=0
 YOU|delogo=x=795:y=25:w=160:h=35:show=0
 ZST|delogo=x=518:y=30:w=94:h=54:show=0
+TW3|delogo=x=1165:y=40:w=200:h=90:show=0
+TW4|delogo=x=1560:y=65:w=290:h=150:show=0
 TV0|delogo=x=965:y=35:w=80:h=65:show=0
 TV1|delogo=x=400:y=30:w=75:h=60:show=0
 TV2|delogo=x=525:y=30:w=85:h=60:show=0
@@ -44,11 +47,13 @@ TVE|delogo=x=815:y=28:w=70:h=60:show=0
 TVF|delogo=x=1500:y=32:w=128:h=108:show=0
 TVG|delogo=x=1570:y=38:w=274:h=98:show=0
 TVH|delogo=x=1484:y=48:w=342:h=82:show=0
-TVJ|delogo=x=728:y=25:w=56:h=55:show=0
+TVJ|delogo=x=725:y=25:w=60:h=55:show=0
 TVK|delogo=x=1032:y=42:w=216:h=44:show=0,delogo=x=2:y=10:w=1074:h=42:show=0
 TVM|delogo=x=1580:y=36:w=254:h=116:show=0
 TVN|delogo=x=550:y=22:w=54:h=42:show=0
 TVP|delogo=x=815:y=22:w=170:h=35:show=0
 TVQ|delogo=x=625:y=20:w=65:h=55:show=0
 TVR|delogo=x=485:y=20:w=130:h=55:show=0
+TVS|delogo=x=500:y=25:w=75:h=62:show=0
+TVO|delogo=x=965:y=35:w=80:h=65:show=0,delogo=x=25:y=5:w=1220:h=50:show=0
 TVZ|delogo=x=910:y=485:w=75:h=60:show=0

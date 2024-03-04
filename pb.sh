@@ -8,9 +8,6 @@ font="\033[0m"
 
 curdir=$(pwd)
 
-FFPROBE=/usr/bin/ffprobe
-FFMPEG=/usr/bin/ffmpeg
-
 # 定义推流地址和推流码
 #rtmp="rtmp://www.tomandjerry.work/live/livestream"
 #rtmp="rtmp://127.0.0.1:1935/live/1"
@@ -48,10 +45,10 @@ fontcolor=#FDE6E0
 fontcolor2=#B1121A
 fontcolorgold=#D9D919
 fontbg="box=1:boxcolor=black@0.01:boxborderw=3"
-sheight=720
+sheight=1080
 #ffmpeg参数
 logging="repeat+level+warning"
-preset_decode_speed="ultrafast"
+preset_decode_speed="fast"
 
 enter=$(echo -e "\n''")
 split=$(echo -e "\t''")
@@ -170,6 +167,20 @@ check_video_path() {
 	fi
 }
 
+check_srt_path() {
+	dirname=$(dirname $1)
+	filename=$(basename $1)
+	ext=${filename##*.}
+	name=${filename%.*}
+	if [[ -f "${dirname}/srt/${name}.srt" ]]; then
+		echo "${dirname}/srt/${name}.srt"
+	elif [[ -f "${dirname}/srt/${name}.SRT" ]]; then
+		echo "${dirname}/srt/${name}.SRT"
+	else
+		echo ""
+	fi
+}
+
 kill_app() {
 	rtmp=$1
 	app=$2
@@ -278,11 +289,6 @@ stream_play_main() {
 	audio_track_decode=$(get_stream_track "${videopath}" "audio")
 	sub_track=$(get_stream_track "${videopath}" "subtitle")
 	sub_track_decode=$(get_stream_track "${videopath}" "subtitle")
-
-	if [ "$video_track" = "" ]; then
-		echo "${videopath} 没有视频轨道"
-		return
-	fi
 
 	if [ "$audio_track" = "" ]; then
 		echo "${videopath} 没有音频轨道"
@@ -448,6 +454,11 @@ stream_play_main() {
 		fi
 		rm ./sub/tmp1.srt
 		subs="subtitles=filename=${subfile}:fontsdir=${curdir}/fonts:force_style='Fontname=华文仿宋,Fontsize=15,Alignment=2,MarginV=30'[vsub];[vsub]"
+	else
+		srt_file=$(check_srt_path "${videopath}")
+		if [ "${srt_file}" != "" ]; then
+			subs="subtitles=filename=${srt_file}:fontsdir=${curdir}/fonts:force_style='Fontname=华文仿宋,Fontsize=15,Alignment=2,MarginV=30'[vsub];[vsub]"
+		fi
 	fi
 
 	#求视频的秒数的5/6
@@ -469,6 +480,8 @@ stream_play_main() {
 	#从左往右drawtext2="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${news}':fontfile=${fontdir}:expansion=normal:x=(mod(5*n\,w+tw)-tw):y=h-line_h-10:shadowx=2:shadowy=2:${fontbg}"
 	#从右到左
 	drawtext2="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:textfile='${news}':fontfile=${fontforcastdir}:line_spacing=${line_spacing}:expansion=normal:x=w-mod(max(t-1\,0)*(w+tw\*5)/415\,(w+tw\*5)):y=h-line_h-5:shadowx=2:shadowy=2:${fontbg}[forcv];[forcv]"
+	#不输出节目预告
+	drawtext2=
 
 	#显示标题
 	echo 第${cur_file}集
@@ -500,13 +513,15 @@ stream_play_main() {
 		fi
 	fi
 	cont_len=$(expr ${cont_len} / 2)
-	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolorgold}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*3:y=h/2-line_h\*${cont_len}:shadowx=2:shadowy=2:${fontbg}"
+	#不输出电视剧名
+	content2=
+	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolorgold}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*3:y=h/2-line_h\*(${cont_len}+1):shadowx=2:shadowy=2:${fontbg}"
 
 	#增亮
-	if [ "${lighter}" != "F" ]; then
-		lights="hqdn3d,eq=contrast=1:brightness=0.1:saturation=1.5[bg2]"
+	if [ "${lighter}" = "0" ]; then
+		lights="eq=contrast=1[bg2]"
 	else
-		lights="hqdn3d,eq=contrast=1:brightness=0.1:saturation=1.5[bg2]"
+		lights="hqdn3d,eq=contrast=1:brightness=0.2:saturation=1.5[bg2]"
 	fi
 
 	# 台标
@@ -538,8 +553,8 @@ stream_play_main() {
 
 	if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
 		kill_app "${rtmp}" "${FFMPEG} -re"
-		echo ${FFMPEG} -r -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -s 1280x720 -strict -2 -f flv -y "${rtmp}"
-		${FFMPEG} -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -s 1280x720 -strict -2 -f flv -y "${rtmp}"
+		echo ${FFMPEG} -r -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		${FFMPEG} -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		echo finished playing $videopath
 	fi
 
@@ -790,7 +805,6 @@ need_waiting() {
 		echo "F"
 		return
 	fi
-
 	periodcount=$(cat ${config} | grep -v "^#" | sed /^$/d | wc -l)
 	arr=(${ret//|/ })
 	last_hour=${arr[1]}
@@ -805,6 +819,7 @@ need_waiting() {
 		next_video_path=${arr_video[10]}
 		dur=$(get_duration "${next_video_path}")
 		dur=$(echo "scale=0;$dur/60+1" | bc)
+
 		if [ ${mins2end} -le 20 ] && [ ${dur} -ge ${mins2end} ]; then
 			nexthours=$(expr ${hours} + 1)
 			if [ ${nexthours} -ge 24 ]; then
@@ -858,6 +873,22 @@ get_seq() {
 	echo "$next_video" >${videonofile}
 }
 
+ffmpeg_init() {
+	if [[ -e "/mnt/data/ffmpeg/ffmpeg" ]]; then
+		FFMPEG=/mnt/data/ffmpeg/ffmpeg
+	else
+		FFMPEG=/usr/bin/ffmpeg
+	fi
+
+	if [[ -e "/mnt/data/ffmpeg/ffprobe" ]]; then
+		FFPROBE=/mnt/data/ffmpeg/ffprobe
+	else
+		FFPROBE=/usr/bin/ffprobe
+	fi
+	echo $FFMPEG
+	echo $FFPROBE
+}
+
 stream_start() {
 	play_mode=$1
 	mvsource=$2
@@ -866,9 +897,10 @@ stream_start() {
 	echo "播放模式:${play_mode}"
 	current=""
 	while true; do
+		ffmpeg_init
 		period=$(need_waiting)
 		next=$(get_next ${period})
-		if [ "${next}" = "" ]; then
+		if [ "${next}" = "" ] || [ "${current}" = "${next}" ]; then
 			sleep 2
 			continue
 		fi
