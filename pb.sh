@@ -14,7 +14,7 @@ curdir=$(pwd)
 ####http://101.206.209.7/live-bvc/927338/live_97540856_1852534/index.m3u8
 #rtmp2="rtmp://live-push.bilivideo.com/live-bvc/?streamname=live_97540856_1852534&key=a042d1eb6f69ca88b16f4fb9bf9a5435&schedule=rtmp&pflag=1"
 #rtmp_bak="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/6721_99a2fefeadd58c8948f14058edd45a65?bizid=6721&txSecret=f944652781e18a0ae34fbfa839681be7&txTime=64D6BAE2&sdkappid=1400526639&k=08c190c1941410beb7a399051a171215353431313731393233335f31363931353334393436&ck=469e&txPRI=1691534946"
-rtmp="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/$(cat ${curdir}/rtmp_pass.txt)"
+rtmp="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/$(cat ${curdir}/qq_rtmp_pass.txt)"
 
 # 配置目录和文件
 logodir=${curdir}/logo
@@ -654,6 +654,10 @@ get_playing_video() {
 		param=${arr[1]}
 		videopath0=${arr[2]}
 		playtimes=${arr[3]}
+		#搜索时间段
+		if [[ "${video_index}" != "${playlist_index}" ]]; then
+			continue
+		fi
 		#搜索电视库
 		tv_setting_str=$(cat "${tvlist}" | grep "${videopath0}" | head -1)
 		if [ "${tv_setting_str}" = "" ]; then
@@ -671,10 +675,6 @@ get_playing_video() {
 		#这里路径可以只写目录名，然后自己搜索
 		videopath=$(check_video_path ${videopath0})
 		if [ "${videopath}" = "" ]; then
-			continue
-		fi
-		#搜索时间段
-		if [[ "${video_index}" != "${playlist_index}" ]]; then
 			continue
 		fi
 		if [[ -d "${videopath}" ]]; then
