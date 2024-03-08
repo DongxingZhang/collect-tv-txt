@@ -319,7 +319,7 @@ stream_play_main() {
 	if [ "${video_type}" = "FFF" ]; then
 		bgvideo=$(get_seq "${bgvideodir}" "${curdir}/count/bgpicno")
 		ssize=$(get_size "${bgvideo}") #计算分辨率
-	elif [ "${video_type}" = "EEE" ]; then
+	elif [ "${video_type}" = "EEE" ] || [ "${video_type}" = "DDD" ]; then
 		bgvideo=$(get_seq "${bgstreetdir}" "${curdir}/count/streetmvno")
 		ssize=$(get_size "${bgvideo}") #计算分辨率
 	else
@@ -338,7 +338,7 @@ stream_play_main() {
 		#mapv="[3:v:0][0:v:0]overlay=(W-w)/2:(H-h)/2[mapvv];[mapvv][3:v:0]overlay=0:0[mapvvv];[mapvvv]"
 		framecount=$(get_frames "${videopath}")
 		mapv="[3:v:0]loop=loop=${framecount}:size=1:start=0[mapvvv];[mapvvv]"
-	elif [ "${video_type}" = "EEE" ]; then
+	elif [ "${video_type}" = "DDD" ] || [ "${video_type}" = "EEE" ]; then
 		#framecount=$(get_frames "${bgvideo}")
 		#echo framecount=${framecount}
 		duration_audio=$(get_duration "${videopath}")
@@ -347,10 +347,19 @@ stream_play_main() {
 		echo duration_audio=${duration_audio}
 		echo duration_video=${duration_video}
 		echo magnifi=${magnifi}
-		if [ $(expr ${magnifi} \> 0.99) -eq 1 ]; then
-			mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[mapvvv]"
-		else
-			mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[mapvvv]"
+                if [ "${video_type}" = "EEE" ]; then   
+		    if [ $(expr ${magnifi} \> 0.99) -eq 1 ]; then
+                        mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[mapvvv]"
+                    else
+                        mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[mapvvv]"
+		    fi
+                else
+		    #DDD
+		    if [ $(expr ${magnifi} \> 0.99) -eq 1 ]; then
+                        mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[0:v:0]scale=$size_width/5:$size_height/5[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
+                    else
+                        mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[0:v:0]scale=$size_width/5:$size_height/5[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
+	            fi
 		fi
 	fi
 

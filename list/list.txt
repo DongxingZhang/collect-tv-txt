@@ -223,20 +223,24 @@
 百家讲坛2/玄奘|玄奘|EEE|F|F|F
 百家讲坛2/嘉庆|嘉庆|EEE|F|F|F
 百家讲坛2/宋太祖|宋太祖|EEE|F|F|F
-岳云鹏|相声|EEE|F|F|F
 
-
+#画中画
+岳云鹏|相声|DDD|F|F|F
+今晚开放麦2022|今晚开放麦2022|DDD|F|F|F
+今晚开放麦2023|今晚开放麦2023|DDD|F|F|F
+新春开放麦2024|新春开放麦2024|DDD|F|F|F
+/mnt/share3/songs|精彩节目|DDD|F|F|F
+/mnt/share3/迪克牛仔|精彩节目|DDD|F|F|F
+/mnt/share3/繁花|精彩节目|DDD|F|F|F
 
 #图片背景
 /mnt/share3/雅尼/03雅尼2006拉斯维加斯音乐会.mkv|FFF|F|F|F
-/mnt/share3/songs|精彩节目|FFF|F|F|F
-/mnt/share3/迪克牛仔|精彩节目|FFF|F|F|F
 相声/相声全集|精彩节目|FFF|F|F|F
 相声/刘宝瑞|精彩节目|FFF|F|F|F
 相声/侯宝林|精彩节目|FFF|F|F|F
 相声/马季|精彩节目|FFF|F|F|F
 相声/姜昆|精彩节目|FFF|F|F|F
-/mnt/share3/繁花|精彩节目|FFF|F|F|F
+
 
 
 
