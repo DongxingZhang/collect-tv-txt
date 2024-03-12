@@ -356,9 +356,9 @@ stream_play_main() {
                 else
 		    #DDD
 		    if [ $(expr ${magnifi} \> 0.99) -eq 1 ]; then
-                        mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[0:v:0]scale=$size_width/5:$size_height/5[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
+                        mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
                     else
-                        mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[0:v:0]scale=$size_width/5:$size_height/5[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
+                        mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
 	            fi
 		fi
 	fi
@@ -466,7 +466,7 @@ stream_play_main() {
 	else
 		srt_file=$(check_srt_path "${videopath}")
 		if [ "${srt_file}" != "" ]; then
-			subs="subtitles=filename=${srt_file}:fontsdir=${curdir}/fonts:force_style='Fontname=华文仿宋,Fontsize=15,Alignment=2,MarginV=30'[vsub];[vsub]"
+		    subs="subtitles=filename=${srt_file}:fontsdir=${curdir}/fonts:force_style='Fontname=华文仿宋,Fontsize=15,Alignment=2,MarginV=30'[vsub];[vsub]"
 		fi
 	fi
 
@@ -909,7 +909,9 @@ stream_start() {
 		ffmpeg_init
 		period=$(need_waiting)
 		next=$(get_next ${period})
-		if [ "${next}" = "" ] || [ "${current}" = "${next}" ]; then
+   echo prev=$current
+   echo next=$next
+		if [ "${next}" = "" ]; then
 			sleep 2
 			continue
 		fi
