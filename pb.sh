@@ -97,9 +97,17 @@ get_fontsize() {
 
 get_size() {
 	data=$(${FFPROBE} -hide_banner -show_format -show_streams "$1" 2>&1)
-	width=$(echo $data | awk -F 'width=' '{print $2}' | awk -F ' ' '{print $1}')
-	height=$(echo $data | awk -F 'height=' '{print $2}' | awk -F ' ' '{print $1}')
+	for num in {2..10..1}
+	do
+	    width=$(echo $data | awk -v var=$num -F 'width=' '{print $var}' | awk -F ' ' '{print $1}')
+	    height=$(echo $data | awk -v var=$num -F 'height=' '{print $var}' | awk -F ' ' '{print $1}')
+	    if [ "${width}" = "N/A" ] || [ "${height}" = "N/A" ]; then
+		    continue
+	    fi
+		break
+    done
 	echo "${width}|${height}"
+
 }
 
 digit_half2full() {
@@ -448,6 +456,7 @@ stream_play_main() {
 	#字幕
 	subs=""
 	if [ "${maps}" != "" ]; then
+	    rm -rf ${subfile}
 		echo ${FFMPEG} -i "${videopath}" -map ${maps} -y ${subfile}
 		${FFMPEG} -i "${videopath}" -map ${maps} -y ./sub/tmp.srt
 		cat ./sub/tmp.srt | sed -E 's/<[^>]+>//g' >./sub/tmp1.srt
@@ -456,7 +465,7 @@ stream_play_main() {
 		else
 			iconv -f utf8 -t gbk -c ./sub/tmp1.srt >${subfile}
 		fi
-		rm ./sub/tmp1.srt
+		rm -rf ./sub/tmp1.srt
 		subs="subtitles=filename=${subfile}:fontsdir=${curdir}/fonts:force_style='Fontname=华文仿宋,Fontsize=15,Alignment=2,MarginV=30'[vsub];[vsub]"
 	else
 		srt_file=$(check_srt_path "${videopath}")
