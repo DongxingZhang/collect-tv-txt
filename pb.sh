@@ -21,6 +21,7 @@ rest_video_path=/mnt/share3/mvbrief
 bgimg=${curdir}/img/bg.jpg
 bgvideodir=${curdir}/bg/
 bgvideo=${curdir}/img/bg.jpg
+playing_video=${curdir}/log/current
 
 #street video dir
 bgstreetdir=/mnt/share1/street/
@@ -265,6 +266,8 @@ stream_play_main() {
 	echo -e ${yellow}播放模式（bg, fg, test）:${font} ${mode}
 	rtmp="${rtmp_link}$(cat ${rtmp_token})"
 	echo ${rtmp}
+ 
+ echo {videopath} > ${playing_video}
 
 	#增加所有声道支持 还未启用
 	if [ "${auch}" = "L" ]; then
@@ -299,8 +302,21 @@ stream_play_main() {
 	fi
 
 	maps=
-	if [ "$sub_track" != "" ]; then
-		maps="0:s:0"
+	if [ "${subtitle}" = "E" ]; then
+		maps=""
+		subtitle=""
+	else
+	    if [ "${subtitle}" != "F" ]; then
+		    maps="0:s:${subtitle}"
+		else	        
+	        if [ "$sub_track" != "" ]; then
+		          maps="0:s:0"
+				        subtitle="0"
+         else 
+             maps=
+             subtitle=
+	        fi	    
+	    fi	    
 	fi
 
 	mapv="[0:v:0]"
@@ -308,14 +324,6 @@ stream_play_main() {
 
 	if [ "${audio}" != "F" ]; then
 		mapa="[0:a:${audio}]"
-	fi
-
-	if [ "${subtitle}" != "F" ]; then
-		maps="0:s:${subtitle}"
-	fi
-
-	if [ "${subtitle}" = "E" ]; then
-		maps=""
 	fi
 
 	#分辨率
@@ -390,9 +398,9 @@ stream_play_main() {
 	line_spacing=$(echo "scale=0;${line_spacing}/1" | bc)
 
 	#节目预告
-	echo $(get_next_video_name) >${news}
-	#cat <( curl -s http://www.nmc.cn/publish/forecast/  ) | tr -s '\n' ' ' |  sed  's/<div class="col-xs-4">/\n/g' | sed -E 's/<[^>]+>//g' | awk -F ' ' 'NF==5{print $1,$2,$3}' | head -n 32 | tr -s '\n' ';' | sed 's/徐家汇/上海/g' | sed 's/长沙市/长沙/g' >>  ${news}
-	echo "下集预告 ${news}"
+	#echo $(get_next_video_name) >${news}
+	cat <( curl -s http://www.nmc.cn/publish/forecast/  ) | tr -s '\n' ' ' |  sed  's/<div class="col-xs-4">/\n/g' | sed -E 's/<[^>]+>//g' | awk -F ' ' 'NF==5{print $1,$2,$3}' | head -n 32 | tr -s '\n' ';' | sed 's/徐家汇/上海/g' | sed 's/长沙市/长沙/g' >  ${news}
+	#echo "下集预告 ${news}"
 
 	#台标选择
 	logo=
@@ -454,19 +462,10 @@ stream_play_main() {
 	fi
 
 	#字幕
+ echo maps=${maps}，subtitle=${subtitle}，subtrack=$sub_track
 	subs=""
-	if [ "${maps}" != "" ]; then
-	    rm -rf ${subfile}
-		echo ${FFMPEG} -i "${videopath}" -map ${maps} -y ${subfile}
-		${FFMPEG} -i "${videopath}" -map ${maps} -y ./sub/tmp.srt
-		cat ./sub/tmp.srt | sed -E 's/<[^>]+>//g' >./sub/tmp1.srt
-		if [ "${subtrans}" = "" ]; then
-			cp ./sub/tmp1.srt ${subfile}
-		else
-			iconv -f utf8 -t gbk -c ./sub/tmp1.srt >${subfile}
-		fi
-		rm -rf ./sub/tmp1.srt
-		subs="subtitles=filename=${subfile}:fontsdir=${curdir}/fonts:force_style='Fontname=华文仿宋,Fontsize=15,Alignment=2,MarginV=30'[vsub];[vsub]"
+	if [ "${maps}" != "" ] && [ "${subtitle}" != "" ]; then
+		subs="subtitles=filename=${videopath}:si=${subtitle}:fontsdir=${curdir}/fonts:force_style='Fontname=华文仿宋,Fontsize=15,Alignment=2,MarginV=30'[vsub];[vsub]"
 	else
 		srt_file=$(check_srt_path "${videopath}")
 		if [ "${srt_file}" != "" ]; then
@@ -493,8 +492,6 @@ stream_play_main() {
 	#从左往右drawtext2="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${news}':fontfile=${fontdir}:expansion=normal:x=(mod(5*n\,w+tw)-tw):y=h-line_h-10:shadowx=2:shadowy=2:${fontbg}"
 	#从右到左
 	drawtext2="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:textfile='${news}':fontfile=${fontforcastdir}:line_spacing=${line_spacing}:expansion=normal:x=w-mod(max(t-1\,0)*(w+tw\*5)/415\,(w+tw\*5)):y=h-line_h-5:shadowx=2:shadowy=2:${fontbg}[forcv];[forcv]"
-	#不输出节目预告
-	drawtext2=
 
 	#显示标题
 	echo 第${cur_file}集
