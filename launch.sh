@@ -1,27 +1,18 @@
 #!/bin/bash
-
+curdir=$(pwd)
 mode=$1
-mvsource=$2
-subfile=$3
-config=$4
-playlist=$5
-playlist_done=$6
-rtmp=$7
-news=$8
-sheight=$9
-rtmp_link=${10}
-log=${11}
+rtmp_link=$2
+rtmp_token=$3
+token=$4
+sheight=$5
+
+
 echo mode=$mode
 echo mode=${mode:0:4}
-echo subfile=$subfile
-echo config=$config
-echo playlist=$playlist
-echo playlist_done=$playlist_done
-echo rtmp_token=$rtmp
-echo news=$news
-echo sheight=$sheight
 echo rtmp_link=$rtmp_link
-echo log=$log
+echo rtmp_token=$rtmp_token
+echo sheight=$sheight
+echo token=$token
 
 kill_app() {
   app=$1
@@ -51,19 +42,20 @@ while true; do
   echo pb.sh=$(ps -ef | grep "${rtmp_link}" | grep "pb.sh" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
   echo ffmpeg=$(ps -ef | grep "${rtmp_link}" | grep "ffmpeg -re" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
 
-  rtmp_push="${rtmp_link}$(cat ${rtmp})"
+  rtmp_push="${rtmp_link}${rtmp_token}"
+
   echo rtmp_push=${rtmp_push}
 
   #read -p "请输入任意继续:" any
   if [ "${mode:0:4}" = "test" ]; then
     echo "test pushing"
-    ./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp_link}" "${news}" "${sheight}" "${rtmp}"
+    bash ./pb.sh "${mode}" "${rtmp_link}" "${rtmp_token}" "${token}" "${sheight}"
   elif [ "${mode:0:2}" = "fg" ]; then
     echo "foreground pushing"
-    ./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp_link}" "${news}" "${sheight}" "${rtmp}"
+    bash ./pb.sh "${mode}" "${rtmp_link}" "${rtmp_token}" "${token}" "${sheight}"
   elif [ "${mode:0:2}" = "bg" ]; then
     echo "background pushing"
-    nohup ./pb.sh 2 "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp_link}" "${news}" "${sheight}" "${rtmp}" >"${log}" &
+    nohup bash ./pb.sh "${mode}" "${rtmp_link}" "${rtmp_token}" "${token}" "${sheight}" > "${curdir}/log/${token}.log" &
   fi
   echo 启动完毕
   sleep 3

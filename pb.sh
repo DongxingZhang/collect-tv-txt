@@ -1,64 +1,5 @@
 #!/bin/bash
 
-# 颜色选择
-red='\033[0;31m'
-green='\033[0;32m'
-yellow='\033[0;33m'
-font="\033[0m"
-
-curdir=$(pwd)
-
-# 定义推流地址和推流码
-rtmp="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/$(cat ${curdir}/qq_rtmp_pass.txt)"
-
-# 配置目录和文件
-logodir=${curdir}/logo
-news=${curdir}/log/news.txt
-memo=${curdir}/log/memo.txt
-tvlist=${curdir}/list/list.txt
-delogofile=${curdir}/list/delogo.txt
-rest_video_path=/mnt/share3/mvbrief
-bgimg=${curdir}/img/bg.jpg
-bgvideodir=${curdir}/bg/
-bgvideo=${curdir}/img/bg.jpg
-playing_video=${curdir}/log/current
-
-#street video dir
-bgstreetdir=/mnt/share1/street/
-
-# 可配置目录
-subfile=${curdir}/sub/sub.srt
-config=${curdir}/list/config.txt
-playlist=${curdir}/list/playlist.txt
-playlist_done=${curdir}/list/playlist_done.txt
-
-#配置字体
-fontdir=${curdir}/fonts/font3.ttf
-fonttimedir=${curdir}/fonts/font_time2.ttf
-fontforcastdir=${curdir}/fonts/font.ttf
-fontsize=50
-fontcolor=#FDE6E0
-fontcolor2=#B1121A
-fontcolorgold=#D9D919
-fontbg="box=1:boxcolor=black@0.01:boxborderw=3"
-sheight=1080
-#ffmpeg参数
-logging="repeat+level+warning"
-preset_decode_speed="fast"
-
-enter=$(echo -e "\n''")
-split=$(echo -e "\t''")
-
-if [ ! -d ${curdir}/log ]; then
-	echo create ${curdir}/log
-	mkdir ${curdir}/log
-fi
-
-if [ ! -d ${curdir}/sub ]; then
-	echo create ${curdir}/sub
-	mkdir ${curdir}/sub
-fi
-
 ####功能函数START
 get_stream_track() {
 	track=$(${FFPROBE} -loglevel repeat+level+warning -i "$1" -show_streams -print_format csv | awk -F, '{print $1,$2,$3,$6}' | grep "$2" | awk 'NR==1{print $2}')
@@ -246,10 +187,8 @@ stream_play_main() {
 
 	mode=$2
 	period=$3
-	mvsource=$4
 	echo ${mode}
 	echo ${period}
-	echo ${mvsource}
 
 	echo -e ${yellow}视频类别（delogo）:${font} ${video_type}
 	echo -e ${yellow}视频跳过:${font} ${video_skip}
@@ -264,11 +203,11 @@ stream_play_main() {
 	echo -e ${yellow}播放类型:${font} ${file_type}
 	echo -e ${yellow}电视剧名称:${font} ${videoname}
 	echo -e ${yellow}播放模式（bg, fg, test）:${font} ${mode}
-	rtmp="${rtmp_link}$(cat ${rtmp_token})"
+	rtmp="${rtmp_link}${rtmp_token}"
 	echo ${rtmp}
- 
- echo {videopath} > ${playing_video}
 
+	echo  ${videopath} > ${playing_video}
+ 
 	#增加所有声道支持 还未启用
 	if [ "${auch}" = "L" ]; then
 		audio_channel=" -af pan=stereo|c0=FL "
@@ -399,7 +338,8 @@ stream_play_main() {
 
 	#节目预告
 	#echo $(get_next_video_name) >${news}
-	cat <( curl -s http://www.nmc.cn/publish/forecast/  ) | tr -s '\n' ' ' |  sed  's/<div class="col-xs-4">/\n/g' | sed -E 's/<[^>]+>//g' | awk -F ' ' 'NF==5{print $1,$2,$3}' | head -n 32 | tr -s '\n' ';' | sed 's/徐家汇/上海/g' | sed 's/长沙市/长沙/g' >  ${news}
+	echo > ${news}
+	#cat <( curl -s http://www.nmc.cn/publish/forecast/  ) | tr -s '\n' ' ' |  sed  's/<div class="col-xs-4">/\n/g' | sed -E 's/<[^>]+>//g' | awk -F ' ' 'NF==5{print $1,$2,$3}' | head -n 32 | tr -s '\n' ';' | sed 's/徐家汇/上海/g' | sed 's/长沙市/长沙/g' >  ${news}	
 	#echo "下集预告 ${news}"
 
 	#台标选择
@@ -901,24 +841,23 @@ ffmpeg_init() {
 
 stream_start() {
 	play_mode=$1
-	mvsource=$2
 
-	echo "推流地址和推流码:"${mvsource}""
 	echo "播放模式:${play_mode}"
 	current=""
 	while true; do
 		ffmpeg_init
 		period=$(need_waiting)
 		next=$(get_next ${period})
-   echo prev=$current
-   echo next=$next
+        echo prev=$current
+        echo next=$next
 		if [ "${next}" = "" ]; then
 			sleep 2
 			continue
 		fi
 		echo start
 		date
-		stream_play_main "${next}" "${play_mode}" "${period}" "${mvsource}"
+		echo ${next}
+		stream_play_main "${next}" "${play_mode}" "${period}"
 		current=${next}
 		date
 		echo end
@@ -927,138 +866,99 @@ stream_start() {
 	done
 }
 
-#stream_append() {
-#	param=$1
-#	while true; do
-#		clear
-#		echo "====视频列表===="
-#		videono=0
-#		for subdirfile in $(find /mnt/smb/电视剧 -maxdepth 1 | grep "${param}" | awk -F ':' '{print $1}'); do
-#			filename=$(echo ${subdirfile} | awk -F "/" '{print $NF}')
-#			if [[ -e "${playlist}" ]] && cat "${playlist}" | grep "${filename}" >/dev/null; then
-#				continue
-#			fi
-#			filenamelist[$videono]=${filename}
-#			videono=$(expr $videono + 1)
-#			echo "[${videono}]: ${filename}"
-#		done
-#		read -p "请输入视频序号:(1-${videono}),:" vindex
-#		if [ $vindex -ge 1 ] && [ $vindex -le ${videono} ]; then
-#			vindex=$(expr $vindex - 1)
-#			echo '你选择了:'${filenamelist[$vindex]}
-#			read -p "输入(yes/no/y/n)确认:" yes
-#			if [ "$yes" = "y" ] || [ "$yes" = "yes" ]; then
-#				# 已经存在不要添加
-#				if [[ -e "${playlist}" ]] && cat "${playlist}" | grep "${filenamelist[$vindex]}" >/dev/null; then
-#					echo "已经添加过/mnt/smb/电视剧/${filenamelist[$vindex]},不要再添加."
-#				else
-#					echo 0,1:0点到6点
-#					echo 2,3:6点到12点
-#					echo 4,5:点到18点
-#					echo 6,7:18点到24点
-#					read -p "请输入视频序号:(0-7),:" timed
-#					if [ $timed -lt 0 ] || [ $timed -gt 7 ]; then
-#						continue
-#					fi
-#					echo 你选择了：$timed
-#					echo "${timed}|000|F|F|F|0|/mnt/smb/电视剧/${filenamelist[$vindex]}|${filenamelist[$vindex]}" >>${playlist}
-#					echo "添加/mnt/smb/电视剧/${filenamelist[$vindex]}成功"
-#				fi
-#			fi
-#			read -p "还要继续添加吗(yes/no/y/n)?:" yes_addagain
-#			if [ "$yes_addagain" = "n" ] || [ "$yes_addagain" = "no" ]; then
-#				break
-#			fi
-#		elif [ "$vindex" = "q" ]; then
-#			break
-#		fi
-#	done
-#	cat ${playlist}
-#}
+##########################################################
+echo 11111111111111111
 
-# 开始菜单设置
-echo -e "${yellow} FFmpeg无人值守直播工具(version 1.1) ${font}"
-echo -e "${green} 1.安装FFmpeg (机器要安装FFmpeg才能正常推流) ${font}"
-echo -e "${green} 2.开始无人值守循环推流 ${font}"
-echo -e "${green} 3.开始播放的单个目录 ${font}"
-echo -e "${green} 4.增加视频目录 ${font}"
-echo -e "${green} 5.停止推流 ${font}"
-start_menu() {
+# 颜色选择
+red='\033[0;31m'
+green='\033[0;32m'
+yellow='\033[0;33m'
+font="\033[0m"
 
-	if [ "$1" = "" ]; then
-		read -p "请输入选项:" num
-		read -p "请输入模式:" mode
-		read -p "请输入信号源:" mvsource
-		read -p "字幕文件:" subfile
-		read -p "时间段文件:" config
-		read -p "电影列表文件:" playlist
-		read -p "已播放文件:" playlist_done
-		read -p "推流网站:" rtmp_link
-		read -p "节目预告:" news
-		read -p "分辨率:" sheight
-		read -p "推流token" rtmp_token
-	else
-		num=$1
-		mode=$2
-		mvsource=$3
-		if [ "$4" != "" ]; then
-			subfile=$4
-		fi
-		if [ "$5" != "" ]; then
-			config=$5
-		fi
-		if [ "$6" != "" ]; then
-			playlist=$6
-		fi
-		if [ "$7" != "" ]; then
-			playlist_done=$7
-		fi
-		if [ "$8" != "" ]; then
-			rtmp_link=$8
-		fi
-		if [ "$9" != "" ]; then
-			news=$9
-		fi
-		if [ "${10}" != "" ]; then
-			sheight=${10}
-		fi
-		if [ "${11}" != "" ]; then
-			rtmp_token=${11}
-		fi
+curdir=$(pwd)
 
-		if [[ ${rtmp_token} =~ ${rtmp_link} ]]; then
-			rtmp="${rtmp_token}"
-		else
-			rtmp="${rtmp_link}$(cat ${rtmp_token})"
-		fi
+# 定义推流地址和推流码
+rtmp="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/$(cat ${curdir}/qq_rtmp_pass.txt)"
 
-		rtmp="${rtmp_link}$(cat ${rtmp_token})"
-		echo ${subfile}
-		echo ${config}
-		echo ${playlist}
-		echo ${playlist_done}
-		echo ${rtmp_link}
-		echo ${news}
-		echo ${sheight}
-		echo ${rtmp_token}
-		echo ${rtmp}
-	fi
+# 配置目录和文件
+logodir=${curdir}/logo
+news=${curdir}/log/news.txt
+memo=${curdir}/log/memo.txt
+tvlist=${curdir}/list/list.txt
+delogofile=${curdir}/list/delogo.txt
+rest_video_path=/mnt/share3/mvbrief
+bgimg=${curdir}/img/bg.jpg
+bgvideodir=${curdir}/bg/
+bgvideo=${curdir}/img/bg.jpg
 
-	case "$num" in
-	1)
-		ffmpeg_install
-		;;
-	2)
-		stream_start "${mode}" "${mvsource}"
-		;;
-	3)
-		stream_stop
-		;;
-	*)
-		echo -e "${red} 请输入正确的数字 (1-4) ${font}"
-		;;
-	esac
-}
 
-# 运行开始菜单
-start_menu $1 $2 $3 $4 $5 $6 $7 $8 $9 ${10} ${11}
+#street video dir
+bgstreetdir=/mnt/share1/street/
+
+# 可配置目录
+subfile=${curdir}/sub/sub.srt
+config=${curdir}/list/config.txt
+playlist=${curdir}/list/playlist.txt
+playlist_done=${curdir}/list/playlist_done.txt
+playing_video=${curdir}/log/current
+
+#配置字体
+fontdir=${curdir}/fonts/font3.ttf
+fonttimedir=${curdir}/fonts/font_time2.ttf
+fontforcastdir=${curdir}/fonts/font.ttf
+fontsize=50
+fontcolor=#FDE6E0
+fontcolor2=#B1121A
+fontcolorgold=#D9D919
+fontbg="box=1:boxcolor=black@0.01:boxborderw=3"
+sheight=1080
+#ffmpeg参数
+logging="repeat+level+warning"
+preset_decode_speed="fast"
+
+enter=$(echo -e "\n''")
+split=$(echo -e "\t''")
+
+if [ ! -d ${curdir}/log ]; then
+	echo create ${curdir}/log
+	mkdir ${curdir}/log
+fi
+
+if [ ! -d ${curdir}/sub ]; then
+	echo create ${curdir}/sub
+	mkdir ${curdir}/sub
+fi
+
+
+echo 开始启动
+
+mode=$1
+rtmp_link=$2
+rtmp_token=$3
+token=$4
+sheight=$5
+
+rtmp=${rtmp_link}${rtmp_token}
+subfile="${curdir}/sub/${token}_sub.srt"
+config="${curdir}/list/${token}_config.txt"
+playlist="${curdir}/list/${token}_list.txt"
+playlist_done="${curdir}/list/${token}_list_done.txt"
+ffmpeglog="${curdir}/log/${token}.log"
+news="${curdir}/log/${token}_news.txt"
+playing_video="${curdir}/log/${token}_current.txt"
+
+echo mode=${mode}
+echo rtmp_link=${rtmp_link}
+echo rtmp_token=${rtmp_token}	
+echo token=${token}
+echo sheight=${sheight}
+echo rtmp=${rtmp}
+echo subfile=${subfile}
+echo config=${config}
+echo playlist=${playlist}
+echo playlist_done=${playlist_done}
+echo ffmpeglog=${ffmpeglog}
+echo news=${news}
+echo playing_video=${playing_video}
+
+stream_start ${mode}

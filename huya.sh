@@ -1,18 +1,10 @@
 #!/bin/bash
 curdir=$(pwd)
 mode=$1
-mvsource=2
-sheight=$2
-subfile="${curdir}/sub/huya_sub.srt"
-config="${curdir}/list/huya_config.txt"
-playlist="${curdir}/list/huya_list.txt"
-playlist_done="${curdir}/list/huya_list_done.txt"
-ffmpeglog="${curdir}/log/huya.log"
-news="${curdir}/log/huya_news.txt"
-
-rtmp="${curdir}/huya_rtmp_pass.txt"
 rtmp_link="rtmp://al.direct.huya.com/huyalive/"
-rtmp_token=$(cat ${rtmp})
+rtmp_token="${curdir}/huya_rtmp_pass.txt"
+sheight=$2
+token=huya
 
 kill_app() {
   app=$1
@@ -35,4 +27,5 @@ kill_app "launch.sh"
 pidlist=$(ps -ef | grep "${rtmp_link}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
 echo ${pidlist}
 
-./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}" "${sheight}" "${rtmp_link}" "${ffmpeglog}"
+./launch.sh "${mode}" "${rtmp_link}" "$(cat ${rtmp_token})" "${token}" "${sheight}" 
+

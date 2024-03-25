@@ -1,17 +1,10 @@
 #!/bin/bash
 curdir=$(pwd)
 mode=$1
-sheight=$2
-mvsource=2
-subfile="${curdir}/sub/qq_sub.srt"
-config="${curdir}/list/qq_config.txt"
-playlist="${curdir}/list/qq_list.txt"
-playlist_done="${curdir}/list/qq_playlist_done.txt"
-ffmpeglog="${curdir}/log/qq.log"
-news="${curdir}/log/qq_news.txt"
-rtmp="${curdir}/qq_rtmp_pass.txt"
 rtmp_link="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/"
-rtmp_token=$(cat ${rtmp})
+rtmp_token="${curdir}/qq_rtmp_pass.txt"
+sheight=$2
+token=qq
 
 kill_app() {
   app=$1
@@ -34,4 +27,4 @@ kill_app "launch.sh"
 pidlist=$(ps -ef | grep "${rtmp_link}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
 echo ${pidlist}
 
-./launch.sh "${mode}" "${mvsource}" "${subfile}" "${config}" "${playlist}" "${playlist_done}" "${rtmp}" "${news}" "${sheight}" "${rtmp_link}" "${ffmpeglog}"
+./launch.sh "${mode}" "${rtmp_link}" "$(cat ${rtmp_token})" "${token}" "${sheight}" 
