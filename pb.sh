@@ -206,7 +206,7 @@ stream_play_main() {
 	rtmp="${rtmp_link}${rtmp_token}"
 	echo ${rtmp}
 
-	echo  ${videopath} > ${playing_video}
+	echo  ${videopath} >> ${playing_video}
  
 	#增加所有声道支持 还未启用
 	if [ "${auch}" = "L" ]; then
