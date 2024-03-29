@@ -87,29 +87,13 @@ check_even() {
 
 check_video_path() {
 	videoname=$1
-	if [[ -d "${videoname}" ]]; then
-		echo "${videoname}"
-	elif [[ -f "${videoname}" ]]; then
-		echo "${videoname}"
-	elif [[ -e "/mnt/data/movies/${videoname}" ]]; then
-		echo "/mnt/data/movies/${videoname}"
-	elif [[ -e "/mnt/data/tv/${videoname}" ]]; then
-		echo "/mnt/data/tv/${videoname}"
-	elif [[ -e "/mnt/share1/movies/${videoname}" ]]; then
-		echo "/mnt/share1/movies/${videoname}"
-	elif [[ -e "/mnt/share1/tv/${videoname}" ]]; then
-		echo "/mnt/share1/tv/${videoname}"
-	elif [[ -e "/mnt/share2/movies/${videoname}" ]]; then
-		echo "/mnt/share2/movies/${videoname}"
-	elif [[ -e "/mnt/share2/tv/${videoname}" ]]; then
-		echo "/mnt/share2/tv/${videoname}"
-	elif [[ -e "/mnt/share3/movies/${videoname}" ]]; then
-		echo "/mnt/share3/movies/${videoname}"
-	elif [[ -e "/mnt/share3/tv/${videoname}" ]]; then
-		echo "/mnt/share3/tv/${videoname}"
-	else
-		echo ""
-	fi
+	for var in ${folder_array[@]};
+    do
+        if [[ -e "${var}${videoname}" ]]; then
+		    echo "${var}${videoname}"
+			break
+		fi
+    done	
 }
 
 check_srt_path() {
@@ -164,7 +148,6 @@ stream_play_main() {
 	line=$1
 	line=$(echo ${line} | tr -d '\r' | tr -d '\n')
 	line=$(echo ${line} | tr ' ' '%')
-	echo $line
 
 	arr=(${line//|/ })
 	video_type=${arr[0]:0:3}
@@ -306,9 +289,9 @@ stream_play_main() {
                 else
 		    #DDD
 		    if [ $(expr ${magnifi} \> 0.99) -eq 1 ]; then
-                        mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
+                        mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5:eval=frame[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
                     else
-                        mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
+                        mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5:eval=frame[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
 	            fi
 		fi
 	fi
@@ -372,15 +355,15 @@ stream_play_main() {
 	echo "缩放size_height=${size_height}"
 	echo "缩放sheight=${sheight}"
 	if [ ${size_height} -gt ${sheight} ] || [ ${scale_flag} -eq 1 ]; then
-		scales="scale=trunc(oh*a/2)*2:${sheight}"  # 主视频
-		scales2="scale=trunc(oh*a/2)*2:${sheight}" # 背景图片
+		scales="scale=trunc(oh*a/2)*2:${sheight}:eval=frame"  # 主视频
+		scales2="scale=trunc(oh*a/2)*2:${sheight}:eval=frame" # 背景图片
 	else
-		scales="scale=trunc(oh*a/2)*2:${size_height}"
-		scales2="scale=trunc(oh*a/2)*2:${size_height}"
+		scales="scale=trunc(oh*a/2)*2:${size_height}:eval=frame"
+		scales2="scale=trunc(oh*a/2)*2:${size_height}:eval=frame"
 	fi
 
 	# 背景图
-	background="[2:v:0]${scales2}[scalebg];[scalebg]scale=ih*16/9:-1,crop=h=iw*9/16,gblur=sigma=80,eq=saturation=0.9[bgimg];"
+	background="[2:v:0]${scales2}[scalebg];[scalebg]scale=ih*16/9:-1:eval=frame,crop=h=iw*9/16,gblur=sigma=80,eq=saturation=0.9[bgimg];"
 
 	#遮挡logo
 	delogos=$(cat ${delogofile} | grep "^${video_type}|")
@@ -475,7 +458,7 @@ stream_play_main() {
 	fi
 
 	# 台标
-	watermark="[1:v:0]scale=-1:${newfontsize}\*2[wm];" #[wm]
+	watermark="[1:v:0]scale=-1:${newfontsize}\*2:eval=frame[wm];" #[wm]
 
 	# 混合台标
 	logos="[wm]overlay=overlay_w/6:overlay_h/3[bg1];[bg1]"
@@ -503,7 +486,6 @@ stream_play_main() {
 
 	if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
 		kill_app "${rtmp}" "${FFMPEG} -re"
-		echo ${FFMPEG} -r -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		${FFMPEG} -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		echo finished playing $videopath
 	fi
@@ -867,7 +849,19 @@ stream_start() {
 }
 
 ##########################################################
-echo 11111111111111111
+echo ==初始化开始==
+
+#搜索路径定义
+folder_array[0]=""
+folder_array[1]="/mnt/data/movies/"
+folder_array[2]="/mnt/data/tv/"
+folder_array[3]="/mnt/share1/movies/"
+folder_array[4]="/mnt/share1/tv/"
+folder_array[5]="/mnt/share2/movies/"
+folder_array[6]="/mnt/share2/tv/"
+folder_array[7]="/mnt/share3/movies/"
+folder_array[8]="/mnt/share3/tv/"
+folder_array[9]="/mnt/share1/武侠电影"
 
 # 颜色选择
 red='\033[0;31m'
@@ -878,7 +872,7 @@ font="\033[0m"
 curdir=$(pwd)
 
 # 定义推流地址和推流码
-rtmp="rtmp://qqgroup.6721.livepush.ilive.qq.com/trtc_1400526639/$(cat ${curdir}/qq_rtmp_pass.txt)"
+rtmp=
 
 # 配置目录和文件
 logodir=${curdir}/logo
