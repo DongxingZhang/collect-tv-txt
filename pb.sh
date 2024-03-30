@@ -862,6 +862,8 @@ folder_array[6]="/mnt/share2/tv/"
 folder_array[7]="/mnt/share3/movies/"
 folder_array[8]="/mnt/share3/tv/"
 folder_array[9]="/mnt/share1/武侠电影"
+folder_array[10]="/mnt/share/movies/"
+folder_array[11]="/mnt/share/tv/"
 
 # 颜色选择
 red='\033[0;31m'
