@@ -18,7 +18,7 @@ get_duration() {
 
 get_duration2() {
 	data=$(${FFPROBE} -hide_banner -show_format -show_streams "$1" 2>&1)
-	Duration=$(echo $data | awk -F 'Duration: ' '{print $2}' | awk -F ',' '{print $1}' | awk -F '.' '{print $1}' | awk -F ':' '{print $1"\:"$2"\:"$3}')
+	Duration=$(echo $data | awk -F 'Duration: ' '{print $2}' | awk -F ',' '{print $1}' | awk -F '.' '{print $1}' | awk -F ':' '{print $1"\\\:"$2"\\\:"$3}')
 	echo ${Duration}
 }
 
@@ -318,7 +318,7 @@ stream_play_main() {
 	#设置时间行距
 	line_spacing=$(expr ${halfnewfontsize} / 4)
 	line_spacing=$(echo "scale=0;${line_spacing}/1" | bc)
-
+    
 	#节目预告
 	#echo $(get_next_video_name) >${news}
 	echo > ${news}
@@ -385,7 +385,8 @@ stream_play_main() {
 	fi
 
 	#字幕
- echo maps=${maps}，subtitle=${subtitle}，subtrack=$sub_track
+    echo maps=${maps}，subtitle=${subtitle}，subtrack=$sub_track
+
 	subs=""
 	if [ "${maps}" != "" ] && [ "${subtitle}" != "" ]; then
 		subs="subtitles=filename=${videopath}:si=${subtitle}:fontsdir=${curdir}/fonts:force_style='Fontname=华文仿宋,Fontsize=15,Alignment=2,MarginV=30'[vsub];[vsub]"
@@ -406,10 +407,11 @@ stream_play_main() {
 	if [ "${play_time}" = "rest" ]; then
 		content=
 	else
-		content="%{pts\:gmtime\:0\:%H\\\\\:%M\\\\\:%S}${enter}${duration}"
+		content="%{pts\:gmtime\:0\:%H\\\\\:%M\\\\\:%S}"
 	fi
 	#右上角drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*7:y=line_h/3\*5:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
 	drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=line_h\*5/2:y=h-line_h/3\*15:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
+	drawtext11="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${duration}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=line_h\*5/2:y=h-line_h/3\*11:shadowx=2:shadowy=2:${fontbg}[durv2];[durv2]"
 
 	#节目预告
 	#从左往右drawtext2="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${news}':fontfile=${fontdir}:expansion=normal:x=(mod(5*n\,w+tw)-tw):y=h-line_h-10:shadowx=2:shadowy=2:${fontbg}"
@@ -470,7 +472,7 @@ stream_play_main() {
 	videomakeup="[bgimg][main]overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2[bg0];[bg0]"
 
 	# 增加字幕和提示
-	tips="${logos}${subs}${drawtext1}${drawtext2}${drawtext3}[bg];"
+	tips="${logos}${subs}${drawtext1}${drawtext11}${drawtext2}${drawtext3}[bg];"
 
 	# 音轨
 	audios="${mapa}${audio_format}[bga];" #[bga]
