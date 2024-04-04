@@ -1,0 +1,11 @@
+/mnt/data/movies/
+/mnt/data/tv/
+/mnt/share1/movies/
+/mnt/share1/tv/
+/mnt/share2/movies/
+/mnt/share2/tv/
+/mnt/share3/movies/
+/mnt/share3/tv/
+/mnt/share/movies/
+/mnt/share/tv/
+/mnt/share/movies/武侠电影

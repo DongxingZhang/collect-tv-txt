@@ -87,13 +87,12 @@ check_even() {
 
 check_video_path() {
 	videoname=$1
-	for var in ${folder_array[@]};
-    do
-        if [[ -e "${var}${videoname}" ]]; then
-		    echo "${var}${videoname}"
+	for ((i=0;i<${#folder_array[@]};i++)) do
+		if [[ -e "${folder_array[i]}${videoname}" ]]; then
+		    echo "${folder_array[i]}${videoname}"
 			break
 		fi
-    done	
+    done;
 }
 
 check_srt_path() {
@@ -821,6 +820,19 @@ ffmpeg_init() {
 	fi
 	echo $FFMPEG
 	echo $FFPROBE
+
+	#搜索路径定义
+    folder_array[0]=""
+    loop=1
+    for line in $(cat ${pathlist}); do
+	    line=$(echo ${line} | tr -d '\r' | tr -d '\n')
+		folder_array[${loop}]=${line}
+		loop=$(expr ${loop} + 1)
+	done
+
+	for((i=0;i<${#folder_array[@]};i++)) do
+        echo 增加路径：${folder_array[i]};
+    done;
 }
 
 stream_start() {
@@ -853,20 +865,6 @@ stream_start() {
 ##########################################################
 echo ==初始化开始==
 
-#搜索路径定义
-folder_array[0]=""
-folder_array[1]="/mnt/data/movies/"
-folder_array[2]="/mnt/data/tv/"
-folder_array[3]="/mnt/share1/movies/"
-folder_array[4]="/mnt/share1/tv/"
-folder_array[5]="/mnt/share2/movies/"
-folder_array[6]="/mnt/share2/tv/"
-folder_array[7]="/mnt/share3/movies/"
-folder_array[8]="/mnt/share3/tv/"
-folder_array[9]="/mnt/share1/武侠电影"
-folder_array[10]="/mnt/share/movies/"
-folder_array[11]="/mnt/share/tv/"
-
 # 颜色选择
 red='\033[0;31m'
 green='\033[0;32m'
@@ -888,7 +886,7 @@ rest_video_path=/mnt/share3/mvbrief
 bgimg=${curdir}/img/bg.jpg
 bgvideodir=${curdir}/bg/
 bgvideo=${curdir}/img/bg.jpg
-
+pathlist=${curdir}/list/path.txt
 
 #street video dir
 bgstreetdir=/mnt/share1/street/
