@@ -204,7 +204,7 @@ stream_play_main() {
 	fi
 
 	# 文件超过8GB不要播放
-	maxsize=8000000000
+	maxsize=800000000000000
 	actualsize=$(wc -c <"${videopath}")
 	echo 文件大小:$actualsize
 	if [ $actualsize -ge $maxsize ]; then
@@ -838,9 +838,9 @@ ffmpeg_init() {
 stream_start() {
 	play_mode=$1
 
-	echo "播放模式:${play_mode}"
 	current=""
 	while true; do
+	    echo "播放模式:${play_mode}" > "${ffmpeglog}"
 		ffmpeg_init
 		period=$(need_waiting)
 		next=$(get_next ${period})

@@ -59,5 +59,9 @@ TVR|delogo=x=485:y=20:w=130:h=55:show=0
 TVS|delogo=x=500:y=25:w=75:h=62:show=0
 TVO|delogo=x=965:y=35:w=80:h=65:show=0,delogo=x=25:y=5:w=1220:h=50:show=0
 TVT|delogo=x=5:y=30:w=160:h=60:show=0
-TVU|delogo=x=580:y=25:w=120:h=55:show=0,delogo=x=30:y=35:w=190:h=35:show=0
+TVU|scale=w=720:h=544,delogo=x=580:y=25:w=120:h=55:show=0,delogo=x=30:y=35:w=190:h=35:show=0
 TVZ|delogo=x=910:y=485:w=75:h=60:show=0
+CHC|delogo=x=120:y=75:w=210:h=155:show=0,delogo=x=1720:y=475:w=65:h=350:show=0
+SZT|delogo=x=70:y=35:w=200:h=70:show=0
+PPS|delogo=x=1700:y=10:w=175:h=75:show=0
+195|delogo=x=10:y=5:w=180:h=35:show=0
