@@ -210,6 +210,7 @@ stream_play_main() {
 	if [ $actualsize -ge $maxsize ]; then
 		return 0
 	fi
+
 	video_track=$(get_stream_track "${videopath}" "video")
 	video_track_decode=$(get_stream_track "${videopath}" "video")
 	audio_track=$(get_stream_track "${videopath}" "audio")
@@ -217,33 +218,27 @@ stream_play_main() {
 	sub_track=$(get_stream_track "${videopath}" "subtitle")
 	sub_track_decode=$(get_stream_track "${videopath}" "subtitle")
 
-	if [ "$audio_track" = "" ]; then
-		echo "${videopath} 没有音频轨道"
-		return
-	fi
+	echo video_track=${video_track}
+	echo video_track_decode=${video_track_decode}
+	echo audio_track=${audio_track}
+	echo audio_track_decode=${audio_track_decode}
+	echo sub_track=${sub_track}
+	echo sub_track_decode=${sub_track_decode}
 
-	maps=
-	if [ "${subtitle}" = "E" ]; then
+    mapv="[0:v:0]"
+	mapa="[0:a:0]"
+	maps=""
+
+	if [ "${subtitle}" = "E" ] || [ "${sub_track}" = "" ]; then
 		maps=""
 		subtitle=""
 	else
-	    if [ "${subtitle}" != "F" ]; then
-		    maps="0:s:${subtitle}"
-		else	        
-	        if [ "$sub_track" != "" ]; then
-		          maps="0:s:0"
-				        subtitle="0"
-         else 
-             maps=
-             subtitle=
-	        fi	    
-	    fi	    
+        maps="0:s:${subtitle}"  
 	fi
-
-	mapv="[0:v:0]"
-	mapa="[0:a:0]"
-
-	if [ "${audio}" != "F" ]; then
+	
+	if [ "${audio}" = "F" ]; then
+        mapa="[0:a:0]"
+    else
 		mapa="[0:a:${audio}]"
 	fi
 
@@ -592,7 +587,7 @@ get_playing_video() {
 			continue
 		fi
 		#搜索电视库
-		tv_setting_str=$(cat "${tvlist}" | grep "${videopath0}" | head -1)
+		tv_setting_str=$(cat "${tvlist}" | grep "${videopath0}|" | head -1)
 		if [ "${tv_setting_str}" = "" ]; then
 			#如果不存在，则继续下一条
 			continue
