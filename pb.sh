@@ -264,7 +264,12 @@ stream_play_main() {
 	if [ "${video_type}" = "FFF" ]; then
 		#mapv="[3:v:0][0:v:0]overlay=(W-w)/2:(H-h)/2[mapvv];[mapvv][3:v:0]overlay=0:0[mapvvv];[mapvvv]"
 		framecount=$(get_frames "${videopath}")
-		mapv="[3:v:0]loop=loop=${framecount}:size=1:start=0[mapvvv];[mapvvv]"
+		framecount2=$(get_frames "${bgvideo}")
+		division=$(echo "scale=0;${framecount}/${framecount2}+1" | bc)
+		echo framecount=${framecount}
+		echo framecount2=${framecount2}
+		echo division=${division}
+		mapv="[3:v:0]loop=loop=${division}:size=${framecount2}:start=0[mapvvv];[mapvvv]"
 	elif [ "${video_type}" = "DDD" ] || [ "${video_type}" = "EEE" ]; then
 		#framecount=$(get_frames "${bgvideo}")
 		#echo framecount=${framecount}
@@ -503,8 +508,8 @@ stream_play_main() {
 			video_played=$(cat "${playlist_done}" | grep "${period}|${folder}" | head -1)
 			if [ "${video_played}" = "" ]; then
 				echo "${period}|${folder}|${cur_file}|${file_count}|${cur_times}|${playtimes}" >>"${playlist_done}"
-				cat ${playlist_done} | sort >./list/.pd.txt
-				cp ./list/.pd.txt ${playlist_done}
+				#cat ${playlist_done} | sort >./list/.pd.txt
+				#cp ./list/.pd.txt ${playlist_done}
 			else
 				sed -i "s#${video_played}#${period}|${folder}|${cur_file}|${file_count}|${cur_times}|${playtimes}#" "${playlist_done}"
 			fi
