@@ -24,6 +24,9 @@ get_duration2() {
 
 get_frames() {
 	data=$(${FFPROBE} -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0 "$1")
+	if [ "${data}" = "" ]; then
+	    data=$(${FFPROBE} -v error -select_streams a:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0 "$1")
+	fi
 	echo $data
 }
 
@@ -207,6 +210,12 @@ stream_play_main() {
 	maxsize=800000000000000
 	actualsize=$(wc -c <"${videopath}")
 	echo 文件大小:$actualsize
+
+    if [ $actualsize -lt 1000 ]; then
+	    rm -rf "${videopath}"
+		return 0
+	fi
+
 	if [ $actualsize -ge $maxsize ]; then
 		return 0
 	fi
@@ -508,8 +517,9 @@ stream_play_main() {
 			video_played=$(cat "${playlist_done}" | grep "${period}|${folder}" | head -1)
 			if [ "${video_played}" = "" ]; then
 				echo "${period}|${folder}|${cur_file}|${file_count}|${cur_times}|${playtimes}" >>"${playlist_done}"
-				#cat ${playlist_done} | sort >./list/.pd.txt
-				#cp ./list/.pd.txt ${playlist_done}
+				cat ${playlist_done} | sort >./list/.pd.txt
+				cp ./list/.pd.txt ${playlist_done}
+				rm -rf ./list/.pd.txt
 			else
 				sed -i "s#${video_played}#${period}|${folder}|${cur_file}|${file_count}|${cur_times}|${playtimes}#" "${playlist_done}"
 			fi

@@ -20,3 +20,14 @@
      #vncserver :2 -geometry 1920x1080 -localhost no
 
 
+#合并视频先转mpg再合并
+ffmpeg -i a1.mp4 -qscale 4 a1.mpg
+ffmpeg -i a2.mp4 -qscale 4 a2.mpg
+cat a1.mpg a2.mpg| ffmpeg -f mpeg -i - -qscale 6 -vcodec mpeg4 output.mp4
+
+#合并视频先转ts再合并
+ffmpeg -i 1.mp4 -vcodec copy -acodec copy -vbsf h264_mp4toannexb 1.ts
+ffmpeg -i 2.mp4 -vcodec copy -acodec copy -vbsf h264_mp4toannexb 2.ts
+ffmpeg -i "concat:1.ts|2.ts" -acodec copy -vcodec copy -absf aac_adtstoasc output.mp4
+
+

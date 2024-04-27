@@ -4,7 +4,7 @@ import sys
 import os
 
 tvlist = [
-    ["/末代皇帝陈道明版","/mnt/data/tv/"],
+    ["/下载9","/mnt/data/tv/"],
 ]#
 
 

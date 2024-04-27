@@ -26,11 +26,13 @@ TR0|delogo=x=5:y=5:w=1270:h=40:show=0,delogo=x=1050:y=610:w=200:h=100:show=0,del
 TS0|delogo=x=965:y=40:w=75:h=60:show=0
 TW1|delogo=x=20:y=28:w=136:h=50:show=0
 TW2|delogo=x=20:y=18:w=180:h=50:show=0
+TW3|delogo=x=405:y=30:w=95:h=45:show=0
 TWV|delogo=x=1042:y=58:w=190:h=86:show=0,delogo=x=94:y=38:w=248:h=60:show=0
 YOU|delogo=x=795:y=25:w=160:h=35:show=0
 ZST|delogo=x=518:y=30:w=94:h=54:show=0
 TW3|delogo=x=1165:y=40:w=200:h=90:show=0
 TW4|delogo=x=1560:y=65:w=290:h=150:show=0
+TW5|delogo=x=375:y=20:w=90:h=40:show=0,delogo=x=25:y=20:w=95:h=45:show=0
 TV0|delogo=x=965:y=35:w=80:h=65:show=0
 TV1|delogo=x=400:y=30:w=75:h=60:show=0
 TV2|delogo=x=525:y=30:w=85:h=60:show=0
