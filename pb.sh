@@ -234,6 +234,7 @@ stream_play_main() {
 	echo sub_track=${sub_track}
 	echo sub_track_decode=${sub_track_decode}
 
+    backgroundv="[0:v:0]"
     mapv="[0:v:0]"
 	mapa="[0:a:0]"
 	maps=""
@@ -270,8 +271,7 @@ stream_play_main() {
 	echo height=$size_height
 
 	#使用歌曲封面
-	if [ "${video_type}" = "FFF" ]; then
-		#mapv="[3:v:0][0:v:0]overlay=(W-w)/2:(H-h)/2[mapvv];[mapvv][3:v:0]overlay=0:0[mapvvv];[mapvvv]"
+	if [ "${video_type}" = "FFF" ] || [ "${video_track}" = "" ]; then
 		framecount=$(get_frames "${videopath}")
 		framecount2=$(get_frames "${bgvideo}")
 		division=$(echo "scale=0;${framecount}/${framecount2}+1" | bc)
@@ -279,6 +279,7 @@ stream_play_main() {
 		echo framecount2=${framecount2}
 		echo division=${division}
 		mapv="[3:v:0]loop=loop=${division}:size=${framecount2}:start=0[mapvvv];[mapvvv]"
+		backgroundv="[3:v:0]"
 	elif [ "${video_type}" = "DDD" ] || [ "${video_type}" = "EEE" ]; then
 		#framecount=$(get_frames "${bgvideo}")
 		#echo framecount=${framecount}
@@ -288,23 +289,28 @@ stream_play_main() {
 		echo duration_audio=${duration_audio}
 		echo duration_video=${duration_video}
 		echo magnifi=${magnifi}
-                if [ "${video_type}" = "EEE" ]; then   
+        if [ "${video_type}" = "EEE" ]; then   
+		    #视频封面
 		    if [ $(expr ${magnifi} \> 0.99) -eq 1 ]; then
-                        mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[mapvvv]"
-                    else
-                        mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[mapvvv]"
+                mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[mapvvv]"
+            else
+                mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[mapvvv]"
 		    fi
-                else
-		    #DDD
+        else
+		    #画中画
 		    if [ $(expr ${magnifi} \> 0.99) -eq 1 ]; then
-                        mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5:eval=frame[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
-                    else
-                        mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5:eval=frame[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
-	            fi
+                mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5:eval=frame[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
+            else
+                mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5:eval=frame[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
+	        fi
 		fi
+		backgroundv="[0:v:0]"
+	else
+	    mapv="[0:v:0]"
+		backgroundv="[0:v:0]"
 	fi
 
-	echo ${mapv}, ${mapa}, ${maps}
+	echo ${mapv}, ${mapa}, ${maps}, ${backgroundv}
 
 	################################开始配置过滤器
 	whratio=$(printf "%.2f" $(echo "scale=2;${size_width}/${size_height}" | bc))
@@ -329,7 +335,7 @@ stream_play_main() {
     
 	#节目预告
 	#echo $(get_next_video_name) >${news}
-	echo > ${news}
+	#echo > ${news}
 	#cat <( curl -s http://www.nmc.cn/publish/forecast/  ) | tr -s '\n' ' ' |  sed  's/<div class="col-xs-4">/\n/g' | sed -E 's/<[^>]+>//g' | awk -F ' ' 'NF==5{print $1,$2,$3}' | head -n 32 | tr -s '\n' ';' | sed 's/徐家汇/上海/g' | sed 's/长沙市/长沙/g' >  ${news}	
 	#echo "下集预告 ${news}"
 
@@ -370,8 +376,9 @@ stream_play_main() {
 		scales2="scale=trunc(oh*a/2)*2:${size_height}:eval=frame"
 	fi
 
-	# 背景图
-	background="[2:v:0]${scales2}[scalebg];[scalebg]scale=ih*16/9:-1:eval=frame,crop=h=iw*9/16,gblur=sigma=80,eq=saturation=0.9[bgimg];"
+	# 背景图	
+	background="${backgroundv}${scales2}[scalebg];[scalebg]scale=ih*16/9:-1:eval=frame,crop=h=iw*9/16,gblur=sigma=50,eq=saturation=0.9[bgimg];"
+	#ffmpeg -i input.mp4 -crf=20 -vf 'split[original][copy];[copy]scale=ih*16/9:-1,crop=h=iw*9/16,gblur=sigma=80,eq=saturation=0.9[background];[background][original]overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2' output.mp4
 
 	#遮挡logo
 	delogos=$(cat ${delogofile} | grep "^${video_type}|")
@@ -439,6 +446,8 @@ stream_play_main() {
 			content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')
 			echo ${content2}
 		else
+		    #不显示电视剧名，只显示集数
+		    videoname=
 			splitstar="${enter}"
 			#splitstar="★"
 			cur_file2=$(digit_half2full ${cur_file})
@@ -456,8 +465,6 @@ stream_play_main() {
 		fi
 	fi
 	cont_len=$(expr ${cont_len} / 2)
-	#不输出电视剧名
-	content2=
 	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolorgold}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*3:y=h/2-line_h\*(${cont_len}+1):shadowx=2:shadowy=2:${fontbg}"
 
 	#增亮
@@ -473,11 +480,11 @@ stream_play_main() {
 	# 混合台标
 	logos="[wm]overlay=overlay_w/6:overlay_h/3[bg1];[bg1]"
 
-	# 视频轨
-	videos="${background}${watermark}${mapv}${delogo}${videoskips}${scales}[main];"
+    # 视频轨
+    videos="${background}${watermark}${mapv}${delogo}${videoskips}${scales}[main];"
 
-	# 视频补齐16:9
-	videomakeup="[bgimg][main]overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2[bg0];[bg0]"
+    # 视频补齐16:9
+    videomakeup="[bgimg][main]overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2[bg0];[bg0]"
 
 	# 增加字幕和提示
 	tips="${logos}${subs}${drawtext1}${drawtext11}${drawtext2}${drawtext3}[bg];"
@@ -488,7 +495,7 @@ stream_play_main() {
 	# 总选项
 	video_format="${videos}${videomakeup}${tips}${audios}[bg]${lights}"
 
-	echo 滤镜:${video_format}
+	#echo 滤镜:${video_format}
 
 	###########################################过滤器配置完成
 
@@ -496,6 +503,7 @@ stream_play_main() {
 
 	if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
 		kill_app "${rtmp}" "${FFMPEG} -re"
+		echo ${FFMPEG} -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		${FFMPEG} -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		echo finished playing $videopath
 	fi
@@ -893,8 +901,10 @@ memo=${curdir}/log/memo.txt
 tvlist=${curdir}/list/list.txt
 delogofile=${curdir}/list/delogo.txt
 rest_video_path=/mnt/share3/mvbrief
+#背景为图片
 bgimg=${curdir}/img/bg.jpg
 bgvideodir=${curdir}/bg/
+#背景为视频
 bgvideo=${curdir}/img/bg.jpg
 pathlist=${curdir}/list/path.txt
 
