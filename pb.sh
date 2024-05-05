@@ -18,7 +18,11 @@ get_duration() {
 
 get_duration2() {
 	data=$(${FFPROBE} -hide_banner -show_format -show_streams "$1" 2>&1)
-	Duration=$(echo $data | awk -F 'Duration: ' '{print $2}' | awk -F ',' '{print $1}' | awk -F '.' '{print $1}' | awk -F ':' '{print $1"\\\:"$2"\\\:"$3}')
+	if [ "$2" -lt 3600 ]; then
+	    Duration=$(echo $data | awk -F 'Duration: ' '{print $2}' | awk -F ',' '{print $1}' | awk -F '.' '{print $1}' | awk -F ':' '{print $2"\\\:"$3}')
+	else
+		Duration=$(echo $data | awk -F 'Duration: ' '{print $2}' | awk -F ',' '{print $1}' | awk -F '.' '{print $1}' | awk -F ':' '{print $1"\\\:"$2"\\\:"$3}')
+	fi
 	echo ${Duration}
 }
 
@@ -345,7 +349,7 @@ stream_play_main() {
 		#武侠logo
 		logo=${logodir}/logo.png
 	elif [ "${param}" = "0" ]; then
-		#怀旧logo
+		#怀旧人文logo
 		logo=${logodir}/logo2.png
 	elif [ "${param}" = "1" ]; then
 		#音乐logo
@@ -415,57 +419,95 @@ stream_play_main() {
 	#求视频的秒数的5/6
 	duration_sec_org=$(get_duration "${videopath}")
 	duration_sec=$(echo "scale=0;${duration_sec_org}*5/6" | bc)
+    
+	duration_sec_org_int=$(echo "scale=0;${duration_sec_org}/1" | bc)
+	echo duration_sec_org_int=${duration_sec_org_int}
 
 	#显示时长
 	#播放百分比%{eif\:n\/nb_frames\:d}%%
-	duration=$(get_duration2 "${videopath}")
+	duration=$(get_duration2 "${videopath}" "${duration_sec_org_int}")
+	right_pad=8
 	if [ "${play_time}" = "rest" ]; then
 		content=
 	else
-		content="%{pts\:gmtime\:0\:%H\\\\\:%M\\\\\:%S}"
+	    if [ "${duration_sec_org_int}" -lt 3600 ]; then
+		    content="%{pts\:gmtime\:0\:%M\\\\\:%S}"
+			right_pad=5
+		else
+		    content="%{pts\:gmtime\:0\:%H\\\\\:%M\\\\\:%S}"
+			right_pad=8
+		fi
 	fi
-	#右上角drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*7:y=line_h/3\*5:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
-	drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=line_h\*5/2:y=h-line_h/3\*15:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
-	drawtext11="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${duration}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=line_h\*5/2:y=h-line_h/3\*11:shadowx=2:shadowy=2:${fontbg}[durv2];[durv2]"
+	#右上角
+	#drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*7:y=line_h/3\*5:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
+	#左下角
+	#drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=line_h\*8/2:y=h-line_h/3\*15:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
+	#drawtext11="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${duration}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=line_h\*8/2:y=h-line_h/3\*11:shadowx=2:shadowy=2:${fontbg}[durv2];[durv2]"
+	#右下角
+	drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*7-line_h\*${right_pad}/4:y=h-line_h/3\*15:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
+	drawtext11="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${duration}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*7-line_h\*${right_pad}/4:y=h-line_h/3\*11:shadowx=2:shadowy=2:${fontbg}[durv2];[durv2]"
 
 	#节目预告
 	#从左往右drawtext2="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${news}':fontfile=${fontdir}:expansion=normal:x=(mod(5*n\,w+tw)-tw):y=h-line_h-10:shadowx=2:shadowy=2:${fontbg}"
 	#从右到左
 	drawtext2="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:textfile='${news}':fontfile=${fontforcastdir}:line_spacing=${line_spacing}:expansion=normal:x=w-mod(max(t-1\,0)*(w+tw\*5)/415\,(w+tw\*5)):y=h-line_h-5:shadowx=2:shadowy=2:${fontbg}[forcv];[forcv]"
 
+    #显示时间
+	drawtext22="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='%{localtime\:%H\\\\\:%M\\\\\:%S}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*7:y=line_h/3\*6:shadowx=2:shadowy=2:${fontbg}[currtime];[currtime]"	
+
 	#显示标题
 	echo 第${cur_file}集
 	echo 共${file_count}集
 
+#在右侧竖显剧名
+#	if [ "${videoname}" = "精彩节目" ]; then
+#		content2=""
+#		cont_len=1
+#	else
+#		if [ "${file_count}" = "1" ]; then
+#			cont_len=${#videoname}
+#			content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')
+#			echo ${content2}
+#		else		    
+#			splitstar="${enter}"
+#			#splitstar="★"
+#			cur_file2=$(digit_half2full ${cur_file})
+#			if [ "${file_count}" = "${cur_file}" ]; then
+#				vn=${videoname}${splitstar}大结局
+#				cont_len=${#vn}
+#				content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')${splitstar}大${enter}结${enter}局
+#			else
+#				vn=${videoname}${splitstar}${cur_file2}
+#				cont_len=${#vn}
+#				content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')${splitstar}${cur_file2}
+#			fi
+#			echo ${content2}
+#			#cont_len=$(expr ${cont_len} + 1)
+#		fi
+#	fi
+#	cont_len=$(expr ${cont_len} / 2)
+#	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolorgold}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*3:y=h/2-line_h\*(${cont_len}+1):shadowx=2:shadowy=2:${fontbg}"
+
+    epstart=8.5
+	epstarty=6
 	if [ "${videoname}" = "精彩节目" ]; then
 		content2=""
-		cont_len=1
 	else
 		if [ "${file_count}" = "1" ]; then
-			cont_len=${#videoname}
-			content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')
-			echo ${content2}
+		    content2=""		    
 		else
-		    #不显示电视剧名，只显示集数
-		    videoname=
-			splitstar="${enter}"
-			#splitstar="★"
-			cur_file2=$(digit_half2full ${cur_file})
-			if [ "${file_count}" = "${cur_file}" ]; then
-				vn=${videoname}${splitstar}大结局
-				cont_len=${#vn}
-				content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')${splitstar}大${enter}结${enter}局
+            if [ "${file_count}" = "${cur_file}" ]; then
+                content2=大结局
+				epstart=6.3
+				epstarty=4
 			else
-				vn=${videoname}${splitstar}${cur_file2}
-				cont_len=${#vn}
-				content2=$(echo ${videoname} | sed 's#.#&\'"${enter}"'#g')${splitstar}${cur_file2}
-			fi
-			echo ${content2}
-			#cont_len=$(expr ${cont_len} + 1)
+                cur_file2=$(digit_half2full ${cur_file})
+				content2="${cur_file2}"
+            fi
 		fi
-	fi
-	cont_len=$(expr ${cont_len} / 2)
-	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolorgold}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*3:y=h/2-line_h\*(${cont_len}+1):shadowx=2:shadowy=2:${fontbg}"
+    fi
+	echo content2=${content2}
+	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=line_h\*${epstart}:y=line_h/3\*${epstarty}:shadowx=2:shadowy=2:${fontbg}"
 
 	#增亮
 	if [ "${lighter}" = "0" ]; then
@@ -487,7 +529,7 @@ stream_play_main() {
     videomakeup="[bgimg][main]overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2[bg0];[bg0]"
 
 	# 增加字幕和提示
-	tips="${logos}${subs}${drawtext1}${drawtext11}${drawtext2}${drawtext3}[bg];"
+	tips="${logos}${subs}${drawtext1}${drawtext11}${drawtext2}${drawtext22}${drawtext3}[bg];"
 
 	# 音轨
 	audios="${mapa}${audio_format}[bga];" #[bga]
