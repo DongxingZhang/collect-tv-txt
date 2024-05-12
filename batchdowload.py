@@ -4,8 +4,7 @@ import sys
 import os
 
 tvlist = [
-    ["/下载8/苏联动画片合集","/mnt/data/tv/dl"],
-    ["/下载8","/mnt/data/tv/dl"],
+    ["/下载10","/mnt/data/tv/dl"],
 ]#
 
 

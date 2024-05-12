@@ -238,7 +238,7 @@ stream_play_main() {
 	echo sub_track=${sub_track}
 	echo sub_track_decode=${sub_track_decode}
 
-    backgroundv="[0:v:0]"
+    backgroundv="[2:v:0]"
     mapv="[0:v:0]"
 	mapa="[0:a:0]"
 	maps=""
@@ -308,10 +308,10 @@ stream_play_main() {
                 mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5:eval=frame[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
 	        fi
 		fi
-		backgroundv="[0:v:0]"
+		backgroundv="[2:v:0]"
 	else
 	    mapv="[0:v:0]"
-		backgroundv="[0:v:0]"
+		backgroundv="[2:v:0]"
 	fi
 
 	echo ${mapv}, ${mapa}, ${maps}, ${backgroundv}
@@ -416,9 +416,9 @@ stream_play_main() {
 		fi
 	fi
 
-	#求视频的秒数的5/6
+	#求视频的秒数的2/3
 	duration_sec_org=$(get_duration "${videopath}")
-	duration_sec=$(echo "scale=0;${duration_sec_org}*5/6" | bc)
+	duration_sec=$(echo "scale=0;${duration_sec_org}*2/3" | bc)
     
 	duration_sec_org_int=$(echo "scale=0;${duration_sec_org}/1" | bc)
 	echo duration_sec_org_int=${duration_sec_org_int}
@@ -507,7 +507,7 @@ stream_play_main() {
 		fi
     fi
 	echo content2=${content2}
-	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolor}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=line_h\*${epstart}:y=line_h/3\*${epstarty}:shadowx=2:shadowy=2:${fontbg}"
+	drawtext3="drawtext=fontsize=${newfontsize}:fontcolor=${fontcolorgold}:text='${content2}':fontfile=${fontdir}:line_spacing=${line_spacing}:expansion=normal:x=line_h\*${epstart}:y=line_h/3\*${epstarty}:shadowx=2:shadowy=2:${fontbg}"
 
 	#增亮
 	if [ "${lighter}" = "0" ]; then
