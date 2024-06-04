@@ -33,6 +33,7 @@ ZST|delogo=x=518:y=30:w=94:h=54:show=0
 TW3|delogo=x=1165:y=40:w=200:h=90:show=0
 TW4|delogo=x=1560:y=65:w=290:h=150:show=0
 TW5|delogo=x=375:y=20:w=90:h=40:show=0,delogo=x=25:y=20:w=95:h=45:show=0
+TW6|delogo=x=495:y=30:w=115:h=60:show=0
 TV0|delogo=x=965:y=35:w=80:h=65:show=0
 TV1|delogo=x=400:y=30:w=75:h=60:show=0
 TV2|delogo=x=525:y=30:w=85:h=60:show=0
@@ -67,3 +68,4 @@ CHC|delogo=x=120:y=75:w=210:h=155:show=0,delogo=x=1720:y=475:w=65:h=350:show=0
 SZT|delogo=x=70:y=35:w=200:h=70:show=0
 PPS|delogo=x=1700:y=10:w=175:h=75:show=0
 195|delogo=x=10:y=5:w=180:h=35:show=0
+TX0|delogo=x=465:y=30:w=160:h=35:show=0

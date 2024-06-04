@@ -29,7 +29,7 @@ get_duration2() {
 get_frames() {
 	data=$(${FFPROBE} -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0 "$1")
 	if [ "${data}" = "" ]; then
-	    data=$(${FFPROBE} -v error -select_streams a:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0 "$1")
+	    data=$(${FFPROBE} -v error -select_streams a:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0 "$1" | head -n 1 | tr -d '\r' | tr -d '\n')
 	fi
 	echo $data
 }
