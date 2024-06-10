@@ -69,3 +69,4 @@ SZT|delogo=x=70:y=35:w=200:h=70:show=0
 PPS|delogo=x=1700:y=10:w=175:h=75:show=0
 195|delogo=x=10:y=5:w=180:h=35:show=0
 TX0|delogo=x=465:y=30:w=160:h=35:show=0
+BIL|delogo=x=1025:y=10:w=255:h=65:show=0

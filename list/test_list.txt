@@ -1,4 +1,5 @@
 #时间段|台标|路径或者名称|播放次数
+0|F|https://dikcfc9915kp8.cloudfront.net/hls/1080p/playlist.m3u8|1
 0|F|笑傲江湖任贤齐|1
 0|F|笑傲江湖马景涛|1
 0|F|神雕侠侣任贤齐|1

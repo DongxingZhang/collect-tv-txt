@@ -1,5 +1,7 @@
 #!/bin/bash
 
+max_size=99999999
+
 ####功能函数START
 get_stream_track() {
 	track=$(${FFPROBE} -loglevel repeat+level+warning -i "$1" -show_streams -print_format csv | awk -F, '{print $1,$2,$3,$6}' | grep "$2" | awk 'NR==1{print $2}')
@@ -12,26 +14,47 @@ get_stream_track_decode() {
 }
 
 get_duration() {
-	duration=$(${FFPROBE} -loglevel repeat+level+warning -i "$1" -show_entries format=duration -v quiet -of csv="p=0")
-	echo ${duration}
+	if [[ $1 =~ ^http ]] || [[ $1 =~ ^rtmp ]]; then
+	    echo ${max_size}
+	else
+	    duration=$(${FFPROBE} -loglevel repeat+level+warning -i "$1" -show_entries format=duration -v quiet -of csv="p=0")
+	    echo ${duration}
+	fi
 }
 
 get_duration2() {
-	data=$(${FFPROBE} -hide_banner -show_format -show_streams "$1" 2>&1)
-	if [ "$2" -lt 3600 ]; then
-	    Duration=$(echo $data | awk -F 'Duration: ' '{print $2}' | awk -F ',' '{print $1}' | awk -F '.' '{print $1}' | awk -F ':' '{print $2"\\\:"$3}')
+	if [[ $1 =~ ^http ]] || [[ $1 =~ ^rtmp ]]; then
+	    echo ${max_size}
 	else
-		Duration=$(echo $data | awk -F 'Duration: ' '{print $2}' | awk -F ',' '{print $1}' | awk -F '.' '{print $1}' | awk -F ':' '{print $1"\\\:"$2"\\\:"$3}')
+	    data=$(${FFPROBE} -hide_banner -show_format -show_streams "$1" 2>&1)
+	    if [ "$2" -lt 3600 ]; then
+	        Duration=$(echo $data | awk -F 'Duration: ' '{print $2}' | awk -F ',' '{print $1}' | awk -F '.' '{print $1}' | awk -F ':' '{print $2"\\\:"$3}')
+	    else
+            Duration=$(echo $data | awk -F 'Duration: ' '{print $2}' | awk -F ',' '{print $1}' | awk -F '.' '{print $1}' | awk -F ':' '{print $1"\\\:"$2"\\\:"$3}')
+	    fi
+	    echo ${Duration}
 	fi
-	echo ${Duration}
+}
+
+get_file_size(){
+    if [[ $1 =~ ^http ]] || [[ $1 =~ ^rtmp ]]; then
+	    echo ${max_size}
+	else
+	    actualsize=$(wc -c <"$1")
+	    echo ${actualsize}
+	fi
 }
 
 get_frames() {
-	data=$(${FFPROBE} -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0 "$1")
-	if [ "${data}" = "" ]; then
-	    data=$(${FFPROBE} -v error -select_streams a:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0 "$1" | head -n 1 | tr -d '\r' | tr -d '\n')
+	if [[ $1 =~ ^http ]] || [[ $1 =~ ^rtmp ]]; then
+	    echo ${max_size}
+	else
+        data=$(${FFPROBE} -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0 "$1")
+	    if [ "${data}" = "" ]; then
+	        data=$(${FFPROBE} -v error -select_streams a:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0 "$1" | head -n 1 | tr -d '\r' | tr -d '\n')
+	    fi
+	    echo $data
 	fi
-	echo $data
 }
 
 get_fontsize() {
@@ -93,13 +116,17 @@ check_even() {
 }
 
 check_video_path() {
-	videoname=$1
-	for ((i=0;i<${#folder_array[@]};i++)) do
-		if [[ -e "${folder_array[i]}${videoname}" ]]; then
-		    echo "${folder_array[i]}${videoname}"
-			break
-		fi
-    done;
+	videopath=$1
+    if [[ ${videopath} =~ ^http ]] || [[ ${videopath} =~ ^rtmp ]]; then
+	    echo ${videopath}
+    else
+	    for ((i=0;i<${#folder_array[@]};i++)) do
+            if [[ -e "${folder_array[i]}${videopath}" ]]; then
+	            echo "${folder_array[i]}${videopath}"
+                break
+	        fi
+        done;
+	fi
 }
 
 check_srt_path() {
@@ -212,7 +239,7 @@ stream_play_main() {
 
 	# 文件超过8GB不要播放
 	maxsize=800000000000000
-	actualsize=$(wc -c <"${videopath}")
+	actualsize=$(get_file_size ${videopath})
 	echo 文件大小:$actualsize
 
     if [ $actualsize -lt 1000 ]; then
@@ -444,6 +471,9 @@ stream_play_main() {
 	#drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=line_h\*8/2:y=h-line_h/3\*15:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
 	#drawtext11="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${duration}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=line_h\*8/2:y=h-line_h/3\*11:shadowx=2:shadowy=2:${fontbg}[durv2];[durv2]"
 	#右下角
+	#不显示时间
+	content=
+	duration=
 	drawtext1="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${content}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*7-line_h\*${right_pad}/4:y=h-line_h/3\*15:shadowx=2:shadowy=2:${fontbg}[durv];[durv]"
 	drawtext11="drawtext=fontsize=${halfnewfontsize}:fontcolor=${fontcolor}:text='${duration}':fontfile=${fonttimedir}:line_spacing=${line_spacing}:expansion=normal:x=w-line_h\*7-line_h\*${right_pad}/4:y=h-line_h/3\*11:shadowx=2:shadowy=2:${fontbg}[durv2];[durv2]"
 
@@ -545,8 +575,10 @@ stream_play_main() {
 
 	if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
 		kill_app "${rtmp}" "${FFMPEG} -re"
-		echo ${FFMPEG} -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		echo ${FFMPEG} -timeout 30000000 -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
 		${FFMPEG} -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y "${rtmp}"
+		#推链接
+		#ffmpeg  -timeout 30000000  -i http://39.134.65.164/PLTV/88888888/224/3221225569/1.m3u8 -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y  rtmp://www.tomandjerry.work/live/livestream
 		echo finished playing $videopath
 	fi
 
@@ -710,6 +742,32 @@ get_playing_video() {
 				fi
 			done
 		elif [[ -f "${videopath}" ]]; then
+			if [ "${playtimes}" = "" ]; then
+				playtimes=1
+			fi
+			file_count=1
+			video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${videopath0}" | head -1)
+			if [[ "${video_played}" = "" ]]; then
+				cur_file=1
+				cur_times=1
+			else
+				video_played_arr=(${video_played//|/ })
+				if [[ "${video_played_arr[4]}" = "" ]]; then
+					cur_times=1
+				else
+					cur_times=${video_played_arr[4]}
+				fi
+
+				if [[ "${cur_times}" -lt "${playtimes}" ]]; then
+					cur_file=1
+					cur_times=$(expr ${cur_times} + 1)
+				else
+					continue
+				fi
+			fi
+			echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|file|${videoname}|${videopath}|${videopath0}|${cur_times}|${playtimes}"
+			break
+		elif [[ ${videopath} =~ ^http ]] || [[ ${videopath} =~ ^rtmp ]]; then
 			if [ "${playtimes}" = "" ]; then
 				playtimes=1
 			fi
