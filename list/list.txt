@@ -392,3 +392,13 @@ A计划2.mkv|A计划2|000|1|1|0
 
 http://39.134.65.164/PLTV/88888888/224/3221225569/1.m3u8|东南卫视|000|0|0|0
 https://dikcfc9915kp8.cloudfront.net/hls/1080p/playlist.m3u8|亚洲天空|FFF|0|0|0
+http://apop.bigbradio.net/s|亚洲流行|FFF|0|0|0
+
+#https://www.yy.com/1459801818/1459801818
+https://aliyun-flv-ipv6.yy.com/live/15013_xv_1459801818_1459801818_0_0_0-15013_xa_1459801818_1459801818_0_0_0-0-0-0-0-0-1717733399822139.flv?codec=orig&appid=15013&rts_tk=66b3a5a95e3dbfa4f8053030df03fb24&secret=99f22c3d50db42fe61101991af8c7fce&t=1718085722&stream_key=15013_xv_1459801818_1459801818_0_0_0&r_stream_key=15013_xa_1459801818_1459801818_0_0_0&channelid=1459801818&mtk=1&line_seq=5&cp_id=2&rts=1&ctx=eyJydHNfYXV0aCI6MiwiZGVmX3Bhc3MiOjF9&r=enter&playeruid=0&uuid=e6fd8c72-e029-43ee-96de-bbd1e3063d59|武侠电影|000|1|0|E
+
+#https://www.yy.com/1355002394/1355002394
+https://aliyun-flv-ipv6.yy.com/live/15013_xv_1355002394_1355002394_0_0_0-15013_xa_1355002394_1355002394_0_0_0-0-0-0-0-0-1717961412549822.flv?codec=orig&appid=15013&rts_tk=e96290442f9827485ae5325f0e96cb2e&secret=ff92b6c24d99476544ec377ffe6aa008&t=1718085889&stream_key=15013_xv_1355002394_1355002394_0_0_0&r_stream_key=15013_xa_1355002394_1355002394_0_0_0&channelid=1355002394&mtk=1&line_seq=5&cp_id=2&rts=1&ctx=eyJydHNfYXV0aCI6MiwiZGVmX3Bhc3MiOjF9&r=enter&playeruid=0&uuid=e6fd8c72-e029-43ee-96de-bbd1e3063d59|经典功夫台|KOF|1|0|E
+
+#https://www.yy.com/1356349071/1356349071
+https://aliyun-flv-ipv6.yy.com/live/15013_xv_1356349071_1356349071_0_0_0-15013_xa_1356349071_1356349071_0_0_0-0-0-0-0-0-1717973321995243.flv?codec=orig&appid=15013&rts_tk=c640528663ead92dcdd4c0076e23a063&secret=a3334f61dbd1e4adbfdc6d4fe65ad9f0&t=1718086818&stream_key=15013_xv_1356349071_1356349071_0_0_0&r_stream_key=15013_xa_1356349071_1356349071_0_0_0&channelid=1356349071&mtk=1&line_seq=5&cp_id=2&rts=1&ctx=eyJydHNfYXV0aCI6MiwiZGVmX3Bhc3MiOjF9&r=enter&playeruid=0&uuid=e6fd8c72-e029-43ee-96de-bbd1e3063d59|剧经典频道|000|1|0|E
