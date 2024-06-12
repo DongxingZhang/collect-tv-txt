@@ -395,25 +395,9 @@ https://dikcfc9915kp8.cloudfront.net/hls/1080p/playlist.m3u8|亚洲天空|000|0|
 http://apop.bigbradio.net/s|亚洲流行|FFF|0|0|0
 
 
-
-#https://www.yy.com/1356349071/1356349071
-https://aliyun-flv-ipv6.yy.com/live/15013_xv_1356349071_1356349071_0_0_0-15013_xa_1356349071_1356349071_0_0_0-0-0-0-0-0-1717973321995243.flv?codec=orig&appid=15013&rts_tk=c640528663ead92dcdd4c0076e23a063&secret=a3334f61dbd1e4adbfdc6d4fe65ad9f0&t=1718086818&stream_key=15013_xv_1356349071_1356349071_0_0_0&r_stream_key=15013_xa_1356349071_1356349071_0_0_0&channelid=1356349071&mtk=1&line_seq=5&cp_id=2&rts=1&ctx=eyJydHNfYXV0aCI6MiwiZGVmX3Bhc3MiOjF9&r=enter&playeruid=0&uuid=e6fd8c72-e029-43ee-96de-bbd1e3063d59|剧经典频道|000|1|0|E
-
-
-
-
-
-#https://www.yy.com/1355002394/1355002394
-https://aliyun-flv-ipv6.yy.com/live/15013_xv_1355002394_1355002394_0_0_0-15013_xa_1355002394_1355002394_0_0_0-0-0-0-0-0-1717961412549822.flv?codec=orig&appid=15013&rts_tk=e96290442f9827485ae5325f0e96cb2e&secret=ff92b6c24d99476544ec377ffe6aa008&t=1718085889&stream_key=15013_xv_1355002394_1355002394_0_0_0&r_stream_key=15013_xa_1355002394_1355002394_0_0_0&channelid=1355002394&mtk=1&line_seq=5&cp_id=2&rts=1&ctx=eyJydHNfYXV0aCI6MiwiZGVmX3Bhc3MiOjF9&r=enter&playeruid=0&uuid=e6fd8c72-e029-43ee-96de-bbd1e3063d59|经典功夫台|KOF|1|0|E
-
-#https://www.yy.com/1459801818/1459801818
-https://aliyun-flv-ipv6.yy.com/live/15013_xv_1459801818_1459801818_0_0_0-15013_xa_1459801818_1459801818_0_0_0-0-0-0-0-0-1717733399822139.flv?codec=orig&appid=15013&rts_tk=66b3a5a95e3dbfa4f8053030df03fb24&secret=99f22c3d50db42fe61101991af8c7fce&t=1718085722&stream_key=15013_xv_1459801818_1459801818_0_0_0&r_stream_key=15013_xa_1459801818_1459801818_0_0_0&channelid=1459801818&mtk=1&line_seq=5&cp_id=2&rts=1&ctx=eyJydHNfYXV0aCI6MiwiZGVmX3Bhc3MiOjF9&r=enter&playeruid=0&uuid=e6fd8c72-e029-43ee-96de-bbd1e3063d59|武侠电影|000|1|0|E
-
-#https://www.yy.com/1354936149/1354936149 百家讲坛
-https://aliyun-flv-ipv6.yy.com/live/15013_xv_1354936149_1354936149_0_0_0-15013_xa_1354936149_1354936149_0_0_0-0-0-0-0-0-1718000542104842.flv?codec=orig&appid=15013&rts_tk=c58a61a1b56ebdd4aab6e15d2195e6a9&secret=918aa607b601d78dace522ae44d9bc7c&t=1718086997&stream_key=15013_xv_1354936149_1354936149_0_0_0&r_stream_key=15013_xa_1354936149_1354936149_0_0_0&channelid=1354936149&mtk=1&line_seq=5&cp_id=2&rts=1&ctx=eyJydHNfYXV0aCI6MiwiZGVmX3Bhc3MiOjF9&r=enter&playeruid=0&uuid=e6fd8c72-e029-43ee-96de-bbd1e3063d59|百家讲坛|FFF|1|0|E
-
-#https://www.yy.com/1354936120/1354936120
-https://aliyun-flv-ipv6.yy.com/live/15013_xv_1354936120_1354936120_0_0_0-15013_xa_1354936120_1354936120_0_0_0-0-0-0-0-0-1718005343396318.flv?codec=orig&appid=15013&rts_tk=cf63e7c60e8faa5efb73d5a5a0d6a1a2&secret=1eaeef5e87303c40665fc83839be5950&t=1718092510&stream_key=15013_xv_1354936120_1354936120_0_0_0&r_stream_key=15013_xa_1354936120_1354936120_0_0_0&channelid=1354936120&mtk=1&line_seq=5&cp_id=2&rts=1&ctx=eyJydHNfYXV0aCI6MiwiZGVmX3Bhc3MiOjF9&r=enter&playeruid=0&uuid=7a7468ef-4f06-4db2-b121-d0a394103745|编辑部的故事|FFF|1|0|E
-
-#https://live.bilibili.com/765452
-https://xy39x175x179x148xy.mcdn.bilivideo.cn:486/live-bvc/647577/live_10077514_1251833_2500/index.m3u8|品三国|FFF|1|0|E
+https://www.yy.com/1356349071/1356349071|剧经典频道|000|1|0|E
+https://www.yy.com/1355002394/1355002394|经典功夫台|KOF|1|0|E
+https://www.yy.com/1459801818/1459801818|武侠电影|000|1|0|E
+https://www.yy.com/1354936149/1354936149|百家讲坛|FFF|1|0|E
+https://www.yy.com/1354936120/1354936120|编辑部的故事|FFF|1|0|E
+https://live.bilibili.com/765452|品三国|FFF|1|0|E

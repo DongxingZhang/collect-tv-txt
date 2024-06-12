@@ -206,6 +206,12 @@ stream_play_main() {
 	echo ${mode}
 	echo ${period}
 
+	#获取链接的地址
+	if [[ ${videopath} =~ ^http ]] || [[ ${videopath} =~ ^rtmp ]]; then
+	    python3 get_live_link.py "${videopath}"
+		videopath=$(cat "route.txt")
+	fi
+
 	echo -e ${yellow}视频类别（delogo）:${font} ${video_type}
 	echo -e ${yellow}视频跳过:${font} ${video_skip}
 	echo -e ${yellow}是否明亮（F为维持原亮度）:${font} ${lighter}
@@ -239,7 +245,7 @@ stream_play_main() {
 
 	# 文件超过8GB不要播放
 	maxsize=800000000000000
-	actualsize=$(get_file_size ${videopath})
+	actualsize=$(get_file_size "${videopath}")
 	echo 文件大小:$actualsize
 
     if [ $actualsize -lt 1000 ]; then
@@ -852,7 +858,7 @@ check_and_get_video_setting(){
 get_playing_video() {
 	playlist_index=$1
 	for line in $(cat ${playlist}); do
-        cur_video_setting=$(check_and_get_video_setting ${line} ${playlist_index})
+        cur_video_setting=$(check_and_get_video_setting "${line}" "${playlist_index}")
 		if [ "${cur_video_setting}" = "" ]; then
 			continue
 		fi
@@ -969,24 +975,24 @@ ffmpeg_init() {
 #开始播放
 stream_start() {
 	play_mode=$1
-	current=""
 	while true; do	
 	    echo ===start====================================================================================
-	    echo "播放模式:${play_mode}" > "${ffmpeglog}"
+	    echo "播放模式:${play_mode}" >> "${ffmpeglog}"
 		ffmpeg_init
 		period=$(need_waiting)
 		echo period=${period}
 		for line in $(cat ${playlist} | grep ^"${period}|"); do
-		    next=$(check_and_get_video_setting ${line} ${period})
+		    next=$(check_and_get_video_setting "${line}" "${period}")
 			if [ "${next}" = "" ]; then
 			    continue
 		    fi
-			break
-		done
-		echo prev=$current
-        echo next=$next		
-        stream_play_main "${next}" "${play_mode}" "${period}"
-		current=${next}
+			echo next=${next}
+			stream_play_main "${next}" "${play_mode}" "${period}"
+			next_period=$(need_waiting)
+			if [ "${next_period}" != "${period}" ]; then
+			    break
+		    fi
+		done		
 		break		
 		echo ===end====================================================================================
 		sleep 5
