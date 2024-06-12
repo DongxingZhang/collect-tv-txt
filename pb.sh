@@ -161,19 +161,19 @@ kill_app() {
 	done
 }
 
-get_srt() {
-	fullpath=$1
-	dir=$(dirname "${fullpath}")
-	filename=$(basename "${fullpath}")
-	extension="${filename##*.}"
-	filenameprefix="${filename%.*}"
-	srt="${dir}/${filenameprefix}.srt"
-	if [[ -f "${srt}" ]]; then
-		echo "${srt}"
-	else
-		echo ""
-	fi
-}
+#get_srt() {
+#	fullpath=$1
+#	dir=$(dirname "${fullpath}")
+#	filename=$(basename "${fullpath}")
+#	extension="${filename##*.}"
+#	filenameprefix="${filename%.*}"
+#	srt="${dir}/${filenameprefix}.srt"
+#	if [[ -f "${srt}" ]]; then
+#		echo "${srt}"
+#	else
+#		echo ""
+#	fi
+#}
 
 ####功能函数END
 
@@ -634,6 +634,7 @@ ffmpeg_install() {
 	fi
 }
 
+#判断当前时段
 get_rest() {
 	hours=$1
 	ret="F|F|F"
@@ -664,138 +665,203 @@ get_rest() {
 	echo ${ret}
 }
 
+#精确到分钟，获取当前时段
+need_waiting() {
+	hours=$(TZ=Asia/Shanghai date +%H)
+	hours=$(expr ${hours} + 0)
+	mins=$(TZ=Asia/Shanghai date +%M)
+	mins=$(expr ${mins} + 0)
+	ret=$(get_rest ${hours})
+
+	if [ "${ret}" = "F|F|F" ]; then
+		echo "F"
+		return
+	fi
+	periodcount=$(cat ${config} | grep -v "^#" | sed /^$/d | wc -l)
+	arr=(${ret//|/ })
+	last_hour=${arr[1]}
+	timed=${arr[2]}
+
+	if [ "${hours}" = "${last_hour}" ]; then
+		#判断当前分钟在40~59之间
+		mins2end=$(expr 59 - ${mins})
+		#判断下一个视频的长度是否大于mins2end分钟，如果两者都满足则播放下一个视频
+		next_video=$(get_playing_video ${timed})
+		arr_video=(${next_video//|/ })
+		next_video_path=${arr_video[10]}
+		dur=$(get_duration "${next_video_path}")
+		dur=$(echo "scale=0;$dur/60+1" | bc)
+
+		if [ ${mins2end} -le 20 ] && [ ${dur} -ge ${mins2end} ]; then
+			nexthours=$(expr ${hours} + 1)
+			if [ ${nexthours} -ge 24 ]; then
+				nexthours=0
+			fi
+			retnext=$(get_rest ${nexthours})
+			if [ "${retnext}" = "F|F|F" ]; then
+				echo "F"
+				return
+			fi
+			timed1=$(expr ${timed} + 1)
+			if [ ${timed1} -ge ${periodcount} ]; then
+				timed1=0
+			fi
+			echo "${timed1}"
+			return
+		fi
+	fi
+	echo ${timed}
+}
+
+#判断播放列表中每一行是否可播放
+check_and_get_video_setting(){
+	line=$1
+	playlist_index=$2
+	line=$(echo ${line} | tr -d '\r' | tr -d '\n')
+	# 判断是否要跳过
+	flag=${line:0:1}
+	if [ "${flag}" = "#" ]; then
+	    echo ""
+		return
+	fi
+	arr=(${line//|/ })
+	video_index=${arr[0]}
+	param=${arr[1]}
+	videopath0=${arr[2]}
+	playtimes=${arr[3]}
+	#搜索时间段
+	if [[ "${video_index}" != "${playlist_index}" ]]; then
+	    echo ""
+		return
+	fi
+	#搜索电视库
+	tv_setting_str=$(cat "${tvlist}" | grep "${videopath0}|" | head -1)
+	if [ "${tv_setting_str}" = "" ]; then
+		#如果不存在，则继续下一条
+	    echo ""
+		return
+	fi
+	arrtvset=(${tv_setting_str//|/ })
+	#天龙神剑|天龙神剑|TVA|0|1|F
+	videoname=${arrtvset[1]}
+	video_type=${arrtvset[2]}
+	lighter=${arrtvset[3]}
+	audio=${arrtvset[4]}
+	subtitle=${arrtvset[5]}
+	#这里路径可以只写目录名，然后自己搜索
+	videopath=$(check_video_path ${videopath0})
+	if [ "${videopath}" = "" ]; then
+	    echo ""
+		return
+	fi
+	if [[ -d "${videopath}" ]]; then
+		file_count=$(ls -l ${videopath} | grep "^-" | wc -l)
+		if [ "${playtimes}" = "" ]; then
+			playtimes=1
+		fi
+		video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${videopath0}" | head -1)
+		if [[ "${video_played}" = "" ]]; then
+			cur_file=1
+			cur_times=1
+		else
+			video_played_arr=(${video_played//|/ })
+			if [[ "${video_played_arr[4]}" = "" ]]; then
+				cur_times=1
+			else
+				cur_times=${video_played_arr[4]}
+			fi
+			if [[ "${video_played_arr[2]}" = "" ]]; then
+				cur_file=1
+			elif [[ "${video_played_arr[2]}" -ge "${file_count}" ]]; then
+				if [[ "${cur_times}" -lt "${playtimes}" ]]; then
+					cur_file=1
+					cur_times=$(expr ${cur_times} + 1)
+				else
+				    echo ""
+					return
+				fi
+			else
+				cur_file=$(expr ${video_played_arr[2]} + 1)
+			fi
+		fi
+		##查询到第cur_file个文件###
+		cur=0
+		for subdirfile in "${videopath}"/*; do
+			cur=$(expr $cur + 1)
+			if [[ "${cur}" = "${cur_file}" ]]; then
+				echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|folder|${videoname}|${subdirfile}|${videopath0}|${cur_times}|${playtimes}"
+				return
+			fi
+		done
+	elif [[ -f "${videopath}" ]]; then
+		if [ "${playtimes}" = "" ]; then
+			playtimes=1
+		fi
+		file_count=1
+		video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${videopath0}" | head -1)
+		if [[ "${video_played}" = "" ]]; then
+			cur_file=1
+			cur_times=1
+		else
+			video_played_arr=(${video_played//|/ })
+			if [[ "${video_played_arr[4]}" = "" ]]; then
+				cur_times=1
+			else
+				cur_times=${video_played_arr[4]}
+			fi
+			if [[ "${cur_times}" -lt "${playtimes}" ]]; then
+				cur_file=1
+				cur_times=$(expr ${cur_times} + 1)
+			else
+			    echo ""
+				return
+			fi
+		fi
+		echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|file|${videoname}|${videopath}|${videopath0}|${cur_times}|${playtimes}"
+		return
+	elif [[ ${videopath} =~ ^http ]] || [[ ${videopath} =~ ^rtmp ]]; then
+		if [ "${playtimes}" = "" ]; then
+			playtimes=1
+		fi
+		file_count=1
+		video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${videopath0}" | head -1)
+		if [[ "${video_played}" = "" ]]; then
+			cur_file=1
+			cur_times=1
+		else
+			video_played_arr=(${video_played//|/ })
+			if [[ "${video_played_arr[4]}" = "" ]]; then
+				cur_times=1
+			else
+				cur_times=${video_played_arr[4]}
+			fi
+			if [[ "${cur_times}" -lt "${playtimes}" ]]; then
+				cur_file=1
+				cur_times=$(expr ${cur_times} + 1)
+			else
+			    echo ""
+				return
+			fi
+		fi
+		echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|file|${videoname}|${videopath}|${videopath0}|${cur_times}|${playtimes}"
+		return
+	fi
+}
+
+#找到最新可播放的视频文件
 get_playing_video() {
 	playlist_index=$1
 	for line in $(cat ${playlist}); do
-		line=$(echo ${line} | tr -d '\r' | tr -d '\n')
-		# 判断是否要跳过
-		flag=${line:0:1}
-		if [ "${flag}" = "#" ]; then
+        cur_video_setting=$(check_and_get_video_setting ${line} ${playlist_index})
+		if [ "${cur_video_setting}" = "" ]; then
 			continue
 		fi
-		arr=(${line//|/ })
-		video_index=${arr[0]}
-		param=${arr[1]}
-		videopath0=${arr[2]}
-		playtimes=${arr[3]}
-		#搜索时间段
-		if [[ "${video_index}" != "${playlist_index}" ]]; then
-			continue
-		fi
-		#搜索电视库
-		tv_setting_str=$(cat "${tvlist}" | grep "${videopath0}|" | head -1)
-		if [ "${tv_setting_str}" = "" ]; then
-			#如果不存在，则继续下一条
-			continue
-		fi
-		arrtvset=(${tv_setting_str//|/ })
-		#天龙神剑|天龙神剑|TVA|0|1|F
-		videoname=${arrtvset[1]}
-		video_type=${arrtvset[2]}
-		lighter=${arrtvset[3]}
-		audio=${arrtvset[4]}
-		subtitle=${arrtvset[5]}
-
-		#这里路径可以只写目录名，然后自己搜索
-		videopath=$(check_video_path ${videopath0})
-		if [ "${videopath}" = "" ]; then
-			continue
-		fi
-		if [[ -d "${videopath}" ]]; then
-			file_count=$(ls -l ${videopath} | grep "^-" | wc -l)
-			if [ "${playtimes}" = "" ]; then
-				playtimes=1
-			fi
-			video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${videopath0}" | head -1)
-			if [[ "${video_played}" = "" ]]; then
-				cur_file=1
-				cur_times=1
-			else
-				video_played_arr=(${video_played//|/ })
-				if [[ "${video_played_arr[4]}" = "" ]]; then
-					cur_times=1
-				else
-					cur_times=${video_played_arr[4]}
-				fi
-
-				if [[ "${video_played_arr[2]}" = "" ]]; then
-					cur_file=1
-				elif [[ "${video_played_arr[2]}" -ge "${file_count}" ]]; then
-					if [[ "${cur_times}" -lt "${playtimes}" ]]; then
-						cur_file=1
-						cur_times=$(expr ${cur_times} + 1)
-					else
-						continue
-					fi
-				else
-					cur_file=$(expr ${video_played_arr[2]} + 1)
-				fi
-			fi
-			##查询到第cur_file个文件###
-			cur=0
-			for subdirfile in "${videopath}"/*; do
-				cur=$(expr $cur + 1)
-				if [[ "${cur}" = "${cur_file}" ]]; then
-					echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|folder|${videoname}|${subdirfile}|${videopath0}|${cur_times}|${playtimes}"
-					return
-				fi
-			done
-		elif [[ -f "${videopath}" ]]; then
-			if [ "${playtimes}" = "" ]; then
-				playtimes=1
-			fi
-			file_count=1
-			video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${videopath0}" | head -1)
-			if [[ "${video_played}" = "" ]]; then
-				cur_file=1
-				cur_times=1
-			else
-				video_played_arr=(${video_played//|/ })
-				if [[ "${video_played_arr[4]}" = "" ]]; then
-					cur_times=1
-				else
-					cur_times=${video_played_arr[4]}
-				fi
-
-				if [[ "${cur_times}" -lt "${playtimes}" ]]; then
-					cur_file=1
-					cur_times=$(expr ${cur_times} + 1)
-				else
-					continue
-				fi
-			fi
-			echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|file|${videoname}|${videopath}|${videopath0}|${cur_times}|${playtimes}"
-			break
-		elif [[ ${videopath} =~ ^http ]] || [[ ${videopath} =~ ^rtmp ]]; then
-			if [ "${playtimes}" = "" ]; then
-				playtimes=1
-			fi
-			file_count=1
-			video_played=$(cat "${playlist_done}" | grep "${playlist_index}|${videopath0}" | head -1)
-			if [[ "${video_played}" = "" ]]; then
-				cur_file=1
-				cur_times=1
-			else
-				video_played_arr=(${video_played//|/ })
-				if [[ "${video_played_arr[4]}" = "" ]]; then
-					cur_times=1
-				else
-					cur_times=${video_played_arr[4]}
-				fi
-
-				if [[ "${cur_times}" -lt "${playtimes}" ]]; then
-					cur_file=1
-					cur_times=$(expr ${cur_times} + 1)
-				else
-					continue
-				fi
-			fi
-			echo "${video_type}|${lighter}|${audio}|${subtitle}|${param}|${cur_file}|${file_count}|playing|file|${videoname}|${videopath}|${videopath0}|${cur_times}|${playtimes}"
-			break
-		fi
+		echo ${cur_video_setting}
+		break
 	done
 }
 
+#获取下一个播放电视剧名
 get_next_video_name() {
 	next_tv=$(cat ${memo})"　　"
 	periodcount=$(cat ${config} | grep -v "^#" | sed /^$/d | wc -l)
@@ -844,59 +910,6 @@ get_next_video_name() {
 	echo ${next_tv::length-1}
 }
 
-need_waiting() {
-	hours=$(TZ=Asia/Shanghai date +%H)
-	hours=$(expr ${hours} + 0)
-	mins=$(TZ=Asia/Shanghai date +%M)
-	mins=$(expr ${mins} + 0)
-	ret=$(get_rest ${hours})
-
-	if [ "${ret}" = "F|F|F" ]; then
-		echo "F"
-		return
-	fi
-	periodcount=$(cat ${config} | grep -v "^#" | sed /^$/d | wc -l)
-	arr=(${ret//|/ })
-	last_hour=${arr[1]}
-	timed=${arr[2]}
-
-	if [ "${hours}" = "${last_hour}" ]; then
-		#判断当前分钟在40~59之间
-		mins2end=$(expr 59 - ${mins})
-		#判断下一个视频的长度是否大于mins2end分钟，如果两者都满足则播放下一个视频
-		next_video=$(get_next ${timed})
-		arr_video=(${next_video//|/ })
-		next_video_path=${arr_video[10]}
-		dur=$(get_duration "${next_video_path}")
-		dur=$(echo "scale=0;$dur/60+1" | bc)
-
-		if [ ${mins2end} -le 20 ] && [ ${dur} -ge ${mins2end} ]; then
-			nexthours=$(expr ${hours} + 1)
-			if [ ${nexthours} -ge 24 ]; then
-				nexthours=0
-			fi
-			retnext=$(get_rest ${nexthours})
-
-			if [ "${retnext}" = "F|F|F" ]; then
-				echo "F"
-				return
-			fi
-
-			timed1=$(expr ${timed} + 1)
-			if [ ${timed1} -ge ${periodcount} ]; then
-				timed1=0
-			fi
-			echo "${timed1}"
-			return
-		fi
-	fi
-	echo ${timed}
-}
-
-get_next() {
-	next_video_path=$(get_playing_video $1)
-	echo ${next_video_path}
-}
 
 get_seq() {
 	waitingdir=$1
@@ -923,6 +936,7 @@ get_seq() {
 	echo "$next_video" >${videonofile}
 }
 
+#初始化ffmpeg路径
 ffmpeg_init() {
 	if [[ -e "/mnt/data/ffmpeg/ffmpeg" ]]; then
 		FFMPEG=/mnt/data/ffmpeg/ffmpeg
@@ -952,29 +966,29 @@ ffmpeg_init() {
     done;
 }
 
+#开始播放
 stream_start() {
 	play_mode=$1
-
 	current=""
-	while true; do
+	while true; do	
+	    echo ===start====================================================================================
 	    echo "播放模式:${play_mode}" > "${ffmpeglog}"
 		ffmpeg_init
 		period=$(need_waiting)
-		next=$(get_next ${period})
-        echo prev=$current
-        echo next=$next
-		if [ "${next}" = "" ]; then
-			sleep 2
-			continue
-		fi
-		echo start
-		date
-		echo ${next}
-		stream_play_main "${next}" "${play_mode}" "${period}"
+		echo period=${period}
+		for line in $(cat ${playlist} | grep ^"${period}|"); do
+		    next=$(check_and_get_video_setting ${line} ${period})
+			if [ "${next}" = "" ]; then
+			    continue
+		    fi
+			break
+		done
+		echo prev=$current
+        echo next=$next		
+        stream_play_main "${next}" "${play_mode}" "${period}"
 		current=${next}
-		date
-		echo end
-		echo =======================================================================================
+		break		
+		echo ===end====================================================================================
 		sleep 5
 	done
 }

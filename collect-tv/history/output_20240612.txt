@@ -696,6 +696,13 @@ CGTN英语,http://live.cgtn.com/1000/prog_index.m3u8
 黑龙江卫视,https://live.metshop.top/msp.php?id=hljws
 
 央视频道,#genre#
+1905电影网1(国内电影),http://php.jdshipin.com:8880/1905.php?id=1905dy
+1905电影网2(国外电影),http://php.jdshipin.com:8880/1905.php?id=1905dy2
+CCTV----风云剧场,http://ipv6.fzszyx.com:9672/cqyx.php?id=fyjc
+CCTV---风云剧场,http://ipv6.fzszyx.com:9672/cqyx.php?id=fyjc
+CCTV---风云音乐,http://ipv6.fzszyx.com:9672/cqyx.php?id=fyyy
+CCTV--风云剧场,http://ipv6.fzszyx.com:9672/cqyx.php?id=fyjc
+CCTV--风云音乐,http://ipv6.fzszyx.com:9672/cqyx.php?id=fyyy
 CCTV-1,http://123.138.216.44:9902/tsfile/live/0001_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-1,http://123.154.30.252:9901/tsfile/live/0001_1.m3u8?key=txiptv&playlive=0&authid=0
 CCTV-1,http://124.228.160.126:9901/tsfile/live/0017_1.m3u8?key=txiptv&playlive=1&authid=0
@@ -1022,8 +1029,6 @@ CCTV-9,https://live.metshop.top/msp.php?id=cctv9
 CCTV-9,https://news.cgtn.com/resource/live/english/cgtn-news.m3u8
 CCTV-风云剧场,http://ipv6.fzszyx.com:9672/cqyx.php?id=fyjc
 CCTV-风云音乐,http://ipv6.fzszyx.com:9672/cqyx.php?id=fyyy
-1905电影网1(国内电影),http://php.jdshipin.com:8880/1905.php?id=1905dy
-1905电影网2(国外电影),http://php.jdshipin.com:8880/1905.php?id=1905dy2
 CGTN,http://live.cgtn.com/1000/prog_index.m3u8
 CGTN,http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225604/index.m3u8
 CGTN,https://live.cgtn.com/1000/prog_index.m3u8
@@ -2371,6 +2376,8 @@ tvb翡翠台,https://epg.pw/stream/fe02817d95c6d58f41e1ea8208b5a8c9462bf525b1538
 春晚20,https://txmov2.a.kwimgs.com/bs3/video-hls/5222205336887088723_hlshd15.m3u8
 春晚21,https://txmov2.a.kwimgs.com/bs3/video-hls/5255700831151909807_hlshd15.m3u8
 春晚22,https://txmov2.a.kwimgs.com/bs3/video-hls/5224457109297710655_hlshd15.m3u8
+春晚23总台,https://vod12.xmyysw.com/20230122/JgWBWCQH/index.m3u8
+春晚23网络,https://vod12.xmyysw.com/20230115/0WtBoE23/index.m3u8
 春晚83,http://txmov2.a.kwimgs.com/bs3/video-hls/5207287136834522947_hlshd15.m3u8
 春晚84,https://txmov2.a.kwimgs.com/bs3/video-hls/5229242184269609742_hlshd15.m3u8
 春晚85,http://txmov2.a.kwimgs.com/bs3/video-hls/5227271857652377954_hlshd15.m3u8
@@ -5221,18 +5228,6 @@ The_Lego_Channel,https://i.mjh.nz/SamsungTVPlus/GBBC4300005AL.m3u8
 Trace_Sports,https://lightning-tracesport-samsungau.amagi.tv/playlist1080p.m3u8
 Wild_Planet,https://i.mjh.nz/SamsungTVPlus/GBBB5000002PL.m3u8
 Wion_News,https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8
-伊拉克-扎格罗斯台,https://5a3ed7a72ed4b.streamlock.net/zagrostv/SMIL:myStream.smil/playlist.m3u8
-新加坡CNA,https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
-日本24小时新闻台,https://n24-cdn-live.ntv.co.jp/ch01/index_high.m3u8
-日本NHK,https://cdn.skygo.mn/live/disk1/NHK_World_Premium/HLSv3-FTA/NHK_World_Premium.m3u8
-日本QVC,https://cdn-live1.qvc.jp/iPhone/1501/1501.m3u8
-日本世界频道,https://cdn.skygo.mn/live/disk1/NHK_World_Premium/HLSv3-FTA/NHK_World_Premium.m3u8
-朝鲜中央台,http://119.77.96.184:1935/chn05/chn05/chunklist_w1306745753.m3u8
-泰国ASTV,http://news1.live14.com/stream/news1_hi.m3u8
-泰国Thai,https://edge6a.v2h-cdn.com/tvb_thai/tvb_thai.stream/playlist.m3u8
-美国CNN,https://i.mjh.nz/SamsungTVPlus/GBBD8000016N.m3u8
-韩国大田,https://kbsworld-ott.akamaized.net/hls/live/2002341/kbsworld/master.m3u8
-韩阿里郎,http://amdlive.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8
 
 NEWTV,#genre#
 NEWTV动作电影,http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225661/index.m3u8
@@ -5368,6 +5363,20 @@ AMC电影台,http://61.221.215.25:8800/hls/43/index.m3u8
 周星驰,http://zby.xjqxz.top/live12/live.m3u8
 成龙,http://zby.xjqxz.top/cldy/live.m3u8
 李连杰,http://zby.xjqxz.top/lljdy/live.m3u8
+
+国际台,#genre#
+伊拉克-扎格罗斯台,https://5a3ed7a72ed4b.streamlock.net/zagrostv/SMIL:myStream.smil/playlist.m3u8
+新加坡CNA,https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
+日本24小时新闻台,https://n24-cdn-live.ntv.co.jp/ch01/index_high.m3u8
+日本NHK,https://cdn.skygo.mn/live/disk1/NHK_World_Premium/HLSv3-FTA/NHK_World_Premium.m3u8
+日本QVC,https://cdn-live1.qvc.jp/iPhone/1501/1501.m3u8
+日本世界频道,https://cdn.skygo.mn/live/disk1/NHK_World_Premium/HLSv3-FTA/NHK_World_Premium.m3u8
+朝鲜中央台,http://119.77.96.184:1935/chn05/chn05/chunklist_w1306745753.m3u8
+泰国ASTV,http://news1.live14.com/stream/news1_hi.m3u8
+泰国Thai,https://edge6a.v2h-cdn.com/tvb_thai/tvb_thai.stream/playlist.m3u8
+美国CNN,https://i.mjh.nz/SamsungTVPlus/GBBD8000016N.m3u8
+韩国大田,https://kbsworld-ott.akamaized.net/hls/live/2002341/kbsworld/master.m3u8
+韩阿里郎,http://amdlive.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8
 
 4K频道,#genre#
 4K60PHLG-HEVC-EAC3测试,http://159.75.85.63:5680/d/ad/playad.m3u8
@@ -5860,6 +5869,8 @@ fubo Sports Network,https://i.mjh.nz/SamsungTVPlus/USAJ2200023Z0.m3u8
 春晚20,https://txmov2.a.kwimgs.com/bs3/video-hls/5222205336887088723_hlshd15.m3u8
 春晚21,https://txmov2.a.kwimgs.com/bs3/video-hls/5255700831151909807_hlshd15.m3u8
 春晚22,https://txmov2.a.kwimgs.com/bs3/video-hls/5224457109297710655_hlshd15.m3u8
+春晚23总台,https://vod12.xmyysw.com/20230122/JgWBWCQH/index.m3u8
+春晚23网络,https://vod12.xmyysw.com/20230115/0WtBoE23/index.m3u8
 春晚83,http://txmov2.a.kwimgs.com/bs3/video-hls/5207287136834522947_hlshd15.m3u8
 春晚84,https://txmov2.a.kwimgs.com/bs3/video-hls/5229242184269609742_hlshd15.m3u8
 春晚85,http://txmov2.a.kwimgs.com/bs3/video-hls/5227271857652377954_hlshd15.m3u8
