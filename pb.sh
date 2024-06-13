@@ -299,11 +299,8 @@ stream_play_main() {
 	fi
 
 	#分辨率
-	if [ "${video_type}" = "FFF" ]; then
+	if [ "${video_type}" = "FFF" ] || [ "${video_type}" = "EEE" ] || [ "${video_type}" = "DDD" ]; then
 		bgvideo=$(get_seq "${bgvideodir}" "${curdir}/count/bgpicno")
-		ssize=$(get_size "${bgvideo}") #计算分辨率
-	elif [ "${video_type}" = "EEE" ] || [ "${video_type}" = "DDD" ]; then
-		bgvideo=$(get_seq "${bgstreetdir}" "${curdir}/count/streetmvno")
 		ssize=$(get_size "${bgvideo}") #计算分辨率
 	else
 		ssize=$(get_size "${videopath}") #计算分辨率
@@ -327,30 +324,19 @@ stream_play_main() {
 		mapv="[3:v:0]loop=loop=${division}:size=${framecount2}:start=0[mapvvv];[mapvvv]"
 		backgroundv="[3:v:0]"
 	elif [ "${video_type}" = "DDD" ] || [ "${video_type}" = "EEE" ]; then
-		#framecount=$(get_frames "${bgvideo}")
-		#echo framecount=${framecount}
-		duration_audio=$(get_duration "${videopath}")
-		duration_video=$(get_duration "${bgvideo}")
-		magnifi=$(printf "%.2f" $(echo "scale=1;${duration_audio}/${duration_video}+0.05" | bc))
-		echo duration_audio=${duration_audio}
-		echo duration_video=${duration_video}
-		echo magnifi=${magnifi}
-        if [ "${video_type}" = "EEE" ]; then   
-		    #视频封面
-		    if [ $(expr ${magnifi} \> 0.99) -eq 1 ]; then
-                mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[mapvvv]"
-            else
-                mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[mapvvv]"
-		    fi
+		framecount=$(get_frames "${videopath}")
+		framecount2=$(get_frames "${bgvideo}")
+		division=$(echo "scale=0;${framecount}/${framecount2}+1" | bc)
+		echo framecount=${framecount}
+		echo framecount2=${framecount2}
+		echo division=${division}
+		mapv="[3:v:0]loop=loop=${division}:size=${framecount2}:start=0[mapvvv];[mapvvv]"
+		if [ $(expr ${division} \> 0.99) -eq 1 ]; then
+            mapv="[3:v:0]setpts=${division}*PTS[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5:eval=frame[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
         else
-		    #画中画
-		    if [ $(expr ${magnifi} \> 0.99) -eq 1 ]; then
-                mapv="[3:v:0]setpts=${magnifi}*PTS[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5:eval=frame[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
-            else
-                mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5:eval=frame[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
-	        fi
-		fi
-		backgroundv="[2:v:0]"
+            mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5:eval=frame[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
+	    fi
+		backgroundv="[3:v:0]"
 	else
 	    mapv="[0:v:0]"
 		backgroundv="[2:v:0]"
@@ -592,6 +578,7 @@ stream_play_main() {
 
 	if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
 		kill_app "${rtmp}" "${FFMPEG}"
+		echo ${FFMPEG} -re -loglevel "${logging}" -i "${videopath}" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vsync 1 -async 1  -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -ac 1 -ar 48000 -strict -2 -f flv -y "${rtmp}"
 		${FFMPEG} -re -loglevel "${logging}" -i "${videopath}" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vsync 1 -async 1  -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -ac 1 -ar 48000 -strict -2 -f flv -y "${rtmp}"
 		#ffmpeg  -timeout 30000000  -i http://39.134.65.164/PLTV/88888888/224/3221225569/1.m3u8 -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y  rtmp://www.tomandjerry.work/live/livestream
 		echo finished playing $videopath
