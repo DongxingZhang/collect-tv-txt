@@ -24,6 +24,7 @@ kill_app() {
 }
 
 kill_app "launch.sh"
+kill_app "pb.sh"
 pidlist=$(ps -ef | grep "${rtmp_link}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
 echo ${pidlist}
 

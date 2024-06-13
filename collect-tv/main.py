@@ -208,7 +208,7 @@ chtype['春晚']=['春晚', '历年春晚', '历届春晚']
 chtype['NEWTV']=['NEWTV', '•NewTV「IPV6」']
 
 
-excludetype=['玩偶', '麻豆-MSD', 'rostelekom', '胡志良', 'Adult', '成人点播', '日本', '欧美', '肥羊', '更新时间', 'YouTube'] 
+excludetype=['玩偶', '麻豆-MSD', 'rostelekom', '胡志良', 'Adult', '成人点播', '日本', '欧美', '肥羊', '更新时间', 'YouTube', '特色频道', '埋推推'，'解说频道', '虎牙斗鱼'] 
              
 #循环处理每个URL
 for url in urls:

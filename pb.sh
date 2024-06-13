@@ -144,10 +144,8 @@ check_srt_path() {
 }
 
 kill_app() {
-	rtmp=$1
-	app=$2
 	while true; do
-		pidlist=$(ps -ef | grep "${rtmp}" | grep "${app}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
+		pidlist=$(ps -ef | grep "$1" | grep "$2" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
 		echo ${pidlist}
 		arr=($pidlist)
 		if [ ${#arr[@]} -eq 0 ]; then
@@ -206,11 +204,22 @@ stream_play_main() {
 	echo ${mode}
 	echo ${period}
 
+
 	#获取链接的地址
-	if [[ ${videopath} =~ ^http ]] || [[ ${videopath} =~ ^rtmp ]]; then
-	    python3 get_live_link.py "${videopath}"
-		videopath=$(cat "route.txt")
-	fi
+        if [[ ${videopath} =~ ^http ]] || [[ ${videopath} =~ ^rtmp ]]; then
+	    for i in 1 2 3 4
+	    do
+                pgrep get_live_link.py | xargs kill -s 9
+                python3 get_live_link.py "${videopath}"
+                videopath=$(cat "route.txt")
+                if [ "${videopath}" != "" ]; then
+                    break   
+                fi
+	    done
+            if [ "${videopath}" = "" ]; then
+                return
+            fi
+        fi
 
 	echo -e ${yellow}视频类别（delogo）:${font} ${video_type}
 	echo -e ${yellow}视频跳过:${font} ${video_skip}
@@ -579,10 +588,11 @@ stream_play_main() {
 
 	date1=$(TZ=Asia/Shanghai date +"%Y-%m-%d %H:%M:%S")
 
+	echo videopath=${videopath}
+
 	if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
-		kill_app "${rtmp}" "${FFMPEG} -re"
-		echo ${FFMPEG} -timeout 30000000 -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -ac 1 -ar 48000 -strict -2 -f flv -y "${rtmp}"
-		${FFMPEG} -re -loglevel "${logging}" -i "$videopath" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -ac 1 -ar 48000 -strict -2 -f flv -y "${rtmp}"
+		kill_app "${rtmp}" "${FFMPEG}"
+		${FFMPEG} -re -loglevel "${logging}" -i "${videopath}" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vsync 1 -async 1  -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -ac 1 -ar 48000 -strict -2 -f flv -y "${rtmp}"
 		#ffmpeg  -timeout 30000000  -i http://39.134.65.164/PLTV/88888888/224/3221225569/1.m3u8 -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y  rtmp://www.tomandjerry.work/live/livestream
 		echo finished playing $videopath
 	fi
@@ -977,7 +987,7 @@ stream_start() {
 	play_mode=$1
 	while true; do	
 	    echo ===start====================================================================================
-	    echo "播放模式:${play_mode}" >> "${ffmpeglog}"
+	    echo "播放模式:${play_mode}" > "${ffmpeglog}"
 		ffmpeg_init
 		period=$(need_waiting)
 		echo period=${period}

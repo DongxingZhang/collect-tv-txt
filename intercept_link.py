@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import time
+
 from playwright.sync_api import sync_playwright
 # 这是一个示例函数，用于演示如何使用Playwright的自定义拦截器
 def run(playwright, link):
@@ -11,16 +11,11 @@ def run(playwright, link):
     def intercept_request(route, request):
         #if request.url.startswith(regx):
         if ".flv" in request.url or ".m3u" in request.url or ".m3u8" in request.url:
-            print(f"拦截到的请求: {request.url}") 
-            route.abort("aborted")
-            if link.startswith("https://www.yy.com/") and request.url.startswith("https://aliyun-flv-ipv6.yy.com/live/"):
-                write_file(request.url, "route.txt","w")
-        else:
-            route.continue_()
+            print(f"拦截到的请求: {request.url}")    
+        route.continue_()
     page.route("**/*", intercept_request)
     # 访问一个网页
     page.goto(link, timeout=200000)
-    time.sleep(9)
     page.wait_for_load_state('load')
     # 关闭浏览器
     browser.close()
@@ -32,8 +27,6 @@ def write_file(str,filename, mode):
 
 import sys
 link=sys.argv[1]
-write_file("", "route.txt","w")
 # 运行Playwright
 with sync_playwright() as p:
     run(p, link)
-
