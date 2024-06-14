@@ -22,3 +22,13 @@
           stop 停止推流
     参数2： 推流分辨率
 
+
+
+pip install ffmpeg-python
+pip install ffmpeg
+pip install opencv-python
+ pip install numpy
+
+
+
+

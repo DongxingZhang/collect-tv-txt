@@ -6,6 +6,16 @@ import requests
 import time
 from txt2m3u import m3u_to_txt
 import sys
+import cv2
+import ffmpeg
+import numpy as np
+import subprocess
+
+def time_str(fmt=None):
+    if fmt is None:
+        fmt = '%Y_%m_%d_%H_%M_%S'
+    return datetime.datetime.today().strftime(fmt)
+       
 
 def process_name_string(input_str):
     parts = input_str.split(',')
@@ -47,7 +57,7 @@ def verify_link(link):
                 endTime = int(round(time.time() * 1000))
                 useTime = int(endTime - startTime)
                 if k and useTime <= 5000:
-                    return True
+                    return verify_link2(link)
                 elif useTime > 5000:
                     return False
                 else:
@@ -55,6 +65,31 @@ def verify_link(link):
     except Exception:
         pass
     return False
+
+def verify_link2(link):
+    try:
+        probe = ffmpeg.probe(link)
+        cap_info = next(x for x in probe['streams'] if x['codec_type'] == 'video')
+        print("fps: {}".format(cap_info['r_frame_rate']))
+        width = cap_info['width']           # 获取视频流的宽度
+        height = cap_info['height']         # 获取视频流的高度
+        up, down = str(cap_info['r_frame_rate']).split('/')
+        fps = eval(up) / eval(down)
+        print("fps: {}".format(fps))
+        ffmpeg_command = 'ffmpeg -i "' + link + '" -vf "select=\'eq(n,0)\'" -vframes 1 -y output.jpg'
+        print(ffmpeg_command)
+        process = subprocess.Popen(ffmpeg_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)  
+        stdout, stderr = process.communicate(timeout=5)
+        if process.returncode == 0:  
+            print("=== ffmpeg转码完成 ====")    
+            print(stdout.decode())
+            return True                     
+        else:
+            print("=== 转换失败！=== ")
+            print(stderr.decode())
+            return False
+    except:
+        return False
 
 def write_file(str,filename, mode):
     with open(filename, mode, encoding='utf-8') as file:
@@ -75,8 +110,16 @@ def check_exclude(ctype):
             return True
     return False
 
+def check_exists(link):
+    global mydict
+    for value in mydict.values():
+        if link in value:
+            return True
+    return False    
+    
+
 def process_url(lines, url):
-    global mydict 
+    global mydict
     try:
         channel_name=""
         channel_address=""
@@ -84,7 +127,6 @@ def process_url(lines, url):
         # 逐行处理内容            
         for line in lines:
             line=line.strip()
-            print(line)
             if  "#genre#" in line and "," in line:
                 channel_type=line.split(",")[0].strip()
                 channel_type=get_uniq_type(channel_type)
@@ -92,9 +134,7 @@ def process_url(lines, url):
             if  "#genre#" not in line and "," in line and ":" in line:
                 channel_name=line.split(',')[0].strip()
                 channel_address=line.split(',')[1].strip()
-                if len(channel_name) == 0:
-                    continue
-                if check_exclude(channel_type):
+                if len(channel_name) == 0 or check_exclude(channel_type) or check_exists(channel_address):
                     continue
                 if channel_type not in mydict.keys():
                     mydict[channel_type] = []
@@ -130,7 +170,6 @@ def verify(lines):
         channel_name=linesa[0].strip()
         channel_address=linesa[1].strip()
         if verify_link(channel_address):
-            print(line)
             lines2.append(line)
     return lines2
 
@@ -208,86 +247,121 @@ chtype['春晚']=['春晚', '历年春晚', '历届春晚']
 chtype['NEWTV']=['NEWTV', '•NewTV「IPV6」']
 
 
-excludetype=['玩偶', '麻豆-MSD', 'rostelekom', '胡志良', 'Adult', '成人点播', '日本', '欧美', '肥羊', '更新时间', 'YouTube', '特色频道', '埋推推'，'解说频道', '虎牙斗鱼'] 
-             
-#循环处理每个URL
-for url in urls:
-    url=url.replace('https://raw.githubusercontent.com/','https://hub.gitmirror.com/https://raw.githubusercontent.com/')
-    #url=url.replace('githubusercontent.com','staticdn.net')
-    print(url)
-    #打开URL并读取内容
-    #os.system('wget ' + url + " -O my.txt")
-    os.system('curl ' + url + " -o my.txt")
-    with open('my.txt', 'r', encoding='utf-8') as file:
-       lines = file.readlines()
-       process_url(lines, url)
+excludetype=['玩偶', '麻豆-MSD', 'rostelekom', '胡志良', 'Adult', '成人点播', '日本', '欧美', '肥羊', '更新时间', 'YouTube', '特色频道', '埋推推', '解说频道', '虎牙斗鱼', '•游戏赛事']
 
-#循环处理每个M3U URL
-for url in m3u_urls:
-    url=url.replace('https://raw.githubusercontent.com/','https://hub.gitmirror.com/https://raw.githubusercontent.com/')
-    #url=url.replace('githubusercontent.com','staticdn.net')
-    print(url)
-    #打开URL并读取内容
-    os.system('curl ' + url + " -o my.m3u")
-    m3u_to_txt('my.m3u', 'my.txt')
-    with open('my.txt', 'r', encoding='utf-8') as file:
-       lines = file.readlines()
-       process_url(lines, url)
+import sys
+oper=sys.argv[1]
 
-
-
-files=['output.txt', 'dog.txt']
-for f in files:
-    with open(f, 'r', encoding='utf-8') as file:
-       lines = file.readlines()
-       process_url(lines, f)
-
-#files = os.listdir("./history/")
-#for file in files:
-#    #print(file)
-#    if os.path.isfile("./history/" + file):
-#        with open("./history/" + file, 'r', encoding='utf-8') as file:
-#            lines = file.readlines()
-#            process_url(lines, file)
-
-
-write_file("","my.log","w")
-
-print("start=======================================================")
-# 合并所有对象中的行文本（去重，排序后拼接）
-version=datetime.now().strftime("%Y%m%d")+",url"
-all_lines =  ["更新时间,#genre#"] +[version] 
-
-for key in mydict.keys():
-    print(key + "\n")
-    write_file(key + "\n","my.log","w")
-    channels=verify(sorted(set(mydict[key])))
-    if len(channels) > 2:
-        all_lines = all_lines + ['\n'] + [key + ",#genre#"] + channels
-
-# 将合并后的文本写入文件
-output_file = 'output.txt'
-output_file_bak = './history/output_' + datetime.now().strftime('%Y%m%d') + '.txt'
-with open(output_file, 'w', encoding='utf-8') as f, open(output_file_bak, 'w', encoding='utf-8') as fb:
-    for line in all_lines:
-        linea=line.split(',')
-        if len(linea) >= 2:
-            print(line.strip())
-            channel_name=linea[0].strip()
-            channel_address=linea[1].strip()                
-            if len(linea) >= 3:
-                channel_source=linea[2].strip()
-                f.write(channel_name + "," + channel_address + '\n')
-                fb.write(channel_name + "," + channel_address + "," + channel_source + '\n')
+#初始化
+if oper == "init":
+    #循环处理每个URL
+    for url in urls:
+        url=url.replace('https://raw.githubusercontent.com/','https://hub.gitmirror.com/https://raw.githubusercontent.com/')
+        #url=url.replace('githubusercontent.com','staticdn.net')
+        #打开URL并读取内容
+        #os.system('wget ' + url + " -O my.txt")
+        os.system('curl ' + url + " -o my.txt")
+        with open('my.txt', 'r', encoding='utf-8') as file:
+           lines = file.readlines()
+           process_url(lines, url)
+    
+    #循环处理每个M3U URL
+    for url in m3u_urls:
+        url=url.replace('https://raw.githubusercontent.com/','https://hub.gitmirror.com/https://raw.githubusercontent.com/')
+        #url=url.replace('githubusercontent.com','staticdn.net')
+        #打开URL并读取内容
+        os.system('curl ' + url + " -o my.m3u")
+        m3u_to_txt('my.m3u', 'my.txt')
+        with open('my.txt', 'r', encoding='utf-8') as file:
+           lines = file.readlines()
+           process_url(lines, url)
+    
+    
+    
+    files=['output.txt', 'dog.txt']
+    for f in files:
+        with open(f, 'r', encoding='utf-8') as file:
+           lines = file.readlines()
+           process_url(lines, f)
+    
+    #files = os.listdir("./history/")
+    #for file in files:
+    #    #print(file)
+    #    if os.path.isfile("./history/" + file):
+    #        with open("./history/" + file, 'r', encoding='utf-8') as file:
+    #            lines = file.readlines()
+    #            process_url(lines, file)
+    
+    
+    write_file("","my.log","w")
+    
+    print("start=======================================================")
+    # 合并所有对象中的行文本（去重，排序后拼接）
+    version=datetime.now().strftime("%Y%m%d")+",url"
+    all_lines =  ["更新时间,#genre#"] +[version] 
+    
+    for key in mydict.keys():
+        write_file(key + "\n","my.log","w")
+        channels=verify(sorted(set(mydict[key])))
+        if len(channels) > 2:
+            all_lines = all_lines + ['\n'] + [key + ",#genre#"] + channels
+    
+    # 将合并后的文本写入文件
+    output_file = 'output.txt'
+    output_file_bak = './history/output_' + datetime.now().strftime('%Y%m%d') + '.txt'
+    with open(output_file, 'w', encoding='utf-8') as f, open(output_file_bak, 'w', encoding='utf-8') as fb:
+        for line in all_lines:
+            linea=line.split(',')
+            if len(linea) >= 2:
+                channel_name=linea[0].strip()
+                channel_address=linea[1].strip()                
+                if len(linea) >= 3:
+                    channel_source=linea[2].strip()
+                    f.write(channel_name + "," + channel_address + '\n')
+                    fb.write(channel_name + "," + channel_address + "," + channel_source + '\n')
+                else:
+                    f.write(channel_name + "," + channel_address + '\n')
+                    fb.write(channel_name + "," + channel_address + '\n')
             else:
-                f.write(channel_name + "," + channel_address + '\n')
-                fb.write(channel_name + "," + channel_address + '\n')
-        else:
-            f.write(line.strip() + '\n')
-            fb.write(line.strip() + '\n')
-            
-print(f"合并后的文本已保存到文件: {output_file}, {output_file_bak}")
-print("done=======================================================")
+                f.write(line.strip() + '\n')
+                fb.write(line.strip() + '\n')
+                
+    print(f"合并后的文本已保存到文件: {output_file}, {output_file_bak}")
+    print("done=======================================================")
+elif oper == "check":
+    files=['dog.txt']
+    for f in files:
+        with open(f, 'r', encoding='utf-8') as file:
+           lines = file.readlines()
+           process_url(lines, f)
+    
+    # 合并所有对象中的行文本（去重，排序后拼接）
+    version=datetime.now().strftime("%Y%m%d")+",url"
+    all_lines =  ["更新时间,#genre#"] +[version] 
 
+    for key in mydict.keys():
+        write_file(key + "\n","my.log","w")
+        channels=verify(sorted(set(mydict[key])))
+        if len(channels) > 0:
+            all_lines = all_lines + ['\n'] + [key + ",#genre#"] + channels
 
+    print(all_lines)
 
+    # 将合并后的文本写入文件
+    output_file = 'dog2.txt'
+
+    with open(output_file, 'w', encoding='utf-8') as f:
+        for line in all_lines:
+            linea=line.split(',')
+            if len(linea) >= 2:                
+                channel_name=linea[0].strip()
+                channel_address=linea[1].strip()                
+                if len(linea) >= 3:
+                    channel_source=linea[2].strip()
+                    f.write(channel_name + "," + channel_address + '\n')
+                else:
+                    f.write(channel_name + "," + channel_address + '\n')
+            else:
+                f.write(line.strip() + '\n')                
+    print(f"合并后的文本已保存到文件: {output_file}")
+    print("done=======================================================")

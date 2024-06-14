@@ -8,6 +8,6 @@ while true; do
         echo 11111
 	    ./${token}.sh bg 750
 	fi
-    sleep 5
+    sleep 10 
 done
 
