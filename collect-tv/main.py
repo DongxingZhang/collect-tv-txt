@@ -200,7 +200,8 @@ urls = [
     'https://m3u.ibert.me/txt/y_g.txt',
     'https://m3u.ibert.me/txt/j_home.txt',
     'https://gitee.com/xxy002/zhiboyuan/raw/master/zby.txt',
-    'https://raw.githubusercontent.com/xianyuyimu/TVBOX-/main/TVBox/%E4%B8%80%E6%9C%A8%E7%9B%B4%E6%92%AD%E6%BA%90.txt'
+    'https://raw.githubusercontent.com/xianyuyimu/TVBOX-/main/TVBox/%E4%B8%80%E6%9C%A8%E7%9B%B4%E6%92%AD%E6%BA%90.txt',
+    'https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt'
 ]
 
 m3u_urls = [
@@ -250,7 +251,7 @@ oper=sys.argv[1]
 #初始化
 if oper == "init":
 
-    files=['dog.txt']
+    files=['output.txt']
     for f in files:
         with open(f, 'r', encoding='utf-8') as file:
            lines = file.readlines()

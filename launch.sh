@@ -55,7 +55,7 @@ while true; do
     bash ./pb.sh "${mode}" "${rtmp_link}" "${rtmp_token}" "${token}" "${sheight}"
   elif [ "${mode:0:2}" = "bg" ]; then
     echo "background pushing"
-    nohup bash ./pb.sh "${mode}" "${rtmp_link}" "${rtmp_token}" "${token}" "${sheight}" > "${curdir}/log/${token}.log" &
+    nohup bash ./pb.sh "${mode}" "${rtmp_link}" "${rtmp_token}" "${token}" "${sheight}" >"${curdir}/log/${token}.log"  2>&1  &
   fi
   echo 启动完毕
   sleep 3
