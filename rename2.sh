@@ -11,7 +11,7 @@
             loop=`echo 0${loop}`
         fi
 
-        fullpath=../下载6/血荐轩辕/srt/		
+        fullpath=../下载6/血荐轩辕/srt/        
         echo mv "${fullpath}2004血荐轩辕${loop}.srt" "${fullpath}${loop}.srt" 
-		mv "${fullpath}2004血荐轩辕${loop}.srt" "${fullpath}${loop}.srt" 
+        mv "${fullpath}2004血荐轩辕${loop}.srt" "${fullpath}${loop}.srt" 
     done

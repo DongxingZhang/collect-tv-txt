@@ -58,7 +58,7 @@ stream_start(){
         cd $folder
         for video in $(ls *.mp4)
         do
-	ehoc ${video}
+    ehoc ${video}
         ffmpeg -re -i "$video" -i "$image" -filter_complex overlay=W-w-5:5 -c:v libx264 -c:a aac -b:a 192k -strict -2 -f flv ${rtmp}
         done
       done
@@ -71,10 +71,10 @@ stream_start(){
       do
         cd $folder
         video=$(find ./ -type f | shuf -n 1)
-	    echo $folder
-	    echo $video
+        echo $folder
+        echo $video
             #ffmpeg -re -i "$video" -preset ultrafast -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv ${rtmp}
-	    #low mem
+        #low mem
             ffmpeg -re -i "$video" -preset ultrafast -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv ${rtmp}
         done
     fi
@@ -82,9 +82,9 @@ stream_start(){
 
 # 停止推流
 stream_stop(){
-	screen -S stream -X quit
-	killall ffmpeg
-	}
+    screen -S stream -X quit
+    killall ffmpeg
+    }
 
 # 开始菜单设置
 echo -e "${yellow} CentOS7 X86_64 FFmpeg无人值守循环推流 For LALA.IM ${font}"
@@ -108,7 +108,7 @@ start_menu(){
         echo -e "${red} 请输入正确的数字 (1-3) ${font}"
         ;;
     esac
-	}
+    }
 
 # 运行开始菜单
 start_menu

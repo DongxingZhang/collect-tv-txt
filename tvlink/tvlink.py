@@ -15,10 +15,10 @@ from playwright.sync_api import Playwright, sync_playwright, expect
 excluded_resource_types = ["stylesheet", "image", "font"]
 
 def block_aggressively(route): 
-	if (route.request.resource_type in excluded_resource_types): 
-		route.abort() 
-	else: 
-		route.continue_()	
+    if (route.request.resource_type in excluded_resource_types): 
+        route.abort() 
+    else: 
+        route.continue_()    
 
 def search(playwright: Playwright, filename, keyword, mode) -> None:
     browser = playwright.chromium.launch(headless=False)

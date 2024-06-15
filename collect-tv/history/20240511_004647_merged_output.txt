@@ -733,7 +733,7 @@ CCTV-8K50,http://159.75.85.63:8654/xx8k50fps.php
 农林卫视,http://124.116.183.146:9901/tsfile/live/1004_1.m3u8
 凤凰卫视,http://210.210.155.37/uq2663/h/h157/index2.m3u8
 凤凰卫视,http://64.140.167.170:8080/live/xsjgat2/hls.m3u8
-北京卫视,	@@ -41,72 +37,68 @@ http://221.213.43.82:8888/newlive/live/hls/20/live.m3u8
+北京卫视,    @@ -41,72 +37,68 @@ http://221.213.43.82:8888/newlive/live/hls/20/live.m3u8
 北京卫视,http://113.128.226.58:8888/newlive/live/hls/24/live.m3u8
 北京卫视,http://116.135.12.132:1099/tsfile/live/0130_2.m3u8?key=txiptv&playlive=0&authid=0
 北京卫视,http://117.10.59.110:8888/newlive/live/hls/16/live.m3u8
