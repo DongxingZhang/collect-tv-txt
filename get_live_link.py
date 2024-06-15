@@ -11,10 +11,12 @@ def run(playwright, link):
     def intercept_request(route, request):
         #if request.url.startswith(regx):
         if ".flv" in request.url or ".m3u" in request.url or ".m3u8" in request.url:
-            print(f"拦截到的请求: {request.url}") 
-            route.abort("aborted")
+            print(f"拦截到的请求: {request.url}")            
             if link.startswith("https://www.yy.com/") and request.url.startswith("https://aliyun-flv-ipv6.yy.com/live/"):
                 write_file(request.url, "route.txt","w")
+            elif link.startswith("https://live.bilibili.com/") and ".bilivideo.com/live-bvc/" in request.url and request.url.startswith("https://d1--cn-gotcha"):
+                write_file(request.url, "route.txt","w")
+            route.abort("aborted")
         else:
             route.continue_()
     page.route("**/*", intercept_request)

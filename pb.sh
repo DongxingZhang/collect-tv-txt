@@ -207,9 +207,10 @@ stream_play_main() {
 
 	#获取链接的地址
         if [[ ${videopath} =~ ^http ]] || [[ ${videopath} =~ ^rtmp ]]; then
-	    for i in 1 2 3 4
-	    do
+	    for i in 1 2 3 4 5 6
+	    do		        
                 pgrep get_live_link.py | xargs kill -s 9
+				echo videopath=${videopath}
                 python3 get_live_link.py "${videopath}"
                 videopath=$(cat "route.txt")
                 if [ "${videopath}" != "" ]; then
@@ -579,7 +580,7 @@ stream_play_main() {
 	if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
 		kill_app "${rtmp}" "${FFMPEG}"
 		echo ${FFMPEG} -re -loglevel "${logging}" -i "${videopath}" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vsync 1 -async 1  -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -ac 1 -ar 48000 -strict -2 -f flv -y "${rtmp}"
-		${FFMPEG} -re -loglevel "${logging}" -i "${videopath}" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vsync 1 -async 1  -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -ac 1 -ar 48000 -strict -2 -f flv -y "${rtmp}"
+		${FFMPEG} -re -i "${videopath}" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vsync 1 -async 1  -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -ac 1 -ar 48000 -strict -2 -f flv -y "${rtmp}"
 		#ffmpeg  -timeout 30000000  -i http://39.134.65.164/PLTV/88888888/224/3221225569/1.m3u8 -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y  rtmp://www.tomandjerry.work/live/livestream
 		echo finished playing $videopath
 	fi
@@ -972,8 +973,7 @@ ffmpeg_init() {
 #开始播放
 stream_start() {
 	play_mode=$1
-	while true; do	
-	    echo ===start====================================================================================
+	while true; do
 	    echo "播放模式:${play_mode}" > "${ffmpeglog}"
 		ffmpeg_init
 		period=$(need_waiting)
@@ -989,10 +989,12 @@ stream_start() {
 			if [ "${next_period}" != "${period}" ]; then
 			    break
 		    fi
-		done		
-		break		
-		echo ===end====================================================================================
-		sleep 5
+			if [[ ${next} =~ ^http ]] || [[ ${next} =~ ^rtmp ]]; then
+			    continue
+			else
+			    break
+			fi
+		done
 	done
 }
 

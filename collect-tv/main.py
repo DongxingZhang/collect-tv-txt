@@ -45,48 +45,36 @@ def process_part(part_str):
     return part_str
 
 
-def verify_link(link):
-    headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'}
-    se=requests.Session()     
-    now=time.time()
-    try:
-        startTime = int(round(time.time() * 1000))
-        res=se.get(link,headers=headers,timeout=8,stream=True)
-        if res.status_code == 200:
-            for k in res.iter_content(chunk_size=500000):
-                endTime = int(round(time.time() * 1000))
-                useTime = int(endTime - startTime)
-                if k and useTime <= 5000:
-                    return verify_link2(link)
-                elif useTime > 5000:
-                    return False
-                else:
-                    continue
-    except Exception:
-        pass
-    return False
+#def verify_link2(link):
+#    headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'}
+#    now=time.time()
+#    try:
+#        startTime = int(round(time.time() * 1000))
+#        res=requests.get(link,headers=headers,timeout=5,stream=True)
+#        if res.status_code == 200:
+#            for k in res.iter_content(chunk_size=500000):
+#                endTime = int(round(time.time() * 1000))
+#                useTime = int(endTime - startTime)
+#                if k and useTime <= 5000:
+#                    return verify_link2(link)
+#                elif useTime > 5000:
+#                    return False
+#                else:
+#                    continue
+#    except Exception:
+#        pass
+#    return False
 
-def verify_link2(link):
+def verify_link(link):
     try:
-        probe = ffmpeg.probe(link)
-        cap_info = next(x for x in probe['streams'] if x['codec_type'] == 'video')
-        print("fps: {}".format(cap_info['r_frame_rate']))
-        width = cap_info['width']           # 获取视频流的宽度
-        height = cap_info['height']         # 获取视频流的高度
-        up, down = str(cap_info['r_frame_rate']).split('/')
-        fps = eval(up) / eval(down)
-        print("fps: {}".format(fps))
         ffmpeg_command = 'ffmpeg -i "' + link + '" -vf "select=\'eq(n,0)\'" -vframes 1 -y output.jpg'
         print(ffmpeg_command)
         process = subprocess.Popen(ffmpeg_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)  
         stdout, stderr = process.communicate(timeout=5)
         if process.returncode == 0:  
             print("=== ffmpeg转码完成 ====")    
-            print(stdout.decode())
             return True                     
         else:
-            print("=== 转换失败！=== ")
-            print(stderr.decode())
             return False
     except:
         return False
@@ -112,9 +100,11 @@ def check_exclude(ctype):
 
 def check_exists(link):
     global mydict
-    for value in mydict.values():
-        if link in value:
-            return True
+    for values in mydict.values():
+        for line in values:
+            channel_address=line.split(",")[1]
+            if link == channel_address:
+                return True
     return False    
     
 
@@ -210,6 +200,7 @@ urls = [
     'https://m3u.ibert.me/txt/y_g.txt',
     'https://m3u.ibert.me/txt/j_home.txt',
     'https://gitee.com/xxy002/zhiboyuan/raw/master/zby.txt',
+    'https://raw.githubusercontent.com/xianyuyimu/TVBOX-/main/TVBox/%E4%B8%80%E6%9C%A8%E7%9B%B4%E6%92%AD%E6%BA%90.txt'
 ]
 
 m3u_urls = [
@@ -238,22 +229,33 @@ m3u_urls = [
 mydict = {}
 
 chtype={}
-chtype['卫视频道']=['卫视频道', '卫视', '•卫视「IPV6」', '卫视台']
-chtype['央视频道']=['央视频道', 'CCTV', '数字频道', '综合', '央视', '数字', '•央视「IPV6」', '央视台', '数字电视', '央视其他']
-chtype['港澳台']=['港台', '港·澳·台', '港澳频道', '台湾频道', '港澳台', '凤凰', '香港']
-chtype['4K频道']=['4K', '4K频道']
-#chtype['世界']=['世界', '国际台', '国际']
+chtype['卫视频道']=['🇨🇳｜卫视频道', '🇨🇳｜卫视蓝光频道', '卫视频道', '卫视', '•卫视「IPV6」', '卫视台']
+chtype['央视频道']=['🇨🇳｜央视频道', '央视频道', 'CCTV', '数字频道', '综合', '央视', '数字', '•央视「IPV6」', '央视台', '数字电视', '央视其他']
+chtype['港澳台']=['港台', '🇨🇳｜港澳台', '港·澳·台', '港澳频道', '台湾频道', '港澳台', '凤凰', '香港']
+chtype['4K频道']=['4K', '4K频道', '🇨🇳｜蓝光频道']
+chtype['体育频道']=['🇨🇳｜体育频道', '体育频道']
 chtype['春晚']=['春晚', '历年春晚', '历届春晚']
 chtype['NEWTV']=['NEWTV', '•NewTV「IPV6」']
+chtype['少儿动画']=['🇨🇳｜少儿动画', '少儿动画']
+chtype['电台']=['🇨🇳•电台', '电台']
+chtype['少儿动画']=['🇨🇳｜港澳台', '🇨🇳｜港澳台']
 
 
-excludetype=['玩偶', '麻豆-MSD', 'rostelekom', '胡志良', 'Adult', '成人点播', '日本', '欧美', '肥羊', '更新时间', 'YouTube', '特色频道', '埋推推', '解说频道', '虎牙斗鱼', '•游戏赛事']
+
+excludetype=['玩偶', '麻豆-MSD', 'rostelekom', '胡志良', 'Adult', '成人点播', '日本', '欧美', '肥羊', '更新时间', 'YouTube', '特色频道', '埋推推', '解说频道', '虎牙斗鱼', '•游戏赛事', '春晚', '历年春晚', '历届春晚', 'BESTV']
 
 import sys
 oper=sys.argv[1]
 
 #初始化
 if oper == "init":
+
+    files=['dog.txt']
+    for f in files:
+        with open(f, 'r', encoding='utf-8') as file:
+           lines = file.readlines()
+           process_url(lines, f)
+
     #循环处理每个URL
     for url in urls:
         url=url.replace('https://raw.githubusercontent.com/','https://hub.gitmirror.com/https://raw.githubusercontent.com/')
@@ -275,14 +277,7 @@ if oper == "init":
         with open('my.txt', 'r', encoding='utf-8') as file:
            lines = file.readlines()
            process_url(lines, url)
-    
-    
-    
-    files=['output.txt', 'dog.txt']
-    for f in files:
-        with open(f, 'r', encoding='utf-8') as file:
-           lines = file.readlines()
-           process_url(lines, f)
+
     
     #files = os.listdir("./history/")
     #for file in files:
@@ -329,7 +324,7 @@ if oper == "init":
     print(f"合并后的文本已保存到文件: {output_file}, {output_file_bak}")
     print("done=======================================================")
 elif oper == "check":
-    files=['dog.txt']
+    files=['output.txt']
     for f in files:
         with open(f, 'r', encoding='utf-8') as file:
            lines = file.readlines()
@@ -348,7 +343,7 @@ elif oper == "check":
     print(all_lines)
 
     # 将合并后的文本写入文件
-    output_file = 'dog2.txt'
+    output_file = 'dog.txt'
 
     with open(output_file, 'w', encoding='utf-8') as f:
         for line in all_lines:
