@@ -66,18 +66,22 @@ def process_part(part_str):
 #    return False
 
 def verify_link(link):
+    useTime = -1
     try:
+        startTime = int(round(time.time() * 1000))
         ffmpeg_command = 'ffmpeg -i "' + link + '" -vf "select=\'eq(n,0)\'" -vframes 1 -y output.jpg'
         print(ffmpeg_command)
         process = subprocess.Popen(ffmpeg_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)  
         stdout, stderr = process.communicate(timeout=5)
-        if process.returncode == 0:  
+        if process.returncode == 0:
+            endTime = int(round(time.time() * 1000))
+            useTime = int(endTime - startTime)
             print("=== ffmpeg转码完成 ====")    
-            return True                     
+            return useTime
         else:
-            return False
+            return useTime
     except:
-        return False
+        return useTime
 
 def write_file(str,filename, mode):
     with open(filename, mode, encoding='utf-8') as file:
@@ -152,23 +156,33 @@ def process_url(lines, url):
 
 
 def verify(lines):
-    lines2=[]
+    sub_channel={}
     for line in lines:
         linesa=line.split(',')
         if len(linesa)<2:
             continue
         channel_name=linesa[0].strip()
         channel_address=linesa[1].strip()
-        if verify_link(channel_address):
-            lines2.append(line)
-    return lines2
-
+        useTime = verify_link(channel_address)
+        if useTime > -1:
+            if channel_name not in sub_channel.keys():
+                sub_channel[channel_name]=[]
+            sub_channel[channel_name].append([channel_name, channel_address, useTime])
+    for k in sub_channel.keys():
+        sub_channel[k]=sorted(sub_channel[k], key=lambda t: t[2])
+    ch_name_list=sorted(sub_channel.keys())
+    print(ch_name_list)
+    channel_list = []
+    for ch in ch_name_list:
+        channel_list = channel_list + [ item_list[0] + ',' + item_list[1] + ',' + str(item_list[2]) for item_list in sub_channel[ch]]
+    return channel_list
 
 # 定义一个函数，提取每行中逗号前面的数字部分作为排序的依据
 def extract_number(s):
     num_str = s.split(',')[0].split('-')[1]  # 提取逗号前面的数字部分
     numbers = re.findall(r'\d+', num_str)   #因为有+和K
     return int(numbers[-1]) if numbers else 999
+
 # 定义一个自定义排序函数
 def custom_sort(s):
     if "CCTV-4K" in s:
@@ -251,7 +265,7 @@ oper=sys.argv[1]
 #初始化
 if oper == "init":
 
-    files=['output.txt']
+    files=['dog.txt', 'output.txt']
     for f in files:
         with open(f, 'r', encoding='utf-8') as file:
            lines = file.readlines()
@@ -299,7 +313,7 @@ if oper == "init":
     for key in mydict.keys():
         write_file(key + "\n","my.log","w")
         channels=verify(sorted(set(mydict[key])))
-        if len(channels) > 2:
+        if len(channels) > 0:
             all_lines = all_lines + ['\n'] + [key + ",#genre#"] + channels
     
     # 将合并后的文本写入文件
@@ -339,6 +353,7 @@ elif oper == "check":
         write_file(key + "\n","my.log","w")
         channels=verify(sorted(set(mydict[key])))
         if len(channels) > 0:
+            print(channels)
             all_lines = all_lines + ['\n'] + [key + ",#genre#"] + channels
 
     print(all_lines)
