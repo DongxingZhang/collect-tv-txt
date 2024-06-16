@@ -211,8 +211,8 @@ stream_play_main() {
         do                
                 pgrep get_live_link.py | xargs kill -s 9
                 echo videopath=${videopath}
-                python3 get_live_link.py "${videopath}"
-                videopath=$(cat "route.txt")
+                python3 get_live_link.py "${videopath}" "./log/${token}_route.txt"
+                videopath=$(cat "./log/${token}_route.txt")
                 if [ "${videopath}" != "" ]; then
                     break   
                 fi
@@ -333,9 +333,9 @@ stream_play_main() {
         echo division=${division}
         mapv="[3:v:0]loop=loop=${division}:size=${framecount2}:start=0[mapvvv];[mapvvv]"
         if [ $(expr ${division} \> 0.99) -eq 1 ]; then
-            mapv="[3:v:0]setpts=${division}*PTS[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5:eval=frame[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
+            mapv="[3:v:0]setpts=${division}*PTS[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/4:$size_height/4:eval=frame[pic];[mapvvv][pic]overlay=$size_width*14/20:$size_height*14/20[mapv4];[mapv4]"
         else
-            mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/5:$size_height/5:eval=frame[pic];[mapvvv][pic]overlay=$size_width*15/20:$size_height*15/20[mapv4];[mapv4]"
+            mapv="[3:v:0]trim=start=5:duration=${duration_audio}[mapvvv];[0:v:0]format=yuva444p,colorchannelmixer=aa=0.9,scale=$size_width/4:$size_height/4:eval=frame[pic];[mapvvv][pic]overlay=$size_width*14/20:$size_height*14/20[mapv4];[mapv4]"
         fi
         backgroundv="[3:v:0]"
     else
@@ -580,7 +580,7 @@ stream_play_main() {
     if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
         kill_app "${rtmp}" "${FFMPEG}"
         echo ${FFMPEG} -re -loglevel "${logging}" -i "${videopath}" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vsync 1 -async 1  -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -ac 1 -ar 48000 -strict -2 -f flv -y "${rtmp}"
-        ${FFMPEG} -re -i "${videopath}" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vsync 1 -async 1  -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -ac 1 -ar 48000 -strict -2 -f flv -y "${rtmp}"
+        ${FFMPEG} -re -i "${videopath}" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vsync 1 -async 1 -fflags discardcorrupt -err_detect aggressive -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -ac 1 -ar 48000 -strict -2 -f flv -y "${rtmp}"
         #ffmpeg  -timeout 30000000  -i http://39.134.65.164/PLTV/88888888/224/3221225569/1.m3u8 -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y  rtmp://www.tomandjerry.work/live/livestream
         echo finished playing $videopath
     fi
@@ -989,7 +989,9 @@ stream_start() {
             if [ "${next_period}" != "${period}" ]; then
                 break
             fi
-            if [[ ${next} =~ ^http ]] || [[ ${next} =~ ^rtmp ]]; then
+            http_check=$(echo "${next}" | grep "|http" | head -1)
+            rtmp_check=$(echo "${next}" | grep "|rtmp" | head -1)
+            if [[ ${http_check} != "" ]] || [[ ${rtmp_check} != "" ]]; then
                 continue
             else
                 break

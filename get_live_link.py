@@ -2,7 +2,7 @@
 import time
 from playwright.sync_api import sync_playwright
 # 这是一个示例函数，用于演示如何使用Playwright的自定义拦截器
-def run(playwright, link):
+def run(playwright, link, routef):
     # 启动浏览器
     #browser = playwright.chromium.launch(headless=False)  # headless=False 表示显示浏览器窗口
     browser = playwright.firefox.launch(headless=True)  # headless=False 表示显示浏览器窗口
@@ -13,9 +13,9 @@ def run(playwright, link):
         if ".flv" in request.url or ".m3u" in request.url or ".m3u8" in request.url:
             print(f"拦截到的请求: {request.url}")            
             if link.startswith("https://www.yy.com/") and request.url.startswith("https://aliyun-flv-ipv6.yy.com/live/"):
-                write_file(request.url, "route.txt","w")
+                write_file(request.url, routef,"w")
             elif link.startswith("https://live.bilibili.com/") and ".bilivideo.com/live-bvc/" in request.url and request.url.startswith("https://d1--cn-gotcha"):
-                write_file(request.url, "route.txt","w")
+                write_file(request.url, routef,"w")
             route.abort("aborted")
         else:
             route.continue_()
@@ -34,8 +34,9 @@ def write_file(str,filename, mode):
 
 import sys
 link=sys.argv[1]
-write_file("", "route.txt","w")
+routef=sys.argv[2]
+write_file("", routef,"w")
 # 运行Playwright
 with sync_playwright() as p:
-    run(p, link)
+    run(p, link, routef)
 
