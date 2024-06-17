@@ -152,14 +152,14 @@ def process_url(mydict, lines, url):
                 channel_type=get_channel_type(get_uniq_type(channel_type))
                 continue
             if  "#genre#" not in line and "," in line and ":" in line:
-                channel_name=line.split(',')[0].strip()
+                channel_name=remove_brackets(line.split(',')[0].strip())
                 channel_address=line.split(',')[1].strip()
                 if len(channel_name) == 0 or check_exclude(channel_type) or check_exists(mydict, channel_address):
                     continue
                 if channel_type not in mydict.keys():
                     mydict[channel_type] = []
                 write_file(line.strip() + "\n","my.log","w")
-                mydict[channel_type].append(process_name_string(line.strip()))
+                mydict[channel_type].append(process_name_string(channel_name + "," + channel_address))
                 continue
     except Exception as e:
         print(f"处理URL时发生错误：{e}")
@@ -179,7 +179,7 @@ def process_tvname_url(mydict, lines, url):
             if  "#genre#" in line and "," in line:
                 continue
             if  "#genre#" not in line and "," in line and ":" in line:
-                channel_name=line.split(',')[0].strip()
+                channel_name=remove_brackets(line.split(',')[0].strip())
                 channel_address=line.split(',')[1].strip()
                 if len(channel_name) == 0 or check_exists(mydict, channel_address):
                     continue
@@ -195,7 +195,7 @@ def process_tvname_url(mydict, lines, url):
                 if channel_type not in mydict.keys():
                     mydict[channel_type] = []
                 write_file(line.strip() + "\n","my.log","w")
-                mydict[channel_type].append(process_name_string(line.strip()))
+                mydict[channel_type].append(process_name_string(channel_name + "," + channel_address))
                 continue
     except Exception as e:
         print(f"处理URL时发生错误：{e}")
@@ -254,6 +254,10 @@ def custom_sort(s):
     else:
         return 0  # 其他字符串保持原顺序
 
+import re
+ 
+def remove_brackets(s):
+    return re.sub(r'\[.*?\]|{.*}|\(.*\)', '', s)
 
 #####开始#################################
 
@@ -306,11 +310,18 @@ chtype['少儿动画']=['🇨🇳｜港澳台', '🇨🇳｜港澳台']
 excludetype=['玩偶', '麻豆-MSD', 'rostelekom', '胡志良', 'Adult', '成人点播', '日本', '欧美', '肥羊', '更新时间', 'YouTube', '特色频道', '埋推推', '解说频道', '虎牙斗鱼', '•游戏赛事', '春晚', '历年春晚', '历届春晚', 'BESTV']
 
 import sys
-oper=sys.argv[1]
+
+if len(sys.argv)==1:
+    print("使用方法：")
+    print("       python3 main.py init           #初始化并验证github频道列表")
+    print("       python3 main.py checkvalid     #检查频道源有效频道数")
+    print("       python3 main.py epgpw download #下载并验证epg.pw频道列表") 
+    print("       python3 main.py epgpw skip     #不下载并验证epg.pw频道列表") 
+    sys.exit()
 
 write_file("","my.log","w")
-
 #初始化
+oper=sys.argv[1]
 if oper == "init":
 
     files=['dog.txt', 'output.txt']
@@ -468,13 +479,6 @@ elif oper == "checkvalid":
                    #print(line)
                    valid_count = valid_count + 1
             print(url + ": " + str(valid_count))
-            
-#elif oper == "convert":
-#    file_name=sys.argv[2]
-#    with open(file_name, 'r', encoding='utf-8') as file, open(file_name + ".sim", 'w', encoding='utf-8') as sfile:
-#        lines = file.readlines()
-#        for line in lines:            
-#            sfile.write(tra_sim_convert(line))
     
 elif oper == "epgpw":
     skipdownload=sys.argv[2]
@@ -566,5 +570,5 @@ elif oper == "epgpw":
                     fmysite.write(channel_name + "," + channel_address + '\n')
             else:
                 f.write(line.strip() + '\n')                
-    print(f"合并后的文本已保存到文件: {output_file}")
+    print(f"合并后的文本已保存到文件: {output_file} {output_mysite_file}")
 
