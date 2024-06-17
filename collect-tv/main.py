@@ -11,6 +11,7 @@ import ffmpeg
 import numpy as np
 import subprocess
 from bs4 import BeautifulSoup
+import zhconv
 
 def time_str(fmt=None):
     if fmt is None:
@@ -44,6 +45,11 @@ def process_part(part_str):
         return result_str
     
     return part_str
+
+
+
+def tra_sim_convert(text): 
+    return zhconv.convert(text, 'zh-hant')
 
 
 #def verify_link2(link):
@@ -112,6 +118,24 @@ def check_exists(mydict, link):
                 return True
     return False    
     
+type_mapping = {
+    "Entertainment" : "綜藝",
+    "Generic" : "綜合",
+    "Kids" : "兒童",
+    "Knowledge" : "知識",
+    "Movies" : "電影",
+    "News" : "新聞",
+    "Other" : "其它",
+    "Sports" : "運動",
+    "Music" : "音乐",
+}
+
+def get_channel_type(type_name):
+    if type_name in type_mapping.keys():
+        return type_mapping[type_name]
+    else:
+        return type_name
+
 
 def process_url(mydict, lines, url):     
     try:
@@ -125,7 +149,7 @@ def process_url(mydict, lines, url):
                 continue
             if  "#genre#" in line and "," in line:
                 channel_type=line.split(",")[0].strip()
-                channel_type=get_uniq_type(channel_type)
+                channel_type=get_channel_type(get_uniq_type(channel_type))
                 continue
             if  "#genre#" not in line and "," in line and ":" in line:
                 channel_name=line.split(',')[0].strip()
@@ -163,8 +187,11 @@ def process_tvname_url(mydict, lines, url):
                     channel_type="央视频道"
                 elif "卫视" in channel_name.upper() or "衛視" in channel_name.upper():
                     channel_type="卫视频道"
+                elif "中天" in channel_name.upper():
+                    channel_type="綜合"
                 else:
                     channel_type="未分类"
+                channel_type=get_channel_type(channel_type)
                 if channel_type not in mydict.keys():
                     mydict[channel_type] = []
                 write_file(line.strip() + "\n","my.log","w")
@@ -336,8 +363,8 @@ if oper == "init":
             all_lines = all_lines + ['\n'] + [key + ",#genre#"] + channels
     
     # 将合并后的文本写入文件
-    output_file = 'output.txt'
-    output_file_bak = './history/output_' + datetime.now().strftime('%Y%m%d') + '.txt'
+    output_file = '../../mysite/dog.txt'
+    output_file_bak = './history/dog_' + datetime.now().strftime('%Y%m%d') + '.txt'
     with open(output_file, 'w', encoding='utf-8') as f, open(output_file_bak, 'w', encoding='utf-8') as fb:
         for line in all_lines:
             linea=line.split(',')
@@ -347,7 +374,7 @@ if oper == "init":
                 if len(linea) >= 3:
                     channel_source=linea[2].strip()
                     f.write(channel_name + "," + channel_address + '\n')
-                    fb.write(channel_name + "," + channel_address + "," + channel_source + '\n')
+                    fb.write(channel_name + "," + channel_address + '\n')
                 else:
                     f.write(channel_name + "," + channel_address + '\n')
                     fb.write(channel_name + "," + channel_address + '\n')
@@ -441,8 +468,14 @@ elif oper == "checkvalid":
                    #print(line)
                    valid_count = valid_count + 1
             print(url + ": " + str(valid_count))
-elif oper == "verify":
-    verify_link('https://stream.freetv.fun/gln-tv-1.m3u8')
+            
+#elif oper == "convert":
+#    file_name=sys.argv[2]
+#    with open(file_name, 'r', encoding='utf-8') as file, open(file_name + ".sim", 'w', encoding='utf-8') as sfile:
+#        lines = file.readlines()
+#        for line in lines:            
+#            sfile.write(tra_sim_convert(line))
+    
 elif oper == "epgpw":
     skipdownload=sys.argv[2]
     all_types=['中國大陸', '频道不符合任何EPG', '台灣', '香港', '澳門', '美國', '新加坡', '英國', '澳大利亞', '加拿大', '新西蘭']
@@ -473,6 +506,15 @@ elif oper == "epgpw":
         for key, value in all_links.items():
             print(key + " : " + value + "\n")
 
+    #中国大陆
+    china_main=['中國大陸']
+    files=[file_prefix + type + ".txt" for type in  china_main]
+    print(files)
+    for f in files:
+        with open(f, 'r', encoding='utf-8') as file:
+            lines = file.readlines()
+            process_tvname_url(mydict, lines, f)
+
     #港澳台世界
     gat_types=['台灣', '香港', '澳門', '美國', '新加坡', '英國', '澳大利亞', '加拿大', '新西蘭']
     mydict={}
@@ -482,6 +524,15 @@ elif oper == "epgpw":
         with open(f, 'r', encoding='utf-8') as file:
             lines = file.readlines()
             process_url(mydict, lines, f)
+    
+    #其他
+    unclassfied=['频道不符合任何EPG']
+    files=[file_prefix + type + ".txt" for type in unclassfied]
+    print(files)
+    for f in files:
+        with open(f, 'r', encoding='utf-8') as file:
+            lines = file.readlines()
+            process_tvname_url(mydict, lines, f)
     
     # 合并所有对象中的行文本（去重，排序后拼接）
     version=datetime.now().strftime("%Y%m%d")+",url"
@@ -497,9 +548,10 @@ elif oper == "epgpw":
     print(all_lines)
 
     # 将合并后的文本写入文件
-    output_file = 'output_gat.txt'
+    output_file = './history/gat_epgpw_' + datetime.now().strftime('%Y%m%d') + '.txt' 
+    output_mysite_file = "../../mysite/gat.txt"
 
-    with open(output_file, 'w', encoding='utf-8') as f:
+    with open(output_file, 'w', encoding='utf-8') as f, open(output_mysite_file, 'w', encoding='utf-8') as fmysite:
         for line in all_lines:
             linea=line.split(',')
             if len(linea) >= 2:
@@ -508,55 +560,11 @@ elif oper == "epgpw":
                 if len(linea) >= 3:
                     channel_source=linea[2].strip()
                     f.write(channel_name + "," + channel_address + '\n')
+                    fmysite.write(channel_name + "," + channel_address + '\n')
                 else:
                     f.write(channel_name + "," + channel_address + '\n')
+                    fmysite.write(channel_name + "," + channel_address + '\n')
             else:
                 f.write(line.strip() + '\n')                
     print(f"合并后的文本已保存到文件: {output_file}")
-
-
-    #中国大陆和其他
-    china_main=['中國大陸', '频道不符合任何EPG']
-    mydict={}
-    files=[file_prefix + type + ".txt" for type in  china_main]
-    print(files)
-    for f in files:
-        with open(f, 'r', encoding='utf-8') as file:
-            lines = file.readlines()
-            process_tvname_url(mydict, lines, f)
-
-    # 合并所有对象中的行文本（去重，排序后拼接）
-    version=datetime.now().strftime("%Y%m%d")+",url"
-    all_lines =  ["更新时间,#genre#"] +[version] 
-
-    for key in mydict.keys():
-        write_file(key + "\n","my.log","w")
-        channels=verify(sorted(set(mydict[key])))
-        if len(channels) > 0:
-            print(channels)
-            all_lines = all_lines + ['\n'] + [key + ",#genre#"] + channels
-
-    print(all_lines)
-
-    # 将合并后的文本写入文件
-    output_file = 'output_china_main.txt'
-
-    with open(output_file, 'w', encoding='utf-8') as f:
-        for line in all_lines:
-            linea=line.split(',')
-            if len(linea) >= 2:
-                channel_name=linea[0].strip()
-                channel_address=linea[1].strip()                
-                if len(linea) >= 3:
-                    channel_source=linea[2].strip()
-                    f.write(channel_name + "," + channel_address + '\n')
-                else:
-                    f.write(channel_name + "," + channel_address + '\n')
-            else:
-                f.write(line.strip() + '\n')                
-    print(f"合并后的文本已保存到文件: {output_file}")
-    print("done=======================================================")
-
-
-
 

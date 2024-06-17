@@ -13,8 +13,6 @@
 Entertainment,#genre#
 Channel U,https://stream.freetv.fun/channel-u-1.ctv
 Channel U,https://stream.freetv.fun/channel-u-2.ctv
-HUB都會,https://stream.freetv.fun/hubdu-hui-1.ctv
-HUB都會,https://stream.freetv.fun/hubdu-hui-2.ctv
 Mediacorp Suria,https://stream.freetv.fun/mediacorp-suria-1.ctv
 Mediacorp Suria,https://stream.freetv.fun/mediacorp-suria-2.ctv
 Generic,#genre#
@@ -27,6 +25,7 @@ Channel 5,https://stream.freetv.fun/dc-council-channel-1.m3u8
 DIVA Universal,https://stream.freetv.fun/tv-universal-1.m3u8
 Suria[geo-blocked],https://stream.freetv.fun/suria-fm-1.m3u8
 Kids,#genre#
+Animax Asia,https://stream.freetv.fun/animax-3.ctv
 Miao Mi TV,https://stream.freetv.fun/miami-tv-1.m3u8
 Movies,#genre#
 AXN,https://stream.freetv.fun/axn-9.ctv
@@ -55,10 +54,11 @@ Channel 8,https://stream.freetv.fun/zainabia-channel-1.m3u8
 Channel 8,https://stream.freetv.fun/cooking-channel-1.ctv
 Channel 8,https://stream.freetv.fun/xi-la-ionian-channel-1.m3u8
 Channel 8,https://stream.freetv.fun/bso-channel-1.m3u8
+Channel 8,https://stream.freetv.fun/channel-8-3.ctv
 Channel 8,https://stream.freetv.fun/calabasas-channel-1.m3u8
-Channel 8,https://stream.freetv.fun/magna-channel-1.m3u8
+Channel 8[geo-blocked],https://stream.freetv.fun/magna-channel-1.m3u8
 Channel 8[geo-blocked],https://stream.freetv.fun/expo-channel-1.m3u8
-Channel 8,https://stream.freetv.fun/magna-channel-2.m3u8
+Channel 8[geo-blocked],https://stream.freetv.fun/magna-channel-2.m3u8
 Channel 8[geo-blocked],https://stream.freetv.fun/lakewood-channel-8-1.m3u8
 Channel 8,https://stream.freetv.fun/ch-ng-channel-neco-1.m3u8
 Channel 8,https://stream.freetv.fun/ch-ng-tabi-channel-1.m3u8
@@ -68,6 +68,7 @@ Channel 8[geo-blocked],https://stream.freetv.fun/the-lego-channel-2.ctv
 Channel 8[geo-blocked],https://stream.freetv.fun/dove-channel-3.m3u8
 Channel 8,https://stream.freetv.fun/ch-ng-green-channel-1.m3u8
 Channel 8,https://stream.freetv.fun/cable-channel-37-1.m3u8
+Channel 8[geo-blocked],https://stream.freetv.fun/on-e-channel-1.m3u8
 Channel 8,https://stream.freetv.fun/xi-la-ionian-channel-2.m3u8
 Channel 8,https://stream.freetv.fun/bso-channel-2.m3u8
 Channel 8,https://stream.freetv.fun/ch-ng-hunt-channel-1.m3u8
@@ -99,6 +100,7 @@ HITS,https://stream.freetv.fun/pinoy-hits-1.ctv
 HITS Movies,https://stream.freetv.fun/hits-movies-1.ctv
 HITS Movies,https://stream.freetv.fun/hits-movies-2.ctv
 HITS Movies,https://stream.freetv.fun/hitsmovies-1.ctv
+HITS Movies,https://stream.freetv.fun/hits-movies-3.ctv
 HITS Movies,https://stream.freetv.fun/hitsmovies-2.ctv
 HITS Movies,https://stream.freetv.fun/ph-hits-movies-1.ctv
 Okto[geo-blocked],https://stream.freetv.fun/okto-tv-1.m3u8
@@ -112,6 +114,7 @@ CNA,https://stream.freetv.fun/cna-2.m3u8
 CNA,https://stream.freetv.fun/cna-3.m3u8
 CNA,https://stream.freetv.fun/cna-4.m3u8
 CNA,https://stream.freetv.fun/cna-5.m3u8
+CNA,https://stream.freetv.fun/cna-6.ctv
 News CNA,https://stream.freetv.fun/cnanews-hd-xin-jia-po-1.m3u8
 News CNA,https://stream.freetv.fun/cnanews-hd-xin-jia-po-2.m3u8
 NewsAsia,https://stream.freetv.fun/channel-newsasia-1.m3u8
@@ -122,17 +125,10 @@ History Channel,https://stream.freetv.fun/history-channel-5.m3u8
 MOB TV,https://stream.freetv.fun/m2o-tv-1.m3u8
 亞洲美食臺[geo-blocked],https://stream.freetv.fun/ya-zhou-mei-shi-1.m3u8
 Sports,#genre#
-HUB Sport 1,https://stream.freetv.fun/hubsports-1-1.ctv
-HUB Sport 1,https://stream.freetv.fun/hubsports-1-2.ctv
-HUB Sports1,https://stream.freetv.fun/hubsports3-2.ctv
-HUB Sports2,https://stream.freetv.fun/hubsports2-1.ctv
-HUB Sports2,https://stream.freetv.fun/hubsports3-1.ctv
-HUB Sports2,https://stream.freetv.fun/hubsports2-2.ctv
-HUBPREMIER EFL 1,https://stream.freetv.fun/hubpremier-5-1.ctv
 HUBPREMIER EFL 1,https://stream.freetv.fun/hubpremier-4-1.ctv
-HUBPREMIER EFL 2,https://stream.freetv.fun/hubpremier-5-2.ctv
 HUBPREMIER EFL 2,https://stream.freetv.fun/hubpremier-4-2.ctv
 Hub Sport 2,https://stream.freetv.fun/sport-2u-1.m3u8
 SPOTV Stadia,https://stream.freetv.fun/sixx-1.m3u8
+SPOTV Stadia,https://stream.freetv.fun/spotv-stadia-1.ctv
 SPOTV2 Stadia,https://stream.freetv.fun/radio-shanson-1.m3u8
 SPOTV2 Stadia,https://stream.freetv.fun/tv-aldeia-2.m3u8

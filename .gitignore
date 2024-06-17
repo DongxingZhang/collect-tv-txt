@@ -3,4 +3,7 @@ sub/
 list/.pd.txt
 nohup.out
 log/
-
+collect-tv/epgpw.log
+collect-tv/output.jpg
+collect-tv/my.log
+live_tool.log
