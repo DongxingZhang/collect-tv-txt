@@ -2,7 +2,7 @@
 
 
 
- ffmpeg  -i /mnt/smb/µçÊÓ¾ç/½ñÉúÎÞ»Ú¹úÓï720P/06.ts  -i /mnt/tool/live-tool/logo/logo.png -map [0:v:1] -map [0:a:2]  -preset ultrafast  -filter_complex "[1:v]scale=100:100[logo];[0:v][logo]overlay=0:0;" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "rtmp://live-push.bilivideo.com/live-bvc/?streamname=live_97540856_1852534&key=a042d1eb6f69ca88b16f4fb9bf9a5435&schedule=rtmp&pflag=1"
+ ffmpeg  -i /mnt/smb/ï¿½ï¿½ï¿½Ó¾ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Þ»Ú¹ï¿½ï¿½ï¿½720P/06.ts  -i /mnt/tool/live-tool/logo/logo.png -map [0:v:1] -map [0:a:2]  -preset ultrafast  -filter_complex "[1:v]scale=100:100[logo];[0:v][logo]overlay=0:0;" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y "rtmp://live-push.bilivideo.com/live-bvc/?streamname=live_97540856_1852534&key=a042d1eb6f69ca88b16f4fb9bf9a5435&schedule=rtmp&pflag=1"
  
  
  
@@ -11,51 +11,51 @@
 
 
 
- ffmpeg -i /mnt/smb/µçÊÓ¾ç/½ñÉúÎÞ»Ú¹úÓï720P/06.ts -i /mnt/tool/live-tool/logo/logo.png -map [0:v:1] -map [0:a:2] -preset ultrafast -filter_complex "[1:v]scale=46:46[logo];[0:v][logo]overlay=0:0;" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv rtmp://live-push.bilivideo.com/live-bvc/?streamname=live_97540856_1852534&key=a042d1eb6f69ca88b16f4fb9bf9a5435&schedule=rtmp&pflag=1
+ ffmpeg -i /mnt/smb/ï¿½ï¿½ï¿½Ó¾ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Þ»Ú¹ï¿½ï¿½ï¿½720P/06.ts -i /mnt/tool/live-tool/logo/logo.png -map [0:v:1] -map [0:a:2] -preset ultrafast -filter_complex "[1:v]scale=46:46[logo];[0:v][logo]overlay=0:0;" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv rtmp://live-push.bilivideo.com/live-bvc/?streamname=live_97540856_1852534&key=a042d1eb6f69ca88b16f4fb9bf9a5435&schedule=rtmp&pflag=1
 
 
 
 
 
 
-ffmpeg -loglevel repeat+level+warning -re -i /mnt/smb/µçÊÓ¾ç/½ñÉúÎÞ»Ú¹úÓï720P/06.ts -map [0:v:1] -map [0:a:2] -preset ultrafast -filter_complex "[0:v:1]delogo=x=965:y=40:w=75:h=60:show=0,eq=contrast=1:brightness=0.2,curves=preset=lighter[v];[v]drawtext=fontsize=37:fontcolor=#FDE6E0:text='%{pts\:gmtime\:0\:%H\\\:%M\\\:%S} ''00\:44\:23':fontfile=/mnt/tool/live-tool/fonts/STFANGSO.TTF:expansion=normal:x=w-line_h\*8:y=h-line_h\*6:shadowx=2:shadowy=2:box=1:boxcolor=black@0.3:boxborderw=3[vt1];[vt1]drawtext=fontsize=46:fontcolor=#FDE6E0:text='11111':fontfile=/mnt/tool/live-tool/fonts/STFANGSO.TTF:expansion=normal:x=w-mod(max(t-1\,0)*(w+tw)/215\,(w+tw)):y=h-line_h-5:shadowx=2:shadowy=2:box=1:boxcolor=black@0.3:boxborderw=3[vt2];[vt2]drawtext=fontsize=46:fontcolor=#FDE6E0:text='1111'¼¯':fontfile=/mnt/tool/live-tool/fonts/STFANGSO.TTF:expansion=normal:x=line_h\*2:y=h/2-line_h\*3:shadowx=2:shadowy=2:box=1:boxcolor=black@0.3:boxborderw=3;"  -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv rtmp://www.tomandjerry.work/live/livestream
+ffmpeg -loglevel repeat+level+warning -re -i /mnt/smb/ï¿½ï¿½ï¿½Ó¾ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Þ»Ú¹ï¿½ï¿½ï¿½720P/06.ts -map [0:v:1] -map [0:a:2] -preset ultrafast -filter_complex "[0:v:1]delogo=x=965:y=40:w=75:h=60:show=0,eq=contrast=1:brightness=0.2,curves=preset=lighter[v];[v]drawtext=fontsize=37:fontcolor=#FDE6E0:text='%{pts\:gmtime\:0\:%H\\\:%M\\\:%S} ''00\:44\:23':fontfile=/mnt/tool/live-tool/fonts/STFANGSO.TTF:expansion=normal:x=w-line_h\*8:y=h-line_h\*6:shadowx=2:shadowy=2:box=1:boxcolor=black@0.3:boxborderw=3[vt1];[vt1]drawtext=fontsize=46:fontcolor=#FDE6E0:text='11111':fontfile=/mnt/tool/live-tool/fonts/STFANGSO.TTF:expansion=normal:x=w-mod(max(t-1\,0)*(w+tw)/215\,(w+tw)):y=h-line_h-5:shadowx=2:shadowy=2:box=1:boxcolor=black@0.3:boxborderw=3[vt2];[vt2]drawtext=fontsize=46:fontcolor=#FDE6E0:text='1111'ï¿½ï¿½':fontfile=/mnt/tool/live-tool/fonts/STFANGSO.TTF:expansion=normal:x=line_h\*2:y=h/2-line_h\*3:shadowx=2:shadowy=2:box=1:boxcolor=black@0.3:boxborderw=3;"  -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv rtmp://www.tomandjerry.work/live/livestream
 
-ffprobe -loglevel repeat+level+warning  -i "/mnt/smb/µçÊÓ¾ç/½ñÉúÎÞ»Ú¹úÓï720P/06.ts" -show_streams -print_format csv | awk -F, '{print $1,$2,$3,$6}' | grep "video" | awk 'NR==1{print $2}'
+ffprobe -loglevel repeat+level+warning  -i "/mnt/smb/ï¿½ï¿½ï¿½Ó¾ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Þ»Ú¹ï¿½ï¿½ï¿½720P/06.ts" -show_streams -print_format csv | awk -F, '{print $1,$2,$3,$6}' | grep "video" | awk 'NR==1{print $2}'
 
-ffmpeg -loglevel repeat+level+warning -re -i /mnt/smb/µçÊÓ¾ç/½ñÉúÎÞ»Ú¹úÓï720P/06.ts -map [0:v:1] -map [0:a:2] -preset ultrafast -filter_complex "[0:v:1]delogo=x=965:y=40:w=75:h=60:show=0,eq=contrast=1:brightness=0.2,curves=preset=lighter;"  -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv rtmp://www.tomandjerry.work/live/livestream
-
-
-ffmpeg -i /mnt/smb/µçÊÓ¾ç/½ñÉúÎÞ»Ú¹úÓï720P/06.ts -i /mnt/tool/live-tool/logo/logo.png -map [0:v:1] -map [0:a:2] -preset ultrafast -filter_complex "[1:v]scale=46:46[logo];[0:v][logo]overlay=0:0;" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y rtmp://www.tomandjerry.work/live/livestream
+ffmpeg -loglevel repeat+level+warning -re -i /mnt/smb/ï¿½ï¿½ï¿½Ó¾ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Þ»Ú¹ï¿½ï¿½ï¿½720P/06.ts -map [0:v:1] -map [0:a:2] -preset ultrafast -filter_complex "[0:v:1]delogo=x=965:y=40:w=75:h=60:show=0,eq=contrast=1:brightness=0.2,curves=preset=lighter;"  -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv rtmp://www.tomandjerry.work/live/livestream
 
 
-
-
-ffmpeg -i /mnt/smb/µçÊÓ¾ç/½ñÉúÎÞ»Ú¹úÓï720P/06.ts -i /mnt/tool/live-tool/logo/logo.png -preset ultrafast -filter_complex "[1:v]scale=46:46[logo];[0:v][logo]overlay=0:0[out];" -map "[out]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y rtmp://www.tomandjerry.work/live/livestream
-
-ffmpeg -i /mnt/smb/µçÊÓ¾ç/½ñÉúÎÞ»Ú¹úÓï720P/06.ts -i /mnt/tool/live-tool/logo/logo.png -map 0:1 -map 0:2 -preset ultrafast -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y rtmp://www.tomandjerry.work/live/livestream
+ffmpeg -i /mnt/smb/ï¿½ï¿½ï¿½Ó¾ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Þ»Ú¹ï¿½ï¿½ï¿½720P/06.ts -i /mnt/tool/live-tool/logo/logo.png -map [0:v:1] -map [0:a:2] -preset ultrafast -filter_complex "[1:v]scale=46:46[logo];[0:v][logo]overlay=0:0;" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y rtmp://www.tomandjerry.work/live/livestream
 
 
 
-      echo -e "${yellow} Ìí¼ÓË®Ó¡Íê³É,³ÌÐò½«¿ªÊ¼ÍÆÁ÷. ${font}" 
+
+ffmpeg -i /mnt/smb/ï¿½ï¿½ï¿½Ó¾ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Þ»Ú¹ï¿½ï¿½ï¿½720P/06.ts -i /mnt/tool/live-tool/logo/logo.png -preset ultrafast -filter_complex "[1:v]scale=46:46[logo];[0:v][logo]overlay=0:0[out];" -map "[out]" -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y rtmp://www.tomandjerry.work/live/livestream
+
+ffmpeg -i /mnt/smb/ï¿½ï¿½ï¿½Ó¾ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Þ»Ú¹ï¿½ï¿½ï¿½720P/06.ts -i /mnt/tool/live-tool/logo/logo.png -map 0:1 -map 0:2 -preset ultrafast -vcodec libx264 -g 60 -b:v 6000k -c:a aac -b:a 128k -strict -2 -f flv -y rtmp://www.tomandjerry.work/live/livestream
+
+
+
+      echo -e "${yellow} ï¿½ï¿½ï¿½ï¿½Ë®Ó¡ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ò½«¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½. ${font}" 
       watermark="overlay=W-w-5:5"
       echo ffmpeg -re -loglevel ${logging} -i "$file" -map ${mapv} -map ${mapa} -preset ${preset_decode_speed} -vf "${video_format}"  -i "${image}" -filter_complex "${watermark}" -c:v libx264 -c:a aac -b:a 192k  -strict -2 -f flv ${rtmp} 
       ffmpeg -re -loglevel ${logging} -i "$file" -map ${mapv} -map ${mapa} -preset ${preset_decode_speed} -vf "${video_format}"  -i "${image}" -filter_complex "${watermark}" -c:v libx264 -c:a aac -b:a 192k  -strict -2 -f flv ${rtmp}
 
 
-¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿FFmpeg¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½FFmpegï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-¿¿¿¿¿¿¿¿¿123¿¿¿¿¿¿FFmpeg¿drawtext¿¿¿¿¿¿¿¿¿¿¿drawtext¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½123ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½FFmpegï¿½drawtextï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½drawtextï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-ffmpeg -i input.mp4 -vf "drawtext=text='¿¿¿¿¿¿¿':fontfile=SimHei.ttf:fontcolor=red:x=w-mod(max(t-1\,0)*(w+tw)/10\,w+tw):y=h/10" output.mp4
-¿¿
-¿¿¿input.mp4¿¿¿¿¿¿¿¿output.mp4¿¿¿¿¿¿¿¿text¿¿¿¿¿¿¿¿fontfile¿¿¿¿¿¿fontcolor¿¿¿¿¿¿x¿y¿¿¿¿¿¿¿w¿¿¿¿¿¿h¿¿¿¿¿¿t¿¿¿¿tw¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+ffmpeg -i input.mp4 -vf "drawtext=text='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½':fontfile=SimHei.ttf:fontcolor=red:x=w-mod(max(t-1\,0)*(w+tw)/10\,w+tw):y=h/10" output.mp4
+ï¿½ï¿½
+ï¿½ï¿½ï¿½input.mp4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½output.mp4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½textï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fontfileï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fontcolorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½ï¿½twï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿crop¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½cropï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-ffmpeg -i input.mp4 -filter_complex "[0:v]crop=w/2:h/4:x=w/2:y=0[c];[c]drawtext=text='¿¿¿¿¿¿¿¿¿¿¿':fontfile=SimHei.ttf:fontcolor=red:x=w-mod(max(t-1\,0)*(w+tw)/10\,w+tw):y=h/10[dt];[0:v][dt]overlay=x=W-w:y=0" output.mp4
-¿¿
-¿¿¿crop¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿[c]¿¿¿¿[c]¿¿¿¿¿¿¿¿¿¿[dt]¿¿¿¿[dt]¿¿¿¿¿¿¿¿¿
+ffmpeg -i input.mp4 -filter_complex "[0:v]crop=w/2:h/4:x=w/2:y=0[c];[c]drawtext=text='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½':fontfile=SimHei.ttf:fontcolor=red:x=w-mod(max(t-1\,0)*(w+tw)/10\,w+tw):y=h/10[dt];[0:v][dt]overlay=x=W-w:y=0" output.mp4
+ï¿½ï¿½
+ï¿½ï¿½ï¿½cropï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[c]ï¿½ï¿½ï¿½ï¿½[c]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[dt]ï¿½ï¿½ï¿½ï¿½[dt]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½

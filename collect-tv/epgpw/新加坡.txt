@@ -24,7 +24,12 @@ Channel 5,https://stream.freetv.fun/channel-5-4.ctv
 Channel 5,https://stream.freetv.fun/dc-council-channel-1.m3u8
 DIVA Universal,https://stream.freetv.fun/tv-universal-1.m3u8
 Suria[geo-blocked],https://stream.freetv.fun/suria-fm-1.m3u8
+Suria[geo-blocked],https://stream.freetv.fun/suria-fm-2.m3u8
 Kids,#genre#
+Ani-One Asia,https://stream.freetv.fun/ani-1.m3u8
+Animax Asia,https://stream.freetv.fun/animax-4.ctv
+Animax Asia,https://stream.freetv.fun/animax-5.ctv
+Animax Asia,https://stream.freetv.fun/animax-6.ctv
 Animax Asia,https://stream.freetv.fun/animax-3.ctv
 Miao Mi TV,https://stream.freetv.fun/miami-tv-1.m3u8
 Movies,#genre#
@@ -35,7 +40,6 @@ AXN,https://stream.freetv.fun/axn-3.m3u8
 AXN[geo-blocked],https://stream.freetv.fun/axn-10.m3u8
 AXN,https://stream.freetv.fun/ph-axn-1.ctv
 AXN,https://stream.freetv.fun/axn-1.ctv
-AXN,https://stream.freetv.fun/axn-2.m3u8
 AXN,https://stream.freetv.fun/axn-5.m3u8
 AXN,https://stream.freetv.fun/axn-6.m3u8
 AXN HD,https://stream.freetv.fun/axn-8.m3u8
@@ -45,8 +49,8 @@ Channel 8,https://stream.freetv.fun/channel-8-1.m3u8
 Channel 8[geo-blocked],https://stream.freetv.fun/mcn6-arts-channel-2.m3u8
 Channel 8[geo-blocked],https://stream.freetv.fun/mcn6-music-channel-2.m3u8
 Channel 8,https://stream.freetv.fun/wfmz-tv-channel-69-2.m3u8
-Channel 8,https://stream.freetv.fun/channel-11-2.m3u8
-Channel 8,https://stream.freetv.fun/tempe-channel-11-2.m3u8
+Channel 8[geo-blocked],https://stream.freetv.fun/channel-11-2.m3u8
+Channel 8[geo-blocked],https://stream.freetv.fun/tempe-channel-11-2.m3u8
 Channel 8,https://stream.freetv.fun/february-channel-1.m3u8
 Channel 8,https://stream.freetv.fun/z--channel-1.m3u8
 Channel 8,https://stream.freetv.fun/mix-major-channel-1.m3u8
@@ -55,7 +59,7 @@ Channel 8,https://stream.freetv.fun/cooking-channel-1.ctv
 Channel 8,https://stream.freetv.fun/xi-la-ionian-channel-1.m3u8
 Channel 8,https://stream.freetv.fun/bso-channel-1.m3u8
 Channel 8,https://stream.freetv.fun/channel-8-3.ctv
-Channel 8,https://stream.freetv.fun/calabasas-channel-1.m3u8
+Channel 8[geo-blocked],https://stream.freetv.fun/calabasas-channel-1.m3u8
 Channel 8[geo-blocked],https://stream.freetv.fun/magna-channel-1.m3u8
 Channel 8[geo-blocked],https://stream.freetv.fun/expo-channel-1.m3u8
 Channel 8[geo-blocked],https://stream.freetv.fun/magna-channel-2.m3u8
@@ -68,7 +72,7 @@ Channel 8[geo-blocked],https://stream.freetv.fun/the-lego-channel-2.ctv
 Channel 8[geo-blocked],https://stream.freetv.fun/dove-channel-3.m3u8
 Channel 8,https://stream.freetv.fun/ch-ng-green-channel-1.m3u8
 Channel 8,https://stream.freetv.fun/cable-channel-37-1.m3u8
-Channel 8[geo-blocked],https://stream.freetv.fun/on-e-channel-1.m3u8
+Channel 8,https://stream.freetv.fun/on-e-channel-1.m3u8
 Channel 8,https://stream.freetv.fun/xi-la-ionian-channel-2.m3u8
 Channel 8,https://stream.freetv.fun/bso-channel-2.m3u8
 Channel 8,https://stream.freetv.fun/ch-ng-hunt-channel-1.m3u8
@@ -95,14 +99,18 @@ Channel 8,https://stream.freetv.fun/novela-channel-1.m3u8
 Channel 8,https://stream.freetv.fun/peru-channel-1.m3u8
 DIVA,https://stream.freetv.fun/diva-1.m3u8
 HBO(SG),https://stream.freetv.fun/myx-philippines-1.m3u8
-HITS[geo-blocked],https://stream.freetv.fun/box-hits-1.m3u8
+HITS,https://stream.freetv.fun/box-hits-1.m3u8
 HITS,https://stream.freetv.fun/pinoy-hits-1.ctv
 HITS Movies,https://stream.freetv.fun/hits-movies-1.ctv
 HITS Movies,https://stream.freetv.fun/hits-movies-2.ctv
 HITS Movies,https://stream.freetv.fun/hitsmovies-1.ctv
 HITS Movies,https://stream.freetv.fun/hits-movies-3.ctv
 HITS Movies,https://stream.freetv.fun/hitsmovies-2.ctv
+HITS Movies,https://stream.freetv.fun/hits-movies-4.ctv
+HITS Movies,https://stream.freetv.fun/hits-movies-5.ctv
+HITS Movies,https://stream.freetv.fun/hits-movies-6.ctv
 HITS Movies,https://stream.freetv.fun/ph-hits-movies-1.ctv
+Hits(TW),https://stream.freetv.fun/box-hits-2.ctv
 Okto[geo-blocked],https://stream.freetv.fun/okto-tv-1.m3u8
 Sony Channel,https://stream.freetv.fun/sony-movie-channel-1.m3u8
 Sony Channel,https://stream.freetv.fun/sony-channel-1.m3u8
@@ -115,11 +123,15 @@ CNA,https://stream.freetv.fun/cna-3.m3u8
 CNA,https://stream.freetv.fun/cna-4.m3u8
 CNA,https://stream.freetv.fun/cna-5.m3u8
 CNA,https://stream.freetv.fun/cna-6.ctv
+CNA,https://stream.freetv.fun/cna-7.ctv
+CNA,https://stream.freetv.fun/cna-8.ctv
+CNA,https://stream.freetv.fun/cna-9.ctv
 News CNA,https://stream.freetv.fun/cnanews-hd-xin-jia-po-1.m3u8
 News CNA,https://stream.freetv.fun/cnanews-hd-xin-jia-po-2.m3u8
 NewsAsia,https://stream.freetv.fun/channel-newsasia-1.m3u8
 NewsAsia,https://stream.freetv.fun/channel-newsasia-2.m3u8
 Other,#genre#
+BETV[geo-blocked],https://stream.freetv.fun/beteve-1.m3u8
 History Channel,https://stream.freetv.fun/history-channel-2.ctv
 History Channel,https://stream.freetv.fun/history-channel-5.m3u8
 MOB TV,https://stream.freetv.fun/m2o-tv-1.m3u8

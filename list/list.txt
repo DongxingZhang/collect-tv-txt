@@ -410,4 +410,9 @@ https://www.yy.com/1455988450/1455988450|绝版电影|000|1|0|E
 https://www.yy.com/1354658049/1354658049|周星驰|000|1|0|E
 https://www.yy.com/1382737886/1382737886|老电影|000|1|0|E
 https://www.yy.com/1354936175/1354936175|大熊猫|000|1|0|E
+https://stream.freetv.fun/e468c10260ed25ee23e4684b0a6468987afe52991894feaead9c276b0f29cad1.ctv|科幻|000|1|0|E
 
+
+http://61.221.215.25:8800/hls/43/index.m3u8|AMC电影台|DDD|1|0|E
+https://dikcfc9915kp8.cloudfront.net/hls/1080p/playlist.m3u8|AXN White|DDD|1|0|E
+https://live.corusdigitaldev.com/groupa/live/b60d1d57-2851-4c29-bf5c-36feed988e57/live.isml/.m3u8|AXS TV Now|DDD|1|0|E

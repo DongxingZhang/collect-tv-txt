@@ -11,11 +11,10 @@
 
 
 Entertainment,#genre#
-BET,https://stream.freetv.fun/bet-1.m3u8
 Big TEN Network,https://stream.freetv.fun/big-ten-network-1.ctv
 Bravo[geo-blocked],https://stream.freetv.fun/bravo-2.m3u8
 Bravo,https://stream.freetv.fun/bravo-3.ctv
-Bravo,https://stream.freetv.fun/bravo-1.m3u8
+Bravo,https://stream.freetv.fun/ch-ng-bravo-1.ctv
 CLassica[geo-blocked],https://stream.freetv.fun/classica-2.m3u8
 CLassica[geo-blocked],https://stream.freetv.fun/classica-1.m3u8
 California Music Channel,https://stream.freetv.fun/california-music-channel-1.m3u8
@@ -27,7 +26,6 @@ Comedy Central,https://stream.freetv.fun/kli-comedy-1.m3u8
 Comedy Central,https://stream.freetv.fun/comedy-play-1.m3u8
 Comedy Central[geo-blocked],https://stream.freetv.fun/comedy-hub-1.m3u8
 Comedy Central,https://stream.freetv.fun/comedy-movie-1.ctv
-Comedy Central,https://stream.freetv.fun/cbc-comedy-1.m3u8
 Comedy Central,https://stream.freetv.fun/bcu-comedy-1.m3u8
 DJING TV,https://stream.freetv.fun/jin-tv-1.m3u8
 Discovery Showcase HD,https://stream.freetv.fun/showcase-2.ctv
@@ -37,18 +35,19 @@ E! HD,https://stream.freetv.fun/e-4.ctv
 E! HD,https://stream.freetv.fun/e-5.ctv
 E! HD,https://stream.freetv.fun/e-6.ctv
 E! HD,https://stream.freetv.fun/e-7.ctv
-E! HD[geo-blocked],https://stream.freetv.fun/e--entertainment-2.ctv
+E! HD,https://stream.freetv.fun/e--entertainment-2.ctv
+E! HD,https://stream.freetv.fun/e--entertainment-3.ctv
+E! HD,https://stream.freetv.fun/e--entertainment-4.ctv
+E! HD,https://stream.freetv.fun/e--entertainment-5.ctv
 E!Entertainment,https://stream.freetv.fun/e--entertainment-1.m3u8
 E!Entertainment,https://stream.freetv.fun/e--entertairment-1.m3u8
 FMP TV,https://stream.freetv.fun/lfm-tv-1.m3u8
 Lifetime[geo-blocked],https://stream.freetv.fun/lifetime-2.m3u8
 Lifetime,https://stream.freetv.fun/lifetime-2-1.m3u8
 Lifetime,https://stream.freetv.fun/ph-lifetime-1.ctv
-Lifetime,https://stream.freetv.fun/242-lifetime-1.m3u8
 Lifetime,https://stream.freetv.fun/life-time-1.m3u8
 Lifetime,https://stream.freetv.fun/lifetime-5.m3u8
 Lifetime,https://stream.freetv.fun/lifetime-1.ctv
-Lifetime,https://stream.freetv.fun/lifetime-3.m3u8
 Lifetime,https://stream.freetv.fun/ch-ng-lifetime-1.m3u8
 THE PENTAGON CHANNEL,https://stream.freetv.fun/the-360-channel-2.m3u8
 THE PENTAGON CHANNEL,https://stream.freetv.fun/the-360-channel-3.m3u8
@@ -58,10 +57,13 @@ UNIVISION,https://stream.freetv.fun/univision-2.m3u8
 UNIVISION,https://stream.freetv.fun/univision-1.m3u8
 USA Network,https://stream.freetv.fun/usa-network-1.ctv
 VEVO 1[geo-blocked],https://stream.freetv.fun/vevo-8-1.m3u8
+VEVO 2[geo-blocked],https://stream.freetv.fun/vevo-country-1.m3u8
+VEVO 2[geo-blocked],https://stream.freetv.fun/vevo-pop-2.m3u8
 VEVO 2[geo-blocked],https://stream.freetv.fun/vevo-2k-2.m3u8
+VEVO 2[geo-blocked],https://stream.freetv.fun/vevo-pop-1.m3u8
 VEVO 2[geo-blocked],https://stream.freetv.fun/vevo-2k-3.m3u8
+VEVO 2[geo-blocked],https://stream.freetv.fun/vevo--90s----00s-1.m3u8
 VEVO 2[geo-blocked],https://stream.freetv.fun/vevo-2k-1.m3u8
-VH1,https://stream.freetv.fun/vh1-1.m3u8
 Visual Radio TV,https://stream.freetv.fun/swr-3-visual-radio-1.m3u8
 Visual Radio TV,https://stream.freetv.fun/swr-3-visual-radio-2.m3u8
 We TV,https://stream.freetv.fun/we-tv-1.ctv
@@ -74,7 +76,7 @@ CBC Television[geo-blocked],https://stream.freetv.fun/fontana-community-televisi
 CBC Television,https://stream.freetv.fun/ptl-television-network-1.m3u8
 CBC Television,https://stream.freetv.fun/ben-television-1.m3u8
 CBC Television,https://stream.freetv.fun/ben-television-2.m3u8
-CBC Television,https://stream.freetv.fun/newport-beach-television-1.m3u8
+CBC Television[geo-blocked],https://stream.freetv.fun/newport-beach-television-1.m3u8
 CBC Television,https://stream.freetv.fun/beverly-hills-television-35-2.m3u8
 CBC Television,https://stream.freetv.fun/kern-county-television-1.m3u8
 CBC Television[geo-blocked],https://stream.freetv.fun/fontana-community-television-2.m3u8
@@ -84,21 +86,19 @@ CBC Television,https://stream.freetv.fun/qatar-television-1.m3u8
 CBC Television,https://stream.freetv.fun/retro-music-television-1.m3u8
 CBC Television,https://stream.freetv.fun/irvine-community-television-2.m3u8
 CBC Television,https://stream.freetv.fun/kern-county-television-2.m3u8
-CBC Television,https://stream.freetv.fun/newport-beach-television-2.m3u8
+CBC Television[geo-blocked],https://stream.freetv.fun/newport-beach-television-2.m3u8
 CBC Television,https://stream.freetv.fun/wmbc-digital-television-1.m3u8
 CBC Television,https://stream.freetv.fun/notre-television-1.m3u8
 CBC Television,https://stream.freetv.fun/long-beach-television-1.m3u8
 CBC Television,https://stream.freetv.fun/buena-park-television-1.m3u8
 CBC Television,https://stream.freetv.fun/new-canaan-television-79-1.m3u8
 CBC Television[geo-blocked],https://stream.freetv.fun/story-television-1.m3u8
-CBC Television,https://stream.freetv.fun/coral-gables-television-1.m3u8
+CBC Television[geo-blocked],https://stream.freetv.fun/coral-gables-television-1.m3u8
 CBC Television[geo-blocked],https://stream.freetv.fun/country-music-television-1.m3u8
 CBC Television,https://stream.freetv.fun/tvs-television-network-1.m3u8
 CBC Television,https://stream.freetv.fun/tc-television-1.ctv
 CBC Television,https://stream.freetv.fun/retro-music-television-2.m3u8
 CBC Television,https://stream.freetv.fun/top-40-television-1.m3u8
-CBC Television[geo-blocked],https://stream.freetv.fun/skylink-television-2-1.m3u8
-CBC Television[geo-blocked],https://stream.freetv.fun/skylink-television-1.m3u8
 CBC Television,https://stream.freetv.fun/beverly-hills-television-35-1.m3u8
 CBS 11,https://stream.freetv.fun/11-cs-1.m3u8
 CBS 11,https://stream.freetv.fun/11-bs-1.m3u8
@@ -106,20 +106,23 @@ CBS NETWORK,https://stream.freetv.fun/acs-network-1.m3u8
 CBS NETWORK,https://stream.freetv.fun/acs-network-2.m3u8
 CBS NETWORK,https://stream.freetv.fun/cbs-new-york-1.m3u8
 CBS Reality,https://stream.freetv.fun/cbs-reality-1.ctv
+CBS Reality,https://stream.freetv.fun/cbs-reality-2.ctv
+CBS Reality,https://stream.freetv.fun/cbs-reality-3.ctv
 CW,https://stream.freetv.fun/cw-1.m3u8
 HSN,https://stream.freetv.fun/hsn2-1.m3u8
 HSN,https://stream.freetv.fun/hsn2-2.m3u8
 MAX,https://stream.freetv.fun/tv-max-1.m3u8
 MAX,https://stream.freetv.fun/d-max-1.m3u8
-PARAMOUNT,https://stream.freetv.fun/388-paramount-1.m3u8
 PARAMOUNT,https://stream.freetv.fun/paramount-5.m3u8
 PARAMOUNT,https://stream.freetv.fun/paramount-1.m3u8
 Paramount Network,https://stream.freetv.fun/paramount-network-2.m3u8
-Paramount Network[geo-blocked],https://stream.freetv.fun/paramount-2.ctv
+Paramount Network,https://stream.freetv.fun/paramount-2.ctv
 Paramount Network,https://stream.freetv.fun/paramount-3.ctv
 Paramount Network,https://stream.freetv.fun/paramount-4.m3u8
 Paramount Network,https://stream.freetv.fun/paramount-network-3.ctv
-Paramount Network,https://stream.freetv.fun/paramount-network-1.m3u8
+Paramount Network,https://stream.freetv.fun/paramount-network-4.ctv
+Paramount Network,https://stream.freetv.fun/paramount-network-5.ctv
+Paramount Network,https://stream.freetv.fun/paramount-network-6.ctv
 The CW Network[geo-blocked],https://stream.freetv.fun/the-design-network-1.m3u8
 The CW Network,https://stream.freetv.fun/ch-ng-the-design-network-1.m3u8
 The CW Network[geo-blocked],https://stream.freetv.fun/the-nostalgia-network-1.m3u8
@@ -131,7 +134,6 @@ UNIVERSAL TV,https://stream.freetv.fun/univers-tv-1.m3u8
 UNIVERSAL TV,https://stream.freetv.fun/univers-tv-2.m3u8
 UNIVERSAL TV,https://stream.freetv.fun/universal-cinema-sd-1.ctv
 UNIVERSAL TV,https://stream.freetv.fun/universal-premiere-sd-1.ctv
-UNIVERSAL TV,https://stream.freetv.fun/206-universal-1.m3u8
 UNIVERSAL TV,https://stream.freetv.fun/universal-cinema-este-1.m3u8
 UNIVERSAL TV,https://stream.freetv.fun/universal-cinema-sd-2.m3u8
 UNIVERSAL TV,https://stream.freetv.fun/universal-premiere-sd-2.m3u8
@@ -150,13 +152,16 @@ VOX Norway  (USA),https://stream.freetv.fun/vox-1.m3u8
 華語電視,https://stream.freetv.fun/hua-yu-dian-shi-3-3.m3u8
 Kids,#genre#
 Anime All Day[geo-blocked],https://stream.freetv.fun/anime-all-day-1.m3u8
-Boomerang[geo-blocked],https://stream.freetv.fun/boomerang-1.ctv
+BABY(SD)[geo-blocked],https://stream.freetv.fun/tao-babyhd-1.ctv
 Boomerang[geo-blocked],https://stream.freetv.fun/boomerang-2.ctv
 Boomerang,https://stream.freetv.fun/boomerang-thailand-1.m3u8
 Cartoon Network,https://stream.freetv.fun/cartoon-network-9.ctv
-Cartoon Network,https://stream.freetv.fun/cartoon-network-10.ctv
 Cartoon Network,https://stream.freetv.fun/carton-network-1.ctv
 Cartoon Network,https://stream.freetv.fun/cartoon-network-3.ctv
+Cartoon Network,https://stream.freetv.fun/cartoon-network-12.ctv
+Cartoon Network,https://stream.freetv.fun/cartoon-network-13.ctv
+Cartoon Network,https://stream.freetv.fun/cartoon-network-east-1.m3u8
+Cartoon Network,https://stream.freetv.fun/cartoon-network-10.ctv
 Cartoon Network,https://stream.freetv.fun/cartoon-network-11.m3u8
 Cartoon Network,https://stream.freetv.fun/ph-cartoon-network-1.ctv
 Cartoon Network,https://stream.freetv.fun/cartoon-network-8.m3u8
@@ -175,6 +180,9 @@ Disney,https://stream.freetv.fun/disney-3.m3u8
 Disney Channel,https://stream.freetv.fun/disney-channel-7.ctv
 Disney Channel,https://stream.freetv.fun/disney-channel-8.m3u8
 Disney Channel,https://stream.freetv.fun/disney-channel-9.ctv
+Disney Channel,https://stream.freetv.fun/disney-channel-10.ctv
+Disney Channel,https://stream.freetv.fun/disney-channel-11.ctv
+Disney Channel,https://stream.freetv.fun/disney-channel-12.ctv
 Disney Channel,https://stream.freetv.fun/disney-channel-6.ctv
 Disney Channel,https://stream.freetv.fun/disney-channel-4.m3u8
 Disney Channel,https://stream.freetv.fun/disney-channel-5.m3u8
@@ -207,15 +215,15 @@ Family Guy,https://stream.freetv.fun/mm-family-guy-1.m3u8
 Freeform TV,https://stream.freetv.fun/reforma-tv-1.m3u8
 Futurama,https://stream.freetv.fun/futurama-1.m3u8
 Kids Channel,https://stream.freetv.fun/canela-kids-1.m3u8
-Kids Channel,https://stream.freetv.fun/kids-channel-1.m3u8
 Kids Channel,https://stream.freetv.fun/canela-kids-2.m3u8
+Kids Channel,https://stream.freetv.fun/kids-channel-1.m3u8
 Nick Jr.,https://stream.freetv.fun/nick-jr-2.m3u8
 Nick Jr.,https://stream.freetv.fun/nick-jr-4.m3u8
+NickMusic,https://stream.freetv.fun/nick-music-1.m3u8
 Nickelodeon[geo-blocked],https://stream.freetv.fun/nickelodeon-junior-1.m3u8
 Nickelodeon,https://stream.freetv.fun/nickelodeon-7.m3u8
 Nickelodeon,https://stream.freetv.fun/ch-ng-nickelodeon-1.ctv
 Nickelodeon,https://stream.freetv.fun/ph-nickelodeon-1.ctv
-Nickelodeon,https://stream.freetv.fun/27-286-nickelodeon-1.m3u8
 Nickelodeon,https://stream.freetv.fun/nickelodeon-8.m3u8
 Nickelodeon,https://stream.freetv.fun/nickelodeon-5.ctv
 Nickelodeon,https://stream.freetv.fun/nickelodeon-3.m3u8
@@ -251,13 +259,13 @@ Knowledge,#genre#
 Amazing Discoveries TV USA,https://stream.freetv.fun/amazing-discoveries-tv-1.m3u8
 Amazing Discoveries TV USA,https://stream.freetv.fun/amazing-discoveries-tv-2.m3u8
 Amazing Discoveries TV USA,https://stream.freetv.fun/amazing-discoveries-tv-3.m3u8
-Animal Planet,https://stream.freetv.fun/animal-planet-3.m3u8
 Animal Planet,https://stream.freetv.fun/ch-ng-animal-planet-3.ctv
 Animal Planet,https://stream.freetv.fun/ch-ng-animal-planet-2.m3u8
 Animal Planet,https://stream.freetv.fun/animal-planet-10.m3u8
 Animal Planet,https://stream.freetv.fun/animal-planet-14.ctv
 Animal Planet,https://stream.freetv.fun/animal-planet-6.m3u8
 Animal Planet,https://stream.freetv.fun/animal-planet-5.m3u8
+Animal Planet,https://stream.freetv.fun/animal-planet-3.m3u8
 Animal Planet,https://stream.freetv.fun/animal-planet-7.ctv
 Animal Planet,https://stream.freetv.fun/animal-planet-8.m3u8
 Animal Planet,https://stream.freetv.fun/animal-planet-9.ctv
@@ -266,15 +274,21 @@ Animal Planet,https://stream.freetv.fun/animal-planet-1.ctv
 Animal Planet,https://stream.freetv.fun/animal-planet-2.m3u8
 Animal Planet,https://stream.freetv.fun/ch-ng-animal-planet-1.m3u8
 Animal Planet,https://stream.freetv.fun/animal-planet-4.m3u8
-CI TV,https://stream.freetv.fun/cali-tv-1.m3u8
+CI HD,https://stream.freetv.fun/nci-1.m3u8
 Crime Investigation,https://stream.freetv.fun/ph-crime-investigation-sd-1.ctv
 Crime Investigation,https://stream.freetv.fun/crime-investigation-1.ctv
 Crime Investigation,https://stream.freetv.fun/crime-investigation-2.ctv
+Crime Investigation,https://stream.freetv.fun/crime-investigation-4.ctv
+Crime Investigation,https://stream.freetv.fun/crime-investigation-5.ctv
+Crime Investigation,https://stream.freetv.fun/crime-investigation-6.ctv
 Crime Investigation,https://stream.freetv.fun/ch-ng-crime--plus--investigation-1.m3u8
 DISCOVERY SCIENCE ,https://stream.freetv.fun/discovery-science-cee-1.m3u8
 DISCOVERY SCIENCE ,https://stream.freetv.fun/discovery-science-asia-1.m3u8
 DISCOVERY SCIENCE ,https://stream.freetv.fun/ch-ng-discovery-science-2.ctv
 DISCOVERY SCIENCE ,https://stream.freetv.fun/discovery-science-5.ctv
+DISCOVERY SCIENCE ,https://stream.freetv.fun/discovery-science-6.ctv
+DISCOVERY SCIENCE ,https://stream.freetv.fun/discovery-science-7.ctv
+DISCOVERY SCIENCE ,https://stream.freetv.fun/discovery-science-8.ctv
 DISCOVERY SCIENCE ,https://stream.freetv.fun/ch-ng-discovery-science-1.m3u8
 Da Vinci,https://stream.freetv.fun/da-vinci-1.m3u8
 Da Vinci,https://stream.freetv.fun/davinci-1.m3u8
@@ -284,15 +298,18 @@ Discovery ASIA,https://stream.freetv.fun/asharq-discovery-1.m3u8
 Discovery ASIA,https://stream.freetv.fun/asharq-discovery-2.m3u8
 Discovery ASIA,https://stream.freetv.fun/discovery-asia-2.m3u8
 Discovery HD,https://stream.freetv.fun/ch-ng-discovery-1.ctv
-Discovery HD,https://stream.freetv.fun/308-discovery-1.m3u8
 Discovery HD,https://stream.freetv.fun/discovery-5.ctv
 Discovery HD,https://stream.freetv.fun/discovery-h-h-2.ctv
 Discovery HD,https://stream.freetv.fun/discovery-h-h-3.ctv
 Discovery HD,https://stream.freetv.fun/discovery-theater-2.ctv
 Discovery HD,https://stream.freetv.fun/discovery-hindi-1.ctv
 Discovery HD,https://stream.freetv.fun/discovery-6.ctv
+Discovery HD,https://stream.freetv.fun/discovery-7.ctv
+Discovery HD,https://stream.freetv.fun/discovery-8.ctv
+Discovery HD,https://stream.freetv.fun/discovery-9.ctv
 Discovery HD,https://stream.freetv.fun/discovery-2.ctv
 Discovery HD,https://stream.freetv.fun/ch-ng-discovery-kid-1.m3u8
+Discovery LIFE,https://stream.freetv.fun/discovery-life-1.ctv
 Discovery LIFE,https://stream.freetv.fun/discovery-world-2.ctv
 Fyi,https://stream.freetv.fun/fyi-1.ctv
 HGTV[geo-blocked],https://stream.freetv.fun/hgtv-5.m3u8
@@ -313,33 +330,33 @@ History,https://stream.freetv.fun/eye-history-1.m3u8
 History,https://stream.freetv.fun/kli-history-1.m3u8
 History,https://stream.freetv.fun/history-3.m3u8
 History,https://stream.freetv.fun/history-4.m3u8
-History[geo-blocked],https://stream.freetv.fun/history-1-1.m3u8
+History,https://stream.freetv.fun/history-1-1.m3u8
 History,https://stream.freetv.fun/history-5.ctv
+History,https://stream.freetv.fun/history-1-2.m3u8
 History,https://stream.freetv.fun/ch-ng-history-1.m3u8
 History,https://stream.freetv.fun/history-hit-1.m3u8
 History,https://stream.freetv.fun/pbs-history-1.m3u8
 History[geo-blocked],https://stream.freetv.fun/history-365-1.m3u8
 History,https://stream.freetv.fun/ch-ng-history-2.ctv
 History,https://stream.freetv.fun/ph-history-1.ctv
-History,https://stream.freetv.fun/318-history-1.m3u8
 History[geo-blocked],https://stream.freetv.fun/history-7.ctv
 History[geo-blocked],https://stream.freetv.fun/history-8.m3u8
 History,https://stream.freetv.fun/cs-history-1.m3u8
 History,https://stream.freetv.fun/history-10.ctv
 History[geo-blocked],https://stream.freetv.fun/history-9.ctv
+History,https://stream.freetv.fun/history-11.ctv
+History,https://stream.freetv.fun/history-12.ctv
+History,https://stream.freetv.fun/history-13.ctv
 History,https://stream.freetv.fun/true-history-1.m3u8
-History,https://stream.freetv.fun/history-1.m3u8
 History,https://stream.freetv.fun/history-2.m3u8
 History,https://stream.freetv.fun/true-history-2.m3u8
 History,https://stream.freetv.fun/bcu-history-1.m3u8
 History 2,https://stream.freetv.fun/history-2-1.m3u8
-History 2,https://stream.freetv.fun/320-history2-1.m3u8
 History 2[geo-blocked],https://stream.freetv.fun/history-2-4.ctv
 History 2[geo-blocked],https://stream.freetv.fun/history-2-5.ctv
 History 2 HD,https://stream.freetv.fun/history-2-2.ctv
 History 2 HD,https://stream.freetv.fun/history-2-3.ctv
 Investigation Discovery,https://stream.freetv.fun/investigation-discovery-asia-1.m3u8
-Investigation Discovery,https://stream.freetv.fun/234-investigation-discovery-la-1.m3u8
 Investigation Discovery,https://stream.freetv.fun/id---investigation-discovery-1.ctv
 Investigation Discovery,https://stream.freetv.fun/ch-ng-investigation-discovery-1.m3u8
 Investigation Discovery,https://stream.freetv.fun/investigation-discovery-1.m3u8
@@ -381,19 +398,27 @@ Trvl Channel,https://stream.freetv.fun/trvl-channel-1.m3u8
 國家地理[geo-blocked],https://stream.freetv.fun/guo-jia-di-li--ye-sheng-2.ctv
 Movies,#genre#
 5 Star Max USA,https://stream.freetv.fun/5-star-max-1.ctv
+5 Star Max USA,https://stream.freetv.fun/5-star-max-2.ctv
+5 Star Max USA,https://stream.freetv.fun/5-star-max-3.ctv
+5 Star Max USA,https://stream.freetv.fun/5-star-max-4.ctv
 AMC[geo-blocked],https://stream.freetv.fun/amc-6.m3u8
 AMC,https://stream.freetv.fun/amc-7.m3u8
 AMC,https://stream.freetv.fun/amc-1.m3u8
 AMC,https://stream.freetv.fun/amc-2.m3u8
 AMC,https://stream.freetv.fun/amc-3.m3u8
-AMC,https://stream.freetv.fun/amc-4.m3u8
 AMC,https://stream.freetv.fun/amc-5.m3u8
 AMC,https://stream.freetv.fun/amc-us-1.m3u8
 AMC Thrillers,https://stream.freetv.fun/amc-9.ctv
 AMC Thrillers,https://stream.freetv.fun/amc-thriller-1.m3u8
 Action Max,https://stream.freetv.fun/action-max-2.ctv
+Action Max,https://stream.freetv.fun/action-max-3.ctv
+Action Max,https://stream.freetv.fun/action-max-4.ctv
+Action Max,https://stream.freetv.fun/action-max-5.ctv
 Action Max,https://stream.freetv.fun/action-max-1.ctv
 CBS Drama,https://stream.freetv.fun/cbs-drama-1.ctv
+CBS Drama,https://stream.freetv.fun/cbs-drama-2.ctv
+CBS Drama,https://stream.freetv.fun/cbs-drama-3.ctv
+CBS Drama,https://stream.freetv.fun/cbs-drama-4.ctv
 Cinemax,https://stream.freetv.fun/cineman-1.m3u8
 Cinemax,https://stream.freetv.fun/cinemax-4.ctv
 Cinemax,https://stream.freetv.fun/cinemax-5.m3u8
@@ -406,16 +431,24 @@ Cinemax,https://stream.freetv.fun/cinemax-12.ctv
 Cinemax[geo-blocked],https://stream.freetv.fun/cinemax-13.ctv
 Cinemax,https://stream.freetv.fun/cinemax-15.ctv
 Cinemax[geo-blocked],https://stream.freetv.fun/cinemax-14.ctv
+Cinemax,https://stream.freetv.fun/cinemax-3.ctv
+Cinemax,https://stream.freetv.fun/cinemax-16.ctv
+Cinemax,https://stream.freetv.fun/cinemax-17.ctv
 Cinemax,https://stream.freetv.fun/cinemax-7.ctv
 Cinemax,https://stream.freetv.fun/cinemax-1.ctv
-Cinemax,https://stream.freetv.fun/cinemax-2.m3u8
+Cinemax,https://stream.freetv.fun/cinemax-2.ctv
 Cinemax Action,https://stream.freetv.fun/cinemax-action-1.ctv
+Cinemax Action,https://stream.freetv.fun/cinemax-action-2.ctv
+Cinemax Action,https://stream.freetv.fun/cinemax-action-3.ctv
+Cinemax Action,https://stream.freetv.fun/cinemax-action-4.ctv
 Cinemax Action,https://stream.freetv.fun/cineman-action-1.m3u8
 Cinemax Moviemax East,https://stream.freetv.fun/cinemax-moviemax-1.ctv
+Cinemax Moviemax East,https://stream.freetv.fun/cinemax-moviemax-2.ctv
+Cinemax Moviemax East,https://stream.freetv.fun/cinemax-moviemax-3.ctv
+Cinemax Moviemax East,https://stream.freetv.fun/cinemax-moviemax-4.ctv
 Classic Movies,https://stream.freetv.fun/tvs-classic-movies-1.m3u8
 Classic Movies,https://stream.freetv.fun/30a-tv-classic-movies-1.m3u8
 FOX,https://stream.freetv.fun/fox-4.m3u8
-FOX,https://stream.freetv.fun/fox-5.ctv
 FOX,https://stream.freetv.fun/fox-6.ctv
 FOX,https://stream.freetv.fun/fox-1.m3u8
 FOX,https://stream.freetv.fun/fox-2.m3u8
@@ -434,17 +467,15 @@ FX[geo-blocked],https://stream.freetv.fun/fx-3.m3u8
 FX[geo-blocked],https://stream.freetv.fun/fx-4.m3u8
 FX,https://stream.freetv.fun/fx-5.m3u8
 FX,https://stream.freetv.fun/fx-2.m3u8
-FX,https://stream.freetv.fun/fx-1.m3u8
 FXM,https://stream.freetv.fun/fxm-en-1.m3u8
 FXX[geo-blocked],https://stream.freetv.fun/fxx-1.m3u8
 Freeform,https://stream.freetv.fun/freeform-tv-1.ctv
-HBO[geo-blocked],https://stream.freetv.fun/hbo-13.ctv
 HBO,https://stream.freetv.fun/hbo-3.m3u8
 HBO,https://stream.freetv.fun/hbo-12.ctv
-HBO[geo-blocked],https://stream.freetv.fun/hbo-14.m3u8
 HBO[geo-blocked],https://stream.freetv.fun/hbo-15.ctv
 HBO[geo-blocked],https://stream.freetv.fun/hbo-6.ctv
 HBO,https://stream.freetv.fun/hbo-9.m3u8
+HBO[geo-blocked],https://stream.freetv.fun/hbo-14.m3u8
 HBO,https://stream.freetv.fun/hbo-1.ctv
 HBO,https://stream.freetv.fun/hbo-2.ctv
 HBO,https://stream.freetv.fun/hbo-5.m3u8
@@ -452,20 +483,28 @@ HBO,https://stream.freetv.fun/hbo-10.ctv
 HBO,https://stream.freetv.fun/hbo-11.ctv
 HBO,https://stream.freetv.fun/vf-hbo-1.m3u8
 HBO,https://stream.freetv.fun/hbo-1-1.m3u8
-HBO 2,https://stream.freetv.fun/hbo-2-8.ctv
-HBO 2,https://stream.freetv.fun/hbo-2-9.ctv
+HBO 2,https://stream.freetv.fun/hbo-2-12.ctv
 HBO 2,https://stream.freetv.fun/hbo-2-4.ctv
 HBO 2,https://stream.freetv.fun/hbo-2-7.m3u8
+HBO 2,https://stream.freetv.fun/hbo-2-8.ctv
+HBO 2,https://stream.freetv.fun/hbo-2-9.ctv
+HBO 2,https://stream.freetv.fun/hbo-2-10.ctv
+HBO 2,https://stream.freetv.fun/hbo-2-11.ctv
 HBO 2,https://stream.freetv.fun/hbo-2-3.m3u8
-HBO 2,https://stream.freetv.fun/hbo-2-1.m3u8
 HBO 2,https://stream.freetv.fun/hbo-2-5.m3u8
 HBO 2 HD,https://stream.freetv.fun/hbo-2-6.ctv
 HBO 2 HD,https://stream.freetv.fun/hbo-2-2.ctv
 HBO 3,https://stream.freetv.fun/hbo-3-1.m3u8
-HBO Comedy,https://stream.freetv.fun/hbo-comedy-1.ctv
 HBO Comedy,https://stream.freetv.fun/hbo-comedy-2.ctv
+HBO Comedy,https://stream.freetv.fun/hbo-comedy-3.ctv
+HBO Comedy,https://stream.freetv.fun/hbo-comedy-4.ctv
+HBO Comedy,https://stream.freetv.fun/hbo-comedy-5.ctv
+HBO Comedy,https://stream.freetv.fun/hbo-comedy-1.ctv
 HBO East,https://stream.freetv.fun/hbo-2-east-1.m3u8
 HBO East,https://stream.freetv.fun/hbo-east-1.ctv
+HBO East,https://stream.freetv.fun/hbo-east-2.ctv
+HBO East,https://stream.freetv.fun/hbo-east-3.ctv
+HBO East,https://stream.freetv.fun/hbo-east-4.ctv
 HBO Family,https://stream.freetv.fun/hbo-family-china-sub-1.ctv
 HBO Family,https://stream.freetv.fun/hbo-family-8.m3u8
 HBO Family,https://stream.freetv.fun/hbo-family-9.ctv
@@ -477,25 +516,25 @@ HBO Family[geo-blocked],https://stream.freetv.fun/hbo-family-12.ctv
 HBO Family,https://stream.freetv.fun/hbo-family-4.ctv
 HBO Family,https://stream.freetv.fun/ph-hbo-family-1.ctv
 HBO Family,https://stream.freetv.fun/hbo-family-3.m3u8
-HBO Family,https://stream.freetv.fun/hbo-family-1.m3u8
 HBO Family(TW),https://stream.freetv.fun/hbo-family-5.ctv
 HBO Family(TW),https://stream.freetv.fun/hbo-family-6.ctv
 HBO Family(TW),https://stream.freetv.fun/hbo-family-7.m3u8
 HBO HD,https://stream.freetv.fun/hbo-4.ctv
 HBO HD,https://stream.freetv.fun/hbo-8.m3u8
 HBO HD,https://stream.freetv.fun/hbo-7.ctv
+HBO HITS,https://stream.freetv.fun/hbo-hits-5.ctv
+HBO HITS,https://stream.freetv.fun/hbo-hits-6.ctv
+HBO HITS,https://stream.freetv.fun/hbo-hits-7.ctv
 HBO HITS,https://stream.freetv.fun/hbo-hits-4.ctv
 HBO HITS[geo-blocked],https://stream.freetv.fun/hbo-hits-3.ctv
 HBO HITS,https://stream.freetv.fun/hbo-hits-tree-1.ctv
 HBO HITS(TW)[geo-blocked],https://stream.freetv.fun/hbo-hits-2.ctv
 HBO HITS(TW),https://stream.freetv.fun/hbo-hits-1.ctv
-HBO PLUS,https://stream.freetv.fun/hbo-plus-6.m3u8
-HBO PLUS[geo-blocked],https://stream.freetv.fun/hbo-plus-3.m3u8
 HBO PLUS,https://stream.freetv.fun/hbo-plus-4.ctv
 HBO PLUS,https://stream.freetv.fun/hbo-plus-5.m3u8
+HBO PLUS,https://stream.freetv.fun/hbo-plus-6.m3u8
 HBO PLUS,https://stream.freetv.fun/hbo-plus-2.m3u8
 HBO PLUS,https://stream.freetv.fun/plus-1.m3u8
-HBO PLUS,https://stream.freetv.fun/hbo-plus-1.m3u8
 HBO Signature,https://stream.freetv.fun/ph-hbo-signature-1.ctv
 HBO Signature,https://stream.freetv.fun/hbo-signature-4.ctv
 HBO Signature,https://stream.freetv.fun/now-hbo-signature-1.ctv
@@ -503,11 +542,17 @@ HBO Signature[geo-blocked],https://stream.freetv.fun/hbo-signature-5.ctv
 HBO Signature,https://stream.freetv.fun/now-hbo-signature-2.ctv
 HBO Signature[geo-blocked],https://stream.freetv.fun/hbo-signature-6.ctv
 HBO Signature,https://stream.freetv.fun/hbo-signature-3.m3u8
-HBO Signature,https://stream.freetv.fun/hbo-signature-1.m3u8
+HBO Signature(USA),https://stream.freetv.fun/hbo-signature-7.ctv
+HBO Signature(USA),https://stream.freetv.fun/hbo-signature-8.ctv
+HBO Signature(USA),https://stream.freetv.fun/hbo-signature-9.ctv
 HBO Signature(USA),https://stream.freetv.fun/hbo-signature-2.ctv
 HBO Zone,https://stream.freetv.fun/hbo-zone-2.ctv
+HBO Zone,https://stream.freetv.fun/hbo-zone-3.ctv
+HBO Zone,https://stream.freetv.fun/hbo-zone-4.ctv
+HBO Zone,https://stream.freetv.fun/hbo-zone-5.ctv
 HBO Zone,https://stream.freetv.fun/hbo-zone-1.ctv
 HBO2,https://stream.freetv.fun/hbo2-1.m3u8
+Hallmark Channel,https://stream.freetv.fun/ch-ng-hallmark-channel-1.ctv
 Hallmark Movies,https://stream.freetv.fun/hallmark-1.m3u8
 Hallmark Movies[geo-blocked],https://stream.freetv.fun/halmark-1.m3u8
 Hallmark Movies[geo-blocked],https://stream.freetv.fun/halmark-2.m3u8
@@ -524,6 +569,7 @@ Mystery Science Theater 3000,https://stream.freetv.fun/mystery-science-theater-3
 Mystery Science Theater 3000,https://stream.freetv.fun/mei-guo--mystery-science-theater-3000-1.m3u8
 Mystery Science Theater 3000,https://stream.freetv.fun/mei-guo--mystery-science-theater-3000-2.m3u8
 Mystery Science Theater 3000,https://stream.freetv.fun/mystery-science-theater-3000-1.m3u8
+REELZ Channel[geo-blocked],https://stream.freetv.fun/reelz-1.m3u8
 Showtime,https://stream.freetv.fun/showtime-2-2.ctv
 Showtime,https://stream.freetv.fun/showtime-next-1.ctv
 Showtime,https://stream.freetv.fun/showtime-women-1.ctv
@@ -531,30 +577,44 @@ Showtime,https://stream.freetv.fun/showtime-1.ctv
 Showtime,https://stream.freetv.fun/showtime-extreme-1.ctv
 Showtime,https://stream.freetv.fun/mei-guo-ce-shi-showtime-1.ctv
 Showtime,https://stream.freetv.fun/showtime-2.ctv
+Showtime,https://stream.freetv.fun/showtime-3.ctv
+Showtime,https://stream.freetv.fun/showtime-4.ctv
+Showtime,https://stream.freetv.fun/showtime-5.ctv
 Showtime[geo-blocked],https://stream.freetv.fun/showtime-2-1.m3u8
 Showtime[geo-blocked],https://stream.freetv.fun/showtime-selects-1.m3u8
 Star Movies,https://stream.freetv.fun/star-select-movies-1.ctv
 Star Movies,https://stream.freetv.fun/star-movies-india-1.m3u8
-Starz,https://stream.freetv.fun/starz-1-1.m3u8
 Starz Cinema,https://stream.freetv.fun/starz-cinema-1.ctv
 Starz Cinema,https://stream.freetv.fun/starz-cinema-2.ctv
+Starz Cinema,https://stream.freetv.fun/starz-cinema-3.ctv
+Starz Cinema,https://stream.freetv.fun/starz-cinema-4.ctv
+Starz Cinema,https://stream.freetv.fun/starz-cinema-5.ctv
 Starz Edge,https://stream.freetv.fun/starz-edge-1.ctv
+Starz Edge,https://stream.freetv.fun/starz-edge-2.ctv
+Starz Edge,https://stream.freetv.fun/starz-edge-3.ctv
+Starz Edge,https://stream.freetv.fun/starz-edge-4.ctv
 Starz Encore,https://stream.freetv.fun/starz-encore-1.ctv
 Starz Encore,https://stream.freetv.fun/starz-encore-2.ctv
+Starz Encore,https://stream.freetv.fun/starz-encore-3.ctv
+Starz Encore,https://stream.freetv.fun/starz-encore-4.ctv
+Starz Encore,https://stream.freetv.fun/starz-encore-5.ctv
 Starz West,https://stream.freetv.fun/starz-west-1.ctv
 Starz West,https://stream.freetv.fun/starz-west-2.ctv
+Starz West,https://stream.freetv.fun/starz-west-3.ctv
+Starz West,https://stream.freetv.fun/starz-west-4.ctv
+Starz West,https://stream.freetv.fun/starz-west-5.ctv
+Starz West,https://stream.freetv.fun/starz-west-6.ctv
+Starz West,https://stream.freetv.fun/starz-west-7.ctv
+Starz West,https://stream.freetv.fun/starz-west-8.ctv
 SyFy,https://stream.freetv.fun/syfy-1.m3u8
 SyFy,https://stream.freetv.fun/syfy-2.ctv
 SyFy,https://stream.freetv.fun/syfy-3.m3u8
 SyFy,https://stream.freetv.fun/syfy-4.m3u8
-Syfy HD,https://stream.freetv.fun/syfy-tv-1.ctv
 TCM USA,https://stream.freetv.fun/tcm-1.m3u8
 TCM USA,https://stream.freetv.fun/tcm-2.ctv
 TCM USA,https://stream.freetv.fun/tcm-3.m3u8
-TNT[geo-blocked],https://stream.freetv.fun/tnt-8.m3u8
 TNT,https://stream.freetv.fun/tnt-11.m3u8
 TNT,https://stream.freetv.fun/tnt-4.m3u8
-TNT,https://stream.freetv.fun/tnt-5.m3u8
 TNT,https://stream.freetv.fun/tnt-7.ctv
 TNT,https://stream.freetv.fun/tnt-3.m3u8
 TNT,https://stream.freetv.fun/tntv-1.m3u8
@@ -579,6 +639,9 @@ Universal Channel,https://stream.freetv.fun/universal-channel-2.ctv
 Universal Channel,https://stream.freetv.fun/universal-2.m3u8
 Universal Channel,https://stream.freetv.fun/universal-3.m3u8
 Warner TV,https://stream.freetv.fun/warner-tv-2.ctv
+Warner TV,https://stream.freetv.fun/warner-tv-3.ctv
+Warner TV,https://stream.freetv.fun/warner-tv-4.ctv
+Warner TV,https://stream.freetv.fun/warner-tv-5.ctv
 Warner TV,https://stream.freetv.fun/warner-tv-1.ctv
 Music,#genre#
 MTV HD,https://stream.freetv.fun/mtv-9.ctv
@@ -586,21 +649,26 @@ MTV HD,https://stream.freetv.fun/mtv-10.ctv
 MTV HD,https://stream.freetv.fun/mtv-11.m3u8
 MTV HD,https://stream.freetv.fun/mtv-3.m3u8
 MTV Live HD[geo-blocked],https://stream.freetv.fun/mtv-live-2.ctv
-MTV Live HD,https://stream.freetv.fun/mtv-live-5.ctv
 MTV Live HD[geo-blocked],https://stream.freetv.fun/mtv-live-3.ctv
+MTV Live HD,https://stream.freetv.fun/mtv-live-6.ctv
+MTV Live HD,https://stream.freetv.fun/mtv-live-7.ctv
+MTV Live HD,https://stream.freetv.fun/mtv-live-8.ctv
 MTV Live HD,https://stream.freetv.fun/mtv-live-1.ctv
+MTV Live HD,https://stream.freetv.fun/mtv-live-5.ctv
 MTV Live HD,https://stream.freetv.fun/ch-ng-mtv-live-1.m3u8
 MTV Live USA,https://stream.freetv.fun/mtv-live-4.m3u8
+MTV Rocks USA,https://stream.freetv.fun/mtv-rocks-2.ctv
+MTV Rocks USA,https://stream.freetv.fun/mtv-rocks-3.ctv
+MTV Rocks USA,https://stream.freetv.fun/mtv-rocks-4.ctv
 MTV Rocks USA,https://stream.freetv.fun/mtv-rocks-1.ctv
 News,#genre#
-ABC,https://stream.freetv.fun/23-abc-2.m3u8
 ABC,https://stream.freetv.fun/abc-7-1.ctv
 ABC,https://stream.freetv.fun/abc-7-2.ctv
 ABC,https://stream.freetv.fun/abc-4.ctv
 ABC[geo-blocked],https://stream.freetv.fun/abc-me-1.m3u8
 ABC,https://stream.freetv.fun/23-abc-1.m3u8
 ABC,https://stream.freetv.fun/abc-3.m3u8
-ABC,https://stream.freetv.fun/abc-5.ctv
+ABC,https://stream.freetv.fun/23-abc-2.m3u8
 ABC,https://stream.freetv.fun/abc-1.m3u8
 ABC MIAMI,https://stream.freetv.fun/abc-2.m3u8
 ABC MIAMI[geo-blocked],https://stream.freetv.fun/abc-miami-fl-1.m3u8
@@ -661,12 +729,15 @@ ABC News Live,https://stream.freetv.fun/abc-news-live-1-4.m3u8
 ABC News Live[geo-blocked],https://stream.freetv.fun/abc-news-live-2.m3u8
 ABC News Live,https://stream.freetv.fun/abc-news-live-2-1.m3u8
 ABC News Live,https://stream.freetv.fun/abc-news-live-3-1.m3u8
-AccuWeather,https://stream.freetv.fun/accuweather-now-1.m3u8
+AccuWeather[geo-blocked],https://stream.freetv.fun/accuweather-now-1.m3u8
 Bloomberg TV,https://stream.freetv.fun/bloomberg-tv-plus-4.m3u8
 Bloomberg TV,https://stream.freetv.fun/bloomberg-tv-plus-5.m3u8
 Bloomberg TV,https://stream.freetv.fun/bloomberg-tv-plus-6.m3u8
 Bloomberg TV,https://stream.freetv.fun/bloomberg-tv-9.ctv
 Bloomberg TV,https://stream.freetv.fun/bloomberg-tv-plus-7.m3u8
+Bloomberg TV,https://stream.freetv.fun/bloomberg-tv-10.ctv
+Bloomberg TV,https://stream.freetv.fun/bloomberg-tv-11.ctv
+Bloomberg TV,https://stream.freetv.fun/bloomberg-tv-12.ctv
 Bloomberg TV,https://stream.freetv.fun/bloombergtv-1.m3u8
 Bloomberg TV,https://stream.freetv.fun/bloomberg-tv-1.m3u8
 Bloomberg TV[geo-blocked],https://stream.freetv.fun/bloomberg-tv-2.m3u8
@@ -689,7 +760,6 @@ Bloomberg TV USA,https://stream.freetv.fun/bloomberg-tv-plus--uhd-1.m3u8
 Bloomberg TV USA,https://stream.freetv.fun/bloomberg-tv-asia-3.m3u8
 CBC News[geo-blocked],https://stream.freetv.fun/cbc-news-1.m3u8
 CBC News[geo-blocked],https://stream.freetv.fun/cbn-news-1.m3u8
-CBC News,https://stream.freetv.fun/cbc-news-explore-1.m3u8
 CBC News[geo-blocked],https://stream.freetv.fun/cbc-news-2.m3u8
 CBS News[geo-blocked],https://stream.freetv.fun/cbs-news-1.m3u8
 CBS News[geo-blocked],https://stream.freetv.fun/cbs-news-dfw-1.m3u8
@@ -714,6 +784,9 @@ CNBC[geo-blocked],https://stream.freetv.fun/cnbc-2.ctv
 CNBC,https://stream.freetv.fun/cnbc-8.ctv
 CNBC[geo-blocked],https://stream.freetv.fun/cnbc-3.m3u8
 CNBC[geo-blocked],https://stream.freetv.fun/cnbc-4.ctv
+CNBC,https://stream.freetv.fun/cnbc-9.ctv
+CNBC,https://stream.freetv.fun/cnbc-10.ctv
+CNBC,https://stream.freetv.fun/cnbc-11.ctv
 CNBC[geo-blocked],https://stream.freetv.fun/cnbc-1.m3u8
 CNBC WORLD[geo-blocked],https://stream.freetv.fun/cnbc-world-1.m3u8
 CNBC WORLD,https://stream.freetv.fun/nbt-world-1.m3u8
@@ -732,6 +805,7 @@ CNN[geo-blocked],https://stream.freetv.fun/cnn-1.m3u8
 CNN,https://stream.freetv.fun/cnn-2.m3u8
 CNN,https://stream.freetv.fun/acnn-1.m3u8
 CNN,https://stream.freetv.fun/cnn-j-1.m3u8
+CNN HD,https://stream.freetv.fun/cnn-10.ctv
 CNN HD,https://stream.freetv.fun/cnn--test-1.ctv
 CNN HLN[geo-blocked],https://stream.freetv.fun/hln-3.ctv
 CNN HLN[geo-blocked],https://stream.freetv.fun/hln-4.m3u8
@@ -761,10 +835,13 @@ CNN en Español[geo-blocked],https://stream.freetv.fun/afv-en-espanol-1.m3u8
 Cartoonito TV,https://stream.freetv.fun/cartoonito-1.m3u8
 Cartoonito TV,https://stream.freetv.fun/cartoonito-2.m3u8
 EWTN Asia-Pacific[geo-blocked],https://stream.freetv.fun/ewtn-asia-pacific-1.m3u8
-EWTN Asia-Pacific[geo-blocked],https://stream.freetv.fun/ewtn-asia-pacific-2.m3u8
 EWTN Asia-Pacific[geo-blocked],https://stream.freetv.fun/ewtn-asia-pacific-3.m3u8
+EWTN Asia-Pacific[geo-blocked],https://stream.freetv.fun/ewtn-asia-pacific-2.m3u8
 EWTN El Canal Católico[geo-blocked],https://stream.freetv.fun/ewtn-el-canal-catolico-1.m3u8
 EZTV2,https://stream.freetv.fun/etv2-1.m3u8
+FOX 5 ATLANTA,https://stream.freetv.fun/astroxiao-tai-yang-1.ctv
+FOX 5 ATLANTA,https://stream.freetv.fun/astroxiao-tai-yang-2.ctv
+FOX 5 ATLANTA,https://stream.freetv.fun/astroxiao-tai-yang-3.ctv
 FOX NEWS NOW,https://stream.freetv.fun/fox-newsnow-2.ctv
 FOX NEWS NOW,https://stream.freetv.fun/fox-news-now-2.m3u8
 FOX NEWS NOW,https://stream.freetv.fun/fox-newsnow-1.m3u8
@@ -790,8 +867,7 @@ MSNBC[geo-blocked],https://stream.freetv.fun/msnbc-1.m3u8
 NBC 4(WNBC) ,https://stream.freetv.fun/gtn-new-york-1.m3u8
 NBC NEW YORK FHD,https://stream.freetv.fun/nbc-1.m3u8
 NBC NEW YORK FHD,https://stream.freetv.fun/nbc-2.ctv
-NBC NEW YORK FHD,https://stream.freetv.fun/nbc-3.ctv
-NBC NEWS,https://stream.freetv.fun/nbc-news-2.m3u8
+NBC NEWS[geo-blocked],https://stream.freetv.fun/nbc-news-2.m3u8
 NBC NEWS[geo-blocked],https://stream.freetv.fun/nbc-news-1.m3u8
 NBC News Now,https://stream.freetv.fun/nbc-news-now-3.m3u8
 NBC News Now[geo-blocked],https://stream.freetv.fun/nbc-news-now-4.m3u8
@@ -801,7 +877,7 @@ NBC News Now[geo-blocked],https://stream.freetv.fun/nbc-news-now-6.m3u8
 NBC News Now,https://stream.freetv.fun/news-now-2.m3u8
 NBC News Now[geo-blocked],https://stream.freetv.fun/nbc-news-now-7.m3u8
 NBC News Now[geo-blocked],https://stream.freetv.fun/nbc-news-now-2.m3u8
-NBC News Now[geo-blocked],https://stream.freetv.fun/nbc-news-now-1.m3u8
+NBC News Now,https://stream.freetv.fun/nbc-news-now-1.m3u8
 News 12 Brooklyn,https://stream.freetv.fun/news-12-new-york-1.m3u8
 NewsNation[geo-blocked],https://stream.freetv.fun/news-nation-1.m3u8
 NewsNation[geo-blocked],https://stream.freetv.fun/news-nation-2.m3u8
@@ -844,7 +920,6 @@ Beach TV Panama City[geo-blocked],https://stream.freetv.fun/beach-tv-panama-city
 Beach TV Panama City[geo-blocked],https://stream.freetv.fun/beach-tv-panama-city-2.m3u8
 CATHOLIC TV,https://stream.freetv.fun/catholic-tv-1.m3u8
 CATHOLIC TV,https://stream.freetv.fun/catholic-tv-2.m3u8
-CBS,https://stream.freetv.fun/cbs-1.ctv
 CBS,https://stream.freetv.fun/cbs-2.ctv
 CBS,https://stream.freetv.fun/cbs-2-1.ctv
 Christian Youth Channel CYC,https://stream.freetv.fun/christian-youth-channel-1.m3u8
@@ -855,7 +930,7 @@ FOOD Network HD,https://stream.freetv.fun/ph-food-network-2.ctv
 FOOD Network HD,https://stream.freetv.fun/ph-food-network-3.ctv
 FOOD Network HD,https://stream.freetv.fun/food-network-6.ctv
 FOOD Network HD,https://stream.freetv.fun/food-network-7.ctv
-FOOD Network HD[geo-blocked],https://stream.freetv.fun/ph-food-network-1.ctv
+FOOD Network HD,https://stream.freetv.fun/ph-food-network-1.ctv
 Food Network UK,https://stream.freetv.fun/ch-ng-food-network-2.m3u8
 Food Network UK,https://stream.freetv.fun/food-network-cee-1.m3u8
 Food Network UK,https://stream.freetv.fun/asian-food-network-1.ctv
@@ -938,6 +1013,7 @@ Bally Sports,https://stream.freetv.fun/ch-ng-bally-sports-sun-1.m3u8
 Bally Sports South,https://stream.freetv.fun/bally-sports-south-1.ctv
 Bally Sports Southeast[geo-blocked],https://stream.freetv.fun/bally-sports-southeast-1.m3u8
 Bally Sports Southeast,https://stream.freetv.fun/bally-sports-southeast-2.ctv
+BeIn Sports(US)[geo-blocked],https://stream.freetv.fun/bein-sports-xtra-1.m3u8
 CBS Sports Network[geo-blocked],https://stream.freetv.fun/fubo-sports-network-3.m3u8
 CBS Sports Network,https://stream.freetv.fun/cbs-sport-network-1.ctv
 CBS Sports Network,https://stream.freetv.fun/ch-ng-cbs-sports-network-2.m3u8
@@ -950,7 +1026,6 @@ CBS Sports Network[geo-blocked],https://stream.freetv.fun/cbs-sports-golazo-netw
 ESPN,https://stream.freetv.fun/espn-4-4.m3u8
 ESPN,https://stream.freetv.fun/espn-4-5.ctv
 ESPN,https://stream.freetv.fun/espn-6-1.ctv
-ESPN,https://stream.freetv.fun/342-espn-1.m3u8
 ESPN,https://stream.freetv.fun/espn-3-7.ctv
 ESPN,https://stream.freetv.fun/espn-co-1.ctv
 ESPN,https://stream.freetv.fun/espn-4-7.ctv
@@ -966,15 +1041,14 @@ ESPN,https://stream.freetv.fun/espn-3.ctv
 ESPN,https://stream.freetv.fun/espn-4.ctv
 ESPN,https://stream.freetv.fun/espn-1-1.ctv
 ESPN,https://stream.freetv.fun/espn-5-1.ctv
-ESPN,https://stream.freetv.fun/espn-7-1.ctv
+ESPN[geo-blocked],https://stream.freetv.fun/espn-7-1.ctv
 ESPN 2,https://stream.freetv.fun/espn-2-2.ctv
 ESPN 2,https://stream.freetv.fun/espn-2-3.ctv
-ESPN 2,https://stream.freetv.fun/338-espn-2-1.m3u8
 ESPN 2,https://stream.freetv.fun/espn-2-latin-1.ctv
 ESPN 2,https://stream.freetv.fun/espn-2-4.ctv
 ESPN 2,https://stream.freetv.fun/espn-2-5.ctv
-ESPN 2,https://stream.freetv.fun/espn-2-latin-2.m3u8
 ESPN 2,https://stream.freetv.fun/espn-2-1.ctv
+ESPN 2,https://stream.freetv.fun/espn-2-latin-2.m3u8
 ESPN 2,https://stream.freetv.fun/ch-ng-espn-2-1.m3u8
 ESPN 3,https://stream.freetv.fun/espn-3-1.ctv
 ESPN 3,https://stream.freetv.fun/espn-3-2.ctv
@@ -983,9 +1057,7 @@ ESPN HD,https://stream.freetv.fun/espn-tv-1.ctv
 ESPN HD,https://stream.freetv.fun/espn-1.ctv
 ESPN2,https://stream.freetv.fun/espn2-tv-1.ctv
 Estrella Games[geo-blocked],https://stream.freetv.fun/estrella-games-1.m3u8
-FOX 502,https://stream.freetv.fun/fox502-1.ctv
 FOX 503,https://stream.freetv.fun/fox503-1.ctv
-FOX Deportes,https://stream.freetv.fun/fox-deportes-1.m3u8
 FOX SPORTS,https://stream.freetv.fun/fox-sports-3.m3u8
 FOX SPORTS[geo-blocked],https://stream.freetv.fun/fox-sports-1.m3u8
 FOX SPORTS[geo-blocked],https://stream.freetv.fun/fox-sports-2.m3u8
@@ -1032,6 +1104,8 @@ NBA TV,https://stream.freetv.fun/ch-ng-nba-tv-1.m3u8
 NBC Sport[geo-blocked],https://stream.freetv.fun/nbc-sports-2.m3u8
 NESN,https://stream.freetv.fun/nesn-1.ctv
 NESN,https://stream.freetv.fun/nesn-2.ctv
+NESN PLUS,https://stream.freetv.fun/nan-fang-wei-shi-1.m3u8
+NESN PLUS,https://stream.freetv.fun/nan-fang-wei-shi-2.ctv
 Setanta Sports,https://stream.freetv.fun/setanta-sports-baltic-1-1.ctv
 Setanta Sports,https://stream.freetv.fun/setanta-sports-kz-1.ctv
 Setanta Sports,https://stream.freetv.fun/setanta-sports-uk-3-1.ctv
@@ -1047,7 +1121,6 @@ Setanta Sports,https://stream.freetv.fun/setanta-sports-2-4.m3u8
 Setanta Sports,https://stream.freetv.fun/setanta-sports-2-1.m3u8
 TIDE SPORTS,https://stream.freetv.fun/altitude-sports-1.ctv
 TechStorm,https://stream.freetv.fun/ph-techstorm-1.ctv
-Telemundo,https://stream.freetv.fun/telemundo-miami-1.m3u8
 Telemundo,https://stream.freetv.fun/telemundo-3.m3u8
 Telemundo,https://stream.freetv.fun/telemundo-4.m3u8
 Telemundo,https://stream.freetv.fun/telemundo-1.m3u8
@@ -1063,7 +1136,6 @@ Unbeaten Esports[geo-blocked],https://stream.freetv.fun/unbeaten-sports-1.m3u8
 Unbeaten Esports,https://stream.freetv.fun/unbeaten-2.m3u8
 Unbeaten Esports[geo-blocked],https://stream.freetv.fun/unbeaten-sports-2.m3u8
 Unbeaten Esports,https://stream.freetv.fun/unbeaten-1.m3u8
-WWE Network,https://stream.freetv.fun/wwe-network-2.ctv
 WWE Network,https://stream.freetv.fun/wwe-1.ctv
 WWE Network,https://stream.freetv.fun/wwe-network-4.ctv
 WWE Network[geo-blocked],https://stream.freetv.fun/wwe-network-1.m3u8

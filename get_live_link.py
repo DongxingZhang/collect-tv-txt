@@ -37,6 +37,11 @@ link=sys.argv[1]
 routef=sys.argv[2]
 write_file("", routef,"w")
 # 运行Playwright
-with sync_playwright() as p:
-    run(p, link, routef)
+if not link.startswith("https://www.yy.com/") and \
+    not link.startswith("https://live.bilibili.com/") and \
+    not link.startswith("https://www.douyu.com/"):
+    write_file(link, routef,"w")
+else:
+    with sync_playwright() as p:
+        run(p, link, routef)
 

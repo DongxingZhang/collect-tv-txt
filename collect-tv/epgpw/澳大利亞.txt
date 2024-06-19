@@ -22,11 +22,14 @@ TVSN Australia[geo-blocked],https://stream.freetv.fun/tvsn-1.m3u8
 Knowledge,#genre#
 Hillsong Channel,https://stream.freetv.fun/hillsong-channel-1.ctv
 News,#genre#
-ABC Australia[geo-blocked],https://stream.freetv.fun/abc-australia-2.ctv
+ABC Australia,https://stream.freetv.fun/abc-australia-2.ctv
 ABC Australia,https://stream.freetv.fun/ph-abc-austrailia-1.ctv
 ABC Australia,https://stream.freetv.fun/abc-australia-test-1.ctv
 ABC Australia,https://stream.freetv.fun/abc-australia-3.ctv
-ABC Australia,https://stream.freetv.fun/abc-australia-1.ctv
+ABC Australia,https://stream.freetv.fun/abc-australia-4.ctv
+ABC Australia,https://stream.freetv.fun/abc-australia-5.ctv
+ABC Australia,https://stream.freetv.fun/abc-australia-6.ctv
+ABC Australia[geo-blocked],https://stream.freetv.fun/abc-australia-1.ctv
 ABC NEWS 24,https://stream.freetv.fun/la-c-news-24-2.m3u8
 ABC NEWS 24,https://stream.freetv.fun/la-c-news-24-1.m3u8
 NBN TV,https://stream.freetv.fun/nrb-tv-2.m3u8

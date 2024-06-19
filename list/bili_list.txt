@@ -1,3 +1,7 @@
+0|0|https://stream.freetv.fun/e468c10260ed25ee23e4684b0a6468987afe52991894feaead9c276b0f29cad1.ctv|1
+0|0|http://61.221.215.25:8800/hls/43/index.m3u8|1
+0|0|https://dikcfc9915kp8.cloudfront.net/hls/1080p/playlist.m3u8|1
+0|0|https://live.corusdigitaldev.com/groupa/live/b60d1d57-2851-4c29-bf5c-36feed988e57/live.isml/.m3u8|1
 0|0|https://www.yy.com/1354936175/1354936175|1
 0|0|https://www.yy.com/1354931498/1354931498|3
 0|0|https://www.yy.com/1354931498/1354931498|3
@@ -68,6 +72,10 @@
 0|0|百家讲坛/鲍鹏山水浒|3
 
 0|0|/mnt/share3/songs|500000
+1|0|https://stream.freetv.fun/e468c10260ed25ee23e4684b0a6468987afe52991894feaead9c276b0f29cad1.ctv|1
+1|0|http://61.221.215.25:8800/hls/43/index.m3u8|1
+1|0|https://dikcfc9915kp8.cloudfront.net/hls/1080p/playlist.m3u8|1
+1|0|https://live.corusdigitaldev.com/groupa/live/b60d1d57-2851-4c29-bf5c-36feed988e57/live.isml/.m3u8|1
 1|0|https://www.yy.com/1354936175/1354936175|1
 1|0|https://www.yy.com/1354931498/1354931498|3
 1|0|https://www.yy.com/1354931498/1354931498|3

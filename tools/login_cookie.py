@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2020/12/29 11:01
 # @Author  : huni
-# @File    : Ð¯´øcookiesµÇÂ½¶·Óã.py
+# @File    : Ð¯ï¿½ï¿½cookiesï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½.py
 # @Software: PyCharm
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -18,10 +18,10 @@ def browser_initial():
     return browser
 
 def log_csdn(browser):
-    with open('¶·Óã_cookies.txt', 'r', encoding='utf8') as f:
+    with open('ï¿½ï¿½ï¿½ï¿½_cookies.txt', 'r', encoding='utf8') as f:
         listCookies = json.loads(f.read())
 
-    # ÍùbrowserÀïÌí¼Ócookies
+    # ï¿½ï¿½browserï¿½ï¿½ï¿½ï¿½ï¿½ï¿½cookies
     for cookie in listCookies:
         cookie_dict = {
             'domain': '.douyu.com',
@@ -34,7 +34,7 @@ def log_csdn(browser):
             'Secure': False
         }
         browser.add_cookie(cookie_dict)
-    browser.refresh()  # Ë¢ÐÂÍøÒ³,cookies²Å³É¹¦
+    browser.refresh()  # Ë¢ï¿½ï¿½ï¿½ï¿½Ò³,cookiesï¿½Å³É¹ï¿½
 
 if __name__ == "__main__":
     browser = browser_initial()

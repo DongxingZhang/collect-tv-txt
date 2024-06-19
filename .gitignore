@@ -7,3 +7,7 @@ collect-tv/epgpw.log
 collect-tv/output.jpg
 collect-tv/my.log
 live_tool.log
+init_pic/*.jpg
+epgpw_pic/*.jpg
+checkvalid_pic/*.jpg
+invalid_pic/*

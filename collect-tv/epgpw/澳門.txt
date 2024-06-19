@@ -20,7 +20,7 @@
 澳視澳門,https://stream.freetv.fun/ao-shi-ao-men-2.m3u8
 澳視澳門,https://stream.freetv.fun/ao-shi-ao-men-3.m3u8
 澳視澳門,https://stream.freetv.fun/ao-shi-ao-men-4.ctv
-澳視澳門[geo-blocked],https://stream.freetv.fun/ao-shi-ao-men-1.ctv
+澳視澳門,https://stream.freetv.fun/ao-shi-ao-men-1.ctv
 澳視澳門[geo-blocked],https://stream.freetv.fun/ch-ng-ao-shi-ao-men-1.m3u8
 澳門蓮花[geo-blocked],https://stream.freetv.fun/ao-men-lian-hua-1.m3u8
 澳門衛視,https://stream.freetv.fun/ao-men-wei-shi-1.ctv
@@ -33,6 +33,7 @@
 澳門資訊,https://stream.freetv.fun/ao-men-zi-xun-3.m3u8
 其它,#genre#
 澳亞衛視,https://stream.freetv.fun/ao-ya-wei-shi-2.ctv
+澳亞衛視,https://stream.freetv.fun/ao-ya-wei-shi-3.m3u8
 澳亞衛視,https://stream.freetv.fun/ao-ya-wei-shi-1.ctv
 運動,#genre#
 澳視體育[geo-blocked],https://stream.freetv.fun/ch-ng-ao-shi-ti-yu-1.m3u8

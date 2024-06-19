@@ -23,17 +23,30 @@ ITV3,https://stream.freetv.fun/itv3-1.ctv
 Kiss TV,https://stream.freetv.fun/kiss-kiss-tv-1.m3u8
 Pop UK[geo-blocked],https://stream.freetv.fun/pop-2.m3u8
 Sky Cinema Disney,https://stream.freetv.fun/sky-cinema-disney-1.ctv
+Sky Cinema Disney,https://stream.freetv.fun/sky-cinema-disney-2.ctv
+Sky Cinema Disney,https://stream.freetv.fun/sky-cinema-disney-3.ctv
+Sky Cinema Disney,https://stream.freetv.fun/sky-cinema-disney-4.ctv
 Spirit TV[geo-blocked],https://stream.freetv.fun/spirit-tv-1.m3u8
 Tiny Pop UK,https://stream.freetv.fun/tiny-1.m3u8
 Tiny Pop UK,https://stream.freetv.fun/tiny-pop-1.m3u8
 Tiny Pop UK,https://stream.freetv.fun/tiny-pop-2.m3u8
 VH1 Classic,https://stream.freetv.fun/vf-classic-1.m3u8
 Generic,#genre#
+5 Star UK,https://stream.freetv.fun/5-star-uk-1.ctv
 5USA UK,https://stream.freetv.fun/5usa-uk-1.ctv
+5USA UK,https://stream.freetv.fun/5usa-uk-2.ctv
+5USA UK,https://stream.freetv.fun/5usa-uk-3.ctv
+5USA UK,https://stream.freetv.fun/5usa-uk-4.ctv
 BBC 1,https://stream.freetv.fun/bbc-1-2.ctv
 BBC 1,https://stream.freetv.fun/bbc-1-1.ctv
+BBC 1,https://stream.freetv.fun/bbc-1-3.ctv
+BBC 1,https://stream.freetv.fun/bbc-1-4.ctv
+BBC 1,https://stream.freetv.fun/bbc-1-5.ctv
 BBC 1,https://stream.freetv.fun/bbc1-1.ctv
 BBC 4 (UK),https://stream.freetv.fun/bbc-4-2.ctv
+BBC 4 (UK),https://stream.freetv.fun/bbc-4-3.ctv
+BBC 4 (UK),https://stream.freetv.fun/bbc-4-4.ctv
+BBC 4 (UK),https://stream.freetv.fun/bbc-4-5.ctv
 BBC 4 SD UK,https://stream.freetv.fun/bbc-4-1.ctv
 BBC America[geo-blocked],https://stream.freetv.fun/bbc-america-2.m3u8
 BBC America[geo-blocked],https://stream.freetv.fun/bbc-america-3.m3u8
@@ -43,13 +56,20 @@ BBC America,https://stream.freetv.fun/ch-ng-bbc-america-1.m3u8
 BBC Lifestyle[geo-blocked],https://stream.freetv.fun/bbc-lifestyle-1.m3u8
 BBC Lifestyle,https://stream.freetv.fun/ctn-lifestyle-1.m3u8
 BBC Lifestyle,https://stream.freetv.fun/bbc-lifestyle-3.ctv
+BBC Lifestyle,https://stream.freetv.fun/bbc-lifestyle-4.ctv
+BBC Lifestyle,https://stream.freetv.fun/bbc-lifestyle-5.ctv
+BBC Lifestyle,https://stream.freetv.fun/bbc-lifestyle-6.ctv
 BBC Lifestyle,https://stream.freetv.fun/bbc-lifestyle-2.ctv
 BBC One Scotland,https://stream.freetv.fun/bbc-scotland-1.ctv
 BBC One Scotland[geo-blocked],https://stream.freetv.fun/bbc-one-scotland-1.m3u8
 BBC One Scotland[geo-blocked],https://stream.freetv.fun/bbc-scotland-2.m3u8
 BBC One Scotland,https://stream.freetv.fun/ch-ng-bbc-scotland-1.m3u8
 BBC Two HD,https://stream.freetv.fun/bbc-2-1.ctv
+BBC Two HD,https://stream.freetv.fun/bbc-2-2.ctv
+BBC Two HD,https://stream.freetv.fun/bbc-2-3.ctv
+BBC Two HD,https://stream.freetv.fun/bbc-2-4.ctv
 BBC Two HD,https://stream.freetv.fun/ch-ng-bbc-2-1.m3u8
+BBC one  (UK)[geo-blocked],https://stream.freetv.fun/bbc-home-1.m3u8
 Fashion TV UK[geo-blocked],https://stream.freetv.fun/fashion-tv-2.m3u8
 ITV 1 (UK),https://stream.freetv.fun/itv-1-2.ctv
 ITV 2 UK,https://stream.freetv.fun/itv-2-2.ctv
@@ -57,9 +77,14 @@ ITV 3 (UK),https://stream.freetv.fun/itv-3-2.ctv
 Iqra TV UK,https://stream.freetv.fun/iqra-tv-2.m3u8
 JEWELLERY MAKER[geo-blocked],https://stream.freetv.fun/jewelery-maker-1.m3u8
 Sky Atlantic,https://stream.freetv.fun/sky-atlantic-1.ctv
+Sky Atlantic,https://stream.freetv.fun/sky-atlantic-2.ctv
+Sky Atlantic,https://stream.freetv.fun/sky-atlantic-3.ctv
+Sky Atlantic,https://stream.freetv.fun/sky-atlantic-4.ctv
 Sky Movies Drama & Romance  (UK),https://stream.freetv.fun/sky-drama-1.ctv
 Sky Movies Scifi HD (UK),https://stream.freetv.fun/sky-cinema-sci-fi-1.ctv
-TLC UK,https://stream.freetv.fun/240-tlc-1.m3u8
+Sky Movies Scifi HD (UK),https://stream.freetv.fun/sky-cinema-sci-fi-2.ctv
+Sky Movies Scifi HD (UK),https://stream.freetv.fun/sky-cinema-sci-fi-3.ctv
+Sky Movies Scifi HD (UK),https://stream.freetv.fun/sky-cinema-sci-fi-4.ctv
 Venus TV UK,https://stream.freetv.fun/venus-4.m3u8
 Venus TV UK,https://stream.freetv.fun/venus-5.m3u8
 Venus TV UK,https://stream.freetv.fun/venus-1.ctv
@@ -68,6 +93,9 @@ Venus TV UK,https://stream.freetv.fun/venus-2.m3u8
 Kids,#genre#
 BBC 3,https://stream.freetv.fun/bbc-3-1.ctv
 BBC 3,https://stream.freetv.fun/bbc-3-2.ctv
+BBC 3,https://stream.freetv.fun/bbc-3-3.ctv
+BBC 3,https://stream.freetv.fun/bbc-3-4.ctv
+BBC 3,https://stream.freetv.fun/bbc-3-5.ctv
 BBC 3,https://stream.freetv.fun/bbc3-1.ctv
 BBC CBeebies,https://stream.freetv.fun/bbc-cbeebies-1.m3u8
 BBC CBeebies,https://stream.freetv.fun/cbeebies-1.m3u8
@@ -77,6 +105,9 @@ Knowledge,#genre#
 BBC Earth,https://stream.freetv.fun/bbc-earth-3.m3u8
 BBC Earth,https://stream.freetv.fun/ph-bbc-earth-1.ctv
 BBC Earth,https://stream.freetv.fun/bbc-earth-5.ctv
+BBC Earth,https://stream.freetv.fun/bbc-earth-6.ctv
+BBC Earth,https://stream.freetv.fun/bbc-earth-7.ctv
+BBC Earth,https://stream.freetv.fun/bbc-earth-8.ctv
 BBC Earth[geo-blocked],https://stream.freetv.fun/bbc-earth-1.m3u8
 BBC Earth,https://stream.freetv.fun/bbc-earth-4.ctv
 BBC Earth,https://stream.freetv.fun/bbc-earth-2.m3u8
@@ -109,6 +140,9 @@ BBC First,https://stream.freetv.fun/ch-ng-bbc-first-1.m3u8
 BBC First,https://stream.freetv.fun/bbc-first-1.m3u8
 BBC First,https://stream.freetv.fun/bbc-first-2.m3u8
 CBS Action UK,https://stream.freetv.fun/cbs-action-1.ctv
+CBS Action UK,https://stream.freetv.fun/cbs-action-2.ctv
+CBS Action UK,https://stream.freetv.fun/cbs-action-3.ctv
+CBS Action UK,https://stream.freetv.fun/cbs-action-4.ctv
 Great Movies[geo-blocked],https://stream.freetv.fun/great--movies-1.m3u8
 ION,https://stream.freetv.fun/ion-1.m3u8
 ION,https://stream.freetv.fun/ion-tv-1.m3u8
@@ -117,16 +151,25 @@ ION,https://stream.freetv.fun/wion-2.m3u8
 ION,https://stream.freetv.fun/wion-1.m3u8
 Movies 24 UK[geo-blocked],https://stream.freetv.fun/24-hour-free-movies-1.m3u8
 SKY Cinema Select,https://stream.freetv.fun/sky-cinema-select-1.ctv
+SKY Cinema Select,https://stream.freetv.fun/sky-cinema-select-2.ctv
+SKY Cinema Select,https://stream.freetv.fun/sky-cinema-select-3.ctv
 SKY Cinema Thriller,https://stream.freetv.fun/vf-thriller-1.m3u8
 SKY Cinema Thriller,https://stream.freetv.fun/thriller-1.m3u8
 SKY Cinema Thriller,https://stream.freetv.fun/sky-thriller-1.ctv
 SKY Cinema Thriller,https://stream.freetv.fun/sky-cinema-thriller-1.ctv
+SKY Cinema Thriller,https://stream.freetv.fun/sky-cinema-thriller-2.ctv
+SKY Cinema Thriller,https://stream.freetv.fun/sky-cinema-thriller-3.ctv
+SKY Cinema Thriller,https://stream.freetv.fun/sky-cinema-thriller-4.ctv
 SKY Cinema Thriller,https://stream.freetv.fun/cineman-thriller-1.m3u8
 Showcase 2 UK,https://stream.freetv.fun/showcase-1.ctv
 Showcase UK,https://stream.freetv.fun/classic-arts-showcase-1.m3u8
 Showcase UK,https://stream.freetv.fun/ch-ng-showcase-1.m3u8
 Sky Cinema,https://stream.freetv.fun/sky-cinema-scfi-1.ctv
 Sky Cinema Action,https://stream.freetv.fun/sky-cinema-action-1.ctv
+Sky Cinema Action,https://stream.freetv.fun/sky-cinema-action-2.ctv
+Sky Cinema Action,https://stream.freetv.fun/sky-cinema-action-3.ctv
+Sky Cinema Action,https://stream.freetv.fun/sky-cinema-action-4.ctv
+Sky Classics,https://stream.freetv.fun/music-classics-1.m3u8
 Sky Comedy,https://stream.freetv.fun/sky-comedy-1.ctv
 Sky Family,https://stream.freetv.fun/sky-family-1.ctv
 Sky Hits,https://stream.freetv.fun/sky-cinema-hits-1.ctv
@@ -138,14 +181,25 @@ Sky Movies HD Modern Greats UK,https://stream.freetv.fun/sky-greats-1.ctv
 Sky Movies Premiere HD UK,https://stream.freetv.fun/sky-premiere-1.ctv
 Sky Movies Premiere HD UK,https://stream.freetv.fun/sky-premiere-2.ctv
 Sky Movies Premiere HD UK,https://stream.freetv.fun/sky-cinema-premiere-2.ctv
+Sky Movies Premiere HD UK,https://stream.freetv.fun/sky-premiere-3.ctv
+Sky Movies Premiere HD UK,https://stream.freetv.fun/sky-cinema-premiere-1.ctv
+Sky Movies Premiere HD UK,https://stream.freetv.fun/sky-premiere-4.ctv
+Sky Movies Premiere HD UK,https://stream.freetv.fun/sky-cinema-premiere-3.ctv
+Sky Movies Premiere HD UK,https://stream.freetv.fun/sky-premiere-5.ctv
+Sky Movies Premiere HD UK,https://stream.freetv.fun/sky-cinema-premiere-4.ctv
 Sky Movies Showcase UK,https://stream.freetv.fun/sky-cinema-showcase-1.ctv
+Sky Movies Showcase UK,https://stream.freetv.fun/sky-cinema-showcase-2.ctv
+Sky Movies Showcase UK,https://stream.freetv.fun/sky-cinema-showcase-3.ctv
+Sky Movies Showcase UK,https://stream.freetv.fun/sky-cinema-showcase-4.ctv
 Music,#genre#
+MTV Base,https://stream.freetv.fun/mtv-base-2.ctv
+MTV Base,https://stream.freetv.fun/mtv-base-3.ctv
+MTV Base,https://stream.freetv.fun/mtv-base-4.ctv
 MTV Base,https://stream.freetv.fun/mtv-base-1.ctv
 MTV Base,https://stream.freetv.fun/mtv-1.m3u8
 News,#genre#
 BBC News,https://stream.freetv.fun/bbc-news-english-1.ctv
 BBC News,https://stream.freetv.fun/bbc-news-5.m3u8
-BBC News[geo-blocked],https://stream.freetv.fun/bbc-news-6.m3u8
 BBC News[geo-blocked],https://stream.freetv.fun/bbc-news-8.m3u8
 BBC News,https://stream.freetv.fun/bbc-news-7.m3u8
 BBC News,https://stream.freetv.fun/bbc-news-2.m3u8
@@ -158,9 +212,13 @@ BBC Parliament,https://stream.freetv.fun/ch-ng-bbc-parliament-1.m3u8
 BBC World News,https://stream.freetv.fun/ph-bbc-world-news-1.ctv
 BBC World News,https://stream.freetv.fun/bbc-world-1.m3u8
 BBC World News,https://stream.freetv.fun/bbc-world-news-4.ctv
+BBC World News,https://stream.freetv.fun/bbc-world-news-5.ctv
+BBC World News,https://stream.freetv.fun/bbc-world-news-6.ctv
+BBC World News,https://stream.freetv.fun/bbc-world-news-7.ctv
 BBC World News[geo-blocked],https://stream.freetv.fun/bbc-world-news-3.m3u8
 BBC World News,https://stream.freetv.fun/bbc-world-news-2.m3u8
 BBC World News,https://stream.freetv.fun/bbc-world-news-1.m3u8
+Bloomberg TV HD UK[geo-blocked],https://stream.freetv.fun/bloomberg-tv-europe-1.m3u8
 CNN UK,https://stream.freetv.fun/cnn-turk-1.m3u8
 Craft Store TV,https://stream.freetv.fun/the-craft-store-1.m3u8
 Craft Store TV,https://stream.freetv.fun/the-craft-store-2.m3u8
@@ -188,6 +246,9 @@ SKY NEWS,https://stream.freetv.fun/sky-news-extra-3-3.m3u8
 SKY NEWS,https://stream.freetv.fun/sky-news-arabia-5.m3u8
 SKY NEWS,https://stream.freetv.fun/sky-news-8.ctv
 SKY NEWS[geo-blocked],https://stream.freetv.fun/sky-news-7.m3u8
+SKY NEWS,https://stream.freetv.fun/sky-news-9.ctv
+SKY NEWS,https://stream.freetv.fun/sky-news-10.ctv
+SKY NEWS,https://stream.freetv.fun/sky-news-11.ctv
 SKY NEWS,https://stream.freetv.fun/sky-news-1.m3u8
 SKY NEWS,https://stream.freetv.fun/sky-news-extra-1-1.m3u8
 SKY NEWS,https://stream.freetv.fun/sky-news-extra-2-1.m3u8
@@ -227,7 +288,6 @@ Premier Sport,https://stream.freetv.fun/ch-ng-premier-sport-1-1.ctv
 Premier Sport,https://stream.freetv.fun/ch-ng-premier-sport-1-2.ctv
 Premier Sport,https://stream.freetv.fun/ch-ng-premier-sport-2-2.ctv
 Premiere Sports HD UK,https://stream.freetv.fun/premier-sports-1-vip-uk-1.m3u8
-Red Bull TV,https://stream.freetv.fun/red-bull-tv-5.m3u8
 Red Bull TV,https://stream.freetv.fun/red-bull-tv-7.m3u8
 Red Bull TV,https://stream.freetv.fun/red-bull-tv-8.m3u8
 Red Bull TV,https://stream.freetv.fun/red-bull-tv-9.m3u8
@@ -245,9 +305,9 @@ Red Bull TV,https://stream.freetv.fun/red-bull-tv-3.m3u8
 Red Bull TV,https://stream.freetv.fun/red-bull-tv-4.m3u8
 Red Bull TV,https://stream.freetv.fun/red-plus-1.m3u8
 Red Bull TV,https://stream.freetv.fun/ch-ng-red-bull-tv-1.m3u8
+Red Bull TV,https://stream.freetv.fun/red-bull-tv-5.m3u8
 Red Bull TV,https://stream.freetv.fun/red-bull-tv-6.m3u8
 SKY POKER[geo-blocked],https://stream.freetv.fun/poker-t-1.m3u8
-SKY Sports Arena[geo-blocked],https://stream.freetv.fun/sky-sports-arena-1.ctv
 SKY Sports Arena,https://stream.freetv.fun/sky-sports-arena-2.ctv
 SKY Sports Arena,https://stream.freetv.fun/ch-ng-sky-sports-arena-1.m3u8
 SKY Sports Football,https://stream.freetv.fun/sky-sports-football-2.ctv
@@ -269,14 +329,12 @@ Sky Sports Golf,https://stream.freetv.fun/skysports-golf-fhd-1.ctv
 Sky Sports Golf[geo-blocked],https://stream.freetv.fun/sky-sports-golf-1.m3u8
 Sky Sports Golf,https://stream.freetv.fun/sky-sports-golg-1.ctv
 Sky Sports Golf,https://stream.freetv.fun/ch-ng-sky-sports-golf-1.m3u8
-Sky Sports Main Event[geo-blocked],https://stream.freetv.fun/sky-sports-main-event-1.m3u8
 Sky Sports Main Event[geo-blocked],https://stream.freetv.fun/ch-ng-sky-sports-main-event-2.ctv
-Sky Sports Main Event,https://stream.freetv.fun/sky-sports-main-event-2.ctv
+Sky Sports Main Event[geo-blocked],https://stream.freetv.fun/sky-sports-main-event-1.m3u8
 Sky Sports Main Event,https://stream.freetv.fun/ch-ng-sky-sports-main-event-1.m3u8
 Sky Sports Premier League[geo-blocked],https://stream.freetv.fun/ch-ng-sky-sports-premier-league-2.ctv
 Sky Sports Premier League,https://stream.freetv.fun/sky-sports-premier-league-2.ctv
 Sky Sports Premier League,https://stream.freetv.fun/ch-ng-sky-sports-premier-league-1.m3u8
-Sky Sports Racing,https://stream.freetv.fun/sky-sports-races-1.ctv
 TNT Sports 1,https://stream.freetv.fun/bt-sport-1-1.ctv
 TNT Sports 2,https://stream.freetv.fun/bt-sport-2-1.ctv
 TNT Sports 3,https://stream.freetv.fun/bt-sport-3-1.ctv

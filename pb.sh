@@ -207,16 +207,16 @@ stream_play_main() {
 
     #获取链接的地址
         if [[ ${videopath} =~ ^http ]] || [[ ${videopath} =~ ^rtmp ]]; then
-        for i in 1 2 3 4 5 6
-        do                
+            for i in 1 2 3 4 5 6
+            do                
                 pgrep get_live_link.py | xargs kill -s 9
                 echo videopath=${videopath}
                 python3 get_live_link.py "${videopath}" "./log/${token}_route.txt"
                 videopath=$(cat "./log/${token}_route.txt")
                 if [ "${videopath}" != "" ]; then
-                    break   
+                    break
                 fi
-        done
+            done
             if [ "${videopath}" = "" ]; then
                 return
             fi
@@ -580,7 +580,15 @@ stream_play_main() {
     if [ "${mode:0:4}" != "test" ] && [ "${mode: -1}" != "a" ]; then
         kill_app "${rtmp}" "${FFMPEG}"
         echo ${FFMPEG} -re -loglevel "${logging}" -i "${videopath}" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vsync 1 -async 1  -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -ac 1 -ar 48000 -strict -2 -f flv -y "${rtmp}"
-        ${FFMPEG} -re -i "${videopath}" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vsync 1 -async 1 -fflags discardcorrupt -err_detect aggressive -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -ac 1 -ar 48000 -strict -2 -f flv -y "${rtmp}"
+        nohup ${FFMPEG} -re -i "${videopath}" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vsync 1 -async 1 -fflags discardcorrupt -err_detect aggressive -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -ac 1 -ar 48000 -strict -2 -f flv -y "${rtmp}" &
+        while true
+        do
+	    sleep 20
+            pidlist=$(ps -ef | grep "${rtmp}" | grep "${FFMPEG}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
+            if [ "${pidlist}" = "" ]; then
+                break
+            fi
+        done        
         #ffmpeg  -timeout 30000000  -i http://39.134.65.164/PLTV/88888888/224/3221225569/1.m3u8 -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y  rtmp://www.tomandjerry.work/live/livestream
         echo finished playing $videopath
     fi
