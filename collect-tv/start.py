@@ -10,5 +10,4 @@ while True:
     os.system("git commit -a -s -m '" + message + "'")
     os.system("git push")
     time.sleep(20)
-    break
 
