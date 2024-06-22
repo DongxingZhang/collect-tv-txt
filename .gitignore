@@ -7,7 +7,13 @@ collect-tv/epgpw.log
 collect-tv/output.jpg
 collect-tv/my.log
 live_tool.log
-init_pic/*.jpg
-epgpw_pic/*.jpg
-checkvalid_pic/*.jpg
-invalid_pic/*
+collect-tv/init_pic/*.jpg
+collect-tv/epgpw_pic/*.jpg
+collect-tv/checkvalid_pic/*.jpg
+collect-tv/invalid_pic/*
+collect-tv/check.log
+collect-tv/checkpffmpeg.log
+collect-tv/gat.txt
+collect-tv/init.log
+collect-tv/test.txt
+collect-tv/tvlink/inter.py

@@ -11,10 +11,17 @@
 
 
 Other,#genre#
+TV,https://stream.freetv.fun/utv-6.m3u8
+TV,https://stream.freetv.fun/l-tv-1.m3u8
+TV,https://stream.freetv.fun/tvl-1.m3u8
 TV,https://stream.freetv.fun/tv-4-1.m3u8
+TV,https://stream.freetv.fun/tvq-1.m3u8
 TV,https://stream.freetv.fun/tv-1.m3u8
 TV,https://stream.freetv.fun/tv-r-1.m3u8
 TV 2,https://stream.freetv.fun/ast-tv-2-2.m3u8
+TV 2,https://stream.freetv.fun/tea-tv-2-1.m3u8
+TV 2,https://stream.freetv.fun/dltv-2-2.m3u8
+TV 2,https://stream.freetv.fun/nlo-tv-2-1.m3u8
 TV 2,https://stream.freetv.fun/dltv-2-1.m3u8
 TV 2,https://stream.freetv.fun/fap-tv-2-1.m3u8
 TV 2,https://stream.freetv.fun/ast-tv-2-1.m3u8

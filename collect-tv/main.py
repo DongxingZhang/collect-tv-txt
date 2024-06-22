@@ -13,11 +13,12 @@ import subprocess
 from bs4 import BeautifulSoup
 import zhconv
 import uuid
+import sys
 
 def time_str(fmt=None):
     if fmt is None:
-        fmt = '%Y_%m_%d_%H_%M_%S'
-    return datetime.datetime.today().strftime(fmt)
+        fmt = '%Y%m%d%H%M%S'
+    return datetime.now().strftime(fmt)
        
 
 def process_name_string(input_str):
@@ -130,13 +131,16 @@ def cmpHash(hash1,hash2):
 
 #########################################
 
-def check_pic_valid(pic_path):
+def check_pic_valid(oper, pic_path):
     hash1 = aHash(cv2.resize(cv2.imread(pic_path), (100, 100)))    
     dirs = os.listdir("./invalid_pic/")
     for file in dirs:
         hash2 = aHash(cv2.resize(cv2.imread('./invalid_pic/' + file), (100, 100)))
         n=cmpHash(hash1,hash2)
-        if n < 3:
+        #log=pic_path + " VS " + file + " score = " + str(n)
+        #print(log)
+        #log_write(oper, log)
+        if n < 9:
             return False
     return True
 
@@ -156,7 +160,10 @@ def verify_link(channel_type, oper, channel_name, link, useTime=-1, redirect=Fal
         if process.returncode == 0:
             endTime = int(round(time.time() * 1000))
             useTime = int(endTime - startTime)
-            if not check_pic_valid(output_img_path) and os.path.exists(output_img_path):
+            if not check_pic_valid(oper, output_img_path) and os.path.exists(output_img_path):
+                log = "删除: " + output_img_path
+                print(log)
+                log_write(oper, log)
                 os.remove(output_img_path)
                 return ["", useTime]
             log = channel_type + "," + channel_name + "," + link + "," + output_img_path + ",PASS"
@@ -318,7 +325,7 @@ def verify(channel_type, oper, lines):
         channel_name=linesa[0].strip()
         channel_address=linesa[1].strip()
         [redirect_url, useTime] = verify_link(channel_type, oper, channel_name, channel_address)
-        if len(redirect_url) > 0 and useTime > -1:
+        if len(redirect_url) > 0 and useTime > -1 and useTime < 15000:
             if channel_name not in sub_channel.keys():
                 sub_channel[channel_name]=[]
             else:
@@ -351,7 +358,7 @@ def custom_sort(s):
 import re
  
 def remove_brackets(s):
-    return re.sub(r'\[.*?\]|{.*}|\(.*\)', '', s)
+    return re.sub(r'\[.*?\]|{.*}|\(.*\)|「.*」|【.*】|', '', s)
 
 def get_redirect_url(url):
     headers = {
@@ -363,7 +370,8 @@ def get_redirect_url(url):
 def delete_tree(root):
     for root, dirs, files in os.walk(root, topdown=False):
         for name in files:
-            os.remove(os.path.join(root, name))
+            if not name.endswith("me"):
+                os.remove(os.path.join(root, name))
         for name in dirs:
             os.rmdir(os.path.join(root, name))
 
@@ -389,7 +397,7 @@ def check_output_image(oper, channels, ch_type):
                 log="增补:" + channel_type + "," + channel_name + "," + channel_address
                 print(log)
                 log_write(oper, log)
-                channels.append(channel_name + "," + channel_address + ",100000")
+                channels.append(channel_name + "," + channel_address + ",10")
     return channels
 
 
@@ -414,7 +422,7 @@ urls = [
     'https://gitee.com/xxy002/zhiboyuan/raw/master/zby.txt',
     'https://raw.githubusercontent.com/xianyuyimu/TVBOX-/main/TVBox/%E4%B8%80%E6%9C%A8%E7%9B%B4%E6%92%AD%E6%BA%90.txt',
     'https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt',
-    'https://fanmingming.com/txt?url=https://live.fanmingming.com/tv/m3u/ipv6.m3u',
+    #'https://live.fanmingming.com/tv/m3u/ipv6.m3u',
 ]
 
 m3u_urls = [
@@ -424,8 +432,6 @@ m3u_urls = [
     'https://raw.githubusercontent.com/Ftindy/IPTV-URL/main/IPTV.m3u',    
     'https://raw.githubusercontent.com/Ftindy/IPTV-URL/main/sxg.m3u',
 ]
-
-mydict = {}
 
 chtype={}
 chtype['卫视频道']=['🇨🇳｜卫视频道', '🇨🇳｜卫视蓝光频道', '卫视频道', '卫视', '•卫视「IPV6」', '卫视台', '未知']
@@ -442,287 +448,293 @@ chtype['世界']=['世界', '国际台', '全球']
 chtype['记录']=['记录', '记录片']
 excludetype=['玩偶', '麻豆-MSD', 'rostelekom', '胡志良', 'Adult', '成人点播', '日本', '欧美', '肥羊', '更新时间', 'YouTube', '特色频道', '埋推推', '解说频道', '虎牙斗鱼', '•游戏赛事', '春晚', '历年春晚', '历届春晚', 'BESTV']
 
-import sys
-
-if len(sys.argv)==1:
-    print("使用方法：")
-    print("       python3 main.py init           #初始化并验证github频道列表")
-    print("       python3 main.py checkvalid     #检查频道源有效频道数")
-    print("       python3 main.py epgpw download #下载并验证epg.pw频道列表") 
-    print("       python3 main.py epgpw skip     #不下载并验证epg.pw频道列表") 
-    sys.exit()
-#初始化
-oper=sys.argv[1]
-
-delete_tree("./" + oper + "_pic/")
-log_init(oper)
-
-if oper == "init":
-    files=['dog.txt']
-    for f in files:
-        with open(f, 'r', encoding='utf-8') as file:
-           lines = file.readlines()
-           process_url(mydict, lines, f)
-
-    #循环处理每个URL
-    for url in urls:
-        url=url.replace('https://raw.githubusercontent.com/','https://hub.gitmirror.com/https://raw.githubusercontent.com/')
-        #url=url.replace('githubusercontent.com','staticdn.net')
-        #打开URL并读取内容
-        #os.system('wget ' + url + " -O my.txt")
-        print("downloading... " + url + "\n")
-        os.system('curl ' + url + " -o my.txt")
-        with open('my.txt', 'r', encoding='utf-8') as file:
-           lines = file.readlines()
-           process_url(mydict, lines, url)
+def refresh(oper, func):
+    #    print("使用方法：")
+    #    print("       python3 main.py init           #初始化并验证github频道列表")
+    #    print("       python3 main.py checkvalid     #检查频道源有效频道数")
+    #    print("       python3 main.py epgpw download #下载并验证epg.pw频道列表") 
+    #    print("       python3 main.py epgpw skip     #不下载并验证epg.pw频道列表") 
+    #    sys.exit()
+    mydict = {}
+    delete_tree("./" + oper + "_pic/")
+    log_init(oper)
     
-    #循环处理每个M3U URL
-    for url in m3u_urls:
-        url=url.replace('https://raw.githubusercontent.com/','https://hub.gitmirror.com/https://raw.githubusercontent.com/')
-        #url=url.replace('githubusercontent.com','staticdn.net')
-        #打开URL并读取内容
-        print("downloading... " + url + "\n")
-        os.system('curl ' + url + " -o my.m3u")
-        m3u_to_txt('my.m3u', 'my.txt')
-        with open('my.txt', 'r', encoding='utf-8') as file:
-           lines = file.readlines()
-           process_url(mydict, lines, url)
-
+    if oper == "init":
+        files=['dog.txt']
+        for f in files:
+            with open(f, 'r', encoding='utf-8') as file:
+               lines = file.readlines()
+               process_url(mydict, lines, f)
     
-    #files = os.listdir("./history/")
-    #for file in files:
-    #    #print(file)
-    #    if os.path.isfile("./history/" + file):
-    #        with open("./history/" + file, 'r', encoding='utf-8') as file:
-    #            lines = file.readlines()
-    #            process_url(mydict, lines, file)
+        #循环处理每个URL
+        for url in urls:
+            url=url.replace('https://raw.githubusercontent.com/','https://hub.gitmirror.com/https://raw.githubusercontent.com/')
+            #url=url.replace('githubusercontent.com','staticdn.net')
+            #打开URL并读取内容
+            #os.system('wget ' + url + " -O my.txt")
+            print("downloading... " + url + "\n")
+            os.system('curl ' + url + " -o my.txt")
+            with open('my.txt', 'r', encoding='utf-8') as file:
+               lines = file.readlines()
+               process_url(mydict, lines, url)
+        
+        #循环处理每个M3U URL
+        for url in m3u_urls:
+            url=url.replace('https://raw.githubusercontent.com/','https://hub.gitmirror.com/https://raw.githubusercontent.com/')
+            #url=url.replace('githubusercontent.com','staticdn.net')
+            #打开URL并读取内容
+            print("downloading... " + url + "\n")
+            os.system('curl ' + url + " -o my.m3u")
+            m3u_to_txt('my.m3u', 'my.txt')
+            with open('my.txt', 'r', encoding='utf-8') as file:
+               lines = file.readlines()
+               process_url(mydict, lines, url)
     
-    
-    print("start=======================================================")
-    # 合并所有对象中的行文本（去重，排序后拼接）
-    version=datetime.now().strftime("%Y%m%d")+",url"
-    all_lines =  ["更新时间,#genre#"] +[version] 
-    
-    for key in mydict.keys():
-        log_write(oper, key)
-        channels=verify(key, oper, set(mydict[key]))
-        channels=check_output_image(oper, channels, key)
-        channels=sorted(channels)
-        if len(channels) > 0:
-            all_lines = all_lines + ['\n'] + [key + ",#genre#"] + channels
-    
-    # 将合并后的文本写入文件
-    output_file = '../../mysite/dog.txt'
-    output_file_bak = './history/dog_' + datetime.now().strftime('%Y%m%d') + '.txt'
-    with open(output_file, 'w', encoding='utf-8') as f, open(output_file_bak, 'w', encoding='utf-8') as fb:
-        for line in all_lines:
-            linea=line.split(',')
-            if len(linea) >= 2:
-                channel_name=linea[0].strip()
-                channel_address=linea[1].strip()                
-                if len(linea) >= 3:
-                    channel_source=linea[2].strip()
-                    f.write(channel_name + "," + channel_address + '\n')
-                    fb.write(channel_name + "," + channel_address + '\n')
-                else:
-                    f.write(channel_name + "," + channel_address + '\n')
-                    fb.write(channel_name + "," + channel_address + '\n')
-            else:
-                f.write(line.strip() + '\n')
-                fb.write(line.strip() + '\n')
-                
-    print(f"合并后的文本已保存到文件: {output_file}, {output_file_bak}")
-    print("done=======================================================")
-elif oper == "check":
-    files=['test.txt']
-    for f in files:
-        with open(f, 'r', encoding='utf-8') as file:
-           lines = file.readlines()
-           process_url(mydict, lines, f)
-    
-    # 合并所有对象中的行文本（去重，排序后拼接）
-    version=datetime.now().strftime("%Y%m%d")+",url"
-    all_lines =  ["更新时间,#genre#"] +[version] 
-
-    for key in mydict.keys():
-        log_write(oper, key)
-        channels=verify(key, oper, set(mydict[key]))
-        channels=check_output_image(oper, channels, key)
-        channels=sorted(channels)
-        if len(channels) > 0:
-            print(channels)
-            all_lines = all_lines + ['\n'] + [key + ",#genre#"] + channels
-
-    print(all_lines)
-
-    # 将合并后的文本写入文件
-    output_file = 'test.txt'
-
-    with open(output_file, 'w', encoding='utf-8') as f:
-        for line in all_lines:
-            linea=line.split(',')
-            if len(linea) >= 2:
-                channel_name=linea[0].strip()
-                channel_address=linea[1].strip()                
-                if len(linea) >= 3:
-                    channel_source=linea[2].strip()
-                    f.write(channel_name + "," + channel_address + '\n')
-                else:
-                    f.write(channel_name + "," + channel_address + '\n')
-            else:
-                f.write(line.strip() + '\n')                
-    print(f"合并后的文本已保存到文件: {output_file}")
-    print("done=======================================================")
-
-elif oper == "checkvalid":    
-    #获取所有的有效的链接
-    all_valid=[]
-    files=['dog.txt', 'output.txt']
-    for f in files:
-        with open(f, 'r', encoding='utf-8') as file:
-           lines = file.readlines()
-           for line in lines:
-               linea=line.split(',')
-               if len(linea) >= 2:
-                   all_valid.append(linea[1].strip())
-    print(all_valid)
-    #循环处理每个URL
-    for url in urls:
-        url=url.replace('https://raw.githubusercontent.com/','https://hub.gitmirror.com/https://raw.githubusercontent.com/')
-        #url=url.replace('githubusercontent.com','staticdn.net')
-        #打开URL并读取内容
-        #os.system('wget ' + url + " -O my.txt")
-        print("downloading... " + url + "\n")
-        os.system('curl ' + url + " -o my.txt")
-        with open('my.txt', 'r', encoding='utf-8') as file:
-            valid_count=0
-            lines = file.readlines()
-            for line in lines:
+        
+        #files = os.listdir("./history/")
+        #for file in files:
+        #    #print(file)
+        #    if os.path.isfile("./history/" + file):
+        #        with open("./history/" + file, 'r', encoding='utf-8') as file:
+        #            lines = file.readlines()
+        #            process_url(mydict, lines, file)
+        
+        
+        print("start=======================================================")
+        # 合并所有对象中的行文本（去重，排序后拼接）
+        version=time_str + ",url"
+        all_lines =  ["更新时间,#genre#"] +[version] 
+        
+        for key in mydict.keys():
+            log_write(oper, key)
+            channels=verify(key, oper, set(mydict[key]))
+            channels=check_output_image(oper, channels, key)
+            channels=sorted(channels)
+            if len(channels) > 0:
+                all_lines = all_lines + ['\n'] + [key + ",#genre#"] + channels
+        
+        # 将合并后的文本写入文件
+        output_file = '../../mysite/dog.txt'
+        output_file_bak = './history/dog_' + time_str + '.txt'
+        with open(output_file, 'w', encoding='utf-8') as f, open(output_file_bak, 'w', encoding='utf-8') as fb:
+            for line in all_lines:
                 linea=line.split(',')
-                if len(linea) >= 2 and linea[1].strip() != '#genre#' and linea[1].strip() in all_valid:
-                   #print(line)
-                   valid_count = valid_count + 1
-            print(url + ": " + str(valid_count))
-    
-    #循环处理每个M3U URL
-    for url in m3u_urls:
-        url=url.replace('https://raw.githubusercontent.com/','https://hub.gitmirror.com/https://raw.githubusercontent.com/')
-        #url=url.replace('githubusercontent.com','staticdn.net')
-        #打开URL并读取内容
-        print("downloading... " + url + "\n")
-        os.system('curl ' + url + " -o my.m3u")
-        m3u_to_txt('my.m3u', 'my.txt')
-        with open('my.txt', 'r', encoding='utf-8') as file:
-            lines = file.readlines()
-            valid_count=0
-            for line in lines:
-                linea=line.split(',')
-                if len(linea) >= 2 and linea[1].strip() != '#genre#' and linea[1].strip() in all_valid:
-                   #print(line)
-                   valid_count = valid_count + 1
-            print(url + ": " + str(valid_count))
-elif oper == "test":
-    #print(get_redirect_url('https://stream.freetv.fun/tvbs-4.ctv'))
-    #print(get_redirect_url('https://stream.freetv.fun/ph-rock-entertainment-1.ctv'))
-    #print(get_redirect_url('https://stream.freetv.fun/hgtv-8.ctv'))
-    #print(get_redirect_url('https://stream.freetv.fun/cctv-3-14.m3u8'))
-    #print(get_redirect_url('https://stream.freetv.fun/viutv-1.ctv'))
-    import uuid
-    print((uuid.uuid4()))
-    print((uuid.uuid4()))
-    print((uuid.uuid4()))
-elif oper == "epgpw":
-    skipdownload=sys.argv[2]
-    all_types=['中國大陸', '频道不符合任何EPG', '台灣', '香港', '澳門', '美國', '新加坡', '英國', '澳大利亞', '加拿大', '新西蘭']
-    file_prefix = os.path.dirname(os.path.abspath(__file__)) + "/epgpw/"
-    if skipdownload == "download":
-        #下载所有频道
-        all_links={}
-        x = requests.get('https://epg.pw/test_channel_page.html?lang=zh-hans')
-        #print(x.text)
-        soup = BeautifulSoup(x.text, 'html5lib')
-        all_trs = soup.find_all('tr')
-        print(os.path.dirname(os.path.abspath(__file__)))
-        for tr in all_trs:
-            all_tds = tr.find_all('td')
-            if len(all_tds) == 3:
-                link=all_tds[0].text.strip()
-                type_name=all_tds[2].text.strip()
-                file_name= file_prefix + all_tds[2].text.strip() + ".txt"
-                if not link.endswith("_original_new.txt") and \
-                        link.endswith("_new.txt") and \
-                        type_name in all_types and \
-                        "banned" not in link and \
-                        link not in all_links.values():
-                    all_links[type_name]=link                
-                    print(all_tds[2].text.strip())
-                    print("downloading... " + link + "\n")
-                    os.system('curl ' + link + " -o " + file_name) 
-                    time.sleep(5)
-        for key, value in all_links.items():
-            print(key + " : " + value + "\n")
-
-    #中国大陆
-    china_main=['中國大陸']
-    files=[file_prefix + type + ".txt" for type in  china_main]
-    print(files)
-    for f in files:
-        with open(f, 'r', encoding='utf-8') as file:
-            lines = file.readlines()
-            process_tvname_url(mydict, lines, f)
-
-    #港澳台世界
-    gat_types=['台灣', '香港', '澳門', '美國', '新加坡', '英國', '澳大利亞', '加拿大', '新西蘭']
-    mydict={}
-    files=[file_prefix + type + ".txt" for type in  gat_types]
-    print(files)
-    for f in files:
-        with open(f, 'r', encoding='utf-8') as file:
-            lines = file.readlines()
-            process_url(mydict, lines, f)
-    
-    #其他
-    unclassfied=['频道不符合任何EPG']
-    files=[file_prefix + type + ".txt" for type in unclassfied]
-    print(files)
-    for f in files:
-        with open(f, 'r', encoding='utf-8') as file:
-            lines = file.readlines()
-            process_tvname_url(mydict, lines, f, skip=True)
-    
-    # 合并所有对象中的行文本（去重，排序后拼接）
-    version=datetime.now().strftime("%Y%m%d")+",url"
-    all_lines =  ["更新时间,#genre#"] +[version] 
-
-    for key in mydict.keys():
-        log_write(oper, key)
-        channels=verify(key, oper, set(mydict[key]))
-        channels=check_output_image(oper, channels, key)
-        channels=sorted(channels)
-        if len(channels) > 0:
-            print(channels)
-            all_lines = all_lines + ['\n'] + [key + ",#genre#"] + channels
-
-    print(all_lines)
-
-    # 将合并后的文本写入文件
-    output_file = './history/gat_epgpw_' + datetime.now().strftime('%Y%m%d') + '.txt' 
-    output_mysite_file = "../../mysite/gat.txt"
-
-    with open(output_file, 'w', encoding='utf-8') as f, open(output_mysite_file, 'w', encoding='utf-8') as fmysite:
-        for line in all_lines:
-            linea=line.split(',')
-            if len(linea) >= 2:
-                channel_name=linea[0].strip()
-                channel_address=linea[1].strip()                
-                if len(linea) >= 3:
-                    channel_source=linea[2].strip()
-                    f.write(channel_name + "," + channel_address +  "," + channel_source + '\n')
-                    fmysite.write(channel_name + "," + channel_address + '\n')
+                if len(linea) >= 2:
+                    channel_name=linea[0].strip()
+                    channel_address=linea[1].strip()                
+                    if len(linea) >= 3:
+                        channel_source=linea[2].strip()
+                        f.write(channel_name + "," + channel_address + '\n')
+                        fb.write(channel_name + "," + channel_address + '\n')
+                    else:
+                        f.write(channel_name + "," + channel_address + '\n')
+                        fb.write(channel_name + "," + channel_address + '\n')
                 else:
-                    f.write(channel_name + "," + channel_address + '\n')
-                    fmysite.write(channel_name + "," + channel_address + '\n')
-            else:
-                f.write(line.strip() + '\n')                
-    print(f"合并后的文本已保存到文件: {output_file} {output_mysite_file}")
-
+                    f.write(line.strip() + '\n')
+                    fb.write(line.strip() + '\n')
+                    
+        print(f"合并后的文本已保存到文件: {output_file}, {output_file_bak}")
+        print("done=======================================================")
+    elif oper == "check":
+        files=['test.txt']
+        for f in files:
+            with open(f, 'r', encoding='utf-8') as file:
+               lines = file.readlines()
+               process_url(mydict, lines, f)
+        
+        # 合并所有对象中的行文本（去重，排序后拼接）
+        version=time_str + ",url"
+        all_lines =  ["更新时间,#genre#"] +[version] 
+    
+        for key in mydict.keys():
+            log_write(oper, key)
+            channels=verify(key, oper, set(mydict[key]))
+            channels=check_output_image(oper, channels, key)
+            channels=sorted(channels)
+            if len(channels) > 0:
+                print(channels)
+                all_lines = all_lines + ['\n'] + [key + ",#genre#"] + channels
+    
+        print(all_lines)
+    
+        # 将合并后的文本写入文件
+        output_file = 'test.txt'
+    
+        with open(output_file, 'w', encoding='utf-8') as f:
+            for line in all_lines:
+                linea=line.split(',')
+                if len(linea) >= 2:
+                    channel_name=linea[0].strip()
+                    channel_address=linea[1].strip()                
+                    if len(linea) >= 3:
+                        channel_source=linea[2].strip()
+                        f.write(channel_name + "," + channel_address + '\n')
+                    else:
+                        f.write(channel_name + "," + channel_address + '\n')
+                else:
+                    f.write(line.strip() + '\n')                
+        print(f"合并后的文本已保存到文件: {output_file}")
+        print("done=======================================================")
+    
+    elif oper == "checkvalid":    
+        #获取所有的有效的链接
+        all_valid=[]
+        files=['dog.txt', 'output.txt']
+        for f in files:
+            with open(f, 'r', encoding='utf-8') as file:
+               lines = file.readlines()
+               for line in lines:
+                   linea=line.split(',')
+                   if len(linea) >= 2:
+                       all_valid.append(linea[1].strip())
+        print(all_valid)
+        #循环处理每个URL
+        for url in urls:
+            url=url.replace('https://raw.githubusercontent.com/','https://hub.gitmirror.com/https://raw.githubusercontent.com/')
+            #url=url.replace('githubusercontent.com','staticdn.net')
+            #打开URL并读取内容
+            #os.system('wget ' + url + " -O my.txt")
+            print("downloading... " + url + "\n")
+            os.system('curl ' + url + " -o my.txt")
+            with open('my.txt', 'r', encoding='utf-8') as file:
+                valid_count=0
+                lines = file.readlines()
+                for line in lines:
+                    linea=line.split(',')
+                    if len(linea) >= 2 and linea[1].strip() != '#genre#' and linea[1].strip() in all_valid:
+                       #print(line)
+                       valid_count = valid_count + 1
+                print(url + ": " + str(valid_count))
+        
+        #循环处理每个M3U URL
+        for url in m3u_urls:
+            url=url.replace('https://raw.githubusercontent.com/','https://hub.gitmirror.com/https://raw.githubusercontent.com/')
+            #url=url.replace('githubusercontent.com','staticdn.net')
+            #打开URL并读取内容
+            print("downloading... " + url + "\n")
+            os.system('curl ' + url + " -o my.m3u")
+            m3u_to_txt('my.m3u', 'my.txt')
+            with open('my.txt', 'r', encoding='utf-8') as file:
+                lines = file.readlines()
+                valid_count=0
+                for line in lines:
+                    linea=line.split(',')
+                    if len(linea) >= 2 and linea[1].strip() != '#genre#' and linea[1].strip() in all_valid:
+                       #print(line)
+                       valid_count = valid_count + 1
+                print(url + ": " + str(valid_count))
+    elif oper == "test":
+        #print(get_redirect_url('https://stream.freetv.fun/tvbs-4.ctv'))
+        #print(get_redirect_url('https://stream.freetv.fun/ph-rock-entertainment-1.ctv'))
+        #print(get_redirect_url('https://stream.freetv.fun/hgtv-8.ctv'))
+        #print(get_redirect_url('https://stream.freetv.fun/cctv-3-14.m3u8'))
+        #print(get_redirect_url('https://stream.freetv.fun/viutv-1.ctv'))
+        import uuid
+        print((uuid.uuid4()))
+        print((uuid.uuid4()))
+        print((uuid.uuid4()))
+    elif oper == "epgpw":
+        all_types=['中國大陸', '频道不符合任何EPG', '台灣', '香港', '澳門', '美國', '新加坡', '英國', '澳大利亞', '加拿大', '新西蘭']
+        file_prefix = os.path.dirname(os.path.abspath(__file__)) + "/epgpw/"
+        if func == "download":
+            #下载所有频道
+            all_links={}
+            x = requests.get('https://epg.pw/test_channel_page.html?lang=zh-hans')
+            #print(x.text)
+            soup = BeautifulSoup(x.text, 'html5lib')
+            all_trs = soup.find_all('tr')
+            print(os.path.dirname(os.path.abspath(__file__)))
+            for tr in all_trs:
+                all_tds = tr.find_all('td')
+                if len(all_tds) == 3:
+                    link=all_tds[0].text.strip()
+                    type_name=all_tds[2].text.strip()
+                    file_name= file_prefix + all_tds[2].text.strip() + ".txt"
+                    if not link.endswith("_original_new.txt") and \
+                            link.endswith("_new.txt") and \
+                            type_name in all_types and \
+                            "banned" not in link and \
+                            link not in all_links.values():
+                        all_links[type_name]=link                
+                        print(all_tds[2].text.strip())
+                        print("downloading... " + link + "\n")
+                        os.system('curl ' + link + " -o " + file_name) 
+                        time.sleep(5)
+            for key, value in all_links.items():
+                print(key + " : " + value + "\n")
+    
+    
+        files=['gat.txt']
+        for f in files:
+            with open(f, 'r', encoding='utf-8') as file:
+               lines = file.readlines()
+               process_url(mydict, lines, f)
+               
+        ##中国大陆
+        #china_main=['中國大陸']
+        #files=[file_prefix + type + ".txt" for type in  china_main]
+        #print(files)
+        #for f in files:
+        #    with open(f, 'r', encoding='utf-8') as file:
+        #        lines = file.readlines()
+        #        process_tvname_url(mydict, lines, f)
+    
+        #大陆港澳台世界
+        gat_types=['中國大陸', '台灣', '香港', '澳門', '美國', '新加坡', '英國', '澳大利亞', '加拿大', '新西蘭']
+        mydict={}
+        files=[file_prefix + type + ".txt" for type in  gat_types]
+        print(files)
+        for f in files:
+            with open(f, 'r', encoding='utf-8') as file:
+                lines = file.readlines()
+                process_url(mydict, lines, f)
+        
+        #其他
+        unclassfied=['频道不符合任何EPG']
+        files=[file_prefix + type + ".txt" for type in unclassfied]
+        print(files)
+        for f in files:
+            with open(f, 'r', encoding='utf-8') as file:
+                lines = file.readlines()
+                process_tvname_url(mydict, lines, f, skip=True)
+        
+        # 合并所有对象中的行文本（去重，排序后拼接）
+        version=time_str + ",url"
+        all_lines =  ["更新时间,#genre#"] +[version] 
+    
+        for key in mydict.keys():
+            log_write(oper, key)
+            channels=verify(key, oper, set(mydict[key]))
+            channels=check_output_image(oper, channels, key)
+            channels=sorted(channels)
+            if len(channels) > 0:
+                print(channels)
+                all_lines = all_lines + ['\n'] + [key + ",#genre#"] + channels
+    
+        print(all_lines)
+    
+        # 将合并后的文本写入文件
+        output_file = './history/gat_epgpw_' + time_str + '.txt'
+        output_file2 = './history/gat_' + time_str + '.txt'
+        output_mysite_file = "../../mysite/gat.txt"
+    
+        with open(output_file, 'w', encoding='utf-8') as f, open(output_mysite_file, 'w', encoding='utf-8') as fmysite, open(output_file2, 'w', encoding='utf-8') as f2:
+            for line in all_lines:
+                linea=line.split(',')
+                if len(linea) >= 2:
+                    channel_name=linea[0].strip()
+                    channel_address=linea[1].strip()                
+                    if len(linea) >= 3:
+                        channel_source=linea[2].strip()
+                        f.write(channel_name + "," + channel_address +  "," + channel_source + '\n')
+                        fmysite.write(channel_name + "," + channel_address + '\n')
+                        f2.write(channel_name + "," + channel_address + '\n')
+                    else:
+                        f.write(channel_name + "," + channel_address + '\n')
+                        fmysite.write(channel_name + "," + channel_address + '\n')
+                        f2.write(channel_name + "," + channel_address + '\n')
+                else:
+                    f.write(line.strip() + '\n')                
+        print(f"合并后的文本已保存到文件: {output_file} {output_mysite_file}")
+    
+    

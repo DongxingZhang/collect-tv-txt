@@ -17,13 +17,18 @@ Game Show Central,https://stream.freetv.fun/game-show-central-2.m3u8
 Game Show Central,https://stream.freetv.fun/game-show-central-3.m3u8
 TSNcanada,https://stream.freetv.fun/gtn-canada-1.m3u8
 Generic,#genre#
+City TV,https://stream.freetv.fun/big-city-tv-1.m3u8
 City TV,https://stream.freetv.fun/city-tv-3.m3u8
 City TV,https://stream.freetv.fun/city-tv-4.ctv
+City TV[geo-blocked],https://stream.freetv.fun/lnktv-city-1.m3u8
 City TV,https://stream.freetv.fun/city-tv-1.m3u8
 新時代電視[geo-blocked],https://stream.freetv.fun/xin-shi-dai-dian-shi-1.ctv
 新時代電視[geo-blocked],https://stream.freetv.fun/xin-shi-dai-dian-shi-er-1.ctv
 Kids,#genre#
 Canal 9 TV,https://stream.freetv.fun/canal-8-tv-plus-1.m3u8
+Kidoodle.TV,https://stream.freetv.fun/kidoodle-tv-1.m3u8
+Kidoodle.TV,https://stream.freetv.fun/kidoodle-tv-2.m3u8
+Kidoodle.TV,https://stream.freetv.fun/kidoodle-1.m3u8
 TVO kids,https://stream.freetv.fun/tvo-1.m3u8
 Treehouse,https://stream.freetv.fun/ch-ng-treehouse-1.m3u8
 YTV,https://stream.freetv.fun/ytv1-1.ctv
@@ -34,18 +39,21 @@ Knowledge,#genre#
 Love 4K Nature,https://stream.freetv.fun/love-nature-6.ctv
 News,#genre#
 AMI Tele,https://stream.freetv.fun/tele-m1-1.m3u8
-APTN,https://stream.freetv.fun/apn-1.m3u8
-CGCTV,https://stream.freetv.fun/cgtv-1.ctv
+AMI-tv,https://stream.freetv.fun/ramogi-tv-1.m3u8
+AMI-tv,https://stream.freetv.fun/sampit-tv-1.m3u8
+APTN,https://stream.freetv.fun/apt-1.m3u8
 CMT Canada,https://stream.freetv.fun/cmt-1.ctv
 CP 24,https://stream.freetv.fun/ch-ng-cp-24-1.m3u8
 CPAC,https://stream.freetv.fun/cpac-1.m3u8
 CTV2 OTTAWA,https://stream.freetv.fun/ctv2-1.ctv
+Global News,https://stream.freetv.fun/ch-ng-global-news-1.m3u8
 TV5 Unis,https://stream.freetv.fun/tv5-2.m3u8
 Other,#genre#
 CTV,https://stream.freetv.fun/ctv-9-1.m3u8
 CTV,https://stream.freetv.fun/cdtv-1.m3u8
 CTV,https://stream.freetv.fun/ctv-1.ctv
 CTV,https://stream.freetv.fun/actv-1.m3u8
+CTV[geo-blocked],https://stream.freetv.fun/rctv-1.m3u8
 TVA,https://stream.freetv.fun/tva-1.m3u8
 TVA,https://stream.freetv.fun/tva-2.m3u8
 TeleToon Canada,https://stream.freetv.fun/teletoon-1.m3u8
@@ -98,7 +106,7 @@ Fox Sports Racing,https://stream.freetv.fun/master-tv-1.m3u8
 Fox Sports Racing,https://stream.freetv.fun/radio-yaucana-tv-1.m3u8
 Fox Sports Racing,https://stream.freetv.fun/radio-yaucana-tv-2.m3u8
 Fox Sports Racing,https://stream.freetv.fun/tv-san-jorge-2.m3u8
-Fox Sports Racing,https://stream.freetv.fun/telenorte-2.m3u8
+Fox Sports Racing[geo-blocked],https://stream.freetv.fun/telenorte-2.m3u8
 Fox Sports Racing[geo-blocked],https://stream.freetv.fun/deluxe-rap-1.m3u8
 Fox Sports Racing[geo-blocked],https://stream.freetv.fun/l-esprit-sorcier-tv-1.m3u8
 Fox Sports Racing,https://stream.freetv.fun/lugansk-24-1.m3u8
@@ -124,7 +132,6 @@ Fox Sports Racing,https://stream.freetv.fun/aljazeera-news-1.m3u8
 Fox Sports Racing[geo-blocked],https://stream.freetv.fun/pluto-tv-record-news-1.m3u8
 Fox Sports Racing[geo-blocked],https://stream.freetv.fun/sports-news-highlights-1.m3u8
 Fox Sports Racing,https://stream.freetv.fun/fresh-news-1.m3u8
-Fox Sports Racing,https://stream.freetv.fun/wwon-tv-ch-48-1.m3u8
 Fox Sports Racing,https://stream.freetv.fun/village-of-hastings-on-hudson-ny-1.m3u8
 Fox Sports Racing,https://stream.freetv.fun/de-qing-xin-wen-1.m3u8
 Fox Sports Racing,https://stream.freetv.fun/wen-shan-zhou-xin-wen-1.ctv
@@ -132,12 +139,11 @@ Fox Sports Racing[geo-blocked],https://stream.freetv.fun/chong-ming-dian-shi-2.m
 Fox Sports Racing,https://stream.freetv.fun/liangshan-tv-1.m3u8
 Fox Sports Racing[geo-blocked],https://stream.freetv.fun/zee-business-1.ctv
 Fox Sports Racing,https://stream.freetv.fun/action-hollywood-movies-1.m3u8
-Fox Sports Racing,https://stream.freetv.fun/city-of-oakland-1.m3u8
+Fox Sports Racing[geo-blocked],https://stream.freetv.fun/city-of-oakland-1.m3u8
 Fox Sports Racing,https://stream.freetv.fun/hmongusa-tv-1.m3u8
 Fox Sports Racing,https://stream.freetv.fun/oun-1.m3u8
-GameTV,https://stream.freetv.fun/gametv-1.ctv
-NBA Canada,https://stream.freetv.fun/nba-2.ctv
-NBA Canada,https://stream.freetv.fun/nba-1.ctv
+Sports Network,https://stream.freetv.fun/ch-ng-nbc-sports-network-2.m3u8
+Sports Network,https://stream.freetv.fun/women-s-sports-network-1.m3u8
 Sports Network,https://stream.freetv.fun/lsn---lax-sports-network-1.m3u8
 Sports Network[geo-blocked],https://stream.freetv.fun/nbc-sports-network-1.m3u8
 Sports Network,https://stream.freetv.fun/ch-ng-nbc-sports-network-1.m3u8
@@ -147,6 +153,7 @@ Sports Network,https://stream.freetv.fun/eleven-sports-network-1.ctv
 Sports Network,https://stream.freetv.fun/the-sports-network-5-tv-1.ctv
 Sports Network,https://stream.freetv.fun/the-sports-network-3-tv-1.ctv
 Sports Network,https://stream.freetv.fun/the-sports-network-2-tv-1.ctv
+SportsNet One,https://stream.freetv.fun/ch-ng-at-t-sportsnet-1.m3u8
 SportsNet One,https://stream.freetv.fun/sportsnet-ny-1.ctv
 SportsNet One,https://stream.freetv.fun/ch-ng-sportsnet-one-1.m3u8
 SportsNet Pacific,https://stream.freetv.fun/ch-ng-sportsnet-pacific-1.m3u8
@@ -164,7 +171,8 @@ TSN 1[geo-blocked],https://stream.freetv.fun/tsn-1-1.m3u8
 TSN 1,https://stream.freetv.fun/ch-ng-tsn-1-1.m3u8
 TSN 2,https://stream.freetv.fun/ch-ng-tsn-2-1.m3u8
 TSN 3,https://stream.freetv.fun/ch-ng-tsn-3-1.m3u8
-TSN 4,https://stream.freetv.fun/tsn-3.m3u8
 TSN 4,https://stream.freetv.fun/tsn-1.m3u8
 TSN 4,https://stream.freetv.fun/tsn-2.m3u8
+TSN 4,https://stream.freetv.fun/tsn-3.m3u8
+TVA SPORT,https://stream.freetv.fun/rtasport-1.m3u8
 TVA SPORT,https://stream.freetv.fun/rta-sport-1.m3u8

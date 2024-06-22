@@ -11,10 +11,13 @@
 
 
 Generic,#genre#
+7 HD Australia,https://stream.freetv.fun/sky-1-australia-1.ctv
 ABC TV,https://stream.freetv.fun/abc-tv-1.m3u8
 ABC TV,https://stream.freetv.fun/abc-tv-2.m3u8
 ABC TV,https://stream.freetv.fun/abc-tv-3.m3u8
 Australia Channel,https://stream.freetv.fun/hope-channel-australia-1.m3u8
+Channel 31 Melbourne,https://stream.freetv.fun/3aw-melbourne-1.m3u8
+Channel 31 Melbourne,https://stream.freetv.fun/c31-melbourne-1.m3u8
 Eleven Australia,rtmp://f13h.mine.nu/sat/tv741
 Eleven Australia,rtmp://f13h.mine.nu/sat/tv731
 Nine Life Australia,https://stream.freetv.fun/time-line-australia-1.m3u8
@@ -24,14 +27,15 @@ Hillsong Channel,https://stream.freetv.fun/hillsong-channel-1.ctv
 News,#genre#
 ABC Australia,https://stream.freetv.fun/abc-australia-2.ctv
 ABC Australia,https://stream.freetv.fun/ph-abc-austrailia-1.ctv
-ABC Australia,https://stream.freetv.fun/abc-australia-test-1.ctv
 ABC Australia,https://stream.freetv.fun/abc-australia-3.ctv
 ABC Australia,https://stream.freetv.fun/abc-australia-4.ctv
 ABC Australia,https://stream.freetv.fun/abc-australia-5.ctv
 ABC Australia,https://stream.freetv.fun/abc-australia-6.ctv
-ABC Australia[geo-blocked],https://stream.freetv.fun/abc-australia-1.ctv
+ABC Australia,https://stream.freetv.fun/abc-australia-1.ctv
 ABC NEWS 24,https://stream.freetv.fun/la-c-news-24-2.m3u8
 ABC NEWS 24,https://stream.freetv.fun/la-c-news-24-1.m3u8
 NBN TV,https://stream.freetv.fun/nrb-tv-2.m3u8
 Sports,#genre#
+Ski TV[geo-blocked],https://stream.freetv.fun/sakti-tv-1.m3u8
+Ski TV,https://stream.freetv.fun/sai-tv-1.m3u8
 beIN Sports Australia,https://stream.freetv.fun/bein-sports-xtra-australia-1.m3u8

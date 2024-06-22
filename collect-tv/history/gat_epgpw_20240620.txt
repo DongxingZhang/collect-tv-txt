@@ -1,0 +1,1224 @@
+更新时间,#genre#
+20240620,url
+
+綜藝,#genre#
+Bravo,https://stream.freetv.fun/bravo-2.m3u8,5116
+Bravo,https://stream.freetv.fun/bravo-3.ctv,4718
+C+頻道,https://stream.freetv.fun/xiang-gang-c-plus-1.m3u8,2299
+CMusic,https://stream.freetv.fun/ibc-music-1.m3u8,5775
+California Music Channel,https://stream.freetv.fun/california-music-channel-1.m3u8,2891
+Channel U,https://stream.freetv.fun/channel-u-1.ctv,4998
+Channel U,https://stream.freetv.fun/channel-u-2.ctv,5464
+Chart Show TV UK,https://stream.freetv.fun/show-tv-1.m3u8,10598
+Comedy Central,https://stream.freetv.fun/comedy-movie-1.ctv,3476
+DJING TV,https://stream.freetv.fun/jin-tv-1.m3u8,5794
+Discovery Showcase HD,https://stream.freetv.fun/showcase-2.ctv,4927
+E! HD,https://stream.freetv.fun/e-2.m3u8,10339
+E! HD,https://stream.freetv.fun/e-3.ctv,7994
+E! HD,https://stream.freetv.fun/e-4.ctv,100000
+E! HD,https://stream.freetv.fun/e-5.ctv,4887
+ITV2,https://stream.freetv.fun/itv2-1.ctv,12993
+ITV2,https://stream.freetv.fun/itv2-2.ctv,9199
+ITV3,https://stream.freetv.fun/itv3-1.ctv,9541
+ITV3,https://stream.freetv.fun/itv3-2.ctv,8919
+Lifetime,https://stream.freetv.fun/lifetime-1.ctv,8465
+Lifetime,https://stream.freetv.fun/lifetime-2.m3u8,5278
+Lifetime,https://stream.freetv.fun/ph-lifetime-1.ctv,5103
+Mediacorp Suria,https://stream.freetv.fun/mediacorp-suria-1.ctv,5238
+Mediacorp Suria,https://stream.freetv.fun/mediacorp-suria-2.ctv,5022
+ROCK Entertainment,https://stream.freetv.fun/ph-rock-entertainment-1.ctv,4835
+RTHK31,https://stream.freetv.fun/rthk35-1.m3u8,2579
+RTHK31,https://stream.freetv.fun/rthktv31-1.ctv,5266
+THE PENTAGON CHANNEL,https://stream.freetv.fun/the-360-channel-1.m3u8,15711
+THE PENTAGON CHANNEL,https://stream.freetv.fun/the-360-channel-2.m3u8,7372
+THE PENTAGON CHANNEL,https://stream.freetv.fun/the-360-channel-3.m3u8,7907
+TVB Plus,https://stream.freetv.fun/j2-2.ctv,3564
+TVB Plus,https://stream.freetv.fun/j2-3.ctv,3766
+TVB Plus,https://stream.freetv.fun/tv7-plus-1.m3u8,5843
+TVB Plus,https://stream.freetv.fun/tvb-plus-2.m3u8,1725
+TVB Plus,https://stream.freetv.fun/tvb-plus-5.ctv,17363
+TVB Plus,https://stream.freetv.fun/tvb-plus-7.ctv,8234
+TVB Plus,https://stream.freetv.fun/tvb-plus-8.m3u8,1625
+TVBS歡樂臺HD,https://stream.freetv.fun/tvbs-huan-le-3.ctv,9488
+TVB娛樂新聞,https://stream.freetv.fun/tvbyu-le-xin-wen-1.m3u8,3772
+TVB娛樂新聞,https://stream.freetv.fun/tvbyu-le-xin-wen-2.m3u8,5954
+TVN,https://stream.freetv.fun/tvn-3.ctv,100000
+The Country Network,https://stream.freetv.fun/ch-ng-the-country-network-1.m3u8,4771
+Tiny Pop UK,https://stream.freetv.fun/tiny-pop-2.m3u8,5018
+USA Network,https://stream.freetv.fun/usa-network-1.ctv,5425
+ViuTV HD,https://stream.freetv.fun/viutv-1.ctv,3670
+ViuTV HD,https://stream.freetv.fun/viutv-10.m3u8,5788
+ViuTV HD,https://stream.freetv.fun/viutv-2.ctv,4624
+ViuTV HD,https://stream.freetv.fun/viutv-5.ctv,4963
+ViuTV HD,https://stream.freetv.fun/viutv-9.ctv,1962
+三立都會,https://stream.freetv.fun/san-li-du-hui-2.m3u8,4327
+中天娛樂HD,https://stream.freetv.fun/zhong-tian-yu-le-1.ctv,2719
+中天娛樂HD,https://stream.freetv.fun/zhong-tian-yu-le-2.ctv,9260
+緯來日本,https://stream.freetv.fun/wei-lai-ri-ben-8.m3u8,5095
+緯來日本,rtmp://220.130.201.73/sat/tv771,2223
+緯來日本,rtmp://f13h.mine.nu/sat/tv771,2217
+
+綜合,#genre#
+520tsss映画,https://stream.freetv.fun/321847d48affa55bc4c03ad2690453db6832e961175d42ac5424c4325b24c73a.ctv,5444
+A&E,https://stream.freetv.fun/a-e-2.ctv,7724
+ATV WORLD,https://stream.freetv.fun/atv-1.m3u8,4601
+ATV WORLD,https://stream.freetv.fun/atv-2.m3u8,4717
+ATV WORLD,https://stream.freetv.fun/tvri-world-3.m3u8,10841
+BBC 1,https://stream.freetv.fun/bbc-1-2.ctv,8588
+BBC 1,https://stream.freetv.fun/bbc1-1.ctv,100000
+BBC 1,https://stream.freetv.fun/bbc1-2.ctv,8135
+BBC 4 SD UK,https://stream.freetv.fun/bbc-4-1.ctv,6095
+BBC 4,https://stream.freetv.fun/bbc4-1.ctv,19460
+BBC America,https://stream.freetv.fun/bbc-america-2.m3u8,4528
+BBC America,https://stream.freetv.fun/bbc-america-3.m3u8,6822
+BBC America,https://stream.freetv.fun/bbc-america-tv-1.ctv,4532
+BBC Lifestyle,https://stream.freetv.fun/bbc-lifestyle-2.ctv,7716
+BBC One Scotland,https://stream.freetv.fun/bbc-one-scotland-1.m3u8,4627
+BBC One Scotland,https://stream.freetv.fun/bbc-scotland-1.ctv,100000
+BBC One Scotland,https://stream.freetv.fun/bbc-scotland-2.m3u8,4244
+CBC Television,https://stream.freetv.fun/country-music-television-1.m3u8,4037
+CBC Television,https://stream.freetv.fun/notre-television-1.m3u8,6466
+CBC Television,https://stream.freetv.fun/tc-television-1.ctv,100000
+CBS 11,https://stream.freetv.fun/11-bs-1.m3u8,2792
+CBS 11,https://stream.freetv.fun/11-cs-1.m3u8,4083
+Channel 5,https://stream.freetv.fun/channel-5-1.ctv,6722
+Channel 5,https://stream.freetv.fun/channel-5-2.ctv,14597
+Channel 5,https://stream.freetv.fun/channel-5-3.ctv,5173
+Channel 5,https://stream.freetv.fun/channel-5-4.ctv,4633
+Channel 5,https://stream.freetv.fun/dc-council-channel-1.m3u8,6986
+City TV,https://stream.freetv.fun/city-tv-4.ctv,7899
+Eleven Australia,rtmp://f13h.mine.nu/sat/tv731,2316
+Eleven Australia,rtmp://f13h.mine.nu/sat/tv741,2185
+ITV 1,https://stream.freetv.fun/itv-1-2.ctv,4127
+ITV 2 UK,https://stream.freetv.fun/itv-2-2.ctv,9150
+ITV 3,https://stream.freetv.fun/itv-3-2.ctv,5292
+MAX,https://stream.freetv.fun/tv-max-1.m3u8,5392
+MOMO綜合,rtmp://f13h.mine.nu/sat/tv761,2250
+Now TV,https://stream.freetv.fun/axs-tv-now-2.m3u8,3525
+Now TV,https://stream.freetv.fun/axs-tv-now-4.m3u8,2772
+Pearl,https://stream.freetv.fun/pearl-ming-zhu-2.m3u8,5730
+Sky Movies Drama & Romance,https://stream.freetv.fun/sky-drama-1.ctv,3680
+TVB J1,https://stream.freetv.fun/tvb-j2-1.m3u8,3690
+TVB 翡翠臺,https://stream.freetv.fun/tvb-fei-cui-1.ctv,3616
+TVB 翡翠臺,https://stream.freetv.fun/tvb-fei-cui-2.ctv,4282
+TVBS Asia,https://stream.freetv.fun/tvbs-aisa-1.m3u8,100000
+TVBS HD,https://stream.freetv.fun/tvbs-9.ctv,2662
+TVBS,https://stream.freetv.fun/tvbs-4.ctv,9040
+TVBS,https://stream.freetv.fun/tvbs-6.m3u8,3758
+TVB翡翠,https://stream.freetv.fun/tvbfei-cui-4.ctv,1661
+UNIVERSAL TV,https://stream.freetv.fun/universal-cinema-sd-1.ctv,7503
+UNIVERSAL TV,https://stream.freetv.fun/universal-premiere-sd-1.ctv,8065
+Venus TV UK,https://stream.freetv.fun/venus-1.ctv,7634
+WIN HD綜合,https://stream.freetv.fun/win-1.ctv,8204
+三立綜合,https://stream.freetv.fun/san-li-zong-he-1.m3u8,5697
+三立臺灣台,https://stream.freetv.fun/san-li-tai-wan-3.m3u8,4681
+中天亞洲,https://stream.freetv.fun/zhong-tian--ya-zhou-1.m3u8,100000
+中天亞洲FHD,https://stream.freetv.fun/zhong-tian-ya-zhou-2.m3u8,4040
+中天亞洲FHD,https://stream.freetv.fun/zhong-tian-ya-zhou-6.ctv,2345
+中天綜合HD,https://stream.freetv.fun/zhong-tian-zong-he-1.ctv,2014
+中視,https://stream.freetv.fun/zhong-shi-8.m3u8,5557
+中視,rtmp://f13h.mine.nu/sat/tv091,2232
+八大綜合,https://stream.freetv.fun/ba-da-zong-he-2.m3u8,2089
+公視,https://stream.freetv.fun/gong-shi-2.m3u8,4449
+公視,https://stream.freetv.fun/gong-shi-3.m3u8,100000
+凤凰中文,https://stream.freetv.fun/03fa44bc510bac215c386e4e02bb5ecf4236b348e53ff4e3f0b8bd721cbaf142.ctv,6264
+凤凰中文,https://stream.freetv.fun/055fd0088b3f216546c19d45700775c682b30836f177ac327bf5f56ae4fcb7b4.ctv,11968
+凤凰中文,https://stream.freetv.fun/22448838d0d3b395b90859ec0fb68ea82ac112fe9b29ed03122106fc6218d339.m3u8,5432
+凤凰中文,https://stream.freetv.fun/62d74be30d8730ee2b7ff62c6e79642254209fc739c8c08065c467a083f9f8e4.ctv,2806
+凤凰中文,https://stream.freetv.fun/a69efa1a0897a5f69ceed5b9cb6ee600febec9eb51447544a2d74a43cd89059e.ctv,7069
+凤凰测试,https://stream.freetv.fun/72d84f92913ca494af3fc278402cbc84cb371aa17c90b241c1f6f9c9db2fad8d.ctv,6602
+凤凰资讯,https://stream.freetv.fun/365abed617311b3087815270a01bbb1d65df0daff72de9def9891bdda280b5bf.m3u8,18250
+凤凰资讯,https://stream.freetv.fun/5d7829f1e2f83754bf297d6f0876f1a859e5b39bc9d000e4d1041c2a44340812.ctv,6713
+凤凰资讯,https://stream.freetv.fun/694fdb1003254a4701099d3cb0b5ddd644fb51c13cf19eeab026440b3069d3c3.m3u8,6957
+凤凰资讯,https://stream.freetv.fun/6a18a5b48dd18355b53011a2ed5b8d9a3c044e189435f374f1fbe8d30dca0bf9.ctv,6753
+凤凰资讯,https://stream.freetv.fun/b5d918869ad35ba4c99c6a12cfa87469e8783cb4b7d8d8342dcbba12c71d21b3.m3u8,7576
+凤凰资讯,https://stream.freetv.fun/ef8604e01a7fb4c5ca1c4ebd7d257a0eb177ed122ef87e1e565b3e3025e7d255.ctv,3174
+凤凰资讯,https://stream.freetv.fun/f28f307d60caeb98e000700b12f96fefab1d01f7c3fe468a91b003d9d00f6343.m3u8,5283
+凤凰资讯,https://stream.freetv.fun/f7e68fd608138dfdaf65c123b8d96906a9b612e027b768b0f22473f43d2c2e4d.ctv,6413
+台視HD,rtmp://f13h.mine.nu/sat/tv071,2145
+愛爾達綜合臺,https://stream.freetv.fun/ai-er-da-zong-he-1.ctv,4138
+新加坡中文台,https://stream.freetv.fun/b13894fcbe1620c589c6566c088695585eace5619ed86eade38419f6931f18e5.m3u8,2502
+日本1,https://stream.freetv.fun/fcf48c6e48e699df421d31f384f27f2816c4c9ffc33d03680f2cb3ab3e4114ba.m3u8,2900
+日本2,https://stream.freetv.fun/7dfaf7b7af6e20bcbde90c7cda44e0f129e0656d68bed80349711b5461ec14fc.m3u8,2368
+日本3,https://stream.freetv.fun/6ec4364e070ef57307ee73c90e9c7d8ac6d587882c0788194f985b69e2f5f4c5.m3u8,2286
+日本4,https://stream.freetv.fun/c4a11ce80459d1c4acc342f340f6238ee0f9e520ef32b6f53464e9eaf78b13a6.m3u8,2638
+日本5,https://stream.freetv.fun/62f93cf39a660f30c7f4671ee5876d5e0d60bbc350261837765b48f45b2cd57d.m3u8,2169
+日本6,https://stream.freetv.fun/2ec88184d685b3fc7bb6cbef6cce807628822564f6a12534d89a14d97bf972f5.m3u8,2279
+日本7,https://stream.freetv.fun/40a80b586a8906660aad6c16fb8704d52581b2284cf9755e0fb94728563c5c21.m3u8,1982
+日本8,https://stream.freetv.fun/015b564499b9090b8939f36907e1d8751eb067f703223917242014e414454dde.m3u8,2756
+日本qvc,https://stream.freetv.fun/67dceb795cd71db65d140b528fb6335c667331ff642b532acd4c51653a6af8ef.m3u8,2405
+日本女子摔角,https://stream.freetv.fun/78e1569763a20994c44062d18ed2f567af373473c276671b1f5c17bdd3b484f3.ctv,5505
+日本映画専門チャンネル,https://stream.freetv.fun/90987a91a862c98e0014ed9b745b9352abb8980eae7743d3849428a858624c65.m3u8,100000
+易中天品三国,https://stream.freetv.fun/8eefb40389f10f627fc4d4eb1a7cd91501ede58f808db341af6794a8949079ca.ctv,2459
+映画,https://stream.freetv.fun/624e089212997ab6f526774f6fbcb597f493cdbe8b6160de69f58267137418ba.m3u8,7918
+東森綜合,https://stream.freetv.fun/dong-sen-zong-he-1.ctv,7869
+東森綜合,https://stream.freetv.fun/dong-sen-zong-he-4.ctv,2343
+東森美洲,https://stream.freetv.fun/dong-sen-mei-zhou-1.m3u8,100000
+東森美洲,https://stream.freetv.fun/dong-sen-mei-zhou-2.m3u8,100000
+東森美洲,https://stream.freetv.fun/dong-sen-mei-zhou-3.m3u8,100000
+東森美洲,https://stream.freetv.fun/dong-sen-mei-zhou-4.m3u8,100000
+東森美洲,https://stream.freetv.fun/dong-sen-mei-zhou-5.m3u8,100000
+東森美洲,https://stream.freetv.fun/dong-sen-mei-zhou-6.m3u8,100000
+東森美洲衛視,https://stream.freetv.fun/dong-sen-mei-zhou-wei-shi-1.m3u8,100000
+東森超視,https://stream.freetv.fun/dong-sen-chao-shi-8.ctv,2956
+東森超視,rtmp://220.130.201.73/sat/tv331,2247
+東森超視,rtmp://f13h.mine.nu/sat/tv331,2203
+民視,https://stream.freetv.fun/min-shi-2.m3u8,4380
+民視,rtmp://220.130.201.73/sat/tv051,2219
+民視,rtmp://f13h.mine.nu/sat/tv051,2187
+民視臺灣臺,https://stream.freetv.fun/min-shi-tai-wan-3.m3u8,4081
+港台电视 31,https://stream.freetv.fun/9bb20e32c7b31f916a8142ee0f5bf5f1fc501ae5cf5eb224dad14edcd7ec747e.ctv,4888
+港台电视 32,https://stream.freetv.fun/f68060f0f69e51c16cee2b48bfbc6e43189a0770f51e5ab186ffca44359c0072.ctv,4902
+港台电视33,https://stream.freetv.fun/9c25a3d744660e829b1975f10ee0041f11245e8630e5aaaa69248ce939db64ce.m3u8,3171
+港台电视33,https://stream.freetv.fun/e399f2061e40fb7f4505c902f376dc19dd743154e6d6c8ef03479e424cd3c258.m3u8,2302
+港台电视34,https://stream.freetv.fun/13adeb75fd3a23bf8522c4a678b824d944a133caf85efdee16fd2e259656dd5f.m3u8,2366
+港台电视34,https://stream.freetv.fun/14015df925caf6be38574c8d9655761fa2ca2b012eba5b13287a17af0cbfe9eb.m3u8,2495
+港台电视35,https://stream.freetv.fun/6d3d0c5ca3dc578f98e7eb199b7e50349bfa930e723cb16c2a55ecdae8dd2ef7.m3u8,2754
+港台电视35,https://stream.freetv.fun/f96d1d4aba3d0494c4630f94dcf8983582e04ca59e5dc9d2d18f28e439dd7ed1.m3u8,3261
+澳視澳門,https://stream.freetv.fun/ao-shi-ao-men-1.ctv,4748
+澳視澳門,https://stream.freetv.fun/ao-shi-ao-men-4.ctv,4417
+澳門衛視,https://stream.freetv.fun/ao-men-wei-shi-1.ctv,5425
+澳門衛視,https://stream.freetv.fun/ao-men-wei-shi-2.ctv,4887
+緯來精采,https://stream.freetv.fun/d7fb67b6ad553367e15a443a726eb62c44d1775de9b706ebde77eead8d67ba58.m3u8,2883
+緯來育樂,rtmp://220.130.201.73/sat/tv701,2299
+緯來育樂,rtmp://f13h.mine.nu/sat/tv701,2171
+红牛tv,https://stream.freetv.fun/5f67565dabb4e861655d7ae459f3475ab50b36f6e2276579f1a8828953476ab8.m3u8,2098
+红牛tv,https://stream.freetv.fun/dafeba70715a6c707a204ae8924634ad51ec1c2c352b87d32dbefdd94981008a.m3u8,2200
+红牛运动,https://stream.freetv.fun/13ffdf436b8a749b0f3050b714e14969dd455b37b7e6a083dfad5e5ff89b9cd1.m3u8,2875
+红牛运动,https://stream.freetv.fun/f8eed9c99e698fdab23a36391efb997fbce39d53a0ad9b75e8a61c935aa29101.m3u8,3357
+翡翠台,https://stream.freetv.fun/fei-cui-4.ctv,2372
+翡翠台,https://stream.freetv.fun/fei-cui-6.ctv,8098
+臺視綜合,https://stream.freetv.fun/tai-shi-zong-he-1.m3u8,3924
+華視,https://stream.freetv.fun/hua-shi-6.ctv,9102
+華視,rtmp://f13h.mine.nu/sat/tv111,2333
+華語電視,https://stream.freetv.fun/hua-yu-dian-shi-1.m3u8,100000
+華語電視,https://stream.freetv.fun/hua-yu-dian-shi-2-2.m3u8,10912
+華語電視,https://stream.freetv.fun/hua-yu-dian-shi-2-3.m3u8,100000
+華語電視,https://stream.freetv.fun/hua-yu-dian-shi-2-4.m3u8,100000
+華語電視,https://stream.freetv.fun/hua-yu-dian-shi-3-1.m3u8,100000
+華語電視,https://stream.freetv.fun/hua-yu-dian-shi-3-2.m3u8,100000
+華語電視,https://stream.freetv.fun/hua-yu-dian-shi-3-3.m3u8,100000
+華語電視,https://stream.freetv.fun/hua-yu-dian-shi-3-4.m3u8,100000
+靖天國際,https://stream.freetv.fun/jing-tian-guo-ji-1.m3u8,3996
+靖天國際,https://stream.freetv.fun/jing-tian-guo-ji-2.ctv,9105
+香港衛視,https://stream.freetv.fun/xiang-gang-wei-shi-1.ctv,1368
+香港衛視,https://stream.freetv.fun/xiang-gang-wei-shi-2.ctv,1488
+香港衛視,https://stream.freetv.fun/xiang-gang-wei-shi-3.m3u8,1504
+香港衛視,https://stream.freetv.fun/xiang-gang-wei-shi-5.m3u8,1950
+香港衛視,https://stream.freetv.fun/xiang-gang-wei-shi-6.m3u8,1621
+香港衛視,https://stream.freetv.fun/xiang-gang-wei-shi-7.ctv,4511
+香港衛視,https://stream.freetv.fun/xiang-gang-wei-shi-8.ctv,4696
+香港電臺,https://stream.freetv.fun/xiang-gang-dian-tai-2.m3u8,1549
+鳳凰衛視中文,https://stream.freetv.fun/feng-huang-wei-shi--xiang-gang-1.ctv,4828
+鳳凰衛視中文,https://stream.freetv.fun/feng-huang-wei-shi--zi-xun-1.ctv,4416
+鳳凰衛視中文,https://stream.freetv.fun/feng-huang-wei-shi-1.m3u8,2649
+鳳凰衛視中文,https://stream.freetv.fun/feng-huang-zhong-wen-4.m3u8,11818
+鳳凰衛視中文,https://stream.freetv.fun/feng-huang-zhong-wen-9.m3u8,9067
+鳳凰香港,https://stream.freetv.fun/feng-huang-xiang-gang-1.m3u8,1941
+鳳凰香港,https://stream.freetv.fun/feng-huang-xiang-gang-3.ctv,7698
+鳳凰香港,https://stream.freetv.fun/feng-huang-xiang-gang-4.m3u8,2484
+鳳凰香港,https://stream.freetv.fun/feng-huang-xiang-gang-7.ctv,6236
+
+兒童,#genre#
+Animax,https://stream.freetv.fun/animax-2.ctv,9016
+Animax,https://stream.freetv.fun/animax-philippines-1.ctv,3571
+Animax,https://stream.freetv.fun/ch-ng-bs-animax-1.m3u8,100000
+BABY,https://stream.freetv.fun/tao-babyhd-1.ctv,100000
+BBC 3,https://stream.freetv.fun/bbc-3-1.ctv,100000
+BBC 3,https://stream.freetv.fun/bbc3-1.ctv,100000
+BSアニマックス,https://stream.freetv.fun/bsanimatsukusu-1.m3u8,16948
+Canal 9 TV,https://stream.freetv.fun/canal-8-tv-plus-1.m3u8,5529
+Cartoon Network,https://stream.freetv.fun/cartoon-network-10.ctv,100000
+Cartoon Network,https://stream.freetv.fun/cartoon-network-9.ctv,8379
+Cartoon Network,https://stream.freetv.fun/ph-cartoon-network-1.ctv,5908
+Cetelmon TV,https://stream.freetv.fun/cetelmon-tv-1.m3u8,100000
+Discovery Family,https://stream.freetv.fun/discovery-family-1.m3u8,4597
+Discovery Family,https://stream.freetv.fun/discovery-family-2.ctv,6041
+Disney Channel,https://stream.freetv.fun/disney-channel-3.ctv,11127
+Disney Channel,https://stream.freetv.fun/disney-channel-6.ctv,7800
+Disney Channel,https://stream.freetv.fun/disney-channel-7.ctv,100000
+Disney Channel,https://stream.freetv.fun/ph-disney-channel-1.ctv,4565
+Disney Jr,https://stream.freetv.fun/disney-jr-1.ctv,7641
+Disney Junior,https://stream.freetv.fun/disney-1.ctv,8031
+DreamWorks,https://stream.freetv.fun/dreamworks-tv-1.m3u8,18345
+DreamWorks,https://stream.freetv.fun/ph-dreamworks-1.ctv,4040
+DreamWorks,https://stream.freetv.fun/ph-dreamworks-2.ctv,4989
+Kids Channel,https://stream.freetv.fun/kids-channel-1.m3u8,4573
+Nick Jr. UK,https://stream.freetv.fun/nick-1.ctv,7408
+Nickelodeon,https://stream.freetv.fun/nickelodeon-4.m3u8,5698
+Nickelodeon,https://stream.freetv.fun/nickelodeon-5.ctv,8989
+Nickelodeon,https://stream.freetv.fun/nickelodeon-australia-1.m3u8,3492
+Nickelodeon,https://stream.freetv.fun/nickelodeon-australia-2.m3u8,3770
+YTV,https://stream.freetv.fun/ytv1-1.ctv,6751
+YTV,https://stream.freetv.fun/ytv1-2.ctv,4145
+YTV,https://stream.freetv.fun/ytv2-1.ctv,6809
+YTV,https://stream.freetv.fun/ytv2-2.ctv,6241
+龍華動畫,https://stream.freetv.fun/long-hua-dong-hua-1.ctv,8298
+
+知識,#genre#
+Animal Planet,https://stream.freetv.fun/animal-planet-14.ctv,5473
+Animal Planet,https://stream.freetv.fun/animal-planet-7.ctv,8108
+Animal Planet,https://stream.freetv.fun/ph-animal-planet-1.ctv,4804
+BBC Earth,https://stream.freetv.fun/bbc-earth-2.m3u8,3575
+BBC Earth,https://stream.freetv.fun/bbc-earth-4.ctv,6971
+BBC Earth,https://stream.freetv.fun/bbcearth-v4-1.m3u8,1991
+BBC Earth,https://stream.freetv.fun/ph-bbc-earth-1.ctv,5138
+Crime & Investigation UK,https://stream.freetv.fun/crime---investigation-1.m3u8,3782
+Crime Investigation,https://stream.freetv.fun/crime-investigation-1.ctv,5190
+Crime Investigation,https://stream.freetv.fun/ph-crime-investigation-sd-1.ctv,4681
+DISCOVERY Channel,https://stream.freetv.fun/discovery-channel-11.ctv,7956
+DISCOVERY Channel,https://stream.freetv.fun/discovery-channel-12.ctv,100000
+DISCOVERY Channel,https://stream.freetv.fun/discovery-channel-15.ctv,5997
+DISCOVERY Channel,https://stream.freetv.fun/discovery-channel-2.m3u8,6059
+DISCOVERY Channel,https://stream.freetv.fun/discovery-channel-3.ctv,100000
+DISCOVERY Channel,https://stream.freetv.fun/discovery-channel-cee-1.m3u8,4872
+DISCOVERY Channel,https://stream.freetv.fun/ph-discovery-channel-1.ctv,7089
+DISCOVERY SCIENCE,https://stream.freetv.fun/discovery-science-cee-1.m3u8,3351
+DMAX,https://stream.freetv.fun/dmax-2.m3u8,11288
+DMAX,https://stream.freetv.fun/dmax-tv-1.m3u8,8788
+Da Vinci,https://stream.freetv.fun/da-vinci-1.m3u8,3221
+Discovery ASIA,https://stream.freetv.fun/ph-discovery-asia-1.ctv,4402
+Discovery HD,https://stream.freetv.fun/discovery-5.ctv,100000
+Discovery HD,https://stream.freetv.fun/discovery-h-h-2.ctv,100000
+Discovery Kids,https://stream.freetv.fun/discovery-id-1.ctv,8070
+Discovery Kids,https://stream.freetv.fun/discovery-kids-5.ctv,7910
+Discovery Kids,https://stream.freetv.fun/discovery-kids-6.ctv,100000
+Discovery LIFE,https://stream.freetv.fun/discovery-life-1.ctv,5129
+Discovery LIFE,https://stream.freetv.fun/discovery-world-2.ctv,100000
+Discovery Science UK,https://stream.freetv.fun/discovery-science-3.m3u8,3943
+Discovery Science UK,https://stream.freetv.fun/discovery-science-4.ctv,4141
+Fyi,https://stream.freetv.fun/fyi-1.ctv,6025
+Global Trekker,https://stream.freetv.fun/globaltrekker-1.ctv,5276
+Global Trekker,https://stream.freetv.fun/globaltrekker-2.ctv,4943
+HGTV,https://stream.freetv.fun/hgtv-10.ctv,100000
+HGTV,https://stream.freetv.fun/hgtv-3.m3u8,2860
+HGTV,https://stream.freetv.fun/hgtv-5.m3u8,4313
+HGTV,https://stream.freetv.fun/hgtv-7.m3u8,4044
+HGTV,https://stream.freetv.fun/hgtv-8.ctv,3808
+HGTV,https://stream.freetv.fun/hgtv-9.ctv,16829
+HGTV,https://stream.freetv.fun/ph-hgtv-1.ctv,9823
+Hillsong Channel,https://stream.freetv.fun/hillsong-channel-1.ctv,5705
+History 2 HD,https://stream.freetv.fun/history-2-2.ctv,7672
+History Channel 2 UK,https://stream.freetv.fun/history-channel-3.ctv,7649
+History,https://stream.freetv.fun/cs-history-1.m3u8,7170
+History,https://stream.freetv.fun/history-5.ctv,3906
+History,https://stream.freetv.fun/history-8.m3u8,4521
+History,https://stream.freetv.fun/ph-history-1.ctv,5231
+Investigation Discovery,https://stream.freetv.fun/id---investigation-discovery-1.ctv,100000
+Love Nature,https://stream.freetv.fun/love-nature-5.m3u8,3160
+Love Nature,https://stream.freetv.fun/lovenature4k-1.m3u8,2901
+Love Nature,https://stream.freetv.fun/lovenature4k-2.m3u8,2764
+Love Nature,https://stream.freetv.fun/lovenature4k-3.m3u8,2732
+Love Nature,https://stream.freetv.fun/lovenature4k-4.m3u8,2515
+NASA TV,https://stream.freetv.fun/nasa-tv-2.m3u8,2295
+NASA TV,https://stream.freetv.fun/nasa-tv-3.ctv,4745
+NAT GEO WILD,https://stream.freetv.fun/natgeo-wild-1.ctv,4973
+Nat Geo Wild UK,https://stream.freetv.fun/nat-geo-wild-1.m3u8,4691
+Nat Geo,https://stream.freetv.fun/nat-geo-5.ctv,7881
+Outdoor Channel,https://stream.freetv.fun/outdoor-channel-3.m3u8,4308
+Smithsonian Channel,https://stream.freetv.fun/smithsonian-channel-1.m3u8,4386
+TLC,https://stream.freetv.fun/tlc-2.ctv,7481
+TLC,https://stream.freetv.fun/tlc-9.ctv,6069
+Travel Channel,https://stream.freetv.fun/ph-travel-channel-1.ctv,4863
+Travel Channel,https://stream.freetv.fun/travel-channel-2.m3u8,3161
+動物星球,https://stream.freetv.fun/dong-wu-xing-qiu-1.m3u8,2685
+國家地理,https://stream.freetv.fun/guo-jia-di-li-1.m3u8,6394
+
+電影,#genre#
+AXN,https://stream.freetv.fun/axn-1.ctv,7714
+Channel 8,https://stream.freetv.fun/church-channel-1.ctv,6856
+Channel 8,https://stream.freetv.fun/cooking-channel-6.ctv,5047
+FOX,https://stream.freetv.fun/fox-6.ctv,100000
+HITS Movies,https://stream.freetv.fun/hits-movies-2.ctv,6349
+Hollywood,https://stream.freetv.fun/hollywood-1.m3u8,4083
+ROCK Extreme,https://stream.freetv.fun/ph-rock-extreme-1.ctv,3518
+Showcase 2 UK,https://stream.freetv.fun/showcase-1.ctv,4088
+Showtime,https://stream.freetv.fun/showtime-next-1.ctv,6149
+Showtime,https://stream.freetv.fun/showtime-women-1.ctv,5634
+THRILL,https://stream.freetv.fun/thrill-2.ctv,4689
+TVB亞洲劇,https://stream.freetv.fun/tvbsya-zhou-2.m3u8,100000
+TVB黃金翡翠台,https://stream.freetv.fun/tvb-huang-jin-fei-cui-2.ctv,4365
+天映經典,https://stream.freetv.fun/tian-ying-jing-dian-1.ctv,4940
+經典電影臺,https://stream.freetv.fun/jing-dian-dian-ying-9.m3u8,1703
+
+新聞,#genre#
+ABC Australia,https://stream.freetv.fun/ph-abc-austrailia-1.ctv,4073
+ABC NEWS,https://stream.freetv.fun/abc-news-3.m3u8,2755
+ABC NEWS,https://stream.freetv.fun/ch-ng-abc-news-2.m3u8,4919
+ABC,https://stream.freetv.fun/abc-4.ctv,100000
+ABC,https://stream.freetv.fun/abc-7-2.ctv,4536
+AccuWeather,https://stream.freetv.fun/accuweather-now-1.m3u8,7436
+BBC News,https://stream.freetv.fun/bbc-news-3.m3u8,4109
+BBC News,https://stream.freetv.fun/bbc-news-4.m3u8,3579
+BBC News,https://stream.freetv.fun/bbc-news-5.m3u8,4032
+BBC News,https://stream.freetv.fun/bbc-news-english-1.ctv,100000
+BBC World News,https://stream.freetv.fun/bbc-world-news-3.m3u8,7937
+BBC World News,https://stream.freetv.fun/ph-bbc-world-news-1.ctv,4437
+Bloomberg TV,https://stream.freetv.fun/bloomberg-tv-plus-6.m3u8,2450
+Bloomberg TV,https://stream.freetv.fun/bloombergtv-1.m3u8,2747
+CCTV-1,https://stream.freetv.fun/cctv1-15.m3u8,1856
+CCTV-1,https://stream.freetv.fun/cctv1-72.m3u8,4909
+CCTV-1,https://stream.freetv.fun/cctv1-73.ctv,6623
+CCTV-1,https://stream.freetv.fun/cctv1-76.m3u8,3424
+CCTV-1,https://stream.freetv.fun/cctv1-zong-he-1.m3u8,4617
+CCTV-1,https://stream.freetv.fun/cctv1-zong-he-4.m3u8,1943
+CNA,https://stream.freetv.fun/cna-4.m3u8,2399
+CNBC,https://stream.freetv.fun/cnbc-1.m3u8,5315
+CNBC,https://stream.freetv.fun/cnbc-6.m3u8,5722
+CNN International,https://stream.freetv.fun/afghanistan-international-1.m3u8,7225
+CNN International,https://stream.freetv.fun/cnn-international-1.m3u8,4726
+CNN USA,https://stream.freetv.fun/cnn-usa-1.m3u8,2549
+CNN en Español,https://stream.freetv.fun/74-deutsche-welle-en-espanol-1.m3u8,3402
+CNN,https://stream.freetv.fun/cnn-1.m3u8,7111
+CNN,https://stream.freetv.fun/cnn-5.m3u8,3853
+CNN,https://stream.freetv.fun/cnn-go-1.m3u8,1031
+CTV2 OTTAWA,https://stream.freetv.fun/ctv2-1.ctv,7917
+Fox News,https://stream.freetv.fun/fox-now-1.m3u8,2972
+Fox Weather,https://stream.freetv.fun/fox-weather-4.m3u8,3095
+HOY TV,https://stream.freetv.fun/hoy-tv-1.ctv,5120
+HOY資訊台,https://stream.freetv.fun/hoy-zi-xun-1.ctv,3912
+HOY資訊台,https://stream.freetv.fun/hoy-zi-xun-2.ctv,4400
+MSNBC,https://stream.freetv.fun/msnbc-2.m3u8,14428
+NBC News Now,https://stream.freetv.fun/news-now-1.m3u8,1999
+NBC News Now,https://stream.freetv.fun/news-now-2.m3u8,2353
+NOW 新聞臺,https://stream.freetv.fun/nowxin-wen-2.ctv,4181
+NOW 直播臺,https://stream.freetv.fun/now-zhi-bo-2.ctv,3928
+NewsAsia,https://stream.freetv.fun/channel-newsasia-2.m3u8,2470
+NewsNation,https://stream.freetv.fun/news-nation-1.m3u8,7209
+Newsmax,https://stream.freetv.fun/newsmax-5.m3u8,7117
+RTHK34,https://stream.freetv.fun/rthk34-1.m3u8,2828
+SKY NEWS HD,https://stream.freetv.fun/sky-news-now-1.m3u8,3848
+Sky Sports News HQ UK,https://stream.freetv.fun/sky-sports-news-2.ctv,7516
+TVB新聞臺,https://stream.freetv.fun/tvbsxin-wen-4.m3u8,3309
+TVB無線衛星新聞,https://stream.freetv.fun/tvbwu-xian-xin-wen-1.ctv,15812
+The Weather Channel,https://stream.freetv.fun/the-weather-channel-1.m3u8,6054
+bloomberg tv europe,https://stream.freetv.fun/cdb5e428eb352b4d54535691140fea2b2d6c55ecf28d93aa1cb49ba45fdd4419.m3u8,5749
+jovem pan news,https://stream.freetv.fun/c295f27c00b9378cc9463964391c9abe13ccc6fcaabed1e44a975f27dc40f995.m3u8,3893
+now直播台,https://stream.freetv.fun/now-zhi-bo-1.ctv,4418
+palitra news,https://stream.freetv.fun/d492f967f8ad3b4f123665428b8038c010858f4d27db5d4eadf45f63e8958545.m3u8,12197
+sunnews,https://stream.freetv.fun/3d2d350fd4b3c7a298c96adeb6975c006584a6ec8864ddc2cc9c7deadd387720.ctv,5300
+ช่อง naxatra news,https://stream.freetv.fun/ff0c825aa77f7b103086383ace480fd721bb1f674dc3e4b3cd23ea5a42927607.m3u8,11156
+ช่อง news1 hd,https://stream.freetv.fun/cafb87acaeab86c3ddc5c7663332269e76ff8420a9d2d5060fc0ae568c2e8158.m3u8,3107
+「us」 bloomberg tv+2,https://stream.freetv.fun/deebbd719a70e87d7e8addbab7e29ac3c289d4689de9c69a55c08a8da7a3d25b.m3u8,5812
+三立新聞,https://stream.freetv.fun/san-li--xin-wen-1.m3u8,5885
+中天新聞,https://stream.freetv.fun/zhong-tian-xin-wen-1.ctv,2444
+中視新聞,https://stream.freetv.fun/zhong-shi--xin-wen-1.m3u8,11687
+中視新聞,https://stream.freetv.fun/zhong-shi-xin-wen-6.m3u8,6060
+台視新聞,https://stream.freetv.fun/tai-shi-xin-wen-1.m3u8,100000
+台視新聞,https://stream.freetv.fun/tai-shi-xin-wen-21.m3u8,4261
+台視新聞,https://stream.freetv.fun/tai-shi-xin-wen-4.m3u8,100000
+年代新聞HD,https://stream.freetv.fun/nian-dai-xin-wen-1.m3u8,7516
+東森新聞,https://stream.freetv.fun/dong-sen-xin-wen-2.ctv,2757
+東森財經新聞,https://stream.freetv.fun/dong-sen--cai-jing-xin-wen-1.m3u8,8687
+東森財經新聞,https://stream.freetv.fun/dong-sen-cai-jing-xin-wen-1.ctv,8838
+民視新聞,https://stream.freetv.fun/min-shi-xin-wen-10.m3u8,100000
+民視新聞,https://stream.freetv.fun/min-shi-xin-wen-14.m3u8,100000
+民視新聞,https://stream.freetv.fun/min-shi-xin-wen-3.m3u8,100000
+民視新聞,https://stream.freetv.fun/min-shi-xin-wen-9.m3u8,100000
+澳門資訊,https://stream.freetv.fun/ao-men-zi-xun-2.ctv,4950
+無線財經台,https://stream.freetv.fun/wu-xian-cai-jing-3.ctv,3334
+無線財經台,rtmp://twcdn.top/sat/hk031,4425
+環球電視臺,https://stream.freetv.fun/huan-qiu-dian-shi-1.m3u8,1765
+環球電視臺,https://stream.freetv.fun/huan-qiu-dian-shi-2.m3u8,1822
+環球電視臺,https://stream.freetv.fun/huan-qiu-dian-shi-3.m3u8,1740
+臺視新聞,https://stream.freetv.fun/tai-shi--xin-wen-1.m3u8,8894
+臺視新聞,https://stream.freetv.fun/tai-shi-xin-wen-13.m3u8,100000
+臺視新聞,https://stream.freetv.fun/tai-shi-xin-wen-14.m3u8,100000
+臺視財經,https://stream.freetv.fun/tai-shi-cai-jing-2.m3u8,7210
+非凡新聞HD,https://stream.freetv.fun/fei-fan-xin-wen-1.ctv,8935
+鳳凰資訊HD,https://stream.freetv.fun/feng-huang-zi-xun-1.m3u8,9920
+
+其它,#genre#
+115新天地民俗臺,https://stream.freetv.fun/si-chuan---ma-er-kang-zong-he-1.m3u8,1790
+AKC TV,https://stream.freetv.fun/kbc-tv-1.m3u8,4082
+CATHOLIC TV,https://stream.freetv.fun/catholic-tv-3.m3u8,4993
+CBS,https://stream.freetv.fun/cbs-2-1.ctv,5202
+CTV,https://stream.freetv.fun/ctv-1.ctv,7813
+CTV,https://stream.freetv.fun/ctv-9-1.m3u8,4320
+Christian Youth Channel CYC,https://stream.freetv.fun/christian-youth-channel-1.m3u8,4258
+EWTN,https://stream.freetv.fun/ph-ewtn-1.ctv,6184
+FOOD Network HD,https://stream.freetv.fun/food-network-6.ctv,7106
+FOOD Network HD,https://stream.freetv.fun/ph-food-network-1.ctv,5363
+FOOD Network HD,https://stream.freetv.fun/ph-food-network-2.ctv,13455
+FOOD Network HD,https://stream.freetv.fun/ph-food-network-3.ctv,4594
+Food Network UK,https://stream.freetv.fun/asian-food-network-1.ctv,100000
+Food Network UK,https://stream.freetv.fun/food-network-cee-1.m3u8,5920
+HKS,https://stream.freetv.fun/hks-1.ctv,2539
+History Channel,https://stream.freetv.fun/history-channel-2.ctv,9219
+ISLAM CHANNEL,https://stream.freetv.fun/i-am-channel-1.m3u8,100000
+NASA,https://stream.freetv.fun/nasa-1.m3u8,5563
+NASA,https://stream.freetv.fun/nasa-3.m3u8,3318
+NASA,https://stream.freetv.fun/nasa-4.m3u8,4133
+NASA,https://stream.freetv.fun/nasa-5.m3u8,4506
+RETRO TV,https://stream.freetv.fun/teatro-tv-1.m3u8,6326
+TRAVEL,https://stream.freetv.fun/travel-xp-1.m3u8,4654
+TRAVEL,https://stream.freetv.fun/travel-xp-3.m3u8,4169
+TV 2,https://stream.freetv.fun/tea-tv-2-1.m3u8,3729
+TV,https://stream.freetv.fun/utv-6.m3u8,7025
+亞洲美食臺,https://stream.freetv.fun/ya-zhou-mei-shi-1.m3u8,6460
+人間衛視,https://stream.freetv.fun/ren-jian-wei-shi-2.m3u8,2256
+人間衛視,https://stream.freetv.fun/ren-jian-wei-shi-3.ctv,2463
+人間衛視,https://stream.freetv.fun/ren-jian-wei-shi-4.m3u8,8763
+人間衛視,https://stream.freetv.fun/ren-jian-wei-shi-5.m3u8,3329
+人間衛視,https://stream.freetv.fun/ren-jian-wei-shi-6.m3u8,2059
+人間衛視,https://stream.freetv.fun/ren-jian-wei-shi-7.ctv,1869
+人間衛視,https://stream.freetv.fun/ren-jian-wei-shi-8.m3u8,2976
+唯心電視,https://stream.freetv.fun/wei-xin-dian-shi-1.m3u8,4597
+唯心電視,https://stream.freetv.fun/wei-xin-dian-shi-3.m3u8,1645
+大愛,https://stream.freetv.fun/da-ai-1-1.m3u8,5121
+大愛,https://stream.freetv.fun/da-ai-1.m3u8,1695
+大愛,https://stream.freetv.fun/da-ai-2.m3u8,2085
+大愛2,https://stream.freetv.fun/da-ai-2-1.m3u8,2868
+大愛2,https://stream.freetv.fun/da-ai-2-10.m3u8,5732
+大愛2,https://stream.freetv.fun/da-ai-2-2.m3u8,1567
+大愛2,https://stream.freetv.fun/da-ai-2-3.m3u8,3442
+大愛2,https://stream.freetv.fun/da-ai-2-4.m3u8,2065
+大愛2,https://stream.freetv.fun/da-ai-2-5.m3u8,1428
+大愛2,https://stream.freetv.fun/da-ai-2-6.m3u8,2507
+大愛2,https://stream.freetv.fun/da-ai-2-7.m3u8,1618
+大愛2,https://stream.freetv.fun/da-ai-2-8.m3u8,1353
+大愛2,https://stream.freetv.fun/da-ai-2-9.m3u8,1998
+好訊息 2,https://stream.freetv.fun/hao-xiao-xi-2-2.m3u8,7765
+好訊息,https://stream.freetv.fun/hao-xiao-xi-1.m3u8,2472
+澳亞衛視,https://stream.freetv.fun/ao-ya-wei-shi-1.ctv,4910
+澳亞衛視,https://stream.freetv.fun/ao-ya-wei-shi-2.ctv,6174
+澳亞衛視,https://stream.freetv.fun/ao-ya-wei-shi-3.m3u8,2867
+
+運動,#genre#
+Altitude Sports,https://stream.freetv.fun/ert-sports-1-1.ctv,6084
+Altitude Sports,https://stream.freetv.fun/ert-sports-2-1.ctv,3882
+Altitude Sports,https://stream.freetv.fun/on-sports-1.ctv,100000
+Altitude Sports,https://stream.freetv.fun/root-sports-1.ctv,5313
+Altitude Sports,https://stream.freetv.fun/tigo-sports-1.ctv,5618
+Bally Sports South,https://stream.freetv.fun/bally-sports-south-1.ctv,9026
+Bally Sports Southeast,https://stream.freetv.fun/bally-sports-southeast-1.m3u8,5522
+Bally Sports Southeast,https://stream.freetv.fun/bally-sports-southeast-2.ctv,7456
+Bally Sports,https://stream.freetv.fun/bally-sport-1.ctv,15329
+Bally Sports,https://stream.freetv.fun/bally-sports-arizona-1.ctv,5554
+Bally Sports,https://stream.freetv.fun/bally-sports-detroit-1.ctv,7791
+Bally Sports,https://stream.freetv.fun/bally-sports-indiana-1.ctv,8279
+Bally Sports,https://stream.freetv.fun/bally-sports-midwest-1.ctv,9612
+Bally Sports,https://stream.freetv.fun/bally-sports-new-orleans-1.ctv,9934
+Bally Sports,https://stream.freetv.fun/bally-sports-north-1.ctv,12021
+Bally Sports,https://stream.freetv.fun/bally-sports-oklahoma-1.ctv,6565
+Bally Sports,https://stream.freetv.fun/bally-sports-sun-1.ctv,9176
+Bally Sports,https://stream.freetv.fun/bally-sports-west-1.ctv,14458
+Bally Sports,https://stream.freetv.fun/bally-sports-wisconsin-1.ctv,10184
+Bally Sports,https://stream.freetv.fun/ch-ng-bally-sports-north-2.m3u8,3885
+Bally Sports,https://stream.freetv.fun/ch-ng-bally-sports-sun-2.m3u8,4771
+CBS Sports Network,https://stream.freetv.fun/cbs-sport-network-1.ctv,100000
+CBS Sports Network,https://stream.freetv.fun/cbs-sports-network-1.ctv,5978
+CBS Sports Network,https://stream.freetv.fun/ch-ng-cbs-sports-network-2.m3u8,3887
+Chelsea TV,https://stream.freetv.fun/chelsea-tv-1.m3u8,6102
+ELTA體育1,https://stream.freetv.fun/elta-ti-yu--1-1.ctv,4120
+ELTA體育1,https://stream.freetv.fun/elta-ti-yu--1-2.ctv,4162
+ELTA體育2,https://stream.freetv.fun/elta-ti-yu--2-1.ctv,4133
+ELTA體育2,https://stream.freetv.fun/elta-ti-yu--2-2.ctv,4823
+ELTA體育3,https://stream.freetv.fun/elta-ti-yu--3-1.ctv,3788
+ELTA體育3,https://stream.freetv.fun/elta-ti-yu--3-2.ctv,7610
+ESPN 2,https://stream.freetv.fun/espn-2-1.ctv,5255
+ESPN 2,https://stream.freetv.fun/espn-2-2.ctv,100000
+ESPN 2,https://stream.freetv.fun/espn-2-3.ctv,8659
+ESPN 2,https://stream.freetv.fun/espn-2-4.ctv,9072
+ESPN 2,https://stream.freetv.fun/espn-2-latin-1.ctv,7714
+ESPN 3,https://stream.freetv.fun/espn-3-1.ctv,100000
+ESPN 3,https://stream.freetv.fun/espn-3-2.ctv,100000
+ESPN 3,https://stream.freetv.fun/espn-3-5.ctv,8278
+ESPN HD,https://stream.freetv.fun/espn-1.ctv,7883
+ESPN HD,https://stream.freetv.fun/espn-tv-1.ctv,7644
+ESPN,https://stream.freetv.fun/espn-1-1.ctv,5243
+ESPN,https://stream.freetv.fun/espn-3-4.ctv,5130
+ESPN,https://stream.freetv.fun/espn-3-7.ctv,7879
+ESPN,https://stream.freetv.fun/espn-3.ctv,7752
+ESPN,https://stream.freetv.fun/espn-4-1.ctv,100000
+ESPN,https://stream.freetv.fun/espn-4-2.ctv,100000
+ESPN,https://stream.freetv.fun/espn-4-3.ctv,8401
+ESPN,https://stream.freetv.fun/espn-4-5.ctv,5805
+ESPN,https://stream.freetv.fun/espn-4.ctv,100000
+ESPN,https://stream.freetv.fun/espn-5-1.ctv,6106
+ESPN,https://stream.freetv.fun/espn-6-1.ctv,5670
+ESPN,https://stream.freetv.fun/espn-7-1.ctv,5872
+ESPN,https://stream.freetv.fun/espn-co-1.ctv,7228
+ESPN2,https://stream.freetv.fun/espn2-tv-1.ctv,15144
+EuroSport UK,https://stream.freetv.fun/eurosport2-uk-1.ctv,100000
+FOX 503,https://stream.freetv.fun/fox503-1.ctv,5888
+FOX Sports 2,https://stream.freetv.fun/fox-sports-2-1.m3u8,4683
+FOX Sports 2,https://stream.freetv.fun/fox-sports-2-3.ctv,7518
+FOX Sports 2,https://stream.freetv.fun/fox-sports-2-tv-1.ctv,5954
+FOX Sports 3 HD,https://stream.freetv.fun/fox-sports-3-3.ctv,7596
+FOX Sports 3,https://stream.freetv.fun/fox-sports-3-1.ctv,7408
+Fight Sports,https://stream.freetv.fun/fight-sports2-1.m3u8,4017
+FightBox TV,https://stream.freetv.fun/fight-tv-1.m3u8,5600
+FightBox TV,https://stream.freetv.fun/fightbox-1.m3u8,4918
+FightBox TV,https://stream.freetv.fun/fightbox-3.m3u8,9756
+Fox Sports 1,https://stream.freetv.fun/fox-sports-1-1.m3u8,5676
+Fox Sports 1,https://stream.freetv.fun/fox-sports-1-2.ctv,10156
+Fox Sports 1,https://stream.freetv.fun/fox-sports-1-tv-1.ctv,7075
+Fox Sports 1,https://stream.freetv.fun/fox-sports-mx-1-1.ctv,4593
+Fox Sports Racing,https://stream.freetv.fun/aljazeera-news-1.m3u8,3491
+Fox Sports Racing,https://stream.freetv.fun/chong-ming-dian-shi-2.m3u8,2229
+Fox Sports Racing,https://stream.freetv.fun/liangshan-tv-1.m3u8,2959
+Fox Sports Racing,https://stream.freetv.fun/lugansk-24-1.m3u8,7353
+Fox Sports Racing,https://stream.freetv.fun/meta-film-tv-1.m3u8,7003
+Fox Sports Racing,https://stream.freetv.fun/moozro-1.m3u8,14335
+Fox Sports Racing,https://stream.freetv.fun/ndtv-profit-1.m3u8,6215
+Fox Sports Racing,https://stream.freetv.fun/tv-san-jorge-2.m3u8,8653
+Fox Sports Racing,https://stream.freetv.fun/wen-shan-zhou-xin-wen-1.ctv,2950
+Game Show Network,https://stream.freetv.fun/game-show-network-1.m3u8,5158
+Game Show Network,https://stream.freetv.fun/game-show-network-tv-1.ctv,5283
+Game Show Network,https://stream.freetv.fun/gameshow-network-1.m3u8,4916
+GameTV,https://stream.freetv.fun/gametv-1.ctv,100000
+HUBPREMIER EFL 1,https://stream.freetv.fun/hubpremier-4-1.ctv,4981
+HUBPREMIER EFL 2,https://stream.freetv.fun/hubpremier-4-2.ctv,4724
+Hub Sport 2,https://stream.freetv.fun/sport-2u-1.m3u8,18732
+ITV 4 UK,https://stream.freetv.fun/itv-4-2.ctv,8384
+ITV Box Office,https://stream.freetv.fun/pinoy-box-office-1.ctv,10362
+ITV,https://stream.freetv.fun/istv-1.m3u8,6430
+ITV4,https://stream.freetv.fun/itv4-1.ctv,100000
+ITV4,https://stream.freetv.fun/itv4-2.ctv,10301
+MUTV,https://stream.freetv.fun/mu-tv-1.m3u8,5359
+MUTV,https://stream.freetv.fun/mutv-1.m3u8,2643
+MyTV SUPER 18臺,https://stream.freetv.fun/mytv-super-18-1.ctv,4417
+MyTV SUPER 18臺,https://stream.freetv.fun/mytv-super-18-2.ctv,5815
+NBA Canada,https://stream.freetv.fun/nba-1.ctv,4006
+NBA Canada,https://stream.freetv.fun/nba-2.ctv,4214
+NBA TV,https://stream.freetv.fun/nba-tv-3.m3u8,7333
+NBA TV,https://stream.freetv.fun/nba-tv-4.ctv,5593
+NESN PLUS,https://stream.freetv.fun/nan-fang-wei-shi-1.m3u8,2200
+NESN PLUS,https://stream.freetv.fun/nan-fang-wei-shi-2.ctv,6222
+NESN,https://stream.freetv.fun/nesn-2.ctv,6941
+NOW Sports,https://stream.freetv.fun/ch-ng-now-sports-1-1.ctv,100000
+NOW Sports,https://stream.freetv.fun/now-bein-sports-3-2.ctv,4545
+NOW Sports,https://stream.freetv.fun/now-sports-plus-1.ctv,4662
+NOW Sports,https://stream.freetv.fun/now-sports-plus-2.ctv,4913
+NOW Sports,https://stream.freetv.fun/now-sports-ying-chao-1-1.ctv,5507
+NOW Sports,https://stream.freetv.fun/now-sports-ying-chao-1-2.ctv,3963
+NOW Sports,https://stream.freetv.fun/now-sportsjing-xuan-1.ctv,5536
+NOW Sports,https://stream.freetv.fun/now-sportsjing-xuan-2.ctv,5733
+NOW Sports,https://stream.freetv.fun/nowsports-1.ctv,7760
+Now Sports 1,https://stream.freetv.fun/now-sports-1-2.ctv,3570
+Now Sports 1,https://stream.freetv.fun/now-sports-1-3.ctv,4306
+Now Sports 2,https://stream.freetv.fun/now-sports-2-1.ctv,100000
+Now Sports 2,https://stream.freetv.fun/now-sports-2-2.ctv,4252
+Now Sports 2,https://stream.freetv.fun/now-sports-2-3.ctv,5302
+Now Sports 2,https://stream.freetv.fun/tnt-sports-2-1.ctv,100000
+Now Sports 618,https://stream.freetv.fun/now-sports-618-1.m3u8,6088
+Premier Sport,https://stream.freetv.fun/ch-ng-premier-sport-1-1.ctv,100000
+Premier Sport,https://stream.freetv.fun/ch-ng-premier-sport-1-2.ctv,100000
+Premier Sport,https://stream.freetv.fun/ch-ng-premier-sport-2-1.ctv,100000
+Premier Sport,https://stream.freetv.fun/ch-ng-premier-sport-2-2.ctv,100000
+Red Bull TV,https://stream.freetv.fun/ch-ng-red-bull-tv-2.m3u8,4665
+Red Bull TV,https://stream.freetv.fun/hong-niu-redbull-tv-1.m3u8,3635
+Red Bull TV,https://stream.freetv.fun/red-bull-tv-1.m3u8,2040
+Red Bull TV,https://stream.freetv.fun/red-bull-tv-12.m3u8,2068
+Red Bull TV,https://stream.freetv.fun/red-bull-tv-13.m3u8,2611
+Red Bull TV,https://stream.freetv.fun/red-bull-tv-2.m3u8,2136
+Red Bull TV,https://stream.freetv.fun/red-bull-tv-3.m3u8,3285
+Red Bull TV,https://stream.freetv.fun/red-bull-tv-5.m3u8,2975
+Red Bull TV,https://stream.freetv.fun/red-bull-tv-6.m3u8,2509
+Red Bull TV,https://stream.freetv.fun/red-bull-tv-7.m3u8,2153
+Red Bull TV,https://stream.freetv.fun/red-bull-tv-8.m3u8,2819
+Red Bull TV,https://stream.freetv.fun/red-bull-tv-9.m3u8,2116
+Red Bull TV,https://stream.freetv.fun/redbull-tv-2.m3u8,2128
+Red Bull TV,https://stream.freetv.fun/redbulltv-1.m3u8,2370
+SKY Sports Football,https://stream.freetv.fun/sky-sports-football-2.ctv,12685
+SKY Sports Football,https://stream.freetv.fun/skysports-football-fhd-1.ctv,5491
+SKY Sports MIX,https://stream.freetv.fun/sky-sports-mix-2.ctv,14838
+Setanta Sports,https://stream.freetv.fun/setanta-sports--plus--ukraine-1.m3u8,100000
+Sky Sports Action,https://stream.freetv.fun/sky-action-1.ctv,7077
+Sky Sports F1,https://stream.freetv.fun/sky-sports-f1-1.m3u8,16506
+Sky Sports Golf,https://stream.freetv.fun/sky-sports-golf-1.m3u8,4885
+Sky Sports Golf,https://stream.freetv.fun/sky-sports-golg-1.ctv,100000
+Sky Sports Golf,https://stream.freetv.fun/skysports-golf-fhd-1.ctv,6128
+Sky Sports Main Event,https://stream.freetv.fun/sky-sports-main-event-1.m3u8,4340
+Sky Sports News,https://stream.freetv.fun/skysports-news-fhd-1.ctv,100000
+Sky Sports Premier League,https://stream.freetv.fun/skysport8-premierleague-nz-fhd-1.ctv,100000
+Spectrum sportsnet,https://stream.freetv.fun/ch-ng-spectrum-sportsnet-1.m3u8,3790
+Sports Network,https://stream.freetv.fun/ch-ng-nbc-sports-network-1.m3u8,3907
+Sports Network,https://stream.freetv.fun/eleven-sports-network-1.ctv,6544
+Sports Network,https://stream.freetv.fun/nbc-sports-network-1.m3u8,4481
+Sports Network,https://stream.freetv.fun/the-sports-network-2-tv-1.ctv,5635
+Sports Network,https://stream.freetv.fun/the-sports-network-3-tv-1.ctv,8288
+Sports Network,https://stream.freetv.fun/the-sports-network-5-tv-1.ctv,10068
+Sports Network,https://stream.freetv.fun/the-sports-network-tv-1.ctv,5364
+SportsNet One,https://stream.freetv.fun/sportsnet-ny-1.ctv,3990
+SportsNet Pacific,https://stream.freetv.fun/sportsnet-360-1.ctv,8991
+SportsNet West,https://stream.freetv.fun/sportsnews-1.m3u8,5423
+Sportsnet East,https://stream.freetv.fun/att-sportnet-1.ctv,6557
+Sportsnet East,https://stream.freetv.fun/sportsnet-360-2.ctv,5456
+TIDE SPORTS,https://stream.freetv.fun/altitude-sports-1.ctv,7694
+TNT Sports 1,https://stream.freetv.fun/bt-sport-1-1.ctv,7209
+TNT Sports 2,https://stream.freetv.fun/bt-sport-2-1.ctv,7999
+TNT Sports 2,https://stream.freetv.fun/tntsports2-fhd-1.ctv,100000
+TSN 1,https://stream.freetv.fun/tsn-1-1.m3u8,4322
+TSN 1,https://stream.freetv.fun/tsn-1-2.ctv,3975
+TSN 4,https://stream.freetv.fun/tsn-3.m3u8,100000
+TechStorm,https://stream.freetv.fun/ph-techstorm-1.ctv,5416
+Telemundo,https://stream.freetv.fun/telemundo-2.ctv,7355
+Tennis,https://stream.freetv.fun/tennis-2.m3u8,2100
+WWE Network,https://stream.freetv.fun/wwe-1.ctv,4529
+WWE Network,https://stream.freetv.fun/wwe-network-1.m3u8,6050
+WWE Network,https://stream.freetv.fun/wwe-network-4.ctv,6981
+Willow Cricket,https://stream.freetv.fun/willow-cricket-1.ctv,11153
+World Fishing Network,https://stream.freetv.fun/world-fishing-network-1.m3u8,4581
+World Fishing Network,https://stream.freetv.fun/world-fishing-network-2.m3u8,9370
+now Golf 2,https://stream.freetv.fun/now-golf-2-1.ctv,4422
+now Golf 3,https://stream.freetv.fun/now-golf-3-1.ctv,4482
+now Sports 3,https://stream.freetv.fun/now-sports-3-1.ctv,100000
+now Sports 3,https://stream.freetv.fun/now-sports-3-2.ctv,4116
+now Sports 3,https://stream.freetv.fun/now-sports-3-3.ctv,4775
+now Sports 3,https://stream.freetv.fun/now-sports-3-4.ctv,2014
+now Sports 3,https://stream.freetv.fun/now-sports-3-5.ctv,4254
+now Sports 4,https://stream.freetv.fun/now-sports-4-1.ctv,4900
+now Sports 4,https://stream.freetv.fun/now-sports-4-2.ctv,3685
+now Sports 5,https://stream.freetv.fun/now-1.m3u8,100000
+now Sports 5,https://stream.freetv.fun/now-sports-5-1.ctv,4750
+now Sports 5,https://stream.freetv.fun/now-sports-5-2.ctv,4790
+now Sports 6,https://stream.freetv.fun/now-sports-6-1.ctv,4745
+now Sports 6,https://stream.freetv.fun/now-sports-6-2.ctv,5431
+now Sports 7,https://stream.freetv.fun/now-sports-7-1.ctv,4999
+now Sports 7,https://stream.freetv.fun/now-sports-7-2.ctv,4956
+博斯無限,https://stream.freetv.fun/bo-si-wu-xian-2.ctv,5045
+博斯無限,https://stream.freetv.fun/bo-si-wu-xian-3.ctv,6691
+博斯網球,https://stream.freetv.fun/bo-si-wang-qiu-2.ctv,5816
+博斯網球,https://stream.freetv.fun/bo-si-wang-qiu-3.m3u8,5354
+博斯網球,https://stream.freetv.fun/bo-si-wang-qiu-4.ctv,7248
+博斯運動,https://stream.freetv.fun/bo-si-yun-dong-er-2.m3u8,5023
+博斯運動,https://stream.freetv.fun/bo-si-yun-dong-yi-1.ctv,9259
+博斯運動2,https://stream.freetv.fun/bo-si-yun-dong--2-1.ctv,4285
+博斯運動2,https://stream.freetv.fun/bo-si-yun-dong--2-2.ctv,6830
+博斯高球,https://stream.freetv.fun/bo-si-gao-qiu-2.m3u8,5095
+博斯高球,https://stream.freetv.fun/bo-si-gao-qiu-er-2.m3u8,3638
+博斯魅力,https://stream.freetv.fun/bo-si-mei-li-2.ctv,5261
+博斯魅力,https://stream.freetv.fun/bo-si-mei-li-3.m3u8,10235
+緯來體育,https://stream.freetv.fun/wei-lai-ti-yu-8.ctv,4437
+緯來體育,rtmp://220.130.201.73/sat/tv721,2275
+緯來體育,rtmp://f13h.mine.nu/sat/tv721,2220
+
+音乐,#genre#
+MTV HD,https://stream.freetv.fun/mtv-9.ctv,7388
+MTV HD,https://stream.freetv.fun/rmtv-1.m3u8,10152
+MTV Live HD,https://stream.freetv.fun/htv-live-1.m3u8,12983
+
+特色,#genre#
+104五分钟电影汇,https://stream.freetv.fun/fceb760277d6e771b30c777d5d50e44e419e48fdb967bc9a37308287f2acecab.ctv,6309
+10虫哥说电影,https://stream.freetv.fun/4ceae168f17c40927488209407ad4b393c16db5a20f2f885303588c737fff91e.ctv,2837
+110指缝里看电影,https://stream.freetv.fun/7fc24a72adfa1a0b25187b9139c15765998a7dae76410d11a21d1ea8308438af.ctv,3848
+112俗哥看电影,https://stream.freetv.fun/3ab6191bff032381a0835c45bcafaa017cf390c185916f7f2b3094b001e8670d.ctv,5179
+115影视笑工场,https://stream.freetv.fun/a7fc436f135cf707468d492ab92f6d29e003a64ae8fbef63af0d9d5d52f98354.ctv,5844
+117安小闫说电影x,https://stream.freetv.fun/1b451608dbe6fb06784ef8f08f9ea119dd87657753639ede92cc947e4835e268.ctv,4300
+11电影迷小雅,https://stream.freetv.fun/6c598c010a38e75501c60aedb2bd0dc0c80be45a21aa482f7ebf5594c14fad25.ctv,4241
+121科幻战舰,https://stream.freetv.fun/dd6859e9dfc7063c7a1426c420e23b236bb3346ca7b1d6ee7f249c5aa4bad4de.ctv,4307
+122老电影故事,https://stream.freetv.fun/fcbd93532c790db61a4911ec2d94c29642744a3e6a13c0803866931619515d4e.ctv,5101
+126电影刘油果,https://stream.freetv.fun/7edf503ad2df246778f03894dbdba9912beefa2eb01f9938739ffe20ea2bb80c.ctv,5177
+12发条张的电影最top,https://stream.freetv.fun/a46a08bd1282837999781c8ec862f4cf3973ea633408f7121cb59ed4db98e5cb.ctv,3447
+132冬粮说故事,https://stream.freetv.fun/a9be927f44d5909db0b82999927aeabe30e0a79a20c46e0296d4a11f6e930834.ctv,3714
+134胶片看电影,https://stream.freetv.fun/19f64ce254a41994238f16d6a0c96e8b82e509c10f3adae5ec153b72ac5bfb4f.ctv,6568
+135童乐说电影,https://stream.freetv.fun/b1d57eb031d0b71952f47637593c037869e09e528580ceb1f9ffb6d278b2916f.ctv,5010
+138喜剧电影笑不停,https://stream.freetv.fun/3aeb560033230a39271850087b80d69ba4e80081b0f253d6998a66e7fab2c083.ctv,5894
+144看电影了没v,https://stream.freetv.fun/df3670894af47562ee87859289ce887972ff7b664543f55cef2e540707359f66.ctv,4983
+145宇哥讲电影,https://stream.freetv.fun/ad0f4167e6a483dd1102f5f5ba1dc8d806e89b03158c6641b31ad20fb74f6f91.ctv,5986
+147鸡哥聊电影,https://stream.freetv.fun/ba2ce83ec58560204713dd887e8eac8b546168dd245e28958e0603eeb2b16f0d.ctv,4052
+155博然讲电影,https://stream.freetv.fun/d0a47ab348b231a26723774f0c103545a83fe406541539fbcc3d528cc2cd673f.ctv,3674
+158菠萝说电影,https://stream.freetv.fun/695bd69776dfbdbadeb5fb1b5749c4f4cc3fae72eb378b2ee2489d4438037b86.ctv,5305
+168贰哥电影,https://stream.freetv.fun/b29275be0fae88689ac0fcbb84c46483ccc4f5a9e4a33acbd21d40679f47beec.ctv,3133
+171涛浪浪电影,https://stream.freetv.fun/33299daa6831dc31ebf485052a76728b9967da53965d46a88bb3ec6d30df3429.ctv,8700
+173二哈讲电影,https://stream.freetv.fun/f45ff952e023d61db6da3f1afb67038e2e67690770b547dc06402790044b1252.ctv,7679
+175前任电影,https://stream.freetv.fun/e9b956b6c69e596a5dc8c296bfc56d993a3189883507f6d267c347cede8d5500.ctv,5117
+186伯乐说电影v,https://stream.freetv.fun/dbf042dff216b5cb38a427b38b7747ea8add554b7b9afefe927d9b905f0668ab.ctv,4788
+187大壮撞电影,https://stream.freetv.fun/f07a5c7a45ef5e67b1d4d4194a5e7caaa90b8481e835a9147d861004c3b53c6c.ctv,3535
+18牛叔说电影二台,https://stream.freetv.fun/6dce0666626a3b8fd36d1b2fcd70553e8481e384153779947da4c3d086bb3041.ctv,3900
+194电影黑匣子,https://stream.freetv.fun/8a3a57bfcffb6e8938b79d94c808912b6573fbf6c031f9c025b2cef7feb64474.ctv,3608
+1特辑电影院,https://stream.freetv.fun/d68484a809a4a8bdf87ce618debec6b6964c345b0049e81dc2e268cb2786fe36.ctv,4394
+203腹黑电影,https://stream.freetv.fun/f38c454a26840fbbc06f6df7b8d6a6f2e6e4ad197cfe5cd9e0da5ed378a1348d.ctv,6060
+204小丽说电影,https://stream.freetv.fun/78350ba3d30a375bb531b4accd0808dcf646053d6c7cc828aae18ab1e68ab62e.ctv,7314
+207槽槽说电影,https://stream.freetv.fun/347e6420735dccbd19f10dda56c3ca4fd3c40576e86b8443f71bbba330c4b96e.ctv,3948
+20老烟斗鬼故事,https://stream.freetv.fun/bd0f5618073f0de0f0cde771cf0c706f29439c7c86e97a543fb1be097ae3d8ea.ctv,4325
+211影视梗大叔,https://stream.freetv.fun/b6867edcf9d6c9ab2122ce1524c8c40c8d5d0060710bc54cbe562954ce455f8c.ctv,5211
+213小乔讲电影,https://stream.freetv.fun/043edf5f74bff4551ab4bbc3015abd8f879b2dba6f823fd1c6f24290d2d5568c.ctv,6046
+214哈利影视,https://stream.freetv.fun/42ae77848b4454537c142e9b64b21de22b5e7107b57516642d8178628d1e2510.ctv,5847
+215小马哥说电影,https://stream.freetv.fun/b8d6be064c9728464a32311fa58dc81900980f04873e78c9b2c67e3f005b3001.ctv,4356
+216电影七十二变,https://stream.freetv.fun/0f4a35bbab2d168f8b47367b93461b84537aa3097d379505868f2b9b901e2be6.ctv,4188
+218小岛讲电影,https://stream.freetv.fun/7e8f030c38db38bd3cd7e3d8cc5eb5e51a008b0fd8445b83cd9b5d773842491c.ctv,5602
+219洛克电影,https://stream.freetv.fun/489c5c28934372e06bc481047dcfc5d7f53fb63b79f20eb4b80724d5283cbcfd.ctv,4098
+221大荒电影,https://stream.freetv.fun/3a3782e1dccdb1e5b8243d3472e086fb658ad2f303f092c17a11f2198092d730.ctv,3756
+225讲故事的角马,https://stream.freetv.fun/0d25c4c5a61fbd332e264e1c92fc3fa7da58a36f7050ee6f981e7442a50fc8d4.ctv,3626
+226鲨说电影,https://stream.freetv.fun/87f301e000063a708de559378e1bbc7b5086591e22ce15a14dacbb342289487b.ctv,5658
+228天堂电影1895,https://stream.freetv.fun/3067ece19e77a378e36fa2ac8128c0919fc8425716cedd56b57b0c409bf0ad9f.ctv,3994
+231芳芳说故事,https://stream.freetv.fun/16d598e14e472ce3929889cb8a33d46c5a44332acf82162af3cb4155bcf15b1c.ctv,6718
+232神羊说电影,https://stream.freetv.fun/434d08da5dc58785ce62a23289ec7985f934c7ce351a4d96fa20d3a21a828fc8.ctv,4671
+23星君说电影,https://stream.freetv.fun/9098dd3e7cd415e1e00a1e3602a8a83464adce22cd1a57c61dfeb7065cdbe62a.ctv,4004
+241末日说电影,https://stream.freetv.fun/43bd1369fcebe87029e0a57b58169dedc4daa8ce87bdcbb713988af2957aa750.ctv,5635
+242电影漩涡,https://stream.freetv.fun/1fd9a05bd09b84a3a2575dda379df96f6bac9fd0e7f96cc4164367ded62936d1.ctv,8710
+243说电影,https://stream.freetv.fun/85785cb62405080fe1d5e80e3bb7a1c6637d82042aa6bfa1bbe7a7412230c55c.ctv,3784
+24小时循环播电视剧,https://stream.freetv.fun/bf1822a5d4a2b203f6f247fbd12d32ec9d36817db288cc3a39d237ec60e83264.ctv,2952
+254阿木讲电影,https://stream.freetv.fun/dd506ce1375a0407be48683149b1ea019d69e561606e5c6aa45af2d479361da2.ctv,5675
+259野格影视,https://stream.freetv.fun/58af9b2a5b13cb866a409716a38cb73256e1e452e8105135f878e738d8b7079a.ctv,4747
+260熊猫电影,https://stream.freetv.fun/3aa4f04854c87c3652451c3e812faafa7519fd4103056e2152c8c4f97f2158d1.ctv,4371
+264小儛电影嘚啵嘚,https://stream.freetv.fun/4c86c15d93183a2d4bb7bad6c5708f4bbbefd2c6636cde85a403b69ec8c3726b.ctv,6366
+26怪兽马提尼电影,https://stream.freetv.fun/a4eeaf6235d108800ab978fdec231cd8b77478b833584e0e486757482f86244f.ctv,4130
+272喵妹说电影,https://stream.freetv.fun/25d346c661a15dee9fcf7499f2b6dd3eb5861ad959bfd67e109093e4f29271fe.ctv,6012
+276崽崽撩电影,https://stream.freetv.fun/74d6e1c4b3e9cc4babf105372372471a153ec8cc7dd584d29cc1058d162779ab.ctv,7262
+280幕撩电影,https://stream.freetv.fun/e166af574ddfc04ce8e274218de8375f79d2fef2ce206ac2b3f6d4999a17afcf.ctv,4234
+285好像视说故事,https://stream.freetv.fun/299e23b9023192392467ae42de900b5665b7514b3ae56681b423af914484174c.ctv,3936
+286噬元兽影视,https://stream.freetv.fun/c72d368ac39b138ef06f1e37837fb86b4e1a7c380fcff06b2ab515974ddacb05.ctv,7924
+288香兰爱影视,https://stream.freetv.fun/4ff62c5b0b34982eae6108bfef1a9cb25845df8749c59667b11916e1dcc48b64.ctv,6689
+292伦帝电影说,https://stream.freetv.fun/0cad1536aa560af49d759e717a204c6eb80efacd545b473b71193763dc792ce3.ctv,6049
+298维立方电影,https://stream.freetv.fun/6b5d191c5821d6b71f41082eab3d278f0997442b675a374776f1a32e6d97131a.ctv,5084
+2牛叔说电影,https://stream.freetv.fun/fd9925ebebe22bbddee944617176184ee8452b132fc1c178295898713304c662.ctv,4564
+300每日好电影v,https://stream.freetv.fun/ace87aace2fdbc61d24d516ed4668a16cb8ba0f371329bfa714d6fdb57702ab1.ctv,5400
+302驴哥说电影,https://stream.freetv.fun/4303e657136f0881bfda70dcd46263ed1f934ee91e0fc0f6660f8671d35da0a5.ctv,5980
+304撩电影8,https://stream.freetv.fun/562c3de6f72291a440797fc6a76d8d341ce119ecad76c0d9ed2f27602881f315.ctv,7409
+307微笑影视解说,https://stream.freetv.fun/8af183bf02ae0fe3c1b9cd6693f95deaa573c6cc321ef9dae087ba19db5aeb3c.ctv,7133
+324小超讲电影,https://stream.freetv.fun/9c56f374089032ec65ed927e98f95e5b8db7a7fea548da48340fde6dcb6d71b5.ctv,6402
+332可乐撩电影,https://stream.freetv.fun/0e4678b8480617448aa4b623acb326fbc7f63d41f9df8f6a6bb533c18af2f108.ctv,4462
+334电影吐槽汇,https://stream.freetv.fun/9af0415041c834b699db430a0fe30fd0980e1da424284f9f956c53728c1959e0.ctv,5968
+338唐司令说电影,https://stream.freetv.fun/741826aee38a9b7d48525cdc0d680cbc552f3d06fec53b46a4005f9b28c5532d.ctv,4782
+341我是吃泡面看电影,https://stream.freetv.fun/2ad3c8f19d3e23adca0d106bb63aa42fecf5f9a06667746bba7db9364e34617d.ctv,5969
+349光影故事汇,https://stream.freetv.fun/d409d010084c5d511da811fd56f6ba9d01466cd1d2089c6dba3300e34a1e6f98.ctv,4032
+351林九影视,https://stream.freetv.fun/b4f27319e79abe1ee1598e20f9dae0dd9df1faaf441248b818ef5368b5dfe9a1.ctv,5428
+359鹏友说电影,https://stream.freetv.fun/6c94891728e75903cda0e8e1acba9f5cc082ba1f6ebbfa5e207cf77380d90bc2.ctv,6135
+364总之看电影,https://stream.freetv.fun/4ff8e8fb2b209be819410e0e919701608b3dadaf1a45f72d77f77c76b9b077c9.ctv,8346
+368电影笔记,https://stream.freetv.fun/f88822c73a5f9f24f6a5bfe64243ec0d3ccce52b3b381be4fe3747a6c5d37b5c.ctv,4383
+374狗毛电影,https://stream.freetv.fun/e11f618df7d211a980be3d165fe31a6a7375f72ff890b606f78fe99d9f1acea5.ctv,6082
+376电影先锋v,https://stream.freetv.fun/d055a0e66b56ea342cff1d5b0c335146716a2e18c00d7479e3e002d46440ff59.ctv,4489
+378钱小元说电影,https://stream.freetv.fun/ef066d1115c3dd8bd27453d6b32fb35a993813859685b2863b8289845f6deb07.ctv,4613
+379三七电影v,https://stream.freetv.fun/b153c637c83a61302b17927e6405cb3431064eff598062b678cc8ca45a5a97d1.ctv,3955
+381龙哥盘电影,https://stream.freetv.fun/906e91f8915afce3720e7962f9431eefe9ebcd2377fd3057d4f677adc5894166.ctv,4582
+389老王的夜电影院,https://stream.freetv.fun/0b3adc61ecbc472867f0989148b1737528346f61eda463c0755346a18c9fc625.ctv,4736
+391四叶草影视,https://stream.freetv.fun/7207ac8bd828cd55bc06c8eac81b5a52b1a0a2ff7ce7c0047e8c524757692528.ctv,5543
+3说电影,https://stream.freetv.fun/6ed44b7f9c8808e3dd2a17f405d9ebc04b7c1fa6b7fbad49db099123df996c78.ctv,4240
+409西施撩电影,https://stream.freetv.fun/46cfca65ac13e74e70f79aade9d7ead2061d82e8fa6becdd9338c7e5807cf795.ctv,4939
+40刘哔电影,https://stream.freetv.fun/908b9ef86b2adf6dedda6cd6ea85e958051d8f6fe2efc85bfff9b17ee6c174a4.ctv,4461
+411汪哥说电影,https://stream.freetv.fun/7de479d4d9062aac9dfc7106ee86c028e545a137c5a530137de71af62bdedf63.ctv,4467
+41历史经典烩,https://stream.freetv.fun/e54d26d5b5b88b0473791cdff05693926465f16cb4b608610bf5b105d2b9b94d.ctv,4101
+423晓晓说电影,https://stream.freetv.fun/2848160800a7381364b9beb7501aff636eca62895d28365082056272c44cb4f2.ctv,6453
+431电影冷知识,https://stream.freetv.fun/6ba21693e0e1dc93cb74be6624b326db18e0f166191de42482cc5370147d21b1.ctv,6178
+437小浅说电影,https://stream.freetv.fun/a5e1962466b5a83cc5711ff12a5475504b9fc0c06ee5f155f91d91ed194ccda1.ctv,6676
+438电影小班长,https://stream.freetv.fun/29b925969c4dcd5da0ab6ceeb1c14bf0e37119f06aef7c11df35bf41cca354cb.ctv,5461
+439猫眼电影,https://stream.freetv.fun/4bb604233882db42d4569bf15452d4a467f2df0cc72fd976537d1b9f7717bc55.ctv,6934
+445佛曰影视,https://stream.freetv.fun/00aa94bdf87fe69a8bf0f6db53b19c6597b2f1d4c6c3b7e300b1ba05c905acce.ctv,5679
+446晓麦讲电影,https://stream.freetv.fun/8119656c0e26349e2490e1f6f34444f4ec0577e67be76ce810aeaa2cd4db5780.ctv,4994
+452丽姐说电影,https://stream.freetv.fun/4b30cecf87d801befbefe5ede7d1955edc3ba6247eba287fdc538b563cbfe0b7.ctv,6588
+455珞珞说电影,https://stream.freetv.fun/133a5909856878133d80d4c219aa335a5858ff1a6512fb93217cbea3070b58da.ctv,4626
+457莱纳电影,https://stream.freetv.fun/ab4543f5c733db17f5a01413a536689b6d446ac2c3c617f35b5abd72867d95a2.ctv,5241
+46828岁电影,https://stream.freetv.fun/0173662b94232f28ff5d2ea8b0d739b41729ff746a86803c6df5a81535e46145.ctv,6141
+476爱星影视,https://stream.freetv.fun/ca38c70fd1a1e1d8e431be83f69f8d3153e25bd4674a87de248fb7c75c7cb555.ctv,3822
+479辰哥说电影,https://stream.freetv.fun/39913006df46a7a877eb12810fdfe91c8edce5d97724a0660a3da43b57d6526e.ctv,6156
+491周墨看电影,https://stream.freetv.fun/b1aea5e5fe5a248205dd9ca2ef24e505020875dba03a3ac2b929387d56917d52.ctv,4716
+4k超清播电影,https://stream.freetv.fun/338d88a51e1d8184c589ec2d7835715a673e423e4208a88e09b5b67237a0ecea.ctv,4131
+504少年看电影,https://stream.freetv.fun/67a9751a379501b161fb846e7485af8ad751351f0b3ae573d0b3fbff2a324af7.ctv,4267
+517享看电影,https://stream.freetv.fun/18a65f630a299adcc446f65f869650315b303a4db2167f53d39feda9c26051dd.ctv,4600
+518奇怪电影,https://stream.freetv.fun/ec3351bbc2ab92209c6e1402b12addd363b2ee12fa8b67bf38e0fb2680a87207.ctv,5142
+54老邪说电影,https://stream.freetv.fun/9bd62c78a539cd8c06e1a3ae3076a9a7eed492254ab765e94cd626f78795e2a6.ctv,3163
+56677说电影,https://stream.freetv.fun/132d278175f3b33e2e14fcd0dd28f3295439dcf336edd9d8e587eaf6d4fb35d1.ctv,5607
+567jg影视解说,https://stream.freetv.fun/cb158b2da2842fb9d59f567b875d496481b0094381cb5c6c201d124531eb13a1.ctv,6358
+568猫叔说电影,https://stream.freetv.fun/d198bcc547bcae7ba79ae8e29f28c467cb3f0a3e29b23087c276171e7af6b1db.ctv,6247
+57小涛讲电影v,https://stream.freetv.fun/2f33160ed466407f1fedbab6539d89837deff9a56ccdb74432548d9c2489b9e3.ctv,3049
+5火龙果说电影,https://stream.freetv.fun/e0af2627e785c642e854d7d82aa548b152a156ad6ce0eec4e43fadd07eb56734.ctv,3015
+637粤语电影丶,https://stream.freetv.fun/00bab23aa58ad5a652a57827f7595bbb8dede51a27b6e7a5acc433e84223eda0.ctv,3246
+65老王忆经典,https://stream.freetv.fun/a5e7e78ad8215eaa1012533e6ea3de1114b658c25f014c72074ef4119c6d0d52.ctv,4334
+66铁血影视汇,https://stream.freetv.fun/61bd34f76f462204e0e75920615812cbac689ac223518382f15ff68b1b3035d8.ctv,4095
+6科幻fans布玛,https://stream.freetv.fun/74e8d5d42149b6eae352eb78186b4985769f073c315ff15d9094dab0813146c6.ctv,4134
+70东倾电影,https://stream.freetv.fun/2c2678aac010993038a0fd33f5cf183650872fde0a610a5b2dc10ebc1991566c.ctv,4491
+71谁语说电影,https://stream.freetv.fun/022709f83e4041b7804b2ac6327dbb91b0bb4c3cf5ed978b7a94028463a64a8c.ctv,4051
+73松轩说电影,https://stream.freetv.fun/fa3ef30a7861bb2b71917f71ac02476fd67f608accf663a7b61233849383b450.ctv,3188
+80有部电影儿,https://stream.freetv.fun/9aec34fde7f67f0557cded585a7115ba1e0b10d96370d0aacea5a516b08b18ee.ctv,3458
+91独立鱼电影,https://stream.freetv.fun/1a4ba21479aeaf3a1a904dbc51e4e8b0151250f1e88cfe2fdf98b02b61603e9f.ctv,5069
+93贝爷求生影视,https://stream.freetv.fun/f92ea9cae12af707c587af406ddb929ea9f58aae893845b713679aab4b1df9f8.ctv,7420
+95墨逗电影,https://stream.freetv.fun/3916dfa12a9de7b81c48d9884fce61b8704cafc2c6d71c807fc3b907b9734a91.ctv,5787
+96九叔说电影v,https://stream.freetv.fun/1c37769d6f84daae06854bdda1e6bd2ce70d0865c66c7a8a13c6a8bf0632f0c7.ctv,3780
+97逗米说电影,https://stream.freetv.fun/a330a1995543c69a0ae9d5138b5fb8820d17f8cce4978355acde4046f0f39b05.ctv,3189
+brtv影视hd,https://stream.freetv.fun/27e6bb325465764943a78d3111df82e58efdcc413448c5397098845ac08906f6.ctv,6224
+cba经典,https://stream.freetv.fun/987e9bc96bf97c9b3a338ade7a7f125520f648a61656d33efb8d9c0c29b2329b.ctv,3538
+iptv北京淘电影,https://stream.freetv.fun/f0c3813abc40c510795f81312cadcfd40b44d9c5c789a8306e8dc1e36824e597.ctv,6667
+nba经典,https://stream.freetv.fun/18e2ab6609a7bbc6a1acd545a9e1e2f879c1521281442e644ead0b0375a09442.ctv,3752
+nowviu剧集,https://stream.freetv.fun/dc38ca5fb88e8a3921bb96633e61614ffb7355c512b7fe9e3d6dd8236cf73a65.ctv,3419
+q版三国剧集,https://stream.freetv.fun/2083d9a6dbbbfb95f11e0535d7d3c43b07440edd20050f5ef19655b902c9773e.m3u8,2636
+《武林外传》武侠,https://stream.freetv.fun/e72b0fb89015f2bd7762431c86d3bef0b878539e5b52bda5f030df25c3fb38e2.ctv,2319
+「官方」安徽影视,https://stream.freetv.fun/d9845d0936b62789afa5870ac534ca663d3da776c7dc75efeea77d56ca7246e2.ctv,3012
+「官方」江苏影视,https://stream.freetv.fun/1848b93fcd1f198bc4744ae02d1ac29773cca29f267839a352461d04efdf6663.ctv,2667
+「官方」河北影视剧,https://stream.freetv.fun/396426ce7cf616695cf9b13f235fe548c302090018fc7c8c2b87d6998d4c9138.m3u8,1972
+「斗鱼」经典电影,https://stream.freetv.fun/1cd116e4a780d1aaf4753c4cf61f3a99bce9d7fe81ef1f5f4d9edb8ea3abc751.m3u8,1530
+「斗鱼」香港经典,https://stream.freetv.fun/b06fdbb723b74c14d982965c4ab7147afdca6f38051b622f3330a8bad439fc55.m3u8,1939
+「电信1」东方影视,https://stream.freetv.fun/d1219061ef9f177b1bdbe655e280b768c34e1a395e0ac994da4530e99719c2d3.ctv,6188
+「电信1」湖南电影fhd,https://stream.freetv.fun/2f6b7997be728e592772b3730395c69243c2a2d455a24c74a05e52cf24e6ab50.ctv,4983
+「电信1」湖南电视剧fhd,https://stream.freetv.fun/8421ff42dedb1061ba2415a590e0f7a64727c1899d496c8de17bf0a4e891dc90.ctv,5058
+「电信2」湖南电影,https://stream.freetv.fun/6a02d073ee38613fe6cdcfc6cab1b6e38cadf3aa30837317d4ce53fe30ac6dae.ctv,6276
+「电信2」湖南电视剧,https://stream.freetv.fun/ebec9e6f7d95dd968d1c7ee166e619e128e72dd8f8042860d38783919c7df67e.ctv,6701
+「电信3」湖南电影,https://stream.freetv.fun/2fb8de3b189d91241ab2757394eb6fbbda67fc4b9783ab662aecfbc31e499fb9.ctv,4168
+「电信3」湖南电视剧,https://stream.freetv.fun/b32738dd8ffa94b7ecf0d332f87e116fb2401f6616e27978fe0aec57ea4de6ac.ctv,15990
+「电信」北京影视,https://stream.freetv.fun/4635c57ca98d0fc5936eb8bd52ee8ec057c821198aad4a6ad950ebe5d4f209ca.ctv,6853
+「电信」湖南电视剧,https://stream.freetv.fun/7ff78f84f06a6664440c43b292ff477034d02c120d6df612e079c5b5392d7f12.m3u8,3513
+「移动1」广东影视hd,https://stream.freetv.fun/04f4091c77f49cc885cff37270c0b6ce7033e69ce5925650ca276308a6e8ae39.ctv,6741
+「移动2」广东影视,https://stream.freetv.fun/919797de3349d5171598dfa793016d8423221813d29aeec1fa116cb479191d0d.ctv,6191
+「移动2」广州影视hd,https://stream.freetv.fun/7fcf11549b4cfe2ad0231ced2503d8239e24febd8935e0acdb23833ede274411.ctv,6231
+「移动」河北影视,https://stream.freetv.fun/4a8416a55b80ceabb307d637fa1572dfb89fa625021830d3b9df0a44095db134.m3u8,1438
+「联通1」btv影视,https://stream.freetv.fun/3585443172ca6efc6bc1139dfb455483324a4f88a70f51faafda6aec238da0a5.ctv,6644
+「联通2」经典电影,https://stream.freetv.fun/8f5e648fa53aee5a6495e5e55c34fab97bf6f4369071d22bf52ceb84a46bd046.ctv,7413
+「联通」北京影视,https://stream.freetv.fun/ebe5fa80ebf445f94509d1457879c64dc852d2c4cdecf13946914b0b7aa975f7.ctv,6442
+「联通」山东影视,https://stream.freetv.fun/be35bc7d124f9c98b4a3ac6db5f6eb58d2c32c4ce7b572329da03902080d99e2.m3u8,3080
+「联通」济南影视,https://stream.freetv.fun/6a7b272bbf8a02555019214e48cdc5b30f1019b24ebd4e2bd2b902c967eee0d0.m3u8,1742
+「芒果tv」湖南电视剧,https://stream.freetv.fun/69253ff487222ac793b231d9d74a4aadba9aeadbbf00b2aeab149db2e361895f.ctv,5439
+【周星星】星爷经典不间断,https://stream.freetv.fun/0f03cd33571a88b383fa856d574671fc2ef6128ecfd0e8811fd9734977aa4593.ctv,1968
+【港片】赌片 动作,https://stream.freetv.fun/d29ef91ef6a453dc547d669a8489fc7db08733ce4e9430dc3eab7ce2cafc9358.ctv,2403
+【电影】顶级动作电影,https://stream.freetv.fun/28aabd20caaf1ce8a68079c723db23d2a814a4c532dc2a5d804d8879f7c683b4.ctv,2220
+【虎牙影院】沈腾经典片放映,https://stream.freetv.fun/5db205b23cd3281d9435f8662f236b8dee3b2c37c37c39bb37d542195712a66e.ctv,1454
+【赌神片 动作片 港片】,https://stream.freetv.fun/749322323b8d3cdfcaade892531c0f0c2a4022dfe981d5bb6d1f908479d53a0d.ctv,2807
+【金超群】电视剧,https://stream.freetv.fun/ebd691cc5f4f6d9c99bf77a01448155b224c7c2291e851002d0bc072fd6fd5b8.ctv,3495
+三国演义94年经典版,https://stream.freetv.fun/2b58ad62e41fc9b2192d17351e6d8ba57d7fd206b30f56699e12dbad516bc04b.ctv,2512
+下饭喜剧电影,https://stream.freetv.fun/6ddcdd090c80a2e43bc330dea4993e460d2343bb8facd8cebe329eb2c68e4294.ctv,2381
+东倾电影,https://stream.freetv.fun/50a253a7bab35ccea123dcf4f83c9420fa296a2596cef9d122286b98371ffec6.ctv,5958
+东营区科教影视,https://stream.freetv.fun/f5def1593249c8f9cc6b86b9267b0b618abffd2cf460b53a40a4f6cb8e0a9194.ctv,2952
+乌鲁木齐影视,https://stream.freetv.fun/ae1eb3c988db184bb1801b7489bb4a780305b355791f16f8e90d05df823377c2.ctv,7096
+乌鲁木齐影视,https://stream.freetv.fun/e6025de85c86544cd59269f5340fcd9e866290b8ed0d1b2b4dc1cffb0a5911c9.ctv,6206
+二龙湖浩哥【经典搞笑】,https://stream.freetv.fun/c61a8f7ba2fae9476a6c744e5c41ee0f9ba854f4af65729a6af8a0657c50b8d8.ctv,5240
+五大联赛经典,https://stream.freetv.fun/e03285010796ea96ca27edaec3909805e76334cce82026c20700875f74c7072c.ctv,2148
+亚洲武侠,https://stream.freetv.fun/687075220921fefc274959156653a4fc1a96d5996ed33baadb2d35dd9b1ba228.m3u8,5409
+任城影视娱乐,https://stream.freetv.fun/32b16f007dc3decda084b6af1a7d7918ffad3e3aae752f882036ec5d0ca2bb9d.ctv,2010
+传奇之王-影视剧,https://stream.freetv.fun/4095a15684556969695ed0fd58a56cf2701c196fc5a485437bfe069bf6a7cc81.ctv,3023
+伯乐说电影v,https://stream.freetv.fun/c65f2e7c8cec4e1f211dba041e5c21f9361c62b657875d929d84d8c30a92327f.ctv,4800
+侦探烧脑电影-悬疑,https://stream.freetv.fun/7833c0b520e48ed58f402841b59ab95da5e5a6950db29c87ab264422b29ce5f8.ctv,3822
+冬粮说故事,https://stream.freetv.fun/579ad85d174660db1c64810afceb12c8ca1d0b074ce9a2d4b3e86d75070118fe.ctv,5521
+刘老师说电影,https://stream.freetv.fun/86c07c9ef5c2f235402186cdd0d87241276cd260e685f3df9b2982c908462524.ctv,4649
+剧集,https://stream.freetv.fun/035739c87ab14138ba14ea44c646ba5b1862bbb5057ec62fac719f6de1247902.ctv,3000
+剧集,https://stream.freetv.fun/079f2dce2a61d7c2193800f767f1e6176cb1f2383b3152560df097994897b76f.ctv,1722
+剧集,https://stream.freetv.fun/0c4a60ac0b9d06c50c1aa5e5a0638a789927350207b6717c4a2b31ace6bcb92a.ctv,2254
+剧集,https://stream.freetv.fun/1f0be1e9ae600caec346b7109f3d7401379ec6db4fbbfb382019fddab12d0cbf.ctv,1894
+剧集,https://stream.freetv.fun/1f2551db656dba500839c6b4663a7f677bb80fabeb9d80043c676f15fb97459e.ctv,3563
+剧集,https://stream.freetv.fun/230260897476b7fa6d7fee5c2d70c0653800da342c8972caeb4cda126e00b22c.ctv,3237
+剧集,https://stream.freetv.fun/798cef57e4b8f6f0a396890f1e5f86c606ee185bf09b62e8a8691d1233050b67.ctv,3747
+剧集,https://stream.freetv.fun/90fd0dd304524ed4d8080787e7c7224bab0cc784cfb4d7b4b9b09e5379d5f27c.ctv,5830
+剧集,https://stream.freetv.fun/a2e8d88a15d9e253f4affda8b4affde4ff08b170ad36498946c6d6becbb858d3.ctv,1673
+剧集,https://stream.freetv.fun/a75c95a078b05691e986fba0e374ef590033d4ff2e7a79c0e37835de2f4931ed.ctv,2768
+剧集,https://stream.freetv.fun/ae95fe8d6bd252fcc43a6c442b7b6213a5254d49a5df089cbec3cd86c96c63f7.ctv,4004
+剧集,https://stream.freetv.fun/af034052ba174f0e32b897d00e8093a58c1a0f2c53a86b202c657c331c2bc707.ctv,1379
+剧集,https://stream.freetv.fun/df510218b057cc54bf6b8b697f1e743635877416c67c766d74f5a4ab15f117c9.ctv,1870
+剧集,https://stream.freetv.fun/f4c033de4e9f0017e17d6ff680b8fe4e4a6248f5b945437cc1c6fcdaca866c69.ctv,2463
+动作武侠港片电影,https://stream.freetv.fun/58fa0dcfd1253838d6fdf0c8fd165edb8d729d2bde3555a2e4142cd3264ae725.ctv,3599
+动作电影,https://stream.freetv.fun/96ada6ada5cac508d4479ef71c9bba603572b3182feca512eb274ece30bf4180.ctv,6372
+华数电影4k,https://stream.freetv.fun/8688454f5a8133b7f783b471f0dfe508d982053a9dde228e27bf490a50ad8150.ctv,3414
+华数电影4k,https://stream.freetv.fun/c9055b33a3eb8fff8f384ea9501e2eda36d8401d431dfdd44f4fa3eb9cc58bee.ctv,5917
+卧虎藏龙-李安经典作品,https://stream.freetv.fun/4675a65e21b40d30e34315532506c8590bcf3f0c92bf4733f9bfa895fdf0cc02.ctv,4190
+历史经典烩,https://stream.freetv.fun/308f39a46edb01987c40032fc8020fe8a70e32fee25a3688c0415336aeee712a.ctv,4371
+双河影视,https://stream.freetv.fun/266917236c571f49da392f6928a5476534b296d4a059762aa59ee7a227d848be.m3u8,2699
+双滦影视,https://stream.freetv.fun/958d96d0bca9ee71a3d9385ceae53c693e25059d31ae2fac34e8a14aae6161e8.m3u8,2307
+双滦影视,https://stream.freetv.fun/c21fc6adb11a6100c89edb16db129e440cf5593e357352d9362d85363a47b6f8.m3u8,1865
+发条张的电影最top,https://stream.freetv.fun/7754e4b0373de80453a7acf0982b80238ca2f401aee6f9002cef8ffa19680fb1.ctv,3916
+叛逆者,https://stream.freetv.fun/9ef8529bcecf4f81baa2fe835d600b9980f48f30a2f067ddbfc834fb8947fe5f.ctv,3322
+叛逆者,https://stream.freetv.fun/b1c4efb72ec109177075db2c8e5fb09f1ffcf046d1fa222207800c5980d29401.ctv,3658
+叛逆者,https://stream.freetv.fun/c2d291f63eefede4629892a172fd29f38445727ba05ffc58459212c32fe9669f.ctv,4481
+句容影视,https://stream.freetv.fun/a84246edd1b645d63a395b444aef97fdc426e9a5ef57b8d7f8c675bc267f96b8.ctv,2001
+叮当全集剧集,https://stream.freetv.fun/b0d449e887438f9f5eda7a8d7ccc6e17def93845ae53da7a905815339b535c14.m3u8,1572
+哈利影视,https://stream.freetv.fun/d1ed628b0b71d72fc7e2905cc57da6bd2817907050685f3ad1f381b74bf16fc5.ctv,8290
+唐司令说电影,https://stream.freetv.fun/796e75736d73af185f2c4a6fe82b71793f5b20aa68d7e160b8b64dc0e524b777.ctv,7044
+唐山影视,https://stream.freetv.fun/7242577d84b85d95ee978e43c0430c743dc266f68c4b0aa60d4d002dd3c2ec37.ctv,6835
+唐山影视,https://stream.freetv.fun/c1fc88738f4f48759539694f9825792a4671f8014dd0d64b23e73c22c0022e15.m3u8,3567
+商河影视,https://stream.freetv.fun/735ed2bff9051a7f3efa47e5d0460101511928652db5ed3658b323de860a4d1f.ctv,2792
+喜剧电影笑不停,https://stream.freetv.fun/36b4ddc7bd500fdbebc169c20f8378da067e4c267f6c8f49308193c85ad5117a.ctv,5664
+喵妹说电影,https://stream.freetv.fun/794128b42762bdbed4fc7148addeb65bc73f3bda3d43cfb550e39b497f3c5343.ctv,6308
+四驱兄弟剧集,https://stream.freetv.fun/af359bad64fe228c52b5b11bac77a59629e063b829edbf8ddfeb7550ce7999d7.m3u8,3230
+国产动作电影,https://stream.freetv.fun/d5a585576236dd02e9ea13d51b52d0bc8d45d9371b3f809541faed795aacd107.ctv,4248
+国内侦探电影大全,https://stream.freetv.fun/d5a4201d647e20e401ee73d1dcc37cfdcc1a42acff8a3c219ddc517a4766ba1d.ctv,3556
+国内玄幻电影-林正英,https://stream.freetv.fun/73f26bd1c4e2306e52d6f2b756a2cbff1a85807ecd056696b2a1e739ce005452.ctv,6145
+国内科幻,https://stream.freetv.fun/8e61ad3c2d031c4f55dc20fff27f61cd9d3707f966d18166640cbe33faf3c4f3.ctv,4106
+国内科幻片来袭,https://stream.freetv.fun/e79aca7d13bb0590c8a69641753cfcf6b2527121097e041c3d7eea15887ab54c.ctv,4301
+墨逗电影,https://stream.freetv.fun/05b7f3c410ddff8d4e785196ed5c7fe887a09fcc06b2c3206ed10e52bed445d0.ctv,5914
+夏洛特烦恼-国内电影-喜剧,https://stream.freetv.fun/193b1614f59f992249ba8314b5e0cd5e61ab63f95e7788f16c4276f3bf0ed0f5.ctv,3866
+外国科幻大片,https://stream.freetv.fun/a34517031b472f8e0b97ce5d3deca1f6b2657b0c1199a3ede0ca146cad007639.ctv,3765
+大江大河2-高分影视推荐,https://stream.freetv.fun/f816aa913ecd57a32170b9351afde188da1c68042789d32f348e0056b9d02dd7.ctv,4230
+大荒电影,https://stream.freetv.fun/b8c0afdbb2e1348b122417af985c01098ab6be533f24b6fa34323c39814f4fe9.ctv,6455
+太空生命？高分科幻电影开播,https://stream.freetv.fun/93f67042a1883c23b06e741bb055940da6cce420d1343df900956237371a9556.ctv,3652
+头文字d剧集,https://stream.freetv.fun/049d3369a70445dd27943246aaf7c5020bc9c025eae08aa87225575297e30b94.m3u8,2990
+守望的天空-泪目电视剧,https://stream.freetv.fun/1f865ae2b3172970edde283e1f5ee8a5d056788456895dbacb4f497476644e3a.ctv,4011
+定州国学影视,https://stream.freetv.fun/08b498d4b661518df9f223eca80657f82d80458e3466ca3299cc5cc21a36a7d3.m3u8,2665
+定州国学影视,https://stream.freetv.fun/99dcbfce8fe9b5be181de32b3b5d53dd297956ee5a175879fba1acadfc5ae838.m3u8,1891
+定州影视,https://stream.freetv.fun/f8eddbe19edc00820a1900f80a165e8fed12e6fcfa8338cfef7831743f3ac84f.m3u8,1965
+家有九凤-影视剧,https://stream.freetv.fun/40f6ba1cd35d75b7d62bd3efbba3a74650737aab9359f06ee5ee176f82e4f0b4.ctv,6055
+寻秦记-穿越剧经典,https://stream.freetv.fun/3615c106c4e3a19d6c174e933a80f715eebe41b4407fcbb7aee53e3cafa911f6.ctv,5798
+小岛讲电影,https://stream.freetv.fun/19b6a1f958fd5e27b3ff45883e1cee1d20bf7450102e79522edb5645be8451c2.ctv,5164
+小川侃电影,https://stream.freetv.fun/93fb7fed5e1e9d915cdbd79839c56e2fbc51edde01029d1bdf5bfa4665496562.ctv,5551
+小涛讲电影v,https://stream.freetv.fun/8f951279642bfb1c63e7216abcde0f6baafa33ff04ca940d3b1e408d005b46ff.ctv,4220
+小生物的故事,https://stream.freetv.fun/e84c3c25430abf0cb102e1a2e2d9e0ebc6ad9f094cddd16578f68da70b6ab8a5.ctv,4794
+峨眉电影,https://stream.freetv.fun/3739e29e6b5ebc9c7950e885966fb1b93a59584cdef4c9f00c93957f38c09227.m3u8,2026
+峨眉电影,https://stream.freetv.fun/ffc6584927a3745821f2346d3723bca3c8f66f9734875f97c0e8b2f8e5ab713e.ctv,6736
+崽崽撩电影,https://stream.freetv.fun/bf91515124f331c596eac2e84c8207d2c4dff9797ee5ae8f07703268646ca9fe.ctv,7189
+平泉影视,https://stream.freetv.fun/32447cef5ca09e1c87fc7bee5fba131b852b9a4bd0550201ab99d30267e9b1a7.m3u8,2434
+平泉影视,https://stream.freetv.fun/9a6cf0176778c490b09dccea9cc837b9e30b1ead068f49a599daf2fb17aafcf3.m3u8,3457
+平泉影视,https://stream.freetv.fun/c8e19ad6a02350c32134e8548a71b1d3d2ce43d2542d87feb1ad86c56869abd8.ctv,2381
+平泉影视频道,https://stream.freetv.fun/dc6cd10c4406e91da59df60ee625b7bf85db9e703a461ced46f4b688e2aaf763.m3u8,2768
+广州电视台影视,https://stream.freetv.fun/dde181be140d64fad1875a4d1042683153ad512b3f7aeaf1e48dd5bafbb7a8ec.m3u8,2411
+影视,https://stream.freetv.fun/6ad47ac35f720c65aec40aeb163ec11aee17d6d2d8a9d898ae936f2e21f5bcb5.m3u8,7527
+影视笑工场,https://stream.freetv.fun/c89de1c5885a8d23668423a56fd523876cb7d994c17072fe2aaf50df70954798.ctv,5600
+影视轮播1,https://stream.freetv.fun/e57f27c0f90c13c70bdfe38df96a31e4f9fe63f9586e6d58f2722ea723240696.ctv,4748
+影视轮播1,https://stream.freetv.fun/e99fd3944bcd61889e9fb52132d1215d53303083791e6e88a0aaecab0f768d91.ctv,2341
+影视轮播10,https://stream.freetv.fun/ec4ac115caddd08b7f8f8ddb204583677920017e683552d1bd99a3f7ef30b9a0.ctv,6372
+影视轮播12,https://stream.freetv.fun/1555d378e56afe94997052498f561a07ada6578cf6f6f25f231b550b0f91295d.ctv,4027
+影视轮播12,https://stream.freetv.fun/42d17dd44ab1be9a0bf5d0edd916bbde50522c72e79dc22b8de82864f2a03022.ctv,4569
+影视轮播16,https://stream.freetv.fun/ea3d9c6ca4dc1c30056688c4c334cf1f1f861fa5aa6b376fabe8092097ddd0d1.ctv,4745
+影视轮播17,https://stream.freetv.fun/6d75af061dd5c3d12a8f92c5d6386be0e034d9111bbea64b41a0bf7899eeb85c.ctv,3432
+影视轮播18,https://stream.freetv.fun/397c01670f0cd5504cff5a78c474d6b53628ce2c74dd0cbd856c3cb8fabafdde.ctv,4132
+影视轮播2,https://stream.freetv.fun/e37c251d5458bf47e91fdab6ebec43d085adfeb87a0bd94e033901de1e7dd6de.ctv,1251
+影视轮播4,https://stream.freetv.fun/4789b8da70476cd0d6ba30a81b9910c074821832f80879c6620e770f1d315a62.ctv,6026
+影视轮播6,https://stream.freetv.fun/1b0a8d3b99e734b717201c3ed06046e20106b61ecf4366fb595c00ff6de44ee4.ctv,5525
+影视轮播7,https://stream.freetv.fun/9a19055ee50ec8cdf6c36655f42949ba0c71a2b48bdb2ebda765121cd3f91818.ctv,3275
+影视轮播8,https://stream.freetv.fun/bed5f279ad0e733de78e65f2b965c8b864c2d3153b9475936843b645e164415b.ctv,5339
+影视轮播9,https://stream.freetv.fun/f68d52f4a334458d4f2fdc334c2db85608481f4ed1ad05f00aea624274c8d6b8.ctv,6287
+快意江湖：金庸的武侠世界,https://stream.freetv.fun/dee0269ac59e59d53d13e2bf6ec6cae38f6be40f32afe95180503330b7587d5a.ctv,1822
+情满四合院-高分电视剧,https://stream.freetv.fun/3ea2c610a7f5702fdd51f393b5fafab68062906b297754aa74e4359c4c4698bc.ctv,4873
+情满四合院-高分电视剧,https://stream.freetv.fun/40fddd619fe751e1e33e426ea12506444876b17f2499fd74bb9c43a7efc4eb10.ctv,5565
+惠民影视,https://stream.freetv.fun/e466b3f2ac9f4a9fc258e8da1ef774315240d94c1508328f1cb2140179c419e1.ctv,2585
+捉妖记-国内喜剧电影合集,https://stream.freetv.fun/1833d694a18781bdb31ae418a1189517c30b309ce0cedc762b29eface1367176.ctv,5270
+敢死队-精彩动作电影,https://stream.freetv.fun/c1ea52cb901a90a73aa41e8e70bfffd48bc9ff9a5fabed8ad9f038404439ec4a.ctv,3890
+斗鱼电影02,https://stream.freetv.fun/58b22c48a62d218f25d0eac8ff15c88addf92b77c44fdfeb7c3feed257d3ef32.ctv,1193
+斗鱼电影1,https://stream.freetv.fun/582a38a3e0b3213d25a0d8d6877e0bd32c88d2cd5a10ff78c6676c8acbbaacf4.ctv,2626
+斗鱼电影1y,https://stream.freetv.fun/70c019b49c0e6d6670b01054ff0c6429cf19e62c8b9967ddafdb104aa5308a72.ctv,3394
+斗鱼电影2,https://stream.freetv.fun/938cfa6aeaf5029238e4b00e88d87d49e5cfb68845bc8a94e60a7dc559b2d9df.ctv,2722
+斗鱼电影3,https://stream.freetv.fun/601abd9a432e4de0410975b96494b0ee16467a5c6ae1148cee4cf3f86839b226.ctv,2696
+新昌休闲影视,https://stream.freetv.fun/3ca86e2dec75c8aeb70adab6fcfc1661d6386ba8afa52abf8b74fc9ae4585999.m3u8,1855
+无罪推定—经典律政港剧,https://stream.freetv.fun/749b836a7395b456008b3721faebd4b22454660dd09f4cd37e83c56298a34447.ctv,12189
+星君说电影,https://stream.freetv.fun/39879d983ac6d1e63494b41da3a12ea7075af561493a28b5fbda10801b3ad14a.ctv,4982
+最好看的特工电影-007系列大片,https://stream.freetv.fun/af5d40e0868713f51218631be660635bbb406992aaa10fa18ee20a029edacadc.ctv,4458
+末日说电影,https://stream.freetv.fun/92dcec239264b5163a7188111b16567592f3b5c0bbce2fd27062a078259e4922.ctv,5272
+松轩说电影,https://stream.freetv.fun/3d64a5a08c4c75b72691134347fcff59c5b4c6fa85438b331027d3db6167d87c.ctv,6891
+枫哥影视,https://stream.freetv.fun/6a36d0278edf4852b3822fe3c4ca59193d3f149382ca53ec4c02c893d908016d.ctv,4438
+桓台影视,https://stream.freetv.fun/116384a1f407bf6ae847b2a1c0a5ca61216196b2a9af29ef660dada41cb4bc71.ctv,3062
+欧美怪兽电影-哥斯拉1,https://stream.freetv.fun/90f68627a82189a836da5f354c003729306fb615572755f140058fee5cbb3fd8.ctv,3162
+武侠剧场,https://stream.freetv.fun/18deb4b88570f142e964dcb10fa19568bc496c6f36be944713f4f9e05ef9ec35.ctv,6852
+武侠港片电影,https://stream.freetv.fun/16e8facf54204e9774ed728f8cb3f94fbd4ef7bf848eb66ba4e2ab03b6ed2e49.ctv,4308
+武城综艺影视,https://stream.freetv.fun/c766b1857797081dcbddef16d2e339045c2db1e93fd6d494faa873eab76d401d.ctv,3312
+永清影视,https://stream.freetv.fun/8d5a550c4f8a63100d471117e1fd2b62af9cefc78976cb150ae155fa2d10f0a6.m3u8,1849
+永远的经典女神,https://stream.freetv.fun/e23ef373060ea17216921c50c1207f4aab54138e7b2e6d4c95fd64ca37dc4f7a.ctv,1844
+永远的经典系列,https://stream.freetv.fun/753b9c30358f136f74afad52b869b9545e70d9e436cd734c201201b8a95420eb.ctv,4186
+沂南红色影视,https://stream.freetv.fun/341b7d94d317cf5f971e3d6038bb390b689bb5e803972b6c5495e956c985c64e.ctv,3118
+沧州影视,https://stream.freetv.fun/0ab0e53a9bca374923906b43d827c4fb15ef4e31d478bbc1803cd0e69f8a206a.ctv,6404
+河东影视,https://stream.freetv.fun/e09c723755b2b7f92b9d311354a2e6615b4619ddca4548eb3c3ddb424eef2a95.ctv,2460
+河南影视,https://stream.freetv.fun/adeb2d9bcd4f0791015f301b881815a0f7168d141922ffc57bc865041cbf83e5.m3u8,2767
+泡芙陪你看电影,https://stream.freetv.fun/e9c3b6597dfb9397e4cf7608353588250e05a996c7c2d26086f3d2ef986a2071.ctv,3503
+洛克电影,https://stream.freetv.fun/2a249e4cd1dfdf0185864268b63750f1ce56a060ee6fec00aa3a21170f241334.ctv,4198
+济阳影视,https://stream.freetv.fun/b23b8ab40559199c7d11ac177b8d3a47df10627533f5c041de9c1b349ff473ac.ctv,2476
+浙江 ⅰ 绍兴影视,https://stream.freetv.fun/5cb49757ec15c4e94de6d6a9ebcc6e4cca3c716b6e326706b578eb2d8024cc38.m3u8,1604
+浙江教科影视,https://stream.freetv.fun/447e7900d8ea9c73cb47c809c9c816422ae878bea6e95bf3c347ea43d609970a.m3u8,1623
+淘宝电影制片厂,https://stream.freetv.fun/a6ad5b1248da3e72b4f72f7ddd7a7ede3ed3de8b45d358fed383ebb631b2edca.ctv,7043
+港片—两公婆八条心,https://stream.freetv.fun/9c4aff6f63538ecb156062450c6cdaf5f377854d82b94ab167d46c48eb5e6c12.ctv,3895
+港片赌片 3000部,https://stream.freetv.fun/ac34ff203920829b0208e3aa88c3fd5fa39da45dffef4f79fdcc1aa8d1790adf.ctv,2833
+港片鬼片全集,https://stream.freetv.fun/2c7080ee00341b42a6d78b6268f3406e639db89976c5f76ff2417b6139dd9a0b.ctv,1884
+火龙果讲电影本人,https://stream.freetv.fun/14f6926a268656966c61b105014b01b7bcb25a690489b9582353406919a2ac06.ctv,8696
+火龙果说电影,https://stream.freetv.fun/2b191e65b09a6b084eb0665b6616b3ccd14887df116ce9ef1847b821ea2c1ede.ctv,4643
+炊事班的故事,https://stream.freetv.fun/eec1cf1416949640358ae009d12373e17a5de5f7b75c4e8f58fb84ba6bf4fb78.ctv,4093
+炊事班的故事ii,https://stream.freetv.fun/f21419a2910cbb10a88cc7c8d3be45b813d4f2e221f0b6ab03bdcff3571f9a24.ctv,3801
+炊事班的故事iii,https://stream.freetv.fun/d94aa27a7c67ca657ccc01933c5b403c1c767dec8be9e045832b1f5f7f66fe4a.ctv,3776
+热播剧场,https://stream.freetv.fun/3df9ed35640b3c5d23e4e027c95c811e06588519ee7d27d8e06dd4a0cba79815.ctv,6908
+热播剧场,https://stream.freetv.fun/e69e02b3fa1b37a765ca7faee510da81facd3068937a0d5026a8907dd0e0a819.ctv,6863
+热播国内侦探片,https://stream.freetv.fun/abd40aa84b261d729bf6fd715407841a77af99d332cf1ee02aa9d4bce6aaa1a2.ctv,4289
+熊妹撩电影,https://stream.freetv.fun/1e0e938ecf34efac8145f6f0dd056f231f7da58e7e6fbc99993a2140905d18dd.ctv,7626
+爆米电影,https://stream.freetv.fun/5b3a9321f7530dd3d71ac4ca68bfc1046b3498f6933338cfb832aa2072ea691f.ctv,5861
+牛叔说电影二台,https://stream.freetv.fun/cdf26aac496486474523744bc9a86561f706fd36c4e9b6dcdb95ea95e7d3f90c.ctv,4508
+特种兵归来-国产电影,https://stream.freetv.fun/bcc8b3de6cb772094797d64d632d7061d07c35a8eb307ee49796cb74744be67d.ctv,2195
+珞珞说电影,https://stream.freetv.fun/6ea6ded5e1eb4a980dd145524ab147ca3005ae451d61e58c78ecbbe44d5e4df2.ctv,6769
+电影 古惑仔全集,https://stream.freetv.fun/343109c8abaab03a8b9e10aaf0d7ec04e28b9aa72e8a76f59381c50ec4bcb061.ctv,2610
+电影,https://stream.freetv.fun/01d9f7f158f6c90c965e0338fcd2b44867c2662a12082d1b078527379730fb60.ctv,2268
+电影,https://stream.freetv.fun/0b6297dec03a45a5e8fe676346212918674a89213dfdf4566096049f86bc7744.ctv,3903
+电影,https://stream.freetv.fun/10c05f819fad5d5b3d0ac58b24b02d5a3505c184c4d0af7efe27e2905addbb9f.ctv,3120
+电影,https://stream.freetv.fun/1600b02b002accc8b69cf6f57ba9591b782f01f3664ff70c0209a71d34134e2f.ctv,4750
+电影,https://stream.freetv.fun/1696f795086e0c7ca57c37cd8ef9f2b7ac9f2770af19b8521825653a91d2b32a.ctv,4180
+电影,https://stream.freetv.fun/1f5a56bb6e9ac3a2d0305b33cb5bbfc0ea8e256bf73b45a21c26b821315936ef.ctv,3260
+电影,https://stream.freetv.fun/1fb2361cb574fbdf02043831ef014691044dc79dc0a859f4c3934c77d4a7d66b.ctv,2785
+电影,https://stream.freetv.fun/20fcff177bd8bc81afc16d5581217f27be13e2665d5f74e2fde27e8c56cbd74a.ctv,4123
+电影,https://stream.freetv.fun/2f8689eee660c1f18ccae8099c2b5e903c6edeeece2edcae77b865579660d277.ctv,3146
+电影,https://stream.freetv.fun/36354ac1c87a056c6f56af414e1b83956ea752ec0994c08dc8ca5f2dd7fa21d8.ctv,2915
+电影,https://stream.freetv.fun/3d0e28a782d1e3cc86d7dcd65078b59b96a8c3125a2f0444f0c334ee6259dbbd.ctv,2913
+电影,https://stream.freetv.fun/46ee9202e358c2b4f9f653729449cd0c686c11f997d25eb57d902af369f00b40.ctv,2441
+电影,https://stream.freetv.fun/5ac7b306af96ea9e9a74af97e5c81bd1ac59f9c48832e231ab80a42d8007b0af.ctv,3994
+电影,https://stream.freetv.fun/5c693d02fbac9b02113e3bb4ebddce55d22eda3732ea2bf703a22cf9adeb84fe.ctv,3711
+电影,https://stream.freetv.fun/6012312255f388b02ff7cc3953741d173738916f28e615d9c0053485573f3ae1.ctv,3826
+电影,https://stream.freetv.fun/61592876f0b9a36f2fcb702d8a9e26bd92473fe429cee373348b4e4c7cc34487.ctv,3605
+电影,https://stream.freetv.fun/61b3a584e9e87df74887629dd4712ec2aab8b8adc1b992d1252dc0059d1336c5.ctv,3715
+电影,https://stream.freetv.fun/77aa356e11e7c351fb3ffd7c9c16aaf44e6dc4a6d45f1c106708ca7625fa1419.ctv,4247
+电影,https://stream.freetv.fun/78fb67b6966bb5a797f018db05c2b41cf4fcaf6d799b5dbb56851557922175ef.ctv,3780
+电影,https://stream.freetv.fun/8626e0e44785f01242f7b5fe5d3a61d843514f0735f19f20b234903542a99027.ctv,3806
+电影,https://stream.freetv.fun/87159431fdad2008e3ec8baa8cf3d8cb15993e746af849fda3449d40ecfa6b43.ctv,5133
+电影,https://stream.freetv.fun/878a57819addc0a2d1730315417832f756c6b2dcec3659aa7dbd2aa1cf532351.ctv,3177
+电影,https://stream.freetv.fun/896b811e0c4cb6829a83f2f363b293dca378f213469b4cf46cbec98d99974950.ctv,5138
+电影,https://stream.freetv.fun/939b262a2fe6f99d8350bfa82a1def1c22236816b08963768b194981e9f52c39.ctv,3417
+电影,https://stream.freetv.fun/9583686450240280538c87a5bd9b27eb81f20d5ea21f3a53913d6ba4fcd826c1.ctv,3361
+电影,https://stream.freetv.fun/9a2835bb6eec1c40a1eaeb5902190e0a5445f728419f1a71a696449ccfd2ae08.ctv,2765
+电影,https://stream.freetv.fun/9ac9cce2b7e9832cf0687e9f440a5c1bee61acaedaa5b3e5bab802d28a3cb225.ctv,6173
+电影,https://stream.freetv.fun/a59184989a80c391cbe1000b40b9cdd579a457992ef007cf454026c60aa66594.ctv,4672
+电影,https://stream.freetv.fun/b10b744b83e71953ac194a977253f63ecf22b682213729783b50383e775d04d6.ctv,4024
+电影,https://stream.freetv.fun/b40e84c6a87bef234e8c60747b3cc5ec66c3b52339593a5782f9f220efabb070.ctv,4031
+电影,https://stream.freetv.fun/b89a5498544a3ca9e7d0a5697cf4a4e337701043c6e542cb7f47485d63a64f80.ctv,3215
+电影,https://stream.freetv.fun/ba76102f985947c9198c0c0fb56dc8ddf49648b52eb5fa2fa13917bce2a6a345.ctv,3815
+电影,https://stream.freetv.fun/e04388fd14fd39809765e5083e21c3a812e781af01f6cb55debe4c62881dfcc9.ctv,2546
+电影,https://stream.freetv.fun/e575cc4982fc73b7e21081cdaf0d45247072957e2e06823753b0eff56b9b4a09.ctv,2707
+电影,https://stream.freetv.fun/ee44a23b7a92091ccd2b2d7eeaf72f50c9efb140d44ea9160b2c2bacf98fe8f8.ctv,3525
+电影,https://stream.freetv.fun/f4b151631f8ee33b6ac958cc5ae54473c01746bc8822b32964386b19a49d056d.ctv,2389
+电影_贺岁片,https://stream.freetv.fun/5e6d9ee210c8fd60a6d1534c6c6f5802113990ad556dbfb001a7ce8cd7da9843.ctv,3673
+电影刘油果,https://stream.freetv.fun/0c4cedba153feb869fbae4370a58d9f5783eff3b1054578aa033f18be3594eaf.ctv,4889
+电影小班长,https://stream.freetv.fun/d89f8a4139bd8d40b6d66556111bbd4710f0cdc53d55b8a20632797f4f0a35f2.ctv,7422
+电影电影,https://stream.freetv.fun/1777941d5e950b5363db94d312bfc18751c4fc5e9e55f225c560f0be82e74d56.ctv,2421
+电影黑匣子,https://stream.freetv.fun/550ca7f2a4a1b81a8cae0efcbf13808f119a3aadb7e3c975b414f3a4cc318834.ctv,4862
+电视剧,https://stream.freetv.fun/d3e70444cc30307e948a49321c156b96d1989c2a1c71b2e1076fbb9580886bbd.m3u8,3306
+电视剧-流金岁月,https://stream.freetv.fun/bba1fcce9f6193f28660b7878cd628306e38162e5a2c9f9d47f107cab9329fc6.ctv,2136
+电视剧轮播,https://stream.freetv.fun/49d0195cb71bb4921a531733fb98e297e343e0173791108f745d45293c7c736f.m3u8,2819
+电视剧轮播,https://stream.freetv.fun/b198eb5d8a3a3f66d7ae2fcab6dea776c6fccdd44b06a3779d3015b65578674e.m3u8,1665
+电视剧轮播,https://stream.freetv.fun/c9726944b54b430901dfb9f869702a5601d23e43d97c36476eb662e543be6204.m3u8,2974
+男亲女爱-经典港剧,https://stream.freetv.fun/9103518886624ca5ba66c6d944e27940f2e31707d8f77469db221ca05c2f930b.ctv,4961
+百事通4k电影,https://stream.freetv.fun/35fe7eb4ee967b481e0091648ecc2fe35dd9abcfb59f24c4708a9eb551d81901.ctv,17869
+百家讲坛-之女皇武则天,https://stream.freetv.fun/21390cd616bdb8d5693ff5bdf29f441f4542c4669f55b779a4c23b05ef158342.ctv,4620
+百家讲坛-红楼梦篇,https://stream.freetv.fun/acc062407d6ec569d1b06bfc01a8160c88b0cee2460072380c84de6468b3fc48.ctv,2696
+百家讲坛――之明太祖朱元璋,https://stream.freetv.fun/7fc1225e917e6f9a7e4b8e467e0389ad2044f51ba501c543d291873e2732ee10.ctv,2336
+看电影了没v,https://stream.freetv.fun/281e2363422ca65de39d5e9642f3e7057fc11973821d969cbfa725701bacc694.ctv,7276
+知否知否,https://stream.freetv.fun/daab1dba68bf8894324238f6e45b0e24c4d412857f95b300fd198dcac2f76fbc.ctv,5156
+知否知否,https://stream.freetv.fun/f690f790e1b1ca3eed32a3644af226f91d8a66ca8d978e27a54c055dec4fa6a1.ctv,2577
+石首影视,https://stream.freetv.fun/43224d970e80cdd94adab9cc9b424651c8ee96206f4c8d8dffc509c7fcb0ad4e.m3u8,2175
+科幻fans布玛,https://stream.freetv.fun/e468c10260ed25ee23e4684b0a6468987afe52991894feaead9c276b0f29cad1.ctv,5106
+科幻大片,https://stream.freetv.fun/2236772a4f2c2eac3a47164bf72569862fa17045874a151447a57e5a4aa01b20.ctv,5227
+科幻战舰,https://stream.freetv.fun/f554ad25220fa52fdcd94980e290880cf2680b04ec4493226ecddda0066b0880.ctv,4574
+秦皇岛影视,https://stream.freetv.fun/4ec233fd7fd1e47a7591ff8ee3dd2f6d72e573ca7a6035dc0002e50de5f9c678.ctv,6692
+笑傲江湖-电视剧,https://stream.freetv.fun/36a58f296094d6cd1a0d3526928837e2da99c75c44e3ac60a030f5ca4b0452fc.ctv,3909
+第一电影,https://stream.freetv.fun/5c31fdf1768f4bd5f48a8997a8a2953fc1a3f52754c4f357b662f758993006e9.ctv,6487
+精彩动作电影享不停,https://stream.freetv.fun/c49a23f02f76b56ca0c5db3820bc5666d8fa1d8bb41a6f72c9511a429d44fb85.ctv,4323
+精彩影视轮番上映,https://stream.freetv.fun/4c183caebe6ffd6ee68421e62d774c311d32a8cc9954dbf3b53b825ca7cc8538.ctv,4454
+红楼梦87版,https://stream.freetv.fun/36ae6e0d8909fda34feab70d9148574789236d3def3ac6052a94a2b58f1563f8.ctv,2775
+经典之作·金庸群侠篇电影,https://stream.freetv.fun/910b308cbe70a45a1fe8a9db1f8bc92ff78a98bbbb3564af75befb209dcfe3af.ctv,1311
+经典动漫,https://stream.freetv.fun/dfc3b15e1bc5a06c4837488fb810d87a3e2ac4d7d23164593dd29bb2a0ee8631.ctv,3638
+经典拳赛,https://stream.freetv.fun/49d7b8ffba09107bfa0e687f550e595d8b26bb197eeb25ab1d2f23c6f7142966.ctv,5509
+经典搞笑影片,https://stream.freetv.fun/57578c53d2822d0695b44ae239f1e213c1654bae9cb2e3a45abb74555094e426.ctv,3601
+经典港剧笑嘻嘻,https://stream.freetv.fun/373387b18ddb248febd20c8428ffc0bbdaff7804c69b7a289f7724f882ab2151.ctv,1761
+经典鬼片3000部,https://stream.freetv.fun/2409dd21ba1ac1f7a9a9ae67bbd157d4d46b70d307b4f63d3f3ceac4f70e8557.ctv,3959
+绝版电影 港片女鬼,https://stream.freetv.fun/e9ac7d59b164dbd7059bae4a14e6f71a34a24eebe8eb29227293d6ce57c108b9.ctv,3816
+绝版鬼片电影,https://stream.freetv.fun/9e2147513087ddb286e15c1efe33a275e50f8f1ae867ceba53adf8a319637e2b.ctv,4642
+续哥说电影,https://stream.freetv.fun/adb7e806c7a7becd8e38c8e2bebb937e3aa46c25d41e59e2b7259c4423852b6c.ctv,5572
+绵阳影视,https://stream.freetv.fun/dacafb0915300d89a01a825bf6b65da84578630c1ddb738399fd2da5bddb33fc.m3u8,2542
+编辑部的故事,https://stream.freetv.fun/d5f521a1def3339661937ed4b1ec73952976b72b4ea17ae19ae34670a97f5931.ctv,4861
+罗庄影视,https://stream.freetv.fun/af8d09477d0bedfe4bf1824248c3d32c38e7728feee4dfa6e854ea46833e454f.ctv,2830
+美国 布兰奇电视,https://stream.freetv.fun/96208b326f813f9707b652f0a6361913d8b0fb4ad5d570f3e7f3b39d0607f15b.m3u8,3314
+美国摔跤,https://stream.freetv.fun/c8ae7f845eb144d62561a608734f91b7b1dcd5a51a281187aa2b329af3704450.m3u8,2966
+美国测试afv family,https://stream.freetv.fun/096bd7ff867c4b6e098de3b06bdadbfe3984de4dbaad3760c0e4692d7adc115a.m3u8,4417
+老故事,https://stream.freetv.fun/89828b64405830e06094c24010a98f94fd890e73481f2e8b2c8deefbd7cd1bea.ctv,7000
+老故事,https://stream.freetv.fun/b2b3f396d09c1184b9641c439b2b0999cec614e184bb24f7bef20c7549e74a35.m3u8,1934
+老故事,https://stream.freetv.fun/fca4a61afeedaa2fcd65c23b868851ae801f59366cebba83b9b92a3c137ed7ec.m3u8,3084
+老王的夜电影院,https://stream.freetv.fun/92446f8eac4b0d657f6ab79b6ce96969ae764a4ee3ccb09e4010c174f78d7791.ctv,5429
+老电影故事,https://stream.freetv.fun/5dfc21b73517ec605624c371f7a04ea9681dce4ff87c49f0a1eed885c62bca4f.ctv,6376
+老邪说电影,https://stream.freetv.fun/f82ba957b917e5816a99af45980514acf69b016af6521461e410db362fce1eeb.ctv,4620
+胶片看电影,https://stream.freetv.fun/33b5137676a40905139f277cabb1f561b89287e31a91895a9ab740bf8a6cfd67.ctv,6654
+致敬星爷致敬经典,https://stream.freetv.fun/fb5d646d576cfedca01df2a83e5771d9df4a5561b7c9ccbdd3a4e7d295ff0ecc.ctv,19119
+莒南影视,https://stream.freetv.fun/32c78ca0f183f16bd5536a9bc932ed195167a5ae2f0b40414f91041c36a901bf.ctv,4728
+莱山影视,https://stream.freetv.fun/fb9c5d9a819d0905ad0b6f1d906d9c0d05db7211164f0cf1ff8e76aef2e264c9.ctv,2059
+菏泽三套影视频道,https://stream.freetv.fun/b3e9f221983eb432edb789b17e42dfef6c40d7d049abc85bf461b3580ecbeb9e.m3u8,1468
+蒲松龄—经典港剧,https://stream.freetv.fun/4d7260f99f2240a527471ba6e005003d06b8fe1a6c061f61f5c3abfceefe253b.ctv,4856
+西施撩电影,https://stream.freetv.fun/d5217e1960c07db65d25093d0be72f710020bfec09582f07450db613fc06c994.ctv,5093
+赛事最经典,https://stream.freetv.fun/076412186ad0024f309dcff52514a806c3ffbb37bae1a8bcf9189b8fe607a0a4.ctv,2430
+超体：高分科幻片,https://stream.freetv.fun/53a9ab312c7220bd4bc3d5f9b3103d4d040bf423d6744be152c1785090ddfd22.ctv,3992
+辟哥影视,https://stream.freetv.fun/15c27f6098d29100385c82c2247ce8daf4dc5d6b32f9d5da0f101723a7450c16.ctv,4852
+辣条讲故事,https://stream.freetv.fun/9bf056781082fd7ab361a789692e4ccdd54e5a065a303fa61ce40279c42412f7.ctv,4838
+逗米说电影,https://stream.freetv.fun/e45d7756f65869d6daa41c5a48487d56824de6dd862691ef2ba43f7ffce7a3e3.ctv,4152
+都挺好-电视剧,https://stream.freetv.fun/7ae210dc3d412f9be539c84ac258df58870b7ace62233af5a06dab300c490ee4.ctv,3520
+银河护卫队-国外科幻巨作,https://stream.freetv.fun/d033c242f194e81b16303b52cfa04aa1356c6cccc60562a681150e444c418ed3.ctv,3561
+霍比特人电影系列,https://stream.freetv.fun/59dfb6ef3b36a107f69c6fd0bd21919301d9c34803b48cb3de9445b077266cf9.ctv,4200
+香兰爱影视,https://stream.freetv.fun/11b3a06e2a5b370e21dadd0bd8512d81b8e76a04f1e72de2c1823672db78d2d9.ctv,6543
+驴哥说电影,https://stream.freetv.fun/65965b220accca97c5138f51c24490dc3337f4e8a14b431772d2f97089dbc6ed.ctv,5360
+高青影视,https://stream.freetv.fun/f4c2b837814125f21ca16c2bfb7f8bb38f3924bdfaeae9fcd8ea088726aeaa45.ctv,3178
+鸡哥聊电影,https://stream.freetv.fun/ffa1b23a4883461e49de0161abadb187e741c980230b9abfaf7301413f868fee.ctv,6040
+
+卫视频道,#genre#
+astv亚洲卫视,https://stream.freetv.fun/29fb58b0084bd6a02272df36e988d99fad9cbb744f6a580153789683b62b0e23.m3u8,1965
+brtv北京卫视hd,https://stream.freetv.fun/a8d41f55112e1f8cd9d858a1ad890d195e974243b37180260c2f1844110a2b9f.ctv,6599
+「官方」安徽卫视,https://stream.freetv.fun/4c39e1adf422320912182e649f49c6d59bb1041942207ebb60a0e6d29d6c575b.ctv,2425
+「官方」江苏卫视,https://stream.freetv.fun/70c89fda500fa981df500fb4b03ba92877bdcff56056a99819c3a410bceb6777.ctv,2571
+「电信1」湖南卫视fhd,https://stream.freetv.fun/5e26d6d46e4832a21a9f8562335e94ccb892189ad39d79acef25d57d29cf84ad.ctv,6406
+「电信2」湖南卫视,https://stream.freetv.fun/5a502570b2fda838fd9133e2adff4098e77e054c62cc3104ebd2d4c7876bc654.ctv,8299
+「电信2」湖南卫视,https://stream.freetv.fun/8720b7c9d5ede0c87714846039cdda4cfd9dc2674ad7eda9ce371d3cf4057c67.ctv,8286
+「电信3」湖南卫视,https://stream.freetv.fun/f9070e761582f0aff58eac1fe665eb2981599d8da429e94dd465cf0c4cd36829.ctv,4562
+「电信」广西卫视,https://stream.freetv.fun/0b2f2f2077a95a68c7fa7b322e26936a063d04c36c2bdaf9e5eaa204dbd618ea.m3u8,7705
+「电信」湖南卫视,https://stream.freetv.fun/ea781dee1fb7b5115f0b0f924eca8117b53ad5062037925afc5a640688e75e9c.m3u8,5826
+「移动1」大湾区卫视hd,https://stream.freetv.fun/758eabf5bdacebae1bdd001516dfd28cd65e9af3203d87fd567f464514f93c26.ctv,9810
+「移动1」广东卫视fhd,https://stream.freetv.fun/70ea1199f40bc927a8f61864990524135532e041c955b4c2e1dd6b3df407b752.ctv,12857
+「移动1」广东卫视hd,https://stream.freetv.fun/e7f6d70edeb3f8a4bb1c27be1df6e8bd775a0dbc5565f8316d5fc9483b5be190.ctv,12910
+「移动2」大湾区卫视hd,https://stream.freetv.fun/b5868ea7d69947e63b455827c0828bc49b0865a84c533799c4e94fe9fad522b5.ctv,8318
+「移动」山东卫视,https://stream.freetv.fun/e7ec2df21bcf01b1192a48a644d441d868bc842cd5110f51a26c253fa238771e.m3u8,2582
+「移动」河北卫视,https://stream.freetv.fun/ef6e9bf17d3ef3ff03548629af83e0126db134dcf26882a402b02238d97bd191.m3u8,5710
+「联通」山东卫视,https://stream.freetv.fun/2c810dfaed4c2192bb1acb9c52eb2e272e41ad64a32426adba781e4d4d15b780.m3u8,2848
+三少卫视,https://stream.freetv.fun/41aee752040f30dd5e9a4036b469218919baee24792526c50c11f5d4842aa8d0.m3u8,7944
+上海卫视,https://stream.freetv.fun/245a34e17860cffd3a97596e52ed6ad8de6c19094099603d7a5ec373bc014d8c.m3u8,3555
+上海卫视,https://stream.freetv.fun/45f33fb98bf709815410b2fa6491c582b3f2d77f244a8709766d5bbc5ab187c9.m3u8,5067
+上海卫视,https://stream.freetv.fun/49c81635070c7240f1008c2c5904450c0d2920ceb08929a52534b9cca9f121a9.m3u8,2048
+上海卫视,https://stream.freetv.fun/4a379cdd3b9e4479861c46271ed81d339acfd065349ce2b113a454dbf9830293.m3u8,2121
+上海卫视,https://stream.freetv.fun/6c01e68a24075b15d929dd49e4b8ac59965aef19dd8daf5f2ebe7e1be3841f13.m3u8,5563
+上海卫视,https://stream.freetv.fun/ac59e09c76316c1b77c711d2ccb7070c9915cf86100358706244be532f2c24f5.m3u8,8252
+上海卫视,https://stream.freetv.fun/c17856d17033f01745c8cc3bfdbdf4039b0932e257d3694ddd14f44814be1ab0.m3u8,2879
+上海卫视,https://stream.freetv.fun/ca2bc07596dce830b6abfd0e489c635697db8f8d20344be1005e3664e1be1439.m3u8,3116
+南方卫视tvs2,https://stream.freetv.fun/2eb3263092ee38613eac8c5b0d16aa9a20348e58f2216a4203bd012fa63b92c7.m3u8,9476
+安微卫视,https://stream.freetv.fun/702dede47f9017946d07ce02e9276049b3d1c743c6e9eaa60fd2c4052b377124.ctv,11482
+广东南方卫视,https://stream.freetv.fun/b2b78d14ed7c1e63b0c509dc20b20c4db101eb37077cd2823288675e66c856b8.m3u8,100000
+河南卫视4k,https://stream.freetv.fun/5d4e81fbf730ae7ac99762084f1db11dd51f060e2bbb8aafc4d5607d5e2819a3.ctv,15801
+辽林卫视,https://stream.freetv.fun/361c640e18e6834e490f03b405f4b1381dba8fc6787e5d1de550394d9a5c92b4.m3u8,6448
+黑龙江卫视 plus,https://stream.freetv.fun/a36da614e647aa81e493b75215bf763a5aa61011064d2cfb60d236c99a09c2c9.m3u8,19278
+
+央视频道,#genre#
+cctv-13 新闻,https://stream.freetv.fun/ccf7aca7a914421f6721d31cf62273aa7c2e9ba0516dd3cfda5a666639c9ca20.m3u8,1315
+cctv-少儿,https://stream.freetv.fun/b27ae0cd5a7635475245d266450d45fc3ef2806ce68b18de2343bd0d1c4f07c3.m3u8,1982
+cctv-新闻,https://stream.freetv.fun/6d53a57ffedae04d53273921271673d45d1c683eacdfe85689a1603a278629a8.m3u8,1940
+cctv1-综合,https://stream.freetv.fun/050844c372f2fa82a9af84509757373e9a5cdb614ae8ff6b6f585edb92887ac9.m3u8,1880
+cctv1-综合,https://stream.freetv.fun/354e2e055127bbf43693aa848d84f93f5bcc517472a8858f188f313dbf157f51.m3u8,1830
+cctv1-综合,https://stream.freetv.fun/43b3d6e136c4077cec6da6d2790b0ca989bb9f0a89ffa897957af73a42883f85.m3u8,2539
+cctv1-综合,https://stream.freetv.fun/58204024963eaad61e2619d7d1ce018573049ff93bde9a7574f265474b97907e.m3u8,12321
+cctv1-综合,https://stream.freetv.fun/ce5384774a118c8eccc8a7402ba31e40b0fd0e08e06a0220c0043cfca4400c14.m3u8,4482
+cctv12-社会与法,https://stream.freetv.fun/031cc4a261ac4aba52fb26bc58eee39e65f2248f875229aa8fcc67f6075c2ed4.m3u8,2136
+cctv12-社会与法,https://stream.freetv.fun/8350c905622be53818827599862f82c7d1fd95bfe011e6a582ab8977b49249ad.m3u8,2779
+cctv12-社会与法,https://stream.freetv.fun/b91ab570797be93e5b35ff265d6af775a03ec73df9cedc59ea26a45eddacd474.m3u8,2443
+cctv12-社会与法,https://stream.freetv.fun/bc0c57f3ba2aafe4da0f9f2d7ab1daaa00b01f677be68a5bc68c11171cc3b6ca.m3u8,3792
+cctv12社会与法,https://stream.freetv.fun/08821321f1021399debb8c447ff401b821fd25732aa1387442824c741d2c3317.m3u8,3014
+cctv12社会与法,https://stream.freetv.fun/67fbb08a61eedd7938da7097dcecc0d00f2ffd18710b70c7a4f01440360d3d40.m3u8,2269
+cctv12社会与法,https://stream.freetv.fun/8f17cf43f5d40d0f0bcdf45f8cf6d694eb9a3c37f5917f5d4a7516e425219361.m3u8,2221
+cctv16奥林匹克,https://stream.freetv.fun/65ae45720c429e4bfbffe3d0239c4d59cb8be14a1d5351ac02a1a46e03fa1412.m3u8,2340
+cctv16奥林匹克,https://stream.freetv.fun/a07548ee1f9b5b67425918553d996161cd01ae235d4fde4a97fc90f069f4694a.m3u8,13001
+cctv16奥林匹克4k,https://stream.freetv.fun/64c740a3b8322012b2f16dc5f238870159cadf8d966f6cbe4951c1bd97e25e88.ctv,9071
+cctv17农业农村,https://stream.freetv.fun/30b0f101d76560af69c6a48be83998be48b86e7bef3cb2d115c85ff47dad654b.m3u8,4775
+cctv17农业农村,https://stream.freetv.fun/6926da3e9331fb7da7526ead9140cd69ffbfb3479736adac1d5b65e55020b895.m3u8,2293
+cctv2-财经,https://stream.freetv.fun/37a50a44aeec6c21dd35ea5fde4ba44d7655ed7b6da01a3366721cd00435b51d.m3u8,1455
+cctv2-财经,https://stream.freetv.fun/4f4af119973bb6307a3799f99bb9df7c4a574594be33c5443fd197e6cb1fa1eb.m3u8,2807
+cctv2-财经,https://stream.freetv.fun/8752f27902ce732a38212d0a9174e306b4ade352c88ab65ba1f59d23a0938c2f.m3u8,4628
+cctv2-财经,https://stream.freetv.fun/8a900bfee2c4c2a59e04380dbfec553120369718ab7b0d63f2f5361b99ffc41a.m3u8,3518
+cctv3-综艺,https://stream.freetv.fun/50eb0d64ab6cdd8ccef092c353606a5f8fb3f844078d65a0a0f686bfc4438ee3.m3u8,6030
+cctv3-综艺,https://stream.freetv.fun/6516f5bc4b5042e6352e06ec48489b44ff846b3578b22a3b4988ace96318867f.m3u8,2252
+cctv3-综艺,https://stream.freetv.fun/6d1c1399180425b22e768625da45642736f1abe5d8b358e000344fcf64b1ec86.m3u8,7580
+cctv3-综艺,https://stream.freetv.fun/6e67c1b1c296644ec99e9a03cffedff9b007b4369f04c7fb4defcf2f76f34c49.m3u8,3158
+cctv3-综艺,https://stream.freetv.fun/ab692257de15538ddd85b8ad84434857520c9c4c4193ff10bded73c4810e251c.m3u8,2314
+cctv4-国际,https://stream.freetv.fun/0d839f5d81e4bf543f91e5413de15e99bc658de9826ea59d16333bc8cb664b44.m3u8,2944
+cctv4-国际,https://stream.freetv.fun/0de12b467d56bf1b1c330fd89d039ed45884f5e17e3c266e56e7857c01ae30cd.m3u8,2547
+cctv4-国际,https://stream.freetv.fun/16fca515fc6c7cf6113e68fe4888bd30587f2fddff3aacdd518e16c371e41468.m3u8,2800
+cctv4-国际,https://stream.freetv.fun/1d35f4d2d00da6c61e503fb713126239f42260c4d19b6322316306410f75b368.m3u8,3224
+cctv4-国际,https://stream.freetv.fun/a08330156a94fcf328198df9c025121caaf5cca68fe9e303fa936ae40cee5887.m3u8,2292
+cctv5-体育,https://stream.freetv.fun/383e3d8c992be432a87276cde7ce3246ff78c67d57802b58cd771beabd3f83d9.m3u8,2555
+cctv5-体育,https://stream.freetv.fun/8c0a0439191a3ba401897378bc2226a7edda1e571cb356ac7c7f4c15f6a2f380.m3u8,2081
+cctv5-体育,https://stream.freetv.fun/d21748d5579d2ca78661122df9e4ae1f75eee06895b76f14d0426bf0e3b031ef.m3u8,3427
+cctv5-体育,https://stream.freetv.fun/f5a407ef97b092f26bee29392bb0060911479b58aa18aa6485cdfd8f9aa13580.m3u8,3110
+cctv6-电影,https://stream.freetv.fun/0bfad480ee221d80e5b7e0b63316e0218535d8bf0c20be92aa997ef717b4909f.m3u8,2814
+cctv6-电影,https://stream.freetv.fun/4cb45951cae51c9b1f16b705c4417c13937bb49c35804a4f95e9f3478b5a9a92.m3u8,3521
+cctv6-电影,https://stream.freetv.fun/6c1d107fc43399b7c24600343124e64ee89f97b8d1983fb5fa51a6547f023046.m3u8,3052
+cctv6-电影,https://stream.freetv.fun/bc4de156a8c4810e9e95f4b2a975198d3dda12d048c5e6abc2d9cfbbeb772ab3.m3u8,1500
+cctv7-军农,https://stream.freetv.fun/29351312c623446452e985390c782736fa8c060d29d9debb7942c9ce9cd615f8.m3u8,1806
+cctv7-军农,https://stream.freetv.fun/bee84649935554fe6294d64da1b84fc131556419447a8f7acc099e95841a6de5.m3u8,1778
+cctv7-军农,https://stream.freetv.fun/c1f93da7a0cd13567f02bfd6f333247e5aa9e44a5dbf8d6b57fa4be2de152a2e.m3u8,4955
+cctv7-军农,https://stream.freetv.fun/e0bdcec0e3dc368ade271676045c96761203148c8402c329ac69d9988bb21bf8.m3u8,1745
+cctv7-军农,https://stream.freetv.fun/f3896a4c2e6a1fbcc48f2c358a6da1a5d5166b5d304f7e86002741f633a829bf.m3u8,1879
+cctv8-电视剧,https://stream.freetv.fun/4a6cc623653ca0950bd53c0e4e1de1042e7627cee769d3c19eede69f4ca8f7cb.m3u8,2853
+cctv8-电视剧,https://stream.freetv.fun/506f21d0ee54b97e7b0b5f8cbf7acc6acec204419051187b7828eed7b6292413.m3u8,3258
+cctv8-电视剧,https://stream.freetv.fun/ae4fb06f78da3f46bef2d0aaf647a19c870ec9ff5921f8d8b86c46d42d19448a.m3u8,2088
+cctv8-电视剧,https://stream.freetv.fun/cedad22369cdcc9dfba9e701d88e0469e1f19103e93a84cb308667ef667c441e.m3u8,2905
+cctv8k超清「v4」,https://stream.freetv.fun/efa5a3cbe1e8eeebb8842e889a7876f625fc7177aa8fa82ef788980ba7dd4ab1.ctv,2309
+cctv8电视剧,https://stream.freetv.fun/1133a5245004b70c9833fe898f2ed1211224cbea843fa5b8a22500df336b18bc.m3u8,2368
+cctv8电视剧,https://stream.freetv.fun/19c960fb02ffdee99cdc112a7f18c45c69bd7855f7c4848fc415a0a5496aaa18.m3u8,1835
+cctv8电视剧,https://stream.freetv.fun/1f59b75f4959b505bb081a3ce8ae81372431e7ebccf9d9139416d0148e0ad0cc.m3u8,2180
+cctv8电视剧,https://stream.freetv.fun/97ad1bd8b854b7f774983ce09b9be22df7ec3775656914d6ae33cf31f8aeea2f.m3u8,2326
+cctv9-纪录,https://stream.freetv.fun/0c01a3543f3509d8aac00c42ea45fb62bb37cfa0b88fc059c5e001887f6eb41b.m3u8,7688
+cctv9-纪录,https://stream.freetv.fun/3709827a912e1677cddb67fdcceb2123e590406064e408c4c8fdb680ed0195b3.m3u8,5120
+cctv9-纪录,https://stream.freetv.fun/5f98918e8819dcb80de3faf43c4aefeea65fb996dd58de52a2e803b03b7946de.m3u8,2017
+cctv9-纪录,https://stream.freetv.fun/93c922beeb6167713d35e4e3c424002e495b4a17c5c7fdb66fe314f850afcf4e.m3u8,2569
+cctv9-纪录,https://stream.freetv.fun/b6ff735d9e6e0249b5871b3567281337f4d79ca894fb62ebdb592de4553b52e4.m3u8,2189
+cctv西班牙语,https://stream.freetv.fun/15387be681fccc4b757ae61232d2dfbb924f309eb66976747222de089803ef4e.ctv,2343
+ช่อง cctv-5+,https://stream.freetv.fun/a28cfdf352457dd1d7a3803d1cd2c47f058656e4de21657ddc101b7ccdaf5293.m3u8,2878
+央视动画,https://stream.freetv.fun/1c63e91ed4f4361ae6e2f8aad709a9885cbec7d21c9db8bc21c966dd3e7174cb.m3u8,2107
+央视文化精品,https://stream.freetv.fun/5a8e775d29c4c46e220912d2489952c4a6bda63d5f06e5999a6decb0593a30c9.m3u8,1693

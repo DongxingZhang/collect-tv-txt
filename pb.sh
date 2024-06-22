@@ -205,23 +205,24 @@ stream_play_main() {
     echo ${period}
 
 
-    #获取链接的地址
-        if [[ ${videopath} =~ ^http ]] || [[ ${videopath} =~ ^rtmp ]]; then
-            for i in 1 2 3 4 5 6
-            do                
-                pgrep get_live_link.py | xargs kill -s 9
-                echo videopath=${videopath}
-                python3 get_live_link.py "${videopath}" "./log/${token}_route.txt"
-                videopath=$(cat "./log/${token}_route.txt")
-                if [ "${videopath}" != "" ]; then
-                    break
-                fi
-            done
-            if [ "${videopath}" = "" ]; then
-                return
+    #取链接的地址
+    if [[ ${videopath} =~ ^http ]] || [[ ${videopath} =~ ^rtmp ]]; then
+        for i in 1 2 3 4 5 6
+        do                
+            pgrep get_live_link.py | xargs kill -s 9
+            python3 get_live_link.py "${videopath}" "./log/${token}_route.txt"
+            videopath1=$(cat "./log/${token}_route.txt")
+            echo videopath1=${videopath1}
+            if [ "${videopath1}" != "" ]; then
+                break
             fi
+        done
+        if [ "${videopath1}" = "" ]; then
+            return
         fi
-
+        videopath=${videopath1}
+        echo videopath=${videopath}
+    fi
     echo -e ${yellow}视频类别（delogo）:${font} ${video_type}
     echo -e ${yellow}视频跳过:${font} ${video_skip}
     echo -e ${yellow}是否明亮（F为维持原亮度）:${font} ${lighter}
@@ -583,12 +584,12 @@ stream_play_main() {
         nohup ${FFMPEG} -re -i "${videopath}" -i "${logo}" -i "${bgimg}" -i "${bgvideo}" -preset ${preset_decode_speed} -filter_complex "${video_format}" -map "[bg2]" -map "[bga]" -vsync 1 -async 1 -fflags discardcorrupt -err_detect aggressive -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -ac 1 -ar 48000 -strict -2 -f flv -y "${rtmp}" &
         while true
         do
-	    sleep 20
+            sleep 20
             pidlist=$(ps -ef | grep "${rtmp}" | grep "${FFMPEG}" | grep -v "ps -ef" | grep -v grep | awk '{print $2}')
             if [ "${pidlist}" = "" ]; then
                 break
             fi
-        done        
+        done              
         #ffmpeg  -timeout 30000000  -i http://39.134.65.164/PLTV/88888888/224/3221225569/1.m3u8 -vcodec libx264 -g 60 -b:v 3000k -c:a aac -b:a 128k -strict -2 -f flv -y  rtmp://www.tomandjerry.work/live/livestream
         echo finished playing $videopath
     fi
