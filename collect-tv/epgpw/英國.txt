@@ -63,7 +63,7 @@ BBC Lifestyle,https://stream.freetv.fun/bbc-lifestyle-4.ctv
 BBC Lifestyle,https://stream.freetv.fun/bbc-lifestyle-5.ctv
 BBC Lifestyle,https://stream.freetv.fun/bbc-lifestyle-6.ctv
 BBC Lifestyle,https://stream.freetv.fun/bbc-lifestyle-mpd-1.ctv
-BBC Lifestyle[geo-blocked],https://stream.freetv.fun/bbc-lifestyle-2.ctv
+BBC Lifestyle,https://stream.freetv.fun/bbc-lifestyle-2.ctv
 BBC One Scotland[geo-blocked],https://stream.freetv.fun/bbc-one-scotland-1.m3u8
 BBC One Scotland[geo-blocked],https://stream.freetv.fun/bbc-scotland-2.m3u8
 BBC One Scotland,https://stream.freetv.fun/ch-ng-bbc-scotland-1.m3u8
@@ -91,7 +91,7 @@ Sky Movies Scifi HD (UK),https://stream.freetv.fun/sky-cinema-sci-fi-4.ctv
 Sky Movies Thriller HD  (UK),https://stream.freetv.fun/kli-thriller-1.m3u8
 Venus TV UK,https://stream.freetv.fun/venus-4.m3u8
 Venus TV UK,https://stream.freetv.fun/venus-5.m3u8
-Venus TV UK[geo-blocked],https://stream.freetv.fun/venus-1.ctv
+Venus TV UK,https://stream.freetv.fun/venus-1.ctv
 Venus TV UK,https://stream.freetv.fun/venus-3.m3u8
 Venus TV UK,https://stream.freetv.fun/venus-2.m3u8
 Kids,#genre#
@@ -132,9 +132,9 @@ Discovery Turbo UK,https://stream.freetv.fun/ch-ng-discovery-turbo-1.m3u8
 Green TV,https://stream.freetv.fun/rajeen-tv-3.m3u8
 History Channel 2 UK,https://stream.freetv.fun/history-channel-3.ctv
 History Channel 2 UK,https://stream.freetv.fun/history-channel-4.ctv
-Nat Geo Wild UK,https://stream.freetv.fun/nat-geo-wild-1.m3u8
 Nat Geo Wild UK,https://stream.freetv.fun/nat-geo-6.ctv
 Nat Geo Wild UK,https://stream.freetv.fun/nat-geo-7.m3u8
+Nat Geo Wild UK,https://stream.freetv.fun/nat-geo-wild-1.m3u8
 Sky Documentaries,https://stream.freetv.fun/rakuten-documentaries-1.m3u8
 Sky Documentaries[geo-blocked],https://stream.freetv.fun/voyager-documentaries-1.m3u8
 Sky Documentaries[geo-blocked],https://stream.freetv.fun/voyager-documentaries-2.m3u8
@@ -204,10 +204,10 @@ Sky Movies Showcase UK,https://stream.freetv.fun/sky-cinema-showcase-2.ctv
 Sky Movies Showcase UK,https://stream.freetv.fun/sky-cinema-showcase-3.ctv
 Sky Movies Showcase UK,https://stream.freetv.fun/sky-cinema-showcase-4.ctv
 Music,#genre#
-MTV Base,https://stream.freetv.fun/mtv-base-4.ctv
 MTV Base,https://stream.freetv.fun/mtv-base-1.ctv
 MTV Base,https://stream.freetv.fun/mtv-base-2.ctv
 MTV Base,https://stream.freetv.fun/mtv-base-3.ctv
+MTV Base,https://stream.freetv.fun/mtv-base-4.ctv
 MTV Base,https://stream.freetv.fun/mtv-1.m3u8
 News,#genre#
 BBC News,https://stream.freetv.fun/bbc-news-5.m3u8
@@ -230,7 +230,6 @@ BBC World News,https://stream.freetv.fun/bbc-world-1.m3u8
 BBC World News,https://stream.freetv.fun/bbc-world-news-2.m3u8
 BBC World News,https://stream.freetv.fun/bbc-world-news-1.m3u8
 Bloomberg TV HD UK[geo-blocked],https://stream.freetv.fun/bloomberg-tv-europe-1.m3u8
-CNN UK,https://stream.freetv.fun/cnn-turk-1.m3u8
 Craft Store TV,https://stream.freetv.fun/the-craft-store-1.m3u8
 Craft Store TV,https://stream.freetv.fun/the-craft-store-2.m3u8
 Euronews English,https://stream.freetv.fun/euronews-english-1.m3u8

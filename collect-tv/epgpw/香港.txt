@@ -74,8 +74,8 @@ Viu TV,https://stream.freetv.fun/360-tv-1.m3u8
 香港衛視,https://stream.freetv.fun/xiang-gang-wei-shi-6.m3u8
 香港衛視,https://stream.freetv.fun/xiang-gang-wei-shi-2.ctv
 香港衛視,https://stream.freetv.fun/xiang-gang-wei-shi-3.m3u8
-香港電臺,https://stream.freetv.fun/xiang-gang-dian-tai-1.m3u8
 香港電臺,https://stream.freetv.fun/xiang-gang-dian-tai-2.m3u8
+香港電臺,https://stream.freetv.fun/xiang-gang-dian-tai-1.m3u8
 鳳凰衛視FHD[geo-blocked],https://stream.freetv.fun/feng-huang-wei-shi-xiang-gang-1.m3u8
 鳳凰衛視FHD[geo-blocked],https://stream.freetv.fun/feng-huang-wei-shi-8.m3u8
 鳳凰衛視中文,https://stream.freetv.fun/feng-huang-zhong-wen-9.m3u8
@@ -89,7 +89,9 @@ Viu TV,https://stream.freetv.fun/360-tv-1.m3u8
 鳳凰衛視中文,https://stream.freetv.fun/feng-huang-wei-shi-2.ctv
 鳳凰衛視中文,https://stream.freetv.fun/feng-huang-wei-shi-1.m3u8
 鳳凰香港,https://stream.freetv.fun/feng-huang-xiang-gang-3.ctv
+鳳凰香港[geo-blocked],https://stream.freetv.fun/feng-huang-xiang-gang-7.m3u8
 鳳凰香港,https://stream.freetv.fun/feng-huang-xiang-gang-1.m3u8
+鳳凰香港[geo-blocked],https://stream.freetv.fun/feng-huang-xiang-gang-6.m3u8
 鳳凰香港,https://stream.freetv.fun/feng-huang-xiang-gang-4.m3u8
 鳳凰香港[geo-blocked],https://stream.freetv.fun/feng-huang-xiang-gang-2.ctv
 知識,#genre#
@@ -169,6 +171,7 @@ CCTV1(RTHK33),https://stream.freetv.fun/rthk33-1.m3u8
 CCTV1(RTHK33),https://stream.freetv.fun/rthktv33-1.m3u8
 HOY TV[geo-blocked],https://stream.freetv.fun/hoy-tv-2.m3u8
 HOY TV[geo-blocked],https://stream.freetv.fun/hoy-tv-zi-xun-1.m3u8
+HOY TV[geo-blocked],https://stream.freetv.fun/hoy-tv-zi-xun-2.m3u8
 RTHK32[geo-blocked],https://stream.freetv.fun/rthk32-1.m3u8
 RTHK32,https://stream.freetv.fun/rthktv32-1.ctv
 RTHK34[geo-blocked],https://stream.freetv.fun/rthk34-3.m3u8
@@ -228,6 +231,8 @@ TVB無線衛星新聞,https://stream.freetv.fun/tvbwu-xian-xin-wen-3.m3u8
 耀才財經臺,https://stream.freetv.fun/yao-cai-cai-jing-2.m3u8
 香港有線新聞臺,https://stream.freetv.fun/xiang-gang-you-xian-xin-wen-2.ctv
 香港有線新聞臺,https://stream.freetv.fun/xiang-gang-you-xian-xin-wen-1.m3u8
+鳳凰資訊HD,https://stream.freetv.fun/feng-huang-zi-xun-12.ctv
+鳳凰資訊HD,https://stream.freetv.fun/feng-huang-zi-xun-13.ctv
 鳳凰資訊HD,https://stream.freetv.fun/feng-huang-zi-xun-10.m3u8
 鳳凰資訊HD,https://stream.freetv.fun/feng-huang-zi-xun-1.m3u8
 其它,#genre#

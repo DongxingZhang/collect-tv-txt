@@ -184,6 +184,13 @@ def write_file(str,filename, mode):
 def log_init(oper):
     write_file("",oper + ".log","w")
 
+def read_file(file_name):
+    lines = []
+    with open(file_name, 'r', encoding='utf-8') as oper_log:
+        lines = oper_log.readlines()
+        lines = [x.strip() for x in lines if x.strip()! = '']
+    return lines
+
 def log_write(oper,string):
     write_file(string, oper + ".log","a")
 
@@ -244,7 +251,7 @@ def process_url(mydict, lines, url):
             continue
         if  "#genre#" not in line and "," in line and ":" in line:
             channel_name=remove_brackets(line.split(',')[0].strip())
-            channel_address=line.split(',')[1].strip()            
+            channel_address=line.split(',')[1].strip().replace('https://raw.githubusercontent.com/','https://hub.gitmirror.com/https://raw.githubusercontent.com/')
             if any(sub_string in channel_name for sub_string in ["Playboy"]):
                 continue
             if len(channel_name) == 0 or check_exclude(channel_type) or check_exists(mydict, channel_address):
@@ -268,7 +275,7 @@ def process_tvname_url(mydict, lines, url, skip=False):
             continue
         if  "#genre#" not in line and "," in line and ":" in line:
             channel_name=remove_brackets(line.split(',')[0].strip())
-            channel_address=line.split(',')[1].strip()
+            channel_address=line.split(',')[1].strip().replace('https://raw.githubusercontent.com/','https://hub.gitmirror.com/https://raw.githubusercontent.com/')
             if len(channel_name) == 0 or check_exists(mydict, channel_address):
                 continue
             if any(sub_string in channel_name for sub_string in ["Playboy"]):
@@ -404,34 +411,8 @@ def check_output_image(oper, channels, ch_type):
 #####开始#################################
 
 # 定义要访问的多个URL
-urls = [
-    'https://raw.githubusercontent.com/Supprise0901/TVBox_live/main/live.txt',
-    'https://raw.githubusercontent.com/Guovin/TV/gd/result.txt', #1天自动更新1次
-    'https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt',
-    'https://raw.githubusercontent.com/gaotianliuyun/gao/master/list.txt',
-    'https://raw.githubusercontent.com/mlvjfchen/TV/main/iptv_list.txt',
-    'https://raw.githubusercontent.com/fenxp/iptv/main/live/ipv6.txt',  #1小时自动更新1次11:11 2024/05/13
-    'https://raw.githubusercontent.com/fenxp/iptv/main/live/tvlive.txt', #1小时自动更新1次11:11 2024/05/13
-    'https://raw.githubusercontent.com/qist/tvbox/master/list.txt',
-    'https://raw.githubusercontent.com/qist/tvbox/master/tvboxtv.txt',
-    'https://raw.githubusercontent.com/qist/tvbox/master/tvlive.txt',
-    'https://m3u.ibert.me/txt/fmml_ipv6.txt',
-    'https://m3u.ibert.me/txt/ycl_iptv.txt',
-    'https://m3u.ibert.me/txt/y_g.txt',
-    'https://m3u.ibert.me/txt/j_home.txt',
-    'https://gitee.com/xxy002/zhiboyuan/raw/master/zby.txt',
-    'https://raw.githubusercontent.com/xianyuyimu/TVBOX-/main/TVBox/%E4%B8%80%E6%9C%A8%E7%9B%B4%E6%92%AD%E6%BA%90.txt',
-    'https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt',
-    #'https://live.fanmingming.com/tv/m3u/ipv6.m3u',
-]
-
-m3u_urls = [
-    'https://raw.githubusercontent.com/Ftindy/IPTV-URL/main/dzh.m3u',
-    'https://raw.githubusercontent.com/Ftindy/IPTV-URL/main/ghyx.m3u',    
-    'https://raw.githubusercontent.com/Ftindy/IPTV-URL/main/bestv.m3u',
-    'https://raw.githubusercontent.com/Ftindy/IPTV-URL/main/IPTV.m3u',    
-    'https://raw.githubusercontent.com/Ftindy/IPTV-URL/main/sxg.m3u',
-]
+urls = read_file("channels.txt")
+m3u_urls = read_file("channels.m3u")
 
 chtype={}
 chtype['卫视频道']=['🇨🇳｜卫视频道', '🇨🇳｜卫视蓝光频道', '卫视频道', '卫视', '•卫视「IPV6」', '卫视台', '未知']
@@ -502,7 +483,7 @@ def refresh(oper, func):
         
         print("start=======================================================")
         # 合并所有对象中的行文本（去重，排序后拼接）
-        version=time_str + ",url"
+        version=time_str() + ",url"
         all_lines =  ["更新时间,#genre#"] +[version] 
         
         for key in mydict.keys():
@@ -515,8 +496,9 @@ def refresh(oper, func):
         
         # 将合并后的文本写入文件
         output_file = '../../mysite/dog.txt'
-        output_file_bak = './history/dog_' + time_str + '.txt'
-        with open(output_file, 'w', encoding='utf-8') as f, open(output_file_bak, 'w', encoding='utf-8') as fb:
+        output_file2 = 'dog.txt'
+        output_file_bak = './history/dog_' + time_str() + '.txt'
+        with open(output_file, 'w', encoding='utf-8') as f, open(output_file_bak, 'w', encoding='utf-8') as fb, open(output_file2, 'w', encoding='utf-8') as f2:
             for line in all_lines:
                 linea=line.split(',')
                 if len(linea) >= 2:
@@ -526,9 +508,11 @@ def refresh(oper, func):
                         channel_source=linea[2].strip()
                         f.write(channel_name + "," + channel_address + '\n')
                         fb.write(channel_name + "," + channel_address + '\n')
+                        f2.write(channel_name + "," + channel_address + '\n')
                     else:
                         f.write(channel_name + "," + channel_address + '\n')
                         fb.write(channel_name + "," + channel_address + '\n')
+                        f2.write(channel_name + "," + channel_address + '\n')
                 else:
                     f.write(line.strip() + '\n')
                     fb.write(line.strip() + '\n')
@@ -543,7 +527,7 @@ def refresh(oper, func):
                process_url(mydict, lines, f)
         
         # 合并所有对象中的行文本（去重，排序后拼接）
-        version=time_str + ",url"
+        version=time_str() + ",url"
         all_lines =  ["更新时间,#genre#"] +[version] 
     
         for key in mydict.keys():
@@ -699,7 +683,7 @@ def refresh(oper, func):
                 process_tvname_url(mydict, lines, f, skip=True)
         
         # 合并所有对象中的行文本（去重，排序后拼接）
-        version=time_str + ",url"
+        version=time_str() + ",url"
         all_lines =  ["更新时间,#genre#"] +[version] 
     
         for key in mydict.keys():
@@ -714,8 +698,8 @@ def refresh(oper, func):
         print(all_lines)
     
         # 将合并后的文本写入文件
-        output_file = './history/gat_epgpw_' + time_str + '.txt'
-        output_file2 = './history/gat_' + time_str + '.txt'
+        output_file = './history/gat_epgpw_' + time_str() + '.txt'
+        output_file2 = 'gat.txt'
         output_mysite_file = "../../mysite/gat.txt"
     
         with open(output_file, 'w', encoding='utf-8') as f, open(output_mysite_file, 'w', encoding='utf-8') as fmysite, open(output_file2, 'w', encoding='utf-8') as f2:

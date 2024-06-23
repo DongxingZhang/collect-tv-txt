@@ -94,7 +94,6 @@ HITS Movies,https://stream.freetv.fun/hits-movies-5.ctv
 HITS Movies,https://stream.freetv.fun/hits-movies-6.ctv
 HITS Movies,https://stream.freetv.fun/ph-hits-movies-1.ctv
 Hits(TW),https://stream.freetv.fun/box-hits-2.ctv
-Okto[geo-blocked],https://stream.freetv.fun/okto-tv-1.m3u8
 Sony Channel,https://stream.freetv.fun/sony-movie-channel-1.m3u8
 Sony Channel,https://stream.freetv.fun/sony-channel-1.m3u8
 News,#genre#
@@ -120,8 +119,8 @@ MOB TV,https://stream.freetv.fun/m2o-tv-1.m3u8
 亞洲美食臺[geo-blocked],https://stream.freetv.fun/ya-zhou-mei-shi-1.m3u8
 Sports,#genre#
 Hub Sport 2,https://stream.freetv.fun/sport-2u-1.m3u8
-SPOTV Stadia[geo-blocked],https://stream.freetv.fun/spotv-stadia-1.ctv
 SPOTV Stadia[geo-blocked],https://stream.freetv.fun/spotv-stadia-2.m3u8
+SPOTV Stadia[geo-blocked],https://stream.freetv.fun/spotv-stadia-1.ctv
 SPOTV Stadia,https://stream.freetv.fun/sixx-1.m3u8
 SPOTV2 Stadia,https://stream.freetv.fun/radio-shanson-1.m3u8
 SPOTV2 Stadia,https://stream.freetv.fun/tv-aldeia-2.m3u8

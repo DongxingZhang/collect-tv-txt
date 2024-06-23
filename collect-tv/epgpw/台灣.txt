@@ -225,7 +225,7 @@ ROCK Extreme,https://stream.freetv.fun/ph-rock-extreme-1.ctv
 三立戲劇[geo-blocked],https://stream.freetv.fun/san-li-xi-ju-3.m3u8
 三立戲劇[geo-blocked],https://stream.freetv.fun/san-li-xi-ju-4.ctv
 八大戲劇HD,https://stream.freetv.fun/ba-da-xi-ju-1.m3u8
-八大戲劇HD[geo-blocked],https://stream.freetv.fun/ba-da-xi-ju-tai-hd-1.m3u8
+八大戲劇HD[geo-blocked],https://stream.freetv.fun/ba-da-xi-ju-tai-1.m3u8
 好萊塢電影[geo-blocked],https://stream.freetv.fun/hao-lai-wu-dian-ying-2.ctv
 好萊塢電影[geo-blocked],https://stream.freetv.fun/hao-lai-wu-dian-ying-1.ctv
 東森戲劇[geo-blocked],https://stream.freetv.fun/dong-sen-xi-ju-1.ctv
@@ -432,8 +432,8 @@ TTV-3,https://stream.freetv.fun/kttv3-1.ctv
 DAZN 1(TW),https://stream.freetv.fun/dazn-la-liga-1.ctv
 DAZN 1(TW),https://stream.freetv.fun/dazn-portugues-1.ctv
 DAZN 2(TW),https://stream.freetv.fun/dazn2-1.m3u8
-Eleven Sports1,https://stream.freetv.fun/eleven-sports-1-1.ctv
 Eleven Sports1,https://stream.freetv.fun/eleven-sports-1-pl-1.ctv
+Eleven Sports1,https://stream.freetv.fun/eleven-sports-1-1.ctv
 Eleven Sports2,https://stream.freetv.fun/eleven-sports-2-pl-1.ctv
 Eleven Sports2,https://stream.freetv.fun/eleven-sports-2-1.ctv
 Eleven sports,https://stream.freetv.fun/eleven-sports-3-1.ctv

@@ -13,6 +13,7 @@
 綜藝,#genre#
 @TV e娛樂,https://stream.freetv.fun/tv-2.m3u8
 @TV e娛樂,https://stream.freetv.fun/tv-3.m3u8
+CCTV3,https://stream.freetv.fun/cctv3-1.m3u8
 CCTV3,https://stream.freetv.fun/cctv3-4.m3u8
 CCTV3,https://stream.freetv.fun/cctv3-12.m3u8
 CCTV3[ipv6],https://stream.freetv.fun/ipv6-cctv3-13.m3u8
@@ -99,7 +100,6 @@ CCTV3,https://stream.freetv.fun/cctv3-8.m3u8
 CCTV3,https://stream.freetv.fun/cctv3-9.m3u8
 CCTV3,https://stream.freetv.fun/cctv3-10.m3u8
 CCTV3,https://stream.freetv.fun/cctv3-11.m3u8
-CCTV3,https://stream.freetv.fun/cctv3-60.m3u8
 CCTV3,https://stream.freetv.fun/cctv3-6.m3u8
 CCTV風雲音樂,https://stream.freetv.fun/cctv-yin-le-1.m3u8
 CCTV風雲音樂,https://stream.freetv.fun/cctvfeng-yun-yin-le-1.m3u8
@@ -149,7 +149,7 @@ V音樂[ipv6],https://stream.freetv.fun/ipv6-yin-le-1.m3u8
 成都影視文藝,https://stream.freetv.fun/cheng-du-ying-shi-1.ctv
 樂遊頻道,https://stream.freetv.fun/le-you-4.ctv
 樂遊頻道[ipv6],https://stream.freetv.fun/ipv6-le-you-3.m3u8
-樂遊頻道,https://stream.freetv.fun/45ea61ddce31cae98a7e26975d4e72c2fd27893d906e1c39cbc9f524ab69f027.m3u8
+樂遊頻道,https://stream.freetv.fun/le-you-1.m3u8
 樂遊頻道[ipv6],https://stream.freetv.fun/ipv6-le-you-2.m3u8
 江蘇綜藝,https://stream.freetv.fun/jiang-su-zong-yi-1.m3u8
 江蘇綜藝,https://stream.freetv.fun/jiang-su-zong-yi-2.ctv
@@ -181,6 +181,7 @@ V音樂[ipv6],https://stream.freetv.fun/ipv6-yin-le-1.m3u8
 黑龍江文藝[ipv6],https://stream.freetv.fun/ipv6-hei-long-jiang-wen-hua-1.m3u8
 綜合,#genre#
 BesTV LIVE[geo-blocked],https://stream.freetv.fun/et-live-1.m3u8
+CCTV1,https://stream.freetv.fun/cctv1-73.m3u8
 CCTV1[ipv6],https://stream.freetv.fun/ipv6-cctv1-20.m3u8
 CCTV1,https://stream.freetv.fun/cctv1zong-he-5.m3u8
 CCTV1,https://stream.freetv.fun/cctv-01-1.m3u8
@@ -249,7 +250,6 @@ CCTV1[ipv6],https://stream.freetv.fun/ipv6-cctv1-13.m3u8
 CCTV1,https://stream.freetv.fun/cctv1-14.m3u8
 CCTV1,https://stream.freetv.fun/cctv1-43.m3u8
 CCTV1,https://stream.freetv.fun/cctv1-17.m3u8
-CCTV1,https://stream.freetv.fun/cctv1-70.m3u8
 CCTV1[ipv6],https://stream.freetv.fun/ipv6-cctv1-19.m3u8
 CCTV1,https://stream.freetv.fun/cctv1-23.m3u8
 CCTV1,https://stream.freetv.fun/cctv-1-2.m3u8
@@ -357,8 +357,8 @@ CCTV12[ipv6],https://stream.freetv.fun/ipv6-cctv12-1.m3u8
 CCTV12,https://stream.freetv.fun/cctv12-2.m3u8
 CCTV4中文國際歐洲,https://stream.freetv.fun/cctv-4zhong-wen-guo-ji-1.m3u8
 CCTV4中文國際歐洲,https://stream.freetv.fun/cctv-4-zhong-wen-guo-ji-1.m3u8
-CCTV4中文國際歐洲,https://stream.freetv.fun/cctv-4-zhong-wen-guo-ji--ou-zhou-hd-1.ctv
-CCTV4中文國際美洲,https://stream.freetv.fun/cctv-4-zhong-wen-guo-ji--mei-zhou-hd-1.ctv
+CCTV4中文國際歐洲,https://stream.freetv.fun/cctv-4-zhong-wen-guo-ji--ou-zhou-1.ctv
+CCTV4中文國際美洲,https://stream.freetv.fun/cctv-4-zhong-wen-guo-ji--mei-zhou-1.ctv
 CCTV4中文國際美洲,https://stream.freetv.fun/cctv4zhong-wen-guo-ji-2.m3u8
 CCTV4中文國際美洲,https://stream.freetv.fun/cctv4zhong-wen-guo-ji-5.m3u8
 CCTV4中文國際美洲[ipv6],https://stream.freetv.fun/ipv6-cctv4zhong-wen-guo-ji-6.m3u8
@@ -455,9 +455,8 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 北京衛視,https://stream.freetv.fun/bei-jing-wei-shi-4.m3u8
 北京衛視,https://stream.freetv.fun/bei-jing-wei-shi-5.m3u8
 北京衛視,https://stream.freetv.fun/bei-jing-wei-shi-6.m3u8
-北京衛視[geo-blocked],https://stream.freetv.fun/bei-jing-wei-shi-7.m3u8
+北京衛視,https://stream.freetv.fun/bei-jing-wei-shi-7.m3u8
 北京衛視,https://stream.freetv.fun/bei-jing-wei-shi-8.m3u8
-北京衛視,https://stream.freetv.fun/bei-jing-wei-shi-9.m3u8
 北京衛視,https://stream.freetv.fun/bei-jing-wei-shi-10.m3u8
 北京衛視[ipv6],https://stream.freetv.fun/ipv6-bei-jing-wei-shi-11.m3u8
 北京衛視[ipv6],https://stream.freetv.fun/ipv6-bei-jing-wei-shi-12.m3u8
@@ -536,7 +535,6 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 北京衛視,https://stream.freetv.fun/bei-jing-wei-shi-91.m3u8
 北京衛視,https://stream.freetv.fun/bei-jing-wei-shi-92.m3u8
 北京衛視[geo-blocked],https://stream.freetv.fun/bei-jing-wei-shi-93.ctv
-北京衛視,https://stream.freetv.fun/bei-jing-wei-shi-1.m3u8
 北京衛視,https://stream.freetv.fun/bei-jing-wei-shi-29.m3u8
 北京衛視,https://stream.freetv.fun/bei-jing-wei-shi-31.m3u8
 北京衛視 HD,https://stream.freetv.fun/bei-jing-wei-shi-76.m3u8
@@ -556,7 +554,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 南京生活[geo-blocked],https://stream.freetv.fun/nan-jing-sheng-huo-1.m3u8
 南國都市,https://stream.freetv.fun/yan-zhou-nan-guo-du-shi-2.ctv
 南國都市,https://stream.freetv.fun/nan-guo-du-shi--4k-1.ctv
-南國都市,https://stream.freetv.fun/628f03a3f02d4e7306765b6b48cce75df3f0c3d358bc9d83ef34f0b048deff0e.ctv
+南國都市,https://stream.freetv.fun/nan-guo-du-shi-1.ctv
 南國都市,https://stream.freetv.fun/yan-zhou-nan-guo-du-shi-1.m3u8
 南方衛視,https://stream.freetv.fun/nan-fang-wei-shi-1.m3u8
 吉林公共,https://stream.freetv.fun/ji-lin-gong-gong-1.m3u8
@@ -629,7 +627,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 吉林衛視,https://stream.freetv.fun/ji-lin-wei-shi-69.m3u8
 吉林衛視,https://stream.freetv.fun/ji-lin-wei-shi-71.m3u8
 吉林衛視[ipv6],https://stream.freetv.fun/ipv6-ji-lin-wei-shi-3.m3u8
-吉林衛視,https://stream.freetv.fun/ji-lin-wei-shi-hd-1.ctv
+吉林衛視,https://stream.freetv.fun/ji-lin-wei-shi-66.ctv
 吉林衛視,https://stream.freetv.fun/ji-lin-wei-shi-72.m3u8
 吉林衛視,https://stream.freetv.fun/ji-lin-wei-shi-73.m3u8
 吉林衛視,https://stream.freetv.fun/ji-lin-wei-shi-2.m3u8
@@ -717,13 +715,13 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 四川衛視,https://stream.freetv.fun/si-chuan-wei-shi-80.m3u8
 四川衛視,https://stream.freetv.fun/si-chuan-wei-shi-37.m3u8
 四川衛視,https://stream.freetv.fun/si-chuan-wei-shi-40.m3u8
-四川衛視[geo-blocked],https://stream.freetv.fun/si-chuan-wei-shi-4.m3u8
+四川衛視,https://stream.freetv.fun/si-chuan-wei-shi-4.m3u8
 四川衛視,https://stream.freetv.fun/si-chuan-wei-shi-6.m3u8
 大灣區衛視,https://stream.freetv.fun/da-wan-qu-wei-shi-7.ctv
 大灣區衛視,https://stream.freetv.fun/da-wan-qu-wei-shi-3.m3u8
 大灣區衛視[ipv6],https://stream.freetv.fun/ipv6-da-wan-qu-wei-shi-5.m3u8
 大灣區衛視,https://stream.freetv.fun/da-wan-qu-wei-shi-6.m3u8
-大灣區衛視,https://stream.freetv.fun/da-wan-qu-wei-shi-1080p-1.ctv
+大灣區衛視,https://stream.freetv.fun/da-wan-qu-wei-shi-12.ctv
 大灣區衛視,https://stream.freetv.fun/da-wan-qu-wei-shi-2.ctv
 大灣區衛視,https://stream.freetv.fun/da-wan-qu-wei-shi-8.m3u8
 大灣區衛視,https://stream.freetv.fun/da-ya-wan-qu-wei-shi-1.m3u8
@@ -735,7 +733,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 大灣區衛視,https://stream.freetv.fun/da-wan-qu-wei-shi-4.m3u8
 大灣區衛視,https://stream.freetv.fun/da-wan-qu-wei-shi-1.m3u8
 大灣區衛視,https://stream.freetv.fun/da-wan-qu-wei-shi-v4-1.m3u8
-天津衛視,https://stream.freetv.fun/tian-jin-wei-shi-2.m3u8
+天津衛視[geo-blocked],https://stream.freetv.fun/tian-jin-wei-shi-2.m3u8
 天津衛視,https://stream.freetv.fun/tian-jin-wei-shi-3.m3u8
 天津衛視,https://stream.freetv.fun/tian-jin-wei-shi-4.m3u8
 天津衛視,https://stream.freetv.fun/tian-jin-wei-shi-5.m3u8
@@ -818,7 +816,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 天津衛視,https://stream.freetv.fun/tian-jin-wei-shi-86.m3u8
 天津衛視,https://stream.freetv.fun/tian-jin-wei-shi-64.m3u8
 天津衛視,https://stream.freetv.fun/tian-jin-wei-shi-42.m3u8
-天津衛視,https://stream.freetv.fun/tian-jin-wei-shi-hd-1.ctv
+天津衛視,https://stream.freetv.fun/tian-jin-wei-shi-71.ctv
 天津衛視,https://stream.freetv.fun/tian-jin-wei-shi-39.m3u8
 天津衛視,https://stream.freetv.fun/tian-jin-wei-shi-81.m3u8
 天津衛視[ipv6],https://stream.freetv.fun/ipv6-tian-jin-wei-shi-1.m3u8
@@ -846,7 +844,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 安徽經濟生活,https://stream.freetv.fun/an-hui-jing-ji-sheng-huo-5.m3u8
 安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-2.m3u8
 安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-3.m3u8
-安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-4.m3u8
+安徽衛視[geo-blocked],https://stream.freetv.fun/an-hui-wei-shi-4.m3u8
 安徽衛視[ipv6],https://stream.freetv.fun/ipv6-an-hui-wei-shi-5.m3u8
 安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-6.m3u8
 安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-7.m3u8
@@ -867,7 +865,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-22.m3u8
 安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-23.m3u8
 安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-25.m3u8
-安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-hd-1.ctv
+安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-41.ctv
 安徽衛視[ipv6],https://stream.freetv.fun/ipv6-an-hui-wei-shi-26.m3u8
 安徽衛視[ipv6],https://stream.freetv.fun/ipv6-an-hui-wei-shi-27.m3u8
 安徽衛視[ipv6],https://stream.freetv.fun/ipv6-an-hui-wei-shi-28.m3u8
@@ -894,7 +892,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-49.m3u8
 安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-50.m3u8
 安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-51.m3u8
-安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-hd-2.m3u8
+安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-60.m3u8
 安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-52.m3u8
 安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-53.m3u8
 安徽衛視,https://stream.freetv.fun/an-hui-wei-shi-54.m3u8
@@ -941,7 +939,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 山東衛視[ipv6],https://stream.freetv.fun/ipv6-shan-dong-wei-shi-3.m3u8
 山東衛視[ipv6],https://stream.freetv.fun/ipv6-shan-dong-wei-shi-4.m3u8
 山東衛視,https://stream.freetv.fun/shan-dong-wei-shi-6.m3u8
-山東衛視[geo-blocked],https://stream.freetv.fun/shan-dong-wei-shi-7.m3u8
+山東衛視,https://stream.freetv.fun/shan-dong-wei-shi-7.m3u8
 山東衛視[ipv6],https://stream.freetv.fun/ipv6-shan-dong-wei-shi-8.m3u8
 山東衛視,https://stream.freetv.fun/shan-dong-wei-shi-9.m3u8
 山東衛視[ipv6],https://stream.freetv.fun/ipv6-shan-dong-wei-shi-10.m3u8
@@ -1006,7 +1004,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 山東衛視,https://stream.freetv.fun/shan-dong-wei-shi-59.m3u8
 山東衛視,https://stream.freetv.fun/shan-dong-wei-shi-80.m3u8
 山東衛視,https://stream.freetv.fun/shan-dong-wei-shi-42.m3u8
-山東衛視,https://stream.freetv.fun/shan-dong-wei-shi-hd-1.ctv
+山東衛視,https://stream.freetv.fun/shan-dong-wei-shi-31.ctv
 山東衛視,https://stream.freetv.fun/shan-dong-wei-shi-1.m3u8
 山東衛視,https://stream.freetv.fun/shan-dong-wei-shi-5.m3u8
 山東農科,https://stream.freetv.fun/shan-dong-nong-ke-6.m3u8
@@ -1122,12 +1120,12 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 廣東民生,https://stream.freetv.fun/yan-dong-min-sheng-10.ctv
 廣東民生[geo-blocked],https://stream.freetv.fun/yan-dong-min-sheng-4.ctv
 廣東民生,https://stream.freetv.fun/yan-dong-min-sheng-2.m3u8
-廣東民生,https://stream.freetv.fun/yan-dong-gong-gong-1080p-1.ctv
+廣東民生,https://stream.freetv.fun/yan-dong-gong-gong-6.ctv
 廣東民生,https://stream.freetv.fun/yan-dong-min-sheng-8.ctv
 廣東民生[geo-blocked],https://stream.freetv.fun/yan-dong-min-sheng-6.ctv
 廣東民生,https://stream.freetv.fun/yan-dong-min-sheng-9.ctv
 廣東民生,https://stream.freetv.fun/yan-dong-gong-gong-1.m3u8
-廣東珠江,https://stream.freetv.fun/yan-dong-zhu-jiang-1080p-1.ctv
+廣東珠江,https://stream.freetv.fun/yan-dong-zhu-jiang-12.ctv
 廣東珠江,https://stream.freetv.fun/yan-dong-zhu-jiang-3.m3u8
 廣東珠江,https://stream.freetv.fun/yan-dong-zhu-jiang-6.m3u8
 廣東珠江,https://stream.freetv.fun/yan-dong-zhu-jiang-7.m3u8
@@ -1151,13 +1149,12 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 廣東經濟科教,https://stream.freetv.fun/yan-dong-jing-ji-ke-jiao-1.m3u8
 廣東經濟科教,https://stream.freetv.fun/yan-dong-jing-ji-ke-jiao-2.m3u8
 廣東經濟科教,https://stream.freetv.fun/yan-dong-ke-jiao-1.m3u8
-廣東經濟科教,https://stream.freetv.fun/a304f030ffa0784694560c1ff06a10b508080d9b7a31c317b4aaefba18ffa533.ctv
+廣東經濟科教,https://stream.freetv.fun/yan-dong-ke-jiao-2.ctv
 廣東經濟科教,https://stream.freetv.fun/yan-dong-jing-ji-ke-jiao-7.ctv
 廣東經濟科教,https://stream.freetv.fun/yan-dong-jing-ji-ke-jiao-3.ctv
 廣東經濟科教,https://stream.freetv.fun/yan-dong-ke-jiao-3.m3u8
 廣東經濟科教,https://stream.freetv.fun/yan-dong-jing-ji-ke-jiao-5.ctv
 廣東衛視,https://stream.freetv.fun/yan-dong-wei-shi-2.m3u8
-廣東衛視,https://stream.freetv.fun/yan-dong-wei-shi-3.m3u8
 廣東衛視[ipv6],https://stream.freetv.fun/ipv6-yan-dong-wei-shi-4.m3u8
 廣東衛視,https://stream.freetv.fun/yan-dong-wei-shi-5.m3u8
 廣東衛視[ipv6],https://stream.freetv.fun/ipv6-yan-dong-wei-shi-6.m3u8
@@ -1178,7 +1175,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 廣東衛視[ipv6],https://stream.freetv.fun/ipv6-yan-dong-wei-shi-21.m3u8
 廣東衛視,https://stream.freetv.fun/yan-dong-wei-shi-22.m3u8
 廣東衛視,https://stream.freetv.fun/yan-dong-wei-shi-23.m3u8
-廣東衛視,https://stream.freetv.fun/yan-dong-wei-shi-hd-1.ctv
+廣東衛視,https://stream.freetv.fun/yan-dong-wei-shi-42.ctv
 廣東衛視[ipv6],https://stream.freetv.fun/ipv6-yan-dong-wei-shi-25.m3u8
 廣東衛視[ipv6],https://stream.freetv.fun/ipv6-yan-dong-wei-shi-26.m3u8
 廣東衛視[ipv6],https://stream.freetv.fun/ipv6-yan-dong-wei-shi-27.m3u8
@@ -1211,7 +1208,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 廣東衛視,https://stream.freetv.fun/yan-dong-wei-shi-55.m3u8
 廣東衛視,https://stream.freetv.fun/yan-dong-wei-shi-56.m3u8
 廣東衛視,https://stream.freetv.fun/yan-dong-wei-shi-57.m3u8
-廣東衛視,https://stream.freetv.fun/yan-dong-wei-shi-1080p-1.ctv
+廣東衛視,https://stream.freetv.fun/yan-dong-wei-shi-39.ctv
 廣東衛視,https://stream.freetv.fun/yan-dong-wei-shi-58.m3u8
 廣東衛視,https://stream.freetv.fun/yan-dong-wei-shi-60.m3u8
 廣東衛視,https://stream.freetv.fun/yan-dong-wei-shi-93.m3u8
@@ -1248,7 +1245,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 廣東衛視,https://stream.freetv.fun/yan-dong-nan-fang-wei-shi-1.m3u8
 廣西公共,https://stream.freetv.fun/yan-xi-gong-gong-1.m3u8
 廣西衛視,https://stream.freetv.fun/yan-xi-wei-shi-52.m3u8
-廣西衛視,https://stream.freetv.fun/yan-xi-wei-shi-3.m3u8
+廣西衛視[geo-blocked],https://stream.freetv.fun/yan-xi-wei-shi-3.m3u8
 廣西衛視[ipv6],https://stream.freetv.fun/ipv6-yan-xi-wei-shi-4.m3u8
 廣西衛視,https://stream.freetv.fun/yan-xi-wei-shi-5.m3u8
 廣西衛視,https://stream.freetv.fun/yan-xi-wei-shi-6.m3u8
@@ -1405,7 +1402,6 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 東南衛視,https://stream.freetv.fun/dong-nan-wei-shi-5.m3u8
 東南衛視,https://stream.freetv.fun/dong-nan-wei-shi-6.m3u8
 東南衛視,https://stream.freetv.fun/dong-nan-wei-shi-7.m3u8
-東南衛視,https://stream.freetv.fun/dong-nan-wei-shi-8.m3u8
 東南衛視[ipv6],https://stream.freetv.fun/ipv6-dong-nan-wei-shi-9.m3u8
 東南衛視,https://stream.freetv.fun/dong-nan-wei-shi-10.m3u8
 東南衛視,https://stream.freetv.fun/dong-nan-wei-shi-11.m3u8
@@ -1447,7 +1443,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 東南衛視,https://stream.freetv.fun/dong-nan-wei-shi-47.m3u8
 東南衛視,https://stream.freetv.fun/dong-nan-wei-shi-48.m3u8
 東南衛視,https://stream.freetv.fun/dong-nan-wei-shi-49.m3u8
-東南衛視,https://stream.freetv.fun/dong-nan-wei-shi-hd-1.m3u8
+東南衛視,https://stream.freetv.fun/dong-nan-wei-shi-62.m3u8
 東南衛視,https://stream.freetv.fun/dong-nan-wei-shi-50.m3u8
 東南衛視,https://stream.freetv.fun/dong-nan-wei-shi-51.m3u8
 東南衛視,https://stream.freetv.fun/dong-nan-wei-shi-53.m3u8
@@ -1488,7 +1484,6 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 東方衛視,https://stream.freetv.fun/dong-fang-wei-shi-6.m3u8
 東方衛視,https://stream.freetv.fun/dong-fang-wei-shi-7.m3u8
 東方衛視,https://stream.freetv.fun/dong-fang-wei-shi-8.m3u8
-東方衛視,https://stream.freetv.fun/dong-fang-wei-shi-9.m3u8
 東方衛視,https://stream.freetv.fun/dong-fang-wei-shi-10.m3u8
 東方衛視[ipv6],https://stream.freetv.fun/ipv6-dong-fang-wei-shi-11.m3u8
 東方衛視[ipv6],https://stream.freetv.fun/ipv6-dong-fang-wei-shi-12.m3u8
@@ -1557,19 +1552,19 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 東方衛視[ipv6],https://stream.freetv.fun/ipv6-dong-fang-wei-shi-2.m3u8
 東方衛視[ipv6],https://stream.freetv.fun/ipv6-dong-fang-wei-shi-3.m3u8
 東方衛視,https://stream.freetv.fun/dong-fang-wei-shi-4.m3u8
-東方衛視,https://stream.freetv.fun/dong-fang-wei-shi-hd-1.ctv
+東方衛視,https://stream.freetv.fun/dong-fang-wei-shi-37.ctv
 東莞綜合,https://stream.freetv.fun/dong-wan-zong-he-1.m3u8
-東莞綜合,https://stream.freetv.fun/dong-wan-zong-he-1080p-1.ctv
+東莞綜合,https://stream.freetv.fun/dong-wan-zong-he-2.ctv
 梅州客家生活,https://stream.freetv.fun/mei-zhou-sheng-huo-1.m3u8
 梅州綜合,https://stream.freetv.fun/mei-zhou-zong-he-1.ctv
 梅州綜合,https://stream.freetv.fun/mei-zhou-zong-he-2.m3u8
 梅州綜合,https://stream.freetv.fun/mei-zhou-yi-tao-zong-he-1.m3u8
 棗莊公共,https://stream.freetv.fun/zao-zhuang-gong-gong-2.m3u8
 棗莊經濟生活,https://stream.freetv.fun/zao-zhuang-jing-ji-1.m3u8
-汕尾綜合,https://stream.freetv.fun/shan-wei-zong-he-1080p-1.ctv
-汕頭經濟生活,https://stream.freetv.fun/2aff78068959941dc415cd0510f27f8eea7a868180b05b4147deda5233e447b4.ctv
+汕尾綜合,https://stream.freetv.fun/shan-wei-zong-he-1.ctv
+汕頭經濟生活,https://stream.freetv.fun/shan-tou-sheng-huo-1.ctv
 汕頭經濟生活,https://stream.freetv.fun/shan-tou-jing-ji-1.m3u8
-汕頭綜合,https://stream.freetv.fun/shan-tou-zong-he-1080p-1.ctv
+汕頭綜合,https://stream.freetv.fun/shan-tou-zong-he-3.ctv
 江蘇城市,https://stream.freetv.fun/jiang-su-cheng-shi-1.ctv
 江蘇城市,https://stream.freetv.fun/jiang-su-cheng-shi-2.ctv
 江蘇衛視,https://stream.freetv.fun/jiang-su-wei-shi-10.m3u8
@@ -1645,7 +1640,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 江蘇衛視,https://stream.freetv.fun/jiang-su-wei-shi-91.m3u8
 江蘇衛視,https://stream.freetv.fun/jiang-su-wei-shi-61.m3u8
 江蘇衛視,https://stream.freetv.fun/jiang-su-wei-shi-55.m3u8
-江蘇衛視,https://stream.freetv.fun/jiang-su-wei-shi-hd-1.ctv
+江蘇衛視,https://stream.freetv.fun/jiang-su-wei-shi-68.ctv
 江蘇衛視,https://stream.freetv.fun/jiang-su-wei-shi-92.m3u8
 江蘇衛視,https://stream.freetv.fun/jiang-su-wei-shi-2.m3u8
 江蘇衛視,https://stream.freetv.fun/jiang-su-wei-shi-3.m3u8
@@ -1664,7 +1659,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 江西衛視[ipv6],https://stream.freetv.fun/ipv6-jiang-xi-wei-shi-1.m3u8
 江西衛視[ipv6],https://stream.freetv.fun/ipv6-jiang-xi-wei-shi-2.m3u8
 江西衛視[ipv6],https://stream.freetv.fun/ipv6-jiang-xi-wei-shi-3.m3u8
-江西衛視[geo-blocked],https://stream.freetv.fun/jiang-xi-wei-shi-4.m3u8
+江西衛視,https://stream.freetv.fun/jiang-xi-wei-shi-4.m3u8
 江西衛視,https://stream.freetv.fun/jiang-xi-wei-shi-5.m3u8
 江西衛視,https://stream.freetv.fun/jiang-xi-wei-shi-6.m3u8
 江西衛視,https://stream.freetv.fun/jiang-xi-wei-shi-7.m3u8
@@ -1739,7 +1734,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 江西衛視,https://stream.freetv.fun/jiang-xi-wei-shi-82.m3u8
 江西衛視,https://stream.freetv.fun/jiang-xi-wei-shi-55.m3u8
 江西衛視,https://stream.freetv.fun/jiang-xi-wei-shi-50.m3u8
-江西衛視,https://stream.freetv.fun/jiang-xi-wei-shi-hd-1.ctv
+江西衛視,https://stream.freetv.fun/jiang-xi-wei-shi-62.ctv
 江西都市,https://stream.freetv.fun/jiang-xi-du-shi-1.ctv
 江西都市,https://stream.freetv.fun/jiang-xi-du-shi-2.m3u8
 江西都市[geo-blocked],https://stream.freetv.fun/jiang-xi-du-shi-5.ctv
@@ -1762,9 +1757,10 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 河北經濟生活,https://stream.freetv.fun/he-bei-jing-ji-sheng-huo-4.m3u8
 河北經濟生活,https://stream.freetv.fun/he-bei-jing-ji-2.m3u8
 河北經濟生活,https://stream.freetv.fun/he-bei-jing-ji-1.m3u8
+河北衛視,https://stream.freetv.fun/he-bei-wei-shi-84.m3u8
 河北衛視[ipv6],https://stream.freetv.fun/ipv6-he-bei-wei-shi-2.m3u8
 河北衛視[ipv6],https://stream.freetv.fun/ipv6-he-bei-wei-shi-3.m3u8
-河北衛視[geo-blocked],https://stream.freetv.fun/he-bei-wei-shi-4.m3u8
+河北衛視,https://stream.freetv.fun/he-bei-wei-shi-4.m3u8
 河北衛視,https://stream.freetv.fun/he-bei-wei-shi-5.m3u8
 河北衛視,https://stream.freetv.fun/he-bei-wei-shi-6.m3u8
 河北衛視[ipv6],https://stream.freetv.fun/ipv6-he-bei-wei-shi-7.m3u8
@@ -1841,7 +1837,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 河北衛視,https://stream.freetv.fun/he-bei-wei-shi-81.m3u8
 河北衛視,https://stream.freetv.fun/he-bei-wei-shi-85.m3u8
 河北衛視,https://stream.freetv.fun/he-bei-wei-shi-55.m3u8
-河北衛視,https://stream.freetv.fun/he-bei-wei-shi-hd-1.ctv
+河北衛視,https://stream.freetv.fun/he-bei-wei-shi-65.ctv
 河北農民,https://stream.freetv.fun/he-bei-nong-min-tai-gao-qing-1.m3u8
 河北農民,https://stream.freetv.fun/he-bei-nong-min-6.m3u8
 河北農民,https://stream.freetv.fun/he-bei-nong-min-2.m3u8
@@ -1881,7 +1877,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 河南法治,https://stream.freetv.fun/he-nan-fa-zhi-1.ctv
 河南法治,https://stream.freetv.fun/he-nan-fa-zhi-2.m3u8
 河南法治,https://stream.freetv.fun/he-nan-fa-zhi-4.ctv
-河南衛視,https://stream.freetv.fun/he-nan-wei-shi-2.m3u8
+河南衛視[geo-blocked],https://stream.freetv.fun/he-nan-wei-shi-2.m3u8
 河南衛視,https://stream.freetv.fun/he-nan-wei-shi-3.m3u8
 河南衛視,https://stream.freetv.fun/he-nan-wei-shi-4.m3u8
 河南衛視,https://stream.freetv.fun/he-nan-wei-shi-5.m3u8
@@ -2064,7 +2060,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 浙江衛視,https://stream.freetv.fun/zhe-jiang-wei-shi-57.m3u8
 浙江衛視,https://stream.freetv.fun/zhe-jiang-wei-shi-97.m3u8
 浙江衛視,https://stream.freetv.fun/zhe-jiang-wei-shi-67.m3u8
-浙江衛視,https://stream.freetv.fun/zhe-jiang-wei-shi-hd-1.ctv
+浙江衛視,https://stream.freetv.fun/zhe-jiang-wei-shi-78.ctv
 浙江衛視,https://stream.freetv.fun/zhe-jiang-wei-shi-1.m3u8
 浙江衛視[ipv6],https://stream.freetv.fun/ipv6-zhe-jiang-wei-shi-2.m3u8
 浙江衛視,https://stream.freetv.fun/zhe-jiang-wei-shi-89.m3u8
@@ -2072,7 +2068,6 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 浙江衛視,https://stream.freetv.fun/zhe-jiang-wei-shi-6.m3u8
 浙江衛視[ipv6],https://stream.freetv.fun/ipv6-zhe-jiang-wei-shi-7.m3u8
 浙江衛視,https://stream.freetv.fun/zhe-jiang-wei-shi-8.m3u8
-浙江衛視,https://stream.freetv.fun/zhe-jiang-wei-shi-9.m3u8
 浙江衛視,https://stream.freetv.fun/zhe-jiang-wei-shi-10.m3u8
 浙江衛視,https://stream.freetv.fun/zhe-jiang-wei-shi-11.m3u8
 浙江衛視,https://stream.freetv.fun/zhe-jiang-wei-shi-12.m3u8
@@ -2116,7 +2111,6 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 海南文旅[ipv6],https://stream.freetv.fun/ipv6-hai-nan-wen-lu-17.m3u8
 海南衛視[ipv6],https://stream.freetv.fun/ipv6-hai-nan-wei-shi-2.m3u8
 海南衛視[ipv6],https://stream.freetv.fun/ipv6-hai-nan-wei-shi-3.m3u8
-海南衛視,https://stream.freetv.fun/hai-nan-wei-shi-45.m3u8
 海南衛視[ipv6],https://stream.freetv.fun/ipv6-hai-nan-wei-shi-6.m3u8
 海南衛視[ipv6],https://stream.freetv.fun/ipv6-hai-nan-wei-shi-7.m3u8
 海南衛視,https://stream.freetv.fun/hai-nan-wei-shi-8.m3u8
@@ -2180,8 +2174,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 深圳衛視[ipv6],https://stream.freetv.fun/ipv6-shen-zhen-wei-shi-6.m3u8
 深圳衛視,https://stream.freetv.fun/shen-zhen-wei-shi-7.m3u8
 深圳衛視,https://stream.freetv.fun/shen-zhen-wei-shi-8.m3u8
-深圳衛視,https://stream.freetv.fun/shen-zhen-wei-shi-9.m3u8
-深圳衛視[geo-blocked],https://stream.freetv.fun/shen-zhen-wei-shi-10.m3u8
+深圳衛視,https://stream.freetv.fun/shen-zhen-wei-shi-10.m3u8
 深圳衛視,https://stream.freetv.fun/shen-zhen-wei-shi-11.m3u8
 深圳衛視[ipv6],https://stream.freetv.fun/ipv6-shen-zhen-wei-shi-12.m3u8
 深圳衛視,https://stream.freetv.fun/shen-zhen-wei-shi-13.m3u8
@@ -2260,6 +2253,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 深圳衛視,https://stream.freetv.fun/shen-zhen-wei-shi-87.m3u8
 深圳衛視,https://stream.freetv.fun/shen-zhen-wei-shi-86.m3u8
 深圳衛視[ipv6],https://stream.freetv.fun/ipv6-shen-zhen-wei-shi-2.m3u8
+深圳衛視,https://stream.freetv.fun/shen-zhen-wei-shi-56.ctv
 深圳財經生活,https://stream.freetv.fun/shen-zhen-cai-jing-sheng-huo-1.m3u8
 深圳財經生活,https://stream.freetv.fun/shen-zhen-cai-jing-sheng-huo-2.m3u8
 深圳財經生活,https://stream.freetv.fun/shen-zhen-cai-jing-sheng-huo-3.m3u8
@@ -2281,7 +2275,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 湖北衛視,https://stream.freetv.fun/hu-bei-wei-shi-7.m3u8
 湖北衛視,https://stream.freetv.fun/hu-bei-wei-shi-8.m3u8
 湖北衛視,https://stream.freetv.fun/hu-bei-wei-shi-9.m3u8
-湖北衛視[geo-blocked],https://stream.freetv.fun/hu-bei-wei-shi-10.m3u8
+湖北衛視,https://stream.freetv.fun/hu-bei-wei-shi-10.m3u8
 湖北衛視,https://stream.freetv.fun/hu-bei-wei-shi-11.m3u8
 湖北衛視,https://stream.freetv.fun/hu-bei-wei-shi-12.m3u8
 湖北衛視,https://stream.freetv.fun/hu-bei-wei-shi-13.m3u8
@@ -2359,7 +2353,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 湖北衛視,https://stream.freetv.fun/hu-bei-wei-shi-90.m3u8
 湖北衛視,https://stream.freetv.fun/hu-bei-wei-shi-94.m3u8
 湖北衛視,https://stream.freetv.fun/hu-bei-wei-shi-74.m3u8
-湖北衛視,https://stream.freetv.fun/hu-bei-wei-shi-hd-1.ctv
+湖北衛視,https://stream.freetv.fun/hu-bei-wei-shi-59.ctv
 湖南公共,https://stream.freetv.fun/hu-nan-gong-gong-2.m3u8
 湖南公共,https://stream.freetv.fun/hu-nan-gong-gong-3.m3u8
 湖南公共,https://stream.freetv.fun/hu-nan-gong-gong-4.m3u8
@@ -2464,6 +2458,8 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 湖南衛視,https://stream.freetv.fun/hu-nan-wei-shi-58.m3u8
 湖南衛視,https://stream.freetv.fun/hu-nan-wei-shi-94.m3u8
 湖南衛視,https://stream.freetv.fun/hu-nan-wei-shi-44.m3u8
+湖南衛視,https://stream.freetv.fun/hu-nan-wei-shi-26.m3u8
+湖南衛視,https://stream.freetv.fun/hu-nan-wei-shi-89.m3u8
 湖南衛視,https://stream.freetv.fun/hu-nan-wei-shi-90.m3u8
 湖南衛視,https://stream.freetv.fun/hu-nan-wei-shi-2.m3u8
 湖南衛視[ipv6],https://stream.freetv.fun/ipv6-hu-nan-wei-shi-3.m3u8
@@ -2503,7 +2499,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 甘肅公共[ipv6],https://stream.freetv.fun/ipv6-gan-su-gong-gong-3.m3u8
 甘肅經濟[ipv6],https://stream.freetv.fun/ipv6-gan-su-jing-ji-1.m3u8
 甘肅經濟[ipv6],https://stream.freetv.fun/ipv6-gan-su-jing-ji-3.m3u8
-甘肅衛視[geo-blocked],https://stream.freetv.fun/gan-su-wei-shi-2.m3u8
+甘肅衛視,https://stream.freetv.fun/gan-su-wei-shi-2.m3u8
 甘肅衛視[ipv6],https://stream.freetv.fun/ipv6-gan-su-wei-shi-4.m3u8
 甘肅衛視[ipv6],https://stream.freetv.fun/ipv6-gan-su-wei-shi-5.m3u8
 甘肅衛視[ipv6],https://stream.freetv.fun/ipv6-gan-su-wei-shi-6.m3u8
@@ -2616,7 +2612,6 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 貴州衛視[ipv6],https://stream.freetv.fun/ipv6-gui-zhou-wei-shi-3.m3u8
 貴州衛視[ipv6],https://stream.freetv.fun/ipv6-gui-zhou-wei-shi-4.m3u8
 貴州衛視,https://stream.freetv.fun/gui-zhou-wei-shi-5.m3u8
-貴州衛視,https://stream.freetv.fun/gui-zhou-wei-shi-6.m3u8
 貴州衛視,https://stream.freetv.fun/gui-zhou-wei-shi-7.m3u8
 貴州衛視,https://stream.freetv.fun/gui-zhou-wei-shi-8.m3u8
 貴州衛視[ipv6],https://stream.freetv.fun/ipv6-gui-zhou-wei-shi-9.m3u8
@@ -2637,7 +2632,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 貴州衛視,https://stream.freetv.fun/gui-zhou-wei-shi-24.m3u8
 貴州衛視[ipv6],https://stream.freetv.fun/ipv6-gui-zhou-wei-shi-25.m3u8
 貴州衛視[ipv6],https://stream.freetv.fun/ipv6-gui-zhou-wei-shi-26.m3u8
-貴州衛視,https://stream.freetv.fun/gui-zhou-wei-shi-hd-1.ctv
+貴州衛視,https://stream.freetv.fun/gui-zhou-wei-shi-31.ctv
 貴州衛視[ipv6],https://stream.freetv.fun/ipv6-gui-zhou-wei-shi-28.m3u8
 貴州衛視[ipv6],https://stream.freetv.fun/ipv6-gui-zhou-wei-shi-29.m3u8
 貴州衛視,https://stream.freetv.fun/gui-zhou-wei-shi-30.m3u8
@@ -2691,10 +2686,11 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 農林衛視,https://stream.freetv.fun/nong-lin-wei-shi-2.m3u8
 農林衛視,https://stream.freetv.fun/nong-lin-wei-shi-3.ctv
 運城公共[geo-blocked],https://stream.freetv.fun/yun-cheng-gong-gong-1.m3u8
-遼寧衛視[geo-blocked],https://stream.freetv.fun/liao-zhu-wei-shi-2.m3u8
+遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-2.m3u8
 遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-5.m3u8
 遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-6.m3u8
 遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-7.m3u8
+遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-65.ctv
 遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-10.m3u8
 遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-11.m3u8
 遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-12.m3u8
@@ -2711,7 +2707,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-24.m3u8
 遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-25.m3u8
 遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-1.m3u8
-遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-hd-1.ctv
+遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-86.ctv
 遼寧衛視[ipv6],https://stream.freetv.fun/ipv6-liao-zhu-wei-shi-27.m3u8
 遼寧衛視[ipv6],https://stream.freetv.fun/ipv6-liao-zhu-wei-shi-28.m3u8
 遼寧衛視[ipv6],https://stream.freetv.fun/ipv6-liao-zhu-wei-shi-29.m3u8
@@ -2771,7 +2767,6 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-8.m3u8
 遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-44.m3u8
 遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-90.ctv
-遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-85.ctv
 遼寧衛視,https://stream.freetv.fun/liao-zhu-wei-shi-3.m3u8
 遼寧衛視[ipv6],https://stream.freetv.fun/ipv6-liao-zhu-wei-shi-4.m3u8
 遼寧衛視[ipv6],https://stream.freetv.fun/ipv6-liao-zhu-wei-shi-9.m3u8
@@ -2858,7 +2853,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 重慶衛視,https://stream.freetv.fun/zhong-qing-wei-shi-76.m3u8
 重慶衛視,https://stream.freetv.fun/zhong-qing-wei-shi-80.m3u8
 重慶衛視,https://stream.freetv.fun/zhong-qing-wei-shi-9.m3u8
-重慶衛視,https://stream.freetv.fun/zhong-qing-wei-shi-hd-1.ctv
+重慶衛視,https://stream.freetv.fun/zhong-qing-wei-shi-23.ctv
 重慶衛視,https://stream.freetv.fun/zhong-qing-wei-shi-4.m3u8
 重慶衛視,https://stream.freetv.fun/zhong-qing-wei-shi-22.m3u8
 重慶衛視,https://stream.freetv.fun/zhong-qing-wei-shi-24.m3u8
@@ -2922,6 +2917,8 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 陝西衛視,https://stream.freetv.fun/shan-xi-wei-shi-78.m3u8
 陝西衛視,https://stream.freetv.fun/shan-xi-wei-shi-81.m3u8
 陝西衛視,https://stream.freetv.fun/shan-xi-wei-shi-93.m3u8
+陝西衛視,https://stream.freetv.fun/shan-xi-wei-shi-95.ctv
+陝西衛視,https://stream.freetv.fun/shan-xi-wei-shi-77.m3u8
 陝西衛視,https://stream.freetv.fun/shan-xi-wei-shi-6.m3u8
 雙鴨山公共[ipv6],https://stream.freetv.fun/ipv6-shuang-ya-shan-gong-gong-1.m3u8
 雲南康旅,https://stream.freetv.fun/yun-nan-kang-lu-2.m3u8
@@ -2934,7 +2931,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 青海經視,https://stream.freetv.fun/qing-hai-jing-shi-5.m3u8
 青海衛視,https://stream.freetv.fun/qing-hai-wei-shi-2.m3u8
 青海衛視[ipv6],https://stream.freetv.fun/ipv6-qing-hai-wei-shi-3.m3u8
-青海衛視[geo-blocked],https://stream.freetv.fun/qing-hai-wei-shi-50.m3u8
+青海衛視,https://stream.freetv.fun/qing-hai-wei-shi-50.m3u8
 青海衛視,https://stream.freetv.fun/qing-hai-wei-shi-5.m3u8
 青海衛視,https://stream.freetv.fun/qing-hai-wei-shi-6.m3u8
 青海衛視,https://stream.freetv.fun/qing-hai-wei-shi-7.m3u8
@@ -2987,6 +2984,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 青海衛視,https://stream.freetv.fun/qing-hai-wei-shi-51.m3u8
 青海衛視,https://stream.freetv.fun/qing-hai-wei-shi-52.m3u8
 青海衛視,https://stream.freetv.fun/qing-hai-wei-shi-9.m3u8
+青海衛視,https://stream.freetv.fun/qing-hai-wei-shi-57.m3u8
 青海衛視[ipv6],https://stream.freetv.fun/ipv6-qing-hai-wei-shi-1.m3u8
 青海都市,https://stream.freetv.fun/qing-hai-du-shi-1.m3u8
 青海都市,https://stream.freetv.fun/qing-hai-du-shi-2.m3u8
@@ -3017,7 +3015,6 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 黑龍江衛視,https://stream.freetv.fun/hei-long-jiang-wei-shi-2.m3u8
 黑龍江衛視,https://stream.freetv.fun/hei-long-jiang-wei-shi-3.m3u8
 黑龍江衛視,https://stream.freetv.fun/hei-long-jiang-wei-shi-4.m3u8
-黑龍江衛視,https://stream.freetv.fun/hei-long-jiang-wei-shi-5.m3u8
 黑龍江衛視[ipv6],https://stream.freetv.fun/ipv6-hei-long-jiang-wei-shi-6.m3u8
 黑龍江衛視[ipv6],https://stream.freetv.fun/ipv6-hei-long-jiang-wei-shi-7.m3u8
 黑龍江衛視[ipv6],https://stream.freetv.fun/ipv6-hei-long-jiang-wei-shi-8.m3u8
@@ -3099,7 +3096,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 黑龍江衛視,https://stream.freetv.fun/hei-long-jiang-wei-shi-75.m3u8
 黑龍江衛視,https://stream.freetv.fun/hei-long-jiang-wei-shi-38.m3u8
 黑龍江衛視,https://stream.freetv.fun/hei-long-jiang-wei-shi-76.m3u8
-黑龍江衛視,https://stream.freetv.fun/hei-long-jiang-wei-shi-hd-1.ctv
+黑龍江衛視,https://stream.freetv.fun/hei-long-jiang-wei-shi-87.ctv
 黑龍江衛視,https://stream.freetv.fun/hei-long-jiang-wei-shi-1.m3u8
 黑龍江都市[ipv6],https://stream.freetv.fun/ipv6-hei-long-jiang-du-shi-1.m3u8
 黑龍江都市[ipv6],https://stream.freetv.fun/ipv6-hei-long-jiang-du-shi-2.m3u8
@@ -3120,7 +3117,7 @@ NEWTV軍事評論[ipv6],https://stream.freetv.fun/ipv6-newtvjun-shi-ping-lun-7.m
 黑龍江都市[geo-blocked],https://stream.freetv.fun/hei-long-jiang-du-shi-15.ctv
 黑龍江都市[ipv6],https://stream.freetv.fun/ipv6-hei-long-jiang-du-shi-16.m3u8
 兒童,#genre#
-BTV卡酷少兒,https://stream.freetv.fun/brtvqia-ku-shao-er-hd-1.ctv
+BTV卡酷少兒,https://stream.freetv.fun/brtvqia-ku-shao-er-1.ctv
 CCTV14[ipv6],https://stream.freetv.fun/ipv6-cctv14-2.m3u8
 CCTV14,https://stream.freetv.fun/cctv-14-1.m3u8
 CCTV14[ipv6],https://stream.freetv.fun/ipv6-cctv14-4.m3u8
@@ -3213,7 +3210,6 @@ CCTV14,https://stream.freetv.fun/cctv14-34.m3u8
 CCTV14,https://stream.freetv.fun/cctv14-22.m3u8
 CCTV14,https://stream.freetv.fun/cctv14-20.m3u8
 CCTV14,https://stream.freetv.fun/cctv14-shao-er-3.m3u8
-CCTV14,https://stream.freetv.fun/cctv14-1.m3u8
 CCTV14,https://stream.freetv.fun/cctv14-3.m3u8
 CCTV14[ipv6],https://stream.freetv.fun/ipv6-cctv14-10.m3u8
 CCTV14,https://stream.freetv.fun/cctv14-11.m3u8
@@ -3245,7 +3241,6 @@ TVS5廣東少兒,https://stream.freetv.fun/tvs5yan-dong-shao-er-1.m3u8
 北京卡酷少兒[ipv6],https://stream.freetv.fun/ipv6-bei-jing-qia-ku-shao-er-4.m3u8
 北京淘BABY,https://stream.freetv.fun/bei-jing-tao-baby-1.ctv
 北京淘BABY,https://stream.freetv.fun/bei-jing-tao-baby-2.ctv
-哈哈炫動衛視,https://stream.freetv.fun/ha-ha-xuan-dong-3.m3u8
 哈哈炫動衛視,https://stream.freetv.fun/ha-ha-xuan-dong-2.m3u8
 嘉佳卡通,https://stream.freetv.fun/jia-jia-qia-tong-13.ctv
 嘉佳卡通[ipv6],https://stream.freetv.fun/ipv6-jia-jia-qia-tong-3.m3u8
@@ -3254,7 +3249,7 @@ TVS5廣東少兒,https://stream.freetv.fun/tvs5yan-dong-shao-er-1.m3u8
 嘉佳卡通[ipv6],https://stream.freetv.fun/ipv6-jia-jia-qia-tong-6.m3u8
 嘉佳卡通[ipv6],https://stream.freetv.fun/ipv6-jia-jia-qia-tong-7.m3u8
 嘉佳卡通,https://stream.freetv.fun/jia-jia-qia-tong-8.m3u8
-嘉佳卡通,https://stream.freetv.fun/jia-jia-qia-tong-1080p-1.ctv
+嘉佳卡通,https://stream.freetv.fun/jia-jia-qia-tong-9.ctv
 嘉佳卡通,https://stream.freetv.fun/jia-jia-qia-tong-11.ctv
 嘉佳卡通,https://stream.freetv.fun/jia-jia-qia-tong-10.m3u8
 嘉佳卡通,https://stream.freetv.fun/jia-jia-qia-tong-12.m3u8
@@ -3270,7 +3265,7 @@ TVS5廣東少兒,https://stream.freetv.fun/tvs5yan-dong-shao-er-1.m3u8
 廣東少兒,https://stream.freetv.fun/yan-dong-shao-er-3.m3u8
 廣東少兒,https://stream.freetv.fun/yan-dong-shao-er-4.m3u8
 廣東少兒,https://stream.freetv.fun/yan-dong-shao-er-5.m3u8
-廣東少兒,https://stream.freetv.fun/yan-dong-shao-er-1080p-1.ctv
+廣東少兒,https://stream.freetv.fun/yan-dong-shao-er-13.ctv
 廣東少兒[geo-blocked],https://stream.freetv.fun/yan-dong-shao-er-6.ctv
 廣東少兒,https://stream.freetv.fun/yan-dong-shao-er-15.m3u8
 廣東少兒,https://stream.freetv.fun/yan-dong-shao-er-16.ctv
@@ -3351,6 +3346,7 @@ TVS5廣東少兒,https://stream.freetv.fun/tvs5yan-dong-shao-er-1.m3u8
 金鷹卡通,https://stream.freetv.fun/jin-ying-qia-tong-29.m3u8
 金鷹卡通,https://stream.freetv.fun/jin-ying-qia-tong-31.m3u8
 金鷹卡通,https://stream.freetv.fun/jin-ying-qia-tong-30.m3u8
+金鷹卡通,https://stream.freetv.fun/jin-ying-qia-tong-27.m3u8
 金鷹卡通,https://stream.freetv.fun/jin-ying-qia-tong-28.m3u8
 金鷹卡通,https://stream.freetv.fun/jin-ying-qia-tong-2.m3u8
 金鷹卡通[ipv6],https://stream.freetv.fun/ipv6-jin-ying-qia-tong-3.m3u8
@@ -3381,6 +3377,7 @@ TVS5廣東少兒,https://stream.freetv.fun/tvs5yan-dong-shao-er-1.m3u8
 黑龍江少兒[ipv6],https://stream.freetv.fun/ipv6-hei-long-jiang-shao-er-14.m3u8
 知識,#genre#
 CCTV-Documentary,https://stream.freetv.fun/asharq-documentary-1.m3u8
+CCTV-Documentary,https://stream.freetv.fun/cctv-3.m3u8
 CCTV9,https://stream.freetv.fun/cctv-9-1.m3u8
 CCTV9,https://stream.freetv.fun/cctv9-5.m3u8
 CCTV9,https://stream.freetv.fun/cctv9-7.m3u8
@@ -3456,7 +3453,6 @@ CCTV9,https://stream.freetv.fun/cctv9-40.m3u8
 CCTV9,https://stream.freetv.fun/cctv-9-15.ctv
 CCTV9,https://stream.freetv.fun/cctv-9-16.m3u8
 CCTV9,https://stream.freetv.fun/cctv9-ji-lu-3.m3u8
-CCTV9,https://stream.freetv.fun/cctv9-62.m3u8
 CCTV9[ipv6],https://stream.freetv.fun/ipv6-cctv9-2.m3u8
 CCTV9[ipv6],https://stream.freetv.fun/ipv6-cctv9-3.m3u8
 CCTV9[ipv6],https://stream.freetv.fun/ipv6-cctv9-4.m3u8
@@ -3488,7 +3484,8 @@ NEWTV精品紀錄,https://stream.freetv.fun/newtvjing-pin-ji-lu-3.m3u8
 上海紀實[ipv6],https://stream.freetv.fun/ipv6-shang-hai-ji-shi-3.m3u8
 上海紀實,https://stream.freetv.fun/shang-hai-ji-shi-1.m3u8
 上海紀實人文[ipv6],https://stream.freetv.fun/ipv6-shang-hai-ji-shi-ren-wen-1.m3u8
-上海紀實人文臺,https://stream.freetv.fun/bde8fa1646788777b6fdf0e1c4c3f2b3f076367290bcf8587ad84c5e667ad975.ctv
+上海紀實人文臺,https://stream.freetv.fun/ji-shi-ren-wen-5.ctv
+上海紀實人文臺,https://stream.freetv.fun/ji-shi-ren-wen-2.ctv
 上海紀實人文臺,https://stream.freetv.fun/ji-shi-ren-wen-4.m3u8
 之江紀錄,https://stream.freetv.fun/zhi-jiang-ji-lu-1.m3u8
 全紀實,https://stream.freetv.fun/ji-shi-1.m3u8
@@ -3525,7 +3522,7 @@ NEWTV精品紀錄,https://stream.freetv.fun/newtvjing-pin-ji-lu-3.m3u8
 金鷹紀實[ipv6],https://stream.freetv.fun/ipv6-hu-nan-jin-ying-ji-shi-1.m3u8
 金鷹紀實,https://stream.freetv.fun/jin-ying-ji-shi-7.ctv
 金鷹紀實,https://stream.freetv.fun/jin-ying-ji-shi-14.m3u8
-金鷹紀實,https://stream.freetv.fun/jin-ying-ji-shi-hd-1.ctv
+金鷹紀實,https://stream.freetv.fun/jin-ying-ji-shi-18.ctv
 金鷹紀實,https://stream.freetv.fun/jin-ying-ji-shi-5.m3u8
 金鷹紀實[ipv6],https://stream.freetv.fun/ipv6-jin-ying-ji-shi-1.m3u8
 電影,#genre#
@@ -3676,7 +3673,6 @@ CCTV6,https://stream.freetv.fun/cctv-6-14.m3u8
 CCTV6,https://stream.freetv.fun/cctv6gao-qing-1.m3u8
 CCTV6,https://stream.freetv.fun/cctv6-21.m3u8
 CCTV6,https://stream.freetv.fun/cctv6-dian-ying-3.m3u8
-CCTV6,https://stream.freetv.fun/cctv6-1.m3u8
 CCTV6[ipv6],https://stream.freetv.fun/ipv6-cctv6-2.m3u8
 CCTV6,https://stream.freetv.fun/cctv6-3.m3u8
 CCTV6[ipv6],https://stream.freetv.fun/ipv6-cctv6-4.m3u8
@@ -3748,7 +3744,6 @@ CCTV8,https://stream.freetv.fun/cctv8-55.m3u8
 CCTV8,https://stream.freetv.fun/cctv8-56.ctv
 CCTV8,https://stream.freetv.fun/cctv8-57.m3u8
 CCTV8,https://stream.freetv.fun/cctv8-dian-shi-ju-3.m3u8
-CCTV8,https://stream.freetv.fun/cctv8-50.m3u8
 CCTV8[ipv6],https://stream.freetv.fun/ipv6-cctv8-2.m3u8
 CCTV8,https://stream.freetv.fun/cctv8-3.m3u8
 CCTV8,https://stream.freetv.fun/cctv8-4.m3u8
@@ -3757,9 +3752,10 @@ CCTV8,https://stream.freetv.fun/cctv-8-1.m3u8
 CCTV8[ipv6],https://stream.freetv.fun/ipv6-cctv8-6.m3u8
 CCTV8,https://stream.freetv.fun/cctv8-7.m3u8
 CCTV8,https://stream.freetv.fun/cctv8-8.m3u8
+CCTV8,https://stream.freetv.fun/cctv8-10.m3u8
 CCTV8,https://stream.freetv.fun/cctv8-49.m3u8
 CCTV8[ipv6],https://stream.freetv.fun/ipv6-cctv8-15.m3u8
-CCTV8[geo-blocked],https://stream.freetv.fun/cctv8-20.m3u8
+CCTV8,https://stream.freetv.fun/cctv8-20.m3u8
 CCTV8,https://stream.freetv.fun/cctv8-40.m3u8
 CCTV懷舊劇場,https://stream.freetv.fun/cctvhuai-jiu-ju-chang-1.m3u8
 CCTV懷舊劇場,https://stream.freetv.fun/cctvhuai-jiu-ju-chang-5.m3u8
@@ -3775,10 +3771,8 @@ CHC動作電影,https://stream.freetv.fun/chcdong-zuo-dian-ying-5.ctv
 CHC動作電影,https://stream.freetv.fun/chcdong-zuo-dian-ying-2.m3u8
 CHC動作電影[ipv6],https://stream.freetv.fun/ipv6-chcdong-zuo-dian-ying-8.m3u8
 CHC動作電影,https://stream.freetv.fun/chcdong-zuo-dian-ying-6.ctv
-CHC動作電影,https://stream.freetv.fun/chcdong-zuo-dian-ying-7.m3u8
 CHC動作電影[ipv6],https://stream.freetv.fun/ipv6-chcdong-zuo-dian-ying-4.m3u8
 CHC動作電影[ipv6],https://stream.freetv.fun/ipv6-chcdong-zuo-dian-ying-3.m3u8
-CHC動作電影,https://stream.freetv.fun/chcdong-zuo-dian-ying-1.m3u8
 CHC家庭影院[ipv6],https://stream.freetv.fun/ipv6-chcjia-ting-ying-yuan-3.m3u8
 CHC家庭影院[ipv6],https://stream.freetv.fun/ipv6-chcjia-ting-ying-yuan-4.m3u8
 CHC家庭影院[geo-blocked],https://stream.freetv.fun/chcjia-ting-ying-yuan-5.ctv
@@ -3786,12 +3780,12 @@ CHC家庭影院,https://stream.freetv.fun/chcjia-ting-ying-yuan-6.ctv
 CHC家庭影院[ipv6],https://stream.freetv.fun/ipv6-chcjia-ting-ying-yuan-10.m3u8
 CHC家庭影院,https://stream.freetv.fun/chcjia-ting-ying-yuan-9.ctv
 CHC家庭影院,https://stream.freetv.fun/chcjia-ting-ying-yuan-8.ctv
-CHC家庭影院,https://stream.freetv.fun/chcjia-ting-ying-yuan-1.m3u8
 CHC家庭影院[ipv6],https://stream.freetv.fun/ipv6-chcjia-ting-ying-yuan-2.m3u8
 CHC影迷電影,https://stream.freetv.fun/chcying-mi-dian-ying-1.m3u8
 CHC影迷電影,https://stream.freetv.fun/chcying-mi-dian-ying-2.ctv
 CHC影迷電影[ipv6],https://stream.freetv.fun/ipv6-chcying-mi-dian-ying-3.m3u8
 CHC影迷電影[ipv6],https://stream.freetv.fun/ipv6-chcying-mi-dian-ying-4.m3u8
+CHC高畫質電影,https://stream.freetv.fun/chcgao-qing-dian-ying-8.ctv
 CHC高畫質電影[geo-blocked],https://stream.freetv.fun/chcgao-qing-dian-ying-3.ctv
 CHC高畫質電影,https://stream.freetv.fun/chcgao-qing-dian-ying-5.ctv
 CHC高畫質電影,https://stream.freetv.fun/chcgao-qing-dian-ying-6.ctv
@@ -3810,9 +3804,9 @@ M1905電影頻道[geo-blocked],https://stream.freetv.fun/1905dian-ying-1.ctv
 M1905電影頻道[geo-blocked],https://stream.freetv.fun/m1905dian-ying-wang-1.ctv
 M1905電影頻道[geo-blocked],https://stream.freetv.fun/1905guo-nei-dian-ying-1.ctv
 M1905電影頻道[geo-blocked],https://stream.freetv.fun/1905guo-wai-dian-ying-1.ctv
-NEWTV動作電影,https://stream.freetv.fun/newtvdong-zuo-dian-ying-1.m3u8
 NEWTV動作電影[ipv6],https://stream.freetv.fun/ipv6-newtvdong-zuo-dian-ying-2.m3u8
 NEWTV動作電影[ipv6],https://stream.freetv.fun/ipv6-newtvdong-zuo-dian-ying-3.m3u8
+NEWTV動作電影,https://stream.freetv.fun/newtvdong-zuo-dian-ying-1.m3u8
 NEWTV古裝劇場,https://stream.freetv.fun/newtvgu-zhuang-ju-chang-1.m3u8
 NEWTV古裝劇場[ipv6],https://stream.freetv.fun/ipv6-newtvgu-zhuang-ju-chang-2.m3u8
 NEWTV古裝劇場[ipv6],https://stream.freetv.fun/ipv6-newtvgu-zhuang-ju-chang-3.m3u8
@@ -3889,7 +3883,7 @@ NewTV超級電影[ipv6],https://stream.freetv.fun/ipv6-newtvchao-ji-dian-ying-1.
 佛山影視,https://stream.freetv.fun/fo-shan-ying-shi-4.ctv
 佛山影視,https://stream.freetv.fun/fo-shan-ying-shi-3.ctv
 劉德華,https://stream.freetv.fun/liu-de-hua-2.ctv
-劉德華,https://stream.freetv.fun/liu-de-hua-1.ctv
+劉德華[geo-blocked],https://stream.freetv.fun/liu-de-hua-1.ctv
 動作影院,https://stream.freetv.fun/dong-zuo-ying-yuan-1.ctv
 北京4K超清,https://stream.freetv.fun/bei-jing-4kchao-qing-2.ctv
 北京4K超清,https://stream.freetv.fun/bei-jing-4kchao-qing-4.ctv
@@ -3952,7 +3946,7 @@ NewTV超級電影[ipv6],https://stream.freetv.fun/ipv6-newtvchao-ji-dian-ying-1.
 廣東影視,https://stream.freetv.fun/yan-dong-ying-shi-3.m3u8
 廣東影視,https://stream.freetv.fun/yan-dong-ying-shi-10.m3u8
 廣東影視,https://stream.freetv.fun/yan-dong-ying-shi-5.m3u8
-廣東影視,https://stream.freetv.fun/yan-dong-ying-shi-1080p-1.ctv
+廣東影視,https://stream.freetv.fun/yan-dong-ying-shi-12.ctv
 廣東影視,https://stream.freetv.fun/yan-dong-ying-shi-15.ctv
 廣東影視,https://stream.freetv.fun/yan-dong-ying-shi-4.ctv
 廣東影視,https://stream.freetv.fun/yan-dong-ying-shi-7.m3u8
@@ -3966,11 +3960,11 @@ NewTV超級電影[ipv6],https://stream.freetv.fun/ipv6-newtvchao-ji-dian-ying-1.
 廣西影視,https://stream.freetv.fun/yan-xi-ying-shi-3.m3u8
 廣西影視,https://stream.freetv.fun/yan-xi-ying-shi-4.m3u8
 廣西影視,https://stream.freetv.fun/yan-xi-ying-shi-6.m3u8
-愛上4K[ipv6],https://stream.freetv.fun/ipv6-ai-shang-4k-1.m3u8
-愛上4K[geo-blocked],https://stream.freetv.fun/ai-shang-4k-2.ctv
-愛上4K,https://stream.freetv.fun/ai-shang-4k-3.ctv
-愛上4K,https://stream.freetv.fun/ai-shang-4k-5.ctv
-愛上4K,https://stream.freetv.fun/5be2eb5a9d46bc265132248be6abb9ace070ef780821df3e3deffc35b4d277e9.ctv
+愛上4K[ipv6],https://stream.freetv.fun/ipv6-ai-shang-1.m3u8
+愛上4K[geo-blocked],https://stream.freetv.fun/ai-shang-4.ctv
+愛上4K,https://stream.freetv.fun/ai-shang-2.ctv
+愛上4K,https://stream.freetv.fun/ai-shang-5.ctv
+愛上4K,https://stream.freetv.fun/ai-shang-7.ctv
 新疆7臺,https://stream.freetv.fun/xin-jiang-7-1.ctv
 新疆7臺,https://stream.freetv.fun/xin-jiang-7-2.ctv
 杭州影視,https://stream.freetv.fun/hang-zhou-ying-shi-1.m3u8
@@ -3982,8 +3976,8 @@ NewTV超級電影[ipv6],https://stream.freetv.fun/ipv6-newtvchao-ji-dian-ying-1.
 歡笑劇場[ipv6],https://stream.freetv.fun/ipv6-huan-xiao-ju-chang-2.m3u8
 歡笑劇場,https://stream.freetv.fun/huan-xiao-ju-chang-3.m3u8
 歡笑劇場[ipv6],https://stream.freetv.fun/ipv6-huan-xiao-ju-chang-4.m3u8
-歡笑劇場4K,https://stream.freetv.fun/3ddb14fb04ddb790da22635e97c7d17e97ca0656503fb28e41abcbbd53d75656.ctv
-歡笑劇場4K,https://stream.freetv.fun/huan-xiao-ju-chang-4k-2.ctv
+歡笑劇場4K,https://stream.freetv.fun/huan-xiao-ju-chang-8.ctv
+歡笑劇場4K,https://stream.freetv.fun/huan-xiao-ju-chang-6.ctv
 武漢電視劇,https://stream.freetv.fun/wu-yi-dian-shi-ju-1.m3u8
 江蘇影視,https://stream.freetv.fun/jiang-su-ying-shi-1.ctv
 江蘇影視,https://stream.freetv.fun/jiang-su-ying-shi-2.ctv
@@ -4174,7 +4168,7 @@ CCTV15[ipv6],https://stream.freetv.fun/ipv6-cctv15-10.m3u8
 CCTV15[ipv6],https://stream.freetv.fun/ipv6-cctv15-11.m3u8
 CCTV15[ipv6],https://stream.freetv.fun/ipv6-cctv15-12.m3u8
 CCTV15,https://stream.freetv.fun/cctv15-14.m3u8
-CCTV15[geo-blocked],https://stream.freetv.fun/cctv15-15.m3u8
+CCTV15,https://stream.freetv.fun/cctv15-15.m3u8
 CCTV15[ipv6],https://stream.freetv.fun/ipv6-cctv15-16.m3u8
 CCTV15,https://stream.freetv.fun/cctv15-18.m3u8
 CCTV15,https://stream.freetv.fun/cctv15-65.m3u8
@@ -4258,6 +4252,7 @@ CCTV13,https://stream.freetv.fun/cctv-13-9.m3u8
 CCTV13,https://stream.freetv.fun/cctv13-69.m3u8
 CCTV13,https://stream.freetv.fun/cctv13-64.m3u8
 CCTV13,https://stream.freetv.fun/cctv13-xin-wen-3.m3u8
+CCTV13,https://stream.freetv.fun/cctv13-2.m3u8
 CCTV13[ipv6],https://stream.freetv.fun/ipv6-cctv13-7.m3u8
 CCTV13[ipv6],https://stream.freetv.fun/ipv6-cctv13-8.m3u8
 CCTV13,https://stream.freetv.fun/cctv13-10.ctv
@@ -4268,7 +4263,7 @@ CCTV13[ipv6],https://stream.freetv.fun/ipv6-cctv13-14.m3u8
 CCTV13[ipv6],https://stream.freetv.fun/ipv6-cctv13-15.m3u8
 CCTV13[ipv6],https://stream.freetv.fun/ipv6-cctv13-16.m3u8
 CCTV13,https://stream.freetv.fun/cctv13-17.m3u8
-CCTV13[geo-blocked],https://stream.freetv.fun/cctv13-18.m3u8
+CCTV13,https://stream.freetv.fun/cctv13-18.m3u8
 CCTV13[ipv6],https://stream.freetv.fun/ipv6-cctv13-19.m3u8
 CCTV13,https://stream.freetv.fun/cctv13-20.m3u8
 CCTV13[ipv6],https://stream.freetv.fun/ipv6-cctv13-21.m3u8
@@ -4277,7 +4272,6 @@ CCTV13,https://stream.freetv.fun/cctv13-23.m3u8
 CCTV13,https://stream.freetv.fun/cctv13-24.m3u8
 CCTV13,https://stream.freetv.fun/cctv13-26.m3u8
 CCTV13[ipv6],https://stream.freetv.fun/ipv6-cctv13-27.m3u8
-CCTV13,https://stream.freetv.fun/cctv13-45.m3u8
 CCTV13,https://stream.freetv.fun/cctv-13-1.m3u8
 CCTV13,https://stream.freetv.fun/cctv13-3.m3u8
 CCTV13,https://stream.freetv.fun/cctv13-4.m3u8
@@ -4296,7 +4290,7 @@ CCTV2[geo-blocked],https://stream.freetv.fun/cctv2-20.m3u8
 CCTV2,https://stream.freetv.fun/cctv2-21.m3u8
 CCTV2,https://stream.freetv.fun/cctv-plus--2-1.m3u8
 CCTV2,https://stream.freetv.fun/cctv2-23.m3u8
-CCTV2[geo-blocked],https://stream.freetv.fun/cctv2-24.m3u8
+CCTV2,https://stream.freetv.fun/cctv2-24.m3u8
 CCTV2,https://stream.freetv.fun/cctv2-25.m3u8
 CCTV2,https://stream.freetv.fun/cctv2-26.m3u8
 CCTV2,https://stream.freetv.fun/cctv2-cai-jing-2.m3u8
@@ -4347,7 +4341,6 @@ CCTV2,https://stream.freetv.fun/cctv2-cai-jing-1.m3u8
 CCTV2,https://stream.freetv.fun/cctv2-40.m3u8
 CCTV2,https://stream.freetv.fun/cctv2-72.m3u8
 CCTV2,https://stream.freetv.fun/cctv2-cai-jing-3.m3u8
-CCTV2,https://stream.freetv.fun/cctv2-68.m3u8
 CCTV2,https://stream.freetv.fun/cctv2-2.m3u8
 CCTV2[ipv6],https://stream.freetv.fun/ipv6-cctv2-3.m3u8
 CCTV2,https://stream.freetv.fun/cctv2-4.m3u8
@@ -4480,7 +4473,7 @@ CGTN[ipv6],https://stream.freetv.fun/ipv6-cgtn-23.m3u8
 CGTN,https://stream.freetv.fun/cgtn-24.m3u8
 CGTN[ipv6],https://stream.freetv.fun/ipv6-cgtn-25.m3u8
 CGTN[geo-blocked],https://stream.freetv.fun/ph-cgtn-1.ctv
-CGTN,https://stream.freetv.fun/cgtn-ji-lu-hd-1.ctv
+CGTN,https://stream.freetv.fun/cgtn-ji-lu-1.ctv
 CGTN[ipv6],https://stream.freetv.fun/ipv6-cgtn-26.m3u8
 CGTN[ipv6],https://stream.freetv.fun/ipv6-cgtn-27.m3u8
 CGTN[ipv6],https://stream.freetv.fun/ipv6-cgtn-28.m3u8
@@ -4525,7 +4518,7 @@ SCTV-4,https://stream.freetv.fun/cetv-4-8.m3u8
 上虞新聞綜合,https://stream.freetv.fun/shang-yu-1xin-wen-zong-he-1.m3u8
 上虞新聞綜合,https://stream.freetv.fun/shang-yu-zong-he-1.m3u8
 中國交通,https://stream.freetv.fun/zhong-guo-jiao-tong-2.m3u8
-中國交通,https://stream.freetv.fun/zhong-guo-jiao-tong-hd-1.ctv
+中國交通,https://stream.freetv.fun/zhong-guo-jiao-tong-1.ctv
 中國天氣,https://stream.freetv.fun/zhong-guo-tian-qi-2.m3u8
 中國天氣,https://stream.freetv.fun/zhong-guo-tian-qi-4.m3u8
 中國天氣[geo-blocked],https://stream.freetv.fun/zhong-guo-tian-qi-3.ctv
@@ -4626,7 +4619,7 @@ SCTV-4,https://stream.freetv.fun/cetv-4-8.m3u8
 廣東新聞,https://stream.freetv.fun/yan-dong-xin-wen-3.m3u8
 廣東新聞,https://stream.freetv.fun/yan-dong-xin-wen-15.ctv
 廣東新聞,https://stream.freetv.fun/yan-dong-xin-wen-5.m3u8
-廣東新聞,https://stream.freetv.fun/yan-dong-xin-wen-1080p-1.ctv
+廣東新聞,https://stream.freetv.fun/yan-dong-xin-wen-12.ctv
 廣東新聞,https://stream.freetv.fun/yan-dong-xin-wen-11.ctv
 廣東新聞[geo-blocked],https://stream.freetv.fun/yan-dong-xin-wen-7.ctv
 廣東新聞,https://stream.freetv.fun/yan-dong-xin-wen-18.m3u8
@@ -4645,7 +4638,7 @@ SCTV-4,https://stream.freetv.fun/cetv-4-8.m3u8
 成都新聞綜合,https://stream.freetv.fun/cheng-du-xin-wen-zong-he-3.ctv
 成都新聞綜合,https://stream.freetv.fun/pi-du-xin-wen-zong-he-1.ctv
 成都新聞綜合,https://stream.freetv.fun/pi-du-xin-wen-zong-he-2.ctv
-揭陽新聞綜合,https://stream.freetv.fun/bf97297ed9a0ac92bee8eac4f61eb114e894f8a30e1c42eb37dfb849279eda6e.ctv
+揭陽新聞綜合,https://stream.freetv.fun/jie-yang-zong-he-1.ctv
 新疆2臺,https://stream.freetv.fun/xin-jiang-2-1.ctv
 新疆2臺,https://stream.freetv.fun/xin-jiang-2-2.ctv
 新疆3臺,https://stream.freetv.fun/xin-jiang-3-1.ctv
@@ -5075,7 +5068,6 @@ CCTV10,https://stream.freetv.fun/cctv-10ke-jiao-1.m3u8
 CCTV10,https://stream.freetv.fun/cctv10-43.m3u8
 CCTV10,https://stream.freetv.fun/cctv10-41.m3u8
 CCTV10,https://stream.freetv.fun/cctv10-ke-jiao-3.m3u8
-CCTV10,https://stream.freetv.fun/cctv10-39.m3u8
 CCTV10,https://stream.freetv.fun/cctv10-2.m3u8
 CCTV10,https://stream.freetv.fun/cctv10-3.m3u8
 CCTV10,https://stream.freetv.fun/cctv-10-1.m3u8
@@ -5139,7 +5131,6 @@ CCTV17,https://stream.freetv.fun/cctv17-45.m3u8
 CCTV17,https://stream.freetv.fun/cctv17-nong-ye-nong-cun-1.m3u8
 CCTV17,https://stream.freetv.fun/cctv17-30.m3u8
 CCTV17[ipv6],https://stream.freetv.fun/ipv6-cctv17-5.m3u8
-CCTV7,https://stream.freetv.fun/cctv7-41.m3u8
 CCTV7,https://stream.freetv.fun/cctv-7-1.m3u8
 CCTV7[ipv6],https://stream.freetv.fun/ipv6-cctv7-3.m3u8
 CCTV7,https://stream.freetv.fun/cctv7-4.m3u8
@@ -5419,7 +5410,7 @@ NEWTV農業致富[ipv6],https://stream.freetv.fun/ipv6-newtvnong-ye-zhi-fu-4.m3u
 國學頻道,https://stream.freetv.fun/guo-xue-2.m3u8
 國學頻道,https://stream.freetv.fun/guo-xue-3.m3u8
 城市電視[geo-blocked],https://stream.freetv.fun/cheng-shi-dian-shi-1.ctv
-大健康,https://stream.freetv.fun/da-jian-kang-hd-1.ctv
+大健康,https://stream.freetv.fun/da-jian-kang-2.ctv
 大慶新聞綜合,https://stream.freetv.fun/da-qing-xin-wen-zong-he-1.m3u8
 大慶新聞綜合[ipv6],https://stream.freetv.fun/ipv6-da-qing-xin-wen-1.m3u8
 大慶新聞綜合[ipv6],https://stream.freetv.fun/ipv6-hei-long-jiang-da-qing-xin-wen-zong-he-1.m3u8
@@ -5514,6 +5505,7 @@ NEWTV農業致富[ipv6],https://stream.freetv.fun/ipv6-newtvnong-ye-zhi-fu-4.m3u
 成都經濟資訊,https://stream.freetv.fun/cheng-du-jing-ji-zi-xun-2.ctv
 成都經濟資訊,https://stream.freetv.fun/cheng-du-jing-ji-zi-xun-3.ctv
 收藏天下,https://stream.freetv.fun/shou-cang-tian-xia-3.ctv
+收藏天下,https://stream.freetv.fun/shou-cang-tian-xia-1.ctv
 數碼時代,https://stream.freetv.fun/zhe-jiang-shu-ma-shi-dai-1.m3u8
 數碼時代,https://stream.freetv.fun/shu-ma-shi-dai-1.m3u8
 文物寶庫[ipv6],https://stream.freetv.fun/ipv6-wen-wu-bao-ku-2.m3u8
@@ -5634,6 +5626,7 @@ NEWTV農業致富[ipv6],https://stream.freetv.fun/ipv6-newtvnong-ye-zhi-fu-4.m3u
 珠海新聞綜合[geo-blocked],https://stream.freetv.fun/bei-hai-xin-wen-zong-he-1.m3u8
 環球奇觀,https://stream.freetv.fun/huan-qiu-qi-guan-2.m3u8
 環球奇觀,https://stream.freetv.fun/huan-qiu-qi-guan-3.m3u8
+環球旅遊[geo-blocked],https://stream.freetv.fun/huan-qiu-lu-you-1.ctv
 環球旅遊,https://stream.freetv.fun/huan-qiu-lu-you-2.m3u8
 甘肅公共應急[ipv6],https://stream.freetv.fun/ipv6-gan-su-gong-gong-ying-ji-1.m3u8
 甘肅公共應急,rtmp://livein.gstv.com.cn/49048r/2v86i8.flv
@@ -5782,17 +5775,17 @@ NEWTV農業致富[ipv6],https://stream.freetv.fun/ipv6-newtvnong-ye-zhi-fu-4.m3u
 鬥魚,https://stream.freetv.fun/dou-yu-3.ctv
 黑龍江導視,https://stream.freetv.fun/hei-long-jiang-shi-1.ctv
 運動,#genre#
-BTV冬奧紀實,https://stream.freetv.fun/brtvdong-ao-ji-shi-hd-1.ctv
+BTV冬奧紀實,https://stream.freetv.fun/brtvdong-ao-ji-shi-1.ctv
 CCTV16,https://stream.freetv.fun/cctv16-4.m3u8
 CCTV16,https://stream.freetv.fun/cctv-16-1.m3u8
 CCTV16,https://stream.freetv.fun/cctv16-6.m3u8
+CCTV16,https://stream.freetv.fun/cctv16-19.m3u8
 CCTV16[ipv6],https://stream.freetv.fun/ipv6-cctv16-8.m3u8
 CCTV16[ipv6],https://stream.freetv.fun/ipv6-cctv16-9.m3u8
 CCTV16[ipv6],https://stream.freetv.fun/ipv6-cctv16-10.m3u8
 CCTV16,https://stream.freetv.fun/cctv16-29.m3u8
 CCTV16[ipv6],https://stream.freetv.fun/ipv6-cctv16-12.m3u8
 CCTV16[ipv6],https://stream.freetv.fun/ipv6-cctv16-13.m3u8
-CCTV16,https://stream.freetv.fun/cctv16-15.ctv
 CCTV16,https://stream.freetv.fun/cctv16-14.ctv
 CCTV16,https://stream.freetv.fun/cctv16-32.ctv
 CCTV16[geo-blocked],https://stream.freetv.fun/cctv16--v4-1.ctv
@@ -5895,6 +5888,7 @@ CCTV5,https://stream.freetv.fun/cctv5-54.m3u8
 CCTV5[ipv6],https://stream.freetv.fun/ipv6-cctv5-9.m3u8
 CCTV5[ipv6],https://stream.freetv.fun/ipv6-cctv5-10.m3u8
 CCTV5[ipv6],https://stream.freetv.fun/ipv6-cctv5-12.m3u8
+CCTV5,https://stream.freetv.fun/cctv5-53.ctv
 CCTV5[ipv6],https://stream.freetv.fun/ipv6-cctv5-14.m3u8
 CCTV5,https://stream.freetv.fun/cctv-5-1.m3u8
 CCTV5,https://stream.freetv.fun/cctv5-plus-ti-yu-sai-shi-5.m3u8
@@ -5913,7 +5907,6 @@ CCTV5,https://stream.freetv.fun/cctv5-24.m3u8
 CCTV5,https://stream.freetv.fun/cctv-05-3.m3u8
 CCTV5,https://stream.freetv.fun/cctv5-25.m3u8
 CCTV5,https://stream.freetv.fun/cctv5ti-yu-5.m3u8
-CCTV5,https://stream.freetv.fun/cctv5-53.m3u8
 CCTV5[ipv6],https://stream.freetv.fun/ipv6-cctv5-2.m3u8
 CCTV5[ipv6],https://stream.freetv.fun/ipv6-cctv5-3.m3u8
 CCTV5,https://stream.freetv.fun/cctv5-4.m3u8
@@ -6066,7 +6059,7 @@ NEWTV超級體育[ipv6],https://stream.freetv.fun/ipv6-newtvchao-ji-ti-yu-2.m3u8
 廣東體育,https://stream.freetv.fun/yan-dong-ti-yu-8.m3u8
 廣東體育,https://stream.freetv.fun/yan-dong-ti-yu-9.m3u8
 廣東體育,https://stream.freetv.fun/yan-dong-ti-yu-10.m3u8
-廣東體育,https://stream.freetv.fun/yan-dong-ti-yu-1080p-1.ctv
+廣東體育,https://stream.freetv.fun/yan-dong-ti-yu-12.ctv
 廣東體育,https://stream.freetv.fun/yan-dong-ti-yu-20.ctv
 廣東體育,https://stream.freetv.fun/yan-dong-ti-yu-18.m3u8
 廣東體育[geo-blocked],https://stream.freetv.fun/yan-dong-ti-yu-13.ctv
@@ -6084,7 +6077,7 @@ NEWTV超級體育[ipv6],https://stream.freetv.fun/ipv6-newtvchao-ji-ti-yu-2.m3u8
 快樂垂釣,https://stream.freetv.fun/kuai-le-chui-diao-2.m3u8
 快樂垂釣[ipv6],https://stream.freetv.fun/ipv6-kuai-le-chui-diao-3.m3u8
 快樂垂釣[ipv6],https://stream.freetv.fun/ipv6-kuai-le-chui-diao-4.m3u8
-快樂垂釣,https://stream.freetv.fun/kuai-le-chui-diao-hd-1.ctv
+快樂垂釣,https://stream.freetv.fun/kuai-le-chui-diao-6.ctv
 快樂垂釣,https://stream.freetv.fun/kuai-le-chui-diao-5.m3u8
 快樂垂釣,https://stream.freetv.fun/kuai-le-chui-diao-8.ctv
 棗莊新聞,https://stream.freetv.fun/zao-zhuang-xin-wen-1.m3u8
@@ -6098,10 +6091,10 @@ NEWTV超級體育[ipv6],https://stream.freetv.fun/ipv6-newtvchao-ji-ti-yu-2.m3u8
 深圳體育健康,https://stream.freetv.fun/shen-zhen-ti-yu-jian-kang-2.m3u8
 深圳體育健康,https://stream.freetv.fun/shen-zhen-ti-yu-jian-kang-4.m3u8
 王者榮耀頻道,https://stream.freetv.fun/wang-zhe-rong-yao-1.ctv
-睛彩廣場舞,https://stream.freetv.fun/84bb89cdd47a8eb63174d9a1f5486496624f230d5b3b0e6764abda2a00e98fea.ctv
-睛彩競技,https://stream.freetv.fun/jing-cai-jing-ji-hd-1.ctv
-睛彩籃球,https://stream.freetv.fun/jing-cai-lan-qiu-hd-1.ctv
-睛彩羽毛球,https://stream.freetv.fun/jing-cai-yu-mao-qiu-hd-1.ctv
+睛彩廣場舞,https://stream.freetv.fun/jing-cai-yan-chang-wu-1.ctv
+睛彩競技,https://stream.freetv.fun/jing-cai-jing-ji-1.ctv
+睛彩籃球,https://stream.freetv.fun/jing-cai-lan-qiu-1.ctv
+睛彩羽毛球,https://stream.freetv.fun/jing-cai-yu-mao-qiu-1.ctv
 足球頻道,https://stream.freetv.fun/zu-qiu-1.ctv
 足球頻道,https://stream.freetv.fun/zu-qiu-2.m3u8
 足球頻道,https://stream.freetv.fun/zu-qiu-4.m3u8
@@ -6146,7 +6139,7 @@ NEWTV超級體育[ipv6],https://stream.freetv.fun/ipv6-newtvchao-ji-ti-yu-2.m3u8
 鎮江新聞,https://stream.freetv.fun/zhen-jiang-xin-wen-4.m3u8
 電影頻道,https://stream.freetv.fun/dian-ying-4-1.m3u8
 電影頻道,https://stream.freetv.fun/dian-ying-3.ctv
-電影頻道,https://stream.freetv.fun/51bfbfa8a8e213978984d73fbbde913fde83ded582642a92fc39b5aa836b5c58.ctv
+電影頻道,https://stream.freetv.fun/tao-dian-ying-1.ctv
 電影頻道[ipv6],https://stream.freetv.fun/ipv6-dian-ying-1.m3u8
 電影頻道,https://stream.freetv.fun/dian-ying-ce-shi--4k-1.ctv
 電影頻道,https://stream.freetv.fun/gao-qing-dian-ying-2.m3u8
